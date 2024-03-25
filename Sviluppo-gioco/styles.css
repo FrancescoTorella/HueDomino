@@ -1,0 +1,141 @@
+
+.grid-button {
+    margin: 0; /* Rimuove il margine predefinito */
+    padding: 0; /* Rimuove il padding predefinito */
+    width: 20px; /* Larghezza del pulsante */
+    height: 20px; /* Altezza del pulsante */
+    background-color: white; /* Colore di sfondo predefinito */
+    border: 1px solid #eae9e9; /* Bordo del bottone */
+}
+
+.horizontal-thin-buttons-area{
+    display: grid; /* Imposta il display a griglia */
+    grid-template-columns: repeat(32, 20px); /* Imposta il numero di colonne e la loro larghezza */
+    grid-gap: 5px; /* Aggiungi un po' di spazio tra i bottoni */
+    
+}
+
+.vertical-thin-button, .horizontal-thin-button {
+    box-sizing: border-box;
+    width: 5px;
+    padding: 0; /* Rimuove il padding predefinito */
+    min-width: 0; /* Rimuove la larghezza minima predefinita */
+   
+}
+
+.horizontal-thin-button {
+    height: 5px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+    width: 20px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+    margin-top: -3px;
+}
+.vertical-thin-button {
+    height: 20px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+    width: 5px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+    position: relative; /* Imposta la posizione a relativa */
+    top: -0.8px; /* Sposta il bottone leggermente più in alto */
+}
+
+#colorButtonsArea {
+    position: fixed; /* Posiziona il contenitore dei bottoni in modo fisso */
+    right: 0; /* Posizionalo a destra della pagina */
+    top: 50%; /* Posizionalo al centro verticalmente */
+    transform: translateY(-50%); /* Centra verticalmente */
+}
+
+#blueButton {
+    background-color: blue;
+}
+
+#redButton {
+    background-color: red;
+}
+
+#greenButton {
+    background-color: green;
+}
+
+.color-button {
+    width: 200px;  /* Imposta la larghezza del bottone */
+    height: 200px; /* Imposta l'altezza del bottone */
+    display: block; /* Fai in modo che ogni bottone occupi una riga intera */
+    margin-bottom: 10px; /* Aggiungi un po' di spazio tra i bottoni */
+}
+
+#basicControlButtonsArea {
+    position: static; /* Posiziona il contenitore dei bottoni in modo statico */
+    width: 400px; /* Imposta la larghezza del contenitore */
+    height: 50px; /* Imposta l'altezza del contenitore */
+    margin-top: 10px;
+}
+
+.basic-control-button {
+    width: 100px; /* Imposta la larghezza del bottone */
+    height: 50px; /* Imposta l'altezza del bottone */
+    
+}
+
+#selectButton{
+    width: 150px; /* Imposta la larghezza del bottone */
+    height: 50px; /* Imposta l'altezza del bottone */
+    background-color: #bcbcbc; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+}
+
+#resetButton{
+    width: 100px; /* Imposta la larghezza del bottone */
+    height: 50px; /* Imposta l'altezza del bottone */
+    background-color: #bcbcbc; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+}
+
+
+#selectionModeButtonsArea {
+    width: 300px; /* Imposta la larghezza del contenitore dei bottoni */
+    height: 60px; /* Imposta l'altezza del contenitore dei bottoni */
+    position: static; /* Posiziona il contenitore dei bottoni in modo statico */
+    left: 0; /* Posizionalo a sinistra della pagina */
+    margin-top: 10px; /* Aggiungi un po' di spazio sopra i bottoni */
+}
+
+
+.selection-mode-button{
+    width: 50px; /* Imposta la larghezza del bottone */
+    height: 50px; /* Imposta l'altezza del bottone */
+    padding: 0; /* Rimuovi il padding predefinito */
+    border: none; /* Rimuovi i bordi predefiniti */
+    margin: 5px; /* Aggiungi un margine */
+}
+
+#topSelectionMode{
+    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
+    background-color: #e7e7e7; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    box-shadow: 0 -7px 0 0 orange; /* Imposta un box-shadow nella parte superiore */
+}
+
+#bottomSelectionMode{
+    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
+    background-color: #e7e7e7; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    box-shadow: 0 7px 0 0 orange; /* Imposta un box-shadow nella parte inferiore */
+}
+
+#leftSelectionMode{
+    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
+    background-color: #e7e7e7; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    box-shadow: -7px 0 0 0 orange; /* Imposta un box-shadow a sinistra */
+}
+
+#rightSelectionMode{
+    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
+    background-color: #e7e7e7; /* Colore di sfondo */
+    color: white; /* Colore del testo */
+    box-shadow: 7px 0 0 0 orange; /* Imposta un box-shadow a destra */
+}
+
+/* Aggiungi questa classe CSS al tuo foglio di stile */
+.selected {
+    border: 3px solid yellow !important; /* Imposta un bordo giallo */
+}
+
