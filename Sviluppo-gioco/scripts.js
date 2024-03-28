@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function() {
  
 
     // Aggiungi un ascoltatore di eventi al pulsante reset
-    document.getElementById('resetButton').addEventListener('click', function() {
+    document.getElementById('resetAllButton').addEventListener('click', function() {
         // Disattiva la modalità di selezione e di gioco
         disableSelectionMode();
         disablePlayMode();
@@ -272,6 +272,32 @@ document.addEventListener("DOMContentLoaded", function() {
             button.style.backgroundColor = defaultThinbuttonsColor;
         });
     });
+
+    // Aggiungi un ascoltatore di eventi al pulsante reset color
+    document.getElementById('resetColorButton').addEventListener('click', function() {
+        // Disattiva la modalità di selezione e di gioco
+        disableSelectionMode();
+        disablePlayMode();
+
+        //resettare il colore attuale
+        selectedColor = null;
+
+        // Seleziona tutti i bottoni quadrati
+        const squareButtons = document.querySelectorAll('.square-button');
+        
+        // Resetta il colore di tutti i bottoni quadrati
+        squareButtons.forEach(button => {
+            button.style.backgroundColor =  defaultSquarebuttonsColor;
+        });
+
+        //resetta i colori di tutti i bottoni sottili che non siano selezionati o non abbiano il colore di default
+        const thinButtons = document.querySelectorAll('.horizontal-thin-button, .vertical-thin-button');
+        thinButtons.forEach(button => {
+            if(button.style.backgroundColor !== defaultThinbuttonsColor && button.style.backgroundColor !== selectedThinbuttonsColor){
+                button.style.backgroundColor = defaultThinbuttonsColor;
+            }
+        });
+    });  
     
     
 });
@@ -348,36 +374,28 @@ function handleMouseDown(event) {
             //se il colore di entrambi i bottoni è diverso, allora colora il bottone sottile con il colore di merge, poi colora i bottoni quadrati adiacenti con il colore del bottone quadrato opposto
             let color = combineColors(matrix[i1][j1].style.backgroundColor, matrix[i2][j2].style.backgroundColor);
             this.style.backgroundColor = color;
-            fillArea(i1, j1, color);
-            fillArea(i2, j2, color);
+            fillArea(i1, j1, color,);
+            fillArea(i2, j2, color,);
         }   
     }
 }
 
-// Colora i bottoni quadrati facendo espandere il colore
 function fillArea(i, j, color) {
-    // Crea un set per i bottoni visitati
     let visited = new Set();
-
-    // Crea una coda e aggiungi il bottone iniziale
     let queue = [{i: i, j: j}];
+    let cellsColored = 0; // Aggiungi una variabile per tenere traccia del numero di celle colorate
 
-    // Mentre la coda non è vuota
-    while (queue.length > 0) {
-        // Rimuovi un bottone dalla coda
+    while (queue.length > 0 ) { // Interrompi il ciclo quando raggiungi il limite
         let {i, j} = queue.shift();
 
-        // Se il bottone non è stato selezionato e non è stato visitato
         if (!visited.has(matrix[i][j])) {
-            // Aggiungi il bottone ai bottoni visitati
             visited.add(matrix[i][j]);
 
-            // Cambia il suo colore
             let oldColor = matrix[i][j].style.backgroundColor;
             let newColor = combineColors(oldColor, color);
             matrix[i][j].style.backgroundColor = newColor;
+            cellsColored++; // Incrementa il conteggio delle celle colorate
 
-            // Aggiungi tutti i bottoni adiacenti alla coda
             if (i > 0 && !activeBorder(i-1,j,i,j)){
                 colorBorder(i-1,j,i,j,newColor);
                 queue.push({i: i - 1, j: j});
@@ -394,7 +412,6 @@ function fillArea(i, j, color) {
                 colorBorder(i,j,i,j+1,newColor);
                 queue.push({i: i, j: j + 1});
             }
-    
         }
     }
 }
