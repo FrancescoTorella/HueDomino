@@ -1,39 +1,106 @@
 
-.grid-button {
+.main-grid{
+    height: 702px; /* Altezza della griglia principale */
+    width: 702px; /* Larghezza della griglia principale */
+    display: grid; /* Imposta il display a griglia */
+    grid-template-columns: repeat(1, 702px); /* Imposta una colonna */
+    grid-template-rows: repeat(31, 20px 2px); /* Imposta 31 coppie di righe */
+}
+
+.square-row{
+    display: grid; 
+    grid-template-columns: repeat(31,20px 2px) 20px;
+    grid-gap: 0px;
+    height: 20px;
+    width: 702px;
+}
+
+.thin-row{
+    display: grid; 
+    grid-template-columns: repeat(32, 20px); 
+    grid-gap: 2px; 
+    height: 2px;
+    width: 702px;
+}
+
+.square-button-container{
+    display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+    padding: 1px; /* Aumenta l'area cliccabile */
+    margin: -1px; /* Compensa lo spazio extra occupato dal padding */
+    width: 20px; /* Larghezza del contenitore */
+    height: 20px; /* Altezza del contenitore */
+}
+
+.square-button {
     margin: 0; /* Rimuove il margine predefinito */
     padding: 0; /* Rimuove il padding predefinito */
     width: 20px; /* Larghezza del pulsante */
     height: 20px; /* Altezza del pulsante */
-    background-color: white; /* Colore di sfondo predefinito */
-    border: 1px solid #eae9e9; /* Bordo del bottone */
+    border: 0px solid #eae9e9; /* Bordo del bottone */
 }
 
-.horizontal-thin-buttons-area{
-    display: grid; /* Imposta il display a griglia */
-    grid-template-columns: repeat(32, 20px); /* Imposta il numero di colonne e la loro larghezza */
-    grid-gap: 5px; /* Aggiungi un po' di spazio tra i bottoni */
-    
+
+
+.horizontal-button-container, .vertical-button-container {
+    display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+    position: relative; /* Posiziona il contenitore in modo relativo */
 }
+
+.horizontal-button-container {
+    width: 20px; /* Larghezza del contenitore orizzontale */
+    height: 2px; /* Altezza del contenitore orizzontale */;
+    padding: 5px 0; /* Aumenta l'area cliccabile */
+    margin: -5px 0; /* Compensa lo spazio extra occupato dal padding */
+}
+
+.vertical-button-container {
+    height: 20px; /* Altezza del contenitore verticale */
+    width: 2px; /* Larghezza del contenitore verticale */
+    padding: 0 5px; /* Aumenta l'area cliccabile */
+    margin: 0 -5px; /* Compensa lo spazio extra occupato dal padding */
+}
+
+
 
 .vertical-thin-button, .horizontal-thin-button {
-    box-sizing: border-box;
-    width: 5px;
+    position: absolute; /* Posiziona i bottoni in modo assoluto */
+    top: 50%; /* Posiziona i bottoni al centro verticalmente nel contenitore */
+    left: 50%; /* Posiziona i bottoni al centro orizzontalmente nel contenitore */
+    transform: translate(-50%, -50%); /* Centra i bottoni nel contenitore */
+    margin: 0; /* Rimuove il margine predefinito */
+    box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
+    width: 5px; /* Larghezza del bottone */
     padding: 0; /* Rimuove il padding predefinito */
     min-width: 0; /* Rimuove la larghezza minima predefinita */
-   
+    border-style: hidden; /* Nasconde i bordi */
+    transition: transform 0.3s ease; /* Specifica la durata dell'animazione */
+    transform-origin: center; /* Si assicura che l'animazione non influenzi la disposizione degli altri elementi */
 }
 
 .horizontal-thin-button {
-    height: 5px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+    height: 2px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
     width: 20px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
-    margin-top: -3px;
+    
+    
 }
 .vertical-thin-button {
     height: 20px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
-    width: 5px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
-    position: relative; /* Imposta la posizione a relativa */
-    top: -0.8px; /* Sposta il bottone leggermente più in alto */
+    width: 2px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+    
 }
+
+.horizontal-button-container:hover .horizontal-thin-button {
+    /* Aumenta l'altezza del bottone del 50% quando il mouse passa sopra il contenitore */
+    transform: translate(-50%, -50%) scaleY(2);
+}
+
+.vertical-button-container:hover .vertical-thin-button{
+    /* Aumenta la larghezza del bottone del 50% quando il mouse passa sopra il contenitore */
+    transform: translate(-50%, -50%) scaleX(2);
+}
+
+
+
 
 #colorButtonsArea {
     position: fixed; /* Posiziona il contenitore dei bottoni in modo fisso */
@@ -71,21 +138,19 @@
 .basic-control-button {
     width: 100px; /* Imposta la larghezza del bottone */
     height: 50px; /* Imposta l'altezza del bottone */
-    
+    background-color: white;
 }
 
 #selectButton{
     width: 150px; /* Imposta la larghezza del bottone */
     height: 50px; /* Imposta l'altezza del bottone */
-    background-color: #bcbcbc; /* Colore di sfondo */
-    color: white; /* Colore del testo */
+    
 }
 
 #resetButton{
     width: 100px; /* Imposta la larghezza del bottone */
     height: 50px; /* Imposta l'altezza del bottone */
-    background-color: #bcbcbc; /* Colore di sfondo */
-    color: white; /* Colore del testo */
+
 }
 
 
@@ -106,36 +171,12 @@
     margin: 5px; /* Aggiungi un margine */
 }
 
-#topSelectionMode{
-    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
-    background-color: #e7e7e7; /* Colore di sfondo */
-    color: white; /* Colore del testo */
-    box-shadow: 0 -7px 0 0 orange; /* Imposta un box-shadow nella parte superiore */
+
+
+.basic-control-button.selection-mode-button-active{
+    background-color: #f00; /* Cambia il colore di sfondo in rosso */
 }
 
-#bottomSelectionMode{
-    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
-    background-color: #e7e7e7; /* Colore di sfondo */
-    color: white; /* Colore del testo */
-    box-shadow: 0 7px 0 0 orange; /* Imposta un box-shadow nella parte inferiore */
+.basic-control-button.play-mode-button-active{
+    background-color: #0f0; /* Cambia il colore di sfondo in verde */
 }
-
-#leftSelectionMode{
-    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
-    background-color: #e7e7e7; /* Colore di sfondo */
-    color: white; /* Colore del testo */
-    box-shadow: -7px 0 0 0 orange; /* Imposta un box-shadow a sinistra */
-}
-
-#rightSelectionMode{
-    box-sizing: border-box; /* Include il bordo e il padding nell'altezza e nella larghezza totali */
-    background-color: #e7e7e7; /* Colore di sfondo */
-    color: white; /* Colore del testo */
-    box-shadow: 7px 0 0 0 orange; /* Imposta un box-shadow a destra */
-}
-
-/* Aggiungi questa classe CSS al tuo foglio di stile */
-.selected {
-    border: 3px solid yellow !important; /* Imposta un bordo giallo */
-}
-
