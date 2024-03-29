@@ -73,7 +73,7 @@
     padding: 0; /* Rimuove il padding predefinito */
     min-width: 0; /* Rimuove la larghezza minima predefinita */
     border-style: hidden; /* Nasconde i bordi */
-    transition: transform 0.3s ease; /* Specifica la durata dell'animazione */
+    transition: all 0.5s ease; /* Specifica la durata dell'animazione */
     transform-origin: center; /* Si assicura che l'animazione non influenzi la disposizione degli altri elementi */
 }
 
@@ -89,15 +89,16 @@
     
 }
 
-.horizontal-button-container:hover .horizontal-thin-button {
-    /* Aumenta l'altezza del bottone del 50% quando il mouse passa sopra il contenitore */
-    transform: translate(-50%, -50%) scaleY(2);
+.horizontal-button-container:hover .horizontal-thin-button{
+    height: 7px;
 }
 
+
 .vertical-button-container:hover .vertical-thin-button{
-    /* Aumenta la larghezza del bottone del 50% quando il mouse passa sopra il contenitore */
-    transform: translate(-50%, -50%) scaleX(2);
-}
+
+    width: 7px;
+} 
+
 
 
 
