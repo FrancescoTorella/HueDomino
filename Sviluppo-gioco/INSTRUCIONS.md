@@ -23,6 +23,7 @@ rendere più veloce lo sviluppo. Suppongo comunque che node.js sarà uno dei pro
 
 La pagina può essere usata nel solito modo, volendo se troviamo una configurazione di barriere promettente salviamo il file csv da qualche
 altra parte, comunque premendo il tasto "Carica Configurazione" è possibile caricare la configurazione che è attualmente salvata sul csv.
+Per ora avevo caricato una configurazione che può essere un punto di partenza.
 
 Mentre con il tasto Salva Configurazione l'attuale disposizione delle barriere viene salvata
 ATTENZIONE: PREMENDO SALVA CONFIGURAZIONE I DATI SUL FILE CSV VENGONO IN AUTOMATICO SOVRASCRITTI PERCIO CONVIENE SALVARE LE CONFIGURAZIONI
