@@ -386,8 +386,8 @@ function handleMouseDown(event) {
             //se il colore di entrambi i bottoni è diverso, allora colora il bottone sottile con il colore di merge, poi colora i bottoni quadrati adiacenti con il colore del bottone quadrato opposto
             let color = combineColors(matrix[i1][j1].style.backgroundColor, matrix[i2][j2].style.backgroundColor);
             this.style.backgroundColor = color;
-            fillArea(i1, j1, color,2);
-            fillArea(i2, j2, color,2);
+            fillArea(i1, j1, color,1);
+            fillArea(i2, j2, color,1);
         }   
     }
 }
@@ -418,35 +418,51 @@ function handleMouseOverEvent() {
 
 function fillArea(i, j, color,maxCells = 1024) {
     let visited = new Set();
-    let queue = [{i: i, j: j}];
-    let cellsColored = 0; // Aggiungi una variabile per tenere traccia del numero di celle colorate
+    let queue = [{i: i, j: j, distance: 0}];
 
-    while (queue.length > 0 && cellsColored <= maxCells) { // Interrompi il ciclo quando raggiungi il limite
-        let {i, j} = queue.shift();
+    while (queue.length > 0) {
+        let {i, j, distance} = queue.shift();
 
         if (!visited.has(matrix[i][j])) {
             visited.add(matrix[i][j]);
 
             let oldColor = matrix[i][j].style.backgroundColor;
             let newColor = combineColors(oldColor, color);
-            matrix[i][j].style.backgroundColor = newColor;
-            cellsColored++; // Incrementa il conteggio delle celle colorate
 
-            if (i > 0 && !activeBorder(i-1,j,i,j)){
-                colorBorder(i-1,j,i,j,newColor);
-                queue.push({i: i - 1, j: j});
-            } 
-            if(i < rows - 1 && !activeBorder(i,j,i+1,j)) {
-                colorBorder(i,j,i+1,j,newColor);
-                queue.push({i: i + 1, j: j});
+            // Se il colore corrente è uguale al nuovo colore, continua al prossimo ciclo
+            if (playMode && oldColor === newColor) {
+                console.log('oldColor === newColor');
+                continue;
             }
-            if (j > 0 && !activeBorder(i,j-1,i,j)) {
-                colorBorder(i,j-1,i,j,newColor);
-                queue.push({i: i, j: j - 1});
-            }
-            if (j < cols - 1 && !activeBorder(i,j,i,j+1)) {
-                colorBorder(i,j,i,j+1,newColor);
-                queue.push({i: i, j: j + 1});
+
+            matrix[i][j].style.backgroundColor = newColor;
+
+            // Aggiungi le celle adiacenti alla coda solo se non hanno già il nuovo colore e la distanza è minore di maxCells
+            if (distance < maxCells) {
+                if (i > 0 && !activeBorder(i-1,j,i,j)){
+                    colorBorder(i-1,j,i,j,newColor);
+                    if (matrix[i-1][j].style.backgroundColor !== newColor) {
+                        queue.push({i: i - 1, j: j, distance: distance + 1});
+                    }
+                } 
+                if (i < rows - 1 && !activeBorder(i,j,i+1,j)){
+                    colorBorder(i,j,i+1,j,newColor);
+                    if (matrix[i+1][j].style.backgroundColor !== newColor) {
+                        queue.push({i: i + 1, j: j, distance: distance + 1});
+                    }
+                }
+                if (j > 0 && !activeBorder(i,j-1,i,j)){
+                    colorBorder(i,j-1,i,j,newColor);
+                    if (matrix[i][j-1].style.backgroundColor !== newColor) {
+                        queue.push({i: i, j: j - 1, distance: distance + 1});
+                    }
+                }
+                if (j < cols - 1 && !activeBorder(i,j,i,j+1)){
+                    colorBorder(i,j,i,j+1,newColor);
+                    if (matrix[i][j+1].style.backgroundColor !== newColor) {
+                        queue.push({i: i, j: j + 1, distance: distance + 1});
+                    }
+                }
             }
         }
     }
