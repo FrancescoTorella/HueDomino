@@ -1,4 +1,5 @@
-// Variabile mouseDown per tenere traccia dello stato del mouse
+//ciao
+// Variabile mouseDown per tenere traccia dello stato del mouse 
 let mouseDown = false;
 
 // Dichiarazione e inizializzazione della variabile currentColor
