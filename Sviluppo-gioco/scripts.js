@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const thinButton = document.createElement("button");
                 thinButton.classList.add("vertical-thin-button");
 
+
                 // Assegna un ID al bottone sottile in base alle coordinate dei bottoni quadrati adiacenti
                 thinButton.id = 'v-border-' + i + '-' + j +'-' + i + '-' + (j + 1);
 
@@ -118,7 +119,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Assegna i gestori degli eventi al bottone sottile
                 thinButton.addEventListener('mouseover', handleMouseOver);
                 thinButton.addEventListener('mousedown', handleMouseDown);
-    
+
+                // Assegna i gestori degli eventi al thinButtonContainer, in modo tale che il bottone viene premuto anche se si preme il container
+                thinButtonContainer.addEventListener('mousedown', handleMouseDownEvent);
+                thinButtonContainer.addEventListener('mouseover', handleMouseOverEvent);
+        
                 // Aggiungi il bottone sottile al suo a
                 thinButtonContainer.appendChild(thinButton);
 
@@ -167,6 +172,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Assegna i gestori degli eventi al bottone sottile
                 thinButton.addEventListener('mouseover', handleMouseOver);
                 thinButton.addEventListener('mousedown', handleMouseDown);
+
+                // Assegna i gestori degli eventi al thinButtonContainer in modo tale che il bottone viene premuto anche se si preme il container
+                thinButtonContainer.addEventListener('mousedown', handleMouseDownEvent);
+                thinButtonContainer.addEventListener('mouseover', handleMouseOverEvent);
+                
     
                 // Aggiungi il bottone sottile al suo a
                 thinButtonContainer.appendChild(thinButton);
@@ -321,6 +331,7 @@ function disablePlayMode(){
 
 // Funzione per gestire l'evento di passaggio del mouse su un bottone sottile
 function handleMouseOver(event) {
+    event.stopPropagation();
     // Se il mouse non è premuto, esci dalla funzione
     if (!mouseDown) return;
     if(selectionMode){
@@ -331,6 +342,7 @@ function handleMouseOver(event) {
 
 // Funzione per gestire l'evento di clic del mouse su un bottone sottile
 function handleMouseDown(event) {
+    event.stopPropagation();
     if(selectionMode){
         //Se è attiva la modalità di selezione, allora cambia il colore del bottone sottile se non è selezionato, altrimenti rimuovi la selezione
         if(this.style.backgroundColor === selectedThinbuttonsColor){
@@ -374,18 +386,42 @@ function handleMouseDown(event) {
             //se il colore di entrambi i bottoni è diverso, allora colora il bottone sottile con il colore di merge, poi colora i bottoni quadrati adiacenti con il colore del bottone quadrato opposto
             let color = combineColors(matrix[i1][j1].style.backgroundColor, matrix[i2][j2].style.backgroundColor);
             this.style.backgroundColor = color;
-            fillArea(i1, j1, color,);
-            fillArea(i2, j2, color,);
+            fillArea(i1, j1, color,2);
+            fillArea(i2, j2, color,2);
         }   
     }
 }
 
-function fillArea(i, j, color) {
+// Funzione per gestire l'evento mousedown sul container del bottone sottile
+function handleMouseDownEvent() {
+    // Crea un evento mousedown e lo invia al primo figlio del container
+    var evt = new MouseEvent('mousedown', {
+        bubbles: true,
+        cancelable: true,
+        view: window
+    });
+    this.firstChild.dispatchEvent(evt);
+}
+
+// Funzione per gestire l'evento mouseover sul container del bottone sottile
+function handleMouseOverEvent() {
+    // Se il mouse è premuto, crea un evento mouseover e lo invia al primo figlio del container
+    if(mouseDown){
+        var evt = new MouseEvent('mouseover', {
+            bubbles: true,
+            cancelable: true,
+            view: window
+        });
+        this.firstChild.dispatchEvent(evt);
+    }
+}
+
+function fillArea(i, j, color,maxCells = 1024) {
     let visited = new Set();
     let queue = [{i: i, j: j}];
     let cellsColored = 0; // Aggiungi una variabile per tenere traccia del numero di celle colorate
 
-    while (queue.length > 0 ) { // Interrompi il ciclo quando raggiungi il limite
+    while (queue.length > 0 && cellsColored <= maxCells) { // Interrompi il ciclo quando raggiungi il limite
         let {i, j} = queue.shift();
 
         if (!visited.has(matrix[i][j])) {
