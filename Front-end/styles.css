@@ -1,0 +1,121 @@
+
+body {
+    margin: 0; /* Rimuove il margine del body */
+    /* altre proprietà... */
+}
+
+.main-header {
+    background-color: #b3e0ff; /* Colore celeste chiaro */
+    height: 130px; /* Altezza dell'header */
+    display: flex; /* Permette di allineare verticalmente il contenuto al centro */
+    align-items: center; /* Allinea verticalmente il contenuto al centro */
+    justify-content: space-between;; /* Allinea orizzontalmente il contenuto al centro */
+}
+
+.logo-container {
+    display: flex; /* Questo assicura che il logo sia centrato verticalmente nel container */
+    align-items: center; /* Allinea verticalmente il logo */
+    justify-content: flex-start; /* Allinea il logo a sinistra */
+    flex: 0 1 auto; /* Imposta la crescita flessibile a 0, la riduzione a 1, e la base flessibile a auto */
+}
+
+.header-logo {
+    height: 100px;
+    margin-left: 30px; /* O un'altra misura di spazio dal bordo sinistro */
+    border-radius: 15px;
+    filter: drop-shadow(2px 4px 15px rgba(0,0,0,0.5)); /* Aggiungi un'ombreggiatura al logo */
+    /* Altre proprietà di styling del logo se necessarie */
+}
+
+.game-title-container {
+    flex-grow: 1;
+    text-align: center; /* Centra il titolo */
+    position: absolute; /* Rende il titolo assolutamente posizionato rispetto all'header */
+    left: 50%; /* Sposta il titolo al centro dell'header */
+    transform: translateX(-100%); /* Sposta il titolo indietro di metà della sua larghezza, centrando esattamente il testo */
+}
+
+#gameTitle {
+    font-size: 5em; /* Dimensione del titolo */
+    font-weight: bold; /* Rendi il testo grassetto */
+    background: -webkit-linear-gradient(#b3e0ff, #000); /* Sfumatura dal celeste chiaro a nero */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Rende il colore del testo trasparente, mostrando lo sfondo */
+    margin: 0; /* Rimuove il margine di default di h1 */
+}
+
+/* CSS per la riga di icone */
+.icons-row {
+    display: flex; /* Stabilisce un layout flessibile per gli elementi figli */
+    justify-content: center; /* Centra gli elementi figli orizzontalmente */
+    padding: 6px 10%; /* Aggiunge padding intorno agli elementi figli per distanziarli dai bordi della pagina */
+    position: absolute; /* Imposta la posizione assoluta per iconDivContainer */
+    top: 0; /* Posiziona iconDivContainer in alto */
+    right: 0; /* Posiziona iconDivContainer a destra */
+    /* altre proprietà... */
+}
+
+/* CSS per le icone all'interno dei container */
+.game-icon {
+    cursor: pointer; /* Cambia il cursore in una mano per indicare che l'elemento è cliccabile */
+    transition: transform 0.3s; /* Anima le trasformazioni, come ingrandimento, su hover */
+    width: 70px; /* Fissa la larghezza delle icone al 120% del loro contenitore */
+    height: 70px; /* Fissa l'altezza delle icone al 120% del loro contenitore */
+    max-width: 180px; /* Impone una larghezza massima di 180px alle icone */
+}
+.game-icon:hover {
+    transform: scale(1.1); /* Ingrandisce l'icona quando l'utente passa sopra con il mouse */
+}
+
+/* CSS per i contenitori delle icone */
+.icon-container {
+    text-align: center; /* Centra il testo e le immagini all'interno del container */
+    flex: 0 1 auto; /* Imposta la crescita flessibile a 0, la riduzione a 1, e la base flessibile a auto */
+    margin: 0 0px; /* Aggiunge un margine orizzontale tra i contenitori */
+    height: 70px;
+    width: 150px;
+}
+
+/* CSS per le etichette delle icone */
+.icon-label {
+    display: block; /* Fa sì che l'etichetta sia mostrata come un blocco, occupando la propria linea */
+    margin-top: 0px; /* Aggiunge spazio sopra l'etichetta */
+    font-size: 1.1em; /* Aumenta la dimensione del testo dell'etichetta */
+
+}
+
+#dailyChallengeIconLabel {
+    height: 20px;
+    width: 150px;
+}
+
+/* Sovrascrittura e aggiunta di stili per le icone con bordi e ombre */
+.game-icon {
+    border-radius: 10px; /* Arrotonda gli angoli dell'immagine */
+    border: 3px solid #eee; /* Aggiunge un bordo solido grigio chiaro */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunge un'ombra leggera sotto l'icona */
+}
+.game-icon:hover {
+    transform: scale(1.05); /* Riduce l'ingrandimento al passaggio del mouse rispetto alla prima dichiarazione */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Ombra più scura e più pronunciata al passaggio del mouse */
+    border-radius: 15px; /* Aumenta l'arrotondamento dei bordi al passaggio del mouse */
+}
+
+
+.ellipse-container {
+    border: 6px solid #ffa500; /* Colore arancione chiaro e stile continuo */
+    /*Alternativa tratteggiata; border: 6px dashed #ffa500; */
+    width: 80%; /* Larghezza dell'ellisse */
+    height: 650px; /* Altezza dell'ellisse, aumenta questo valore per rendere l'ellisse più "piatta" */
+    border-radius: 50%; /* Questo crea un'ellisse; regola i valori per cambiare la forma */
+    margin: 150px auto 0; /* Centra l'ellisse orizzontalmente con un margine superiore */
+    display: flex;
+    justify-content: center; /* Allinea orizzontalmente il contenuto al centro dell'ellisse */
+    align-items: center; /* Allinea verticalmente il contenuto al centro dell'ellisse */
+    padding: 20px; /* Aggiunge spazio interno */
+}
+
+.ellipse-content {
+    /* ... altre proprietà se necessarie ... */
+    position: relative; /* Se hai bisogno di posizionare altri elementi in modo assoluto all'interno */
+}
