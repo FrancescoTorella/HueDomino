@@ -1,5 +1,5 @@
 body {
-    /* Aggiungi qui ulteriori stili specifici per la modalità Viaggio */
+        margin: 0; /* Rimuove il margine del body */
 }
 
 .main-header {
