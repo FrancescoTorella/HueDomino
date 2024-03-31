@@ -1,0 +1,13 @@
+color1,color2,result
+red,blue,magenta
+red,green,yellow
+blue,green,cyan
+red,magenta,red
+blue,magenta,blue
+green,yellow,green
+red,yellow,red
+green,cyan,green
+blue,cyan,blue
+blue,yellow,white
+red,cyan,white
+green,magenta,white

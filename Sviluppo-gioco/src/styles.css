@@ -25,13 +25,12 @@
 
 .square-button-container{
     display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
-    padding: 1px; /* Aumenta l'area cliccabile */
-    margin: -1px; /* Compensa lo spazio extra occupato dal padding */
     width: 20px; /* Larghezza del contenitore */
     height: 20px; /* Altezza del contenitore */
 }
 
 .square-button {
+    box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
     margin: 0; /* Rimuove il margine predefinito */
     padding: 0; /* Rimuove il padding predefinito */
     width: 20px; /* Larghezza del pulsante */
@@ -110,21 +109,11 @@
     transform: translateY(-50%); /* Centra verticalmente */
 }
 
-#blueButton {
-    background-color: blue;
-}
 
-#redButton {
-    background-color: red;
-}
-
-#greenButton {
-    background-color: green;
-}
 
 .color-button {
-    width: 200px;  /* Imposta la larghezza del bottone */
-    height: 200px; /* Imposta l'altezza del bottone */
+    width: 100px;  /* Imposta la larghezza del bottone */
+    height: 100px; /* Imposta l'altezza del bottone */
     display: block; /* Fai in modo che ogni bottone occupi una riga intera */
     margin-bottom: 10px; /* Aggiungi un po' di spazio tra i bottoni */
 }

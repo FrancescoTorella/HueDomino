@@ -1,0 +1,13 @@
+color1,color2,result
+blue,red,purple
+yellow,blue,green
+yellow,red,orange
+red,purple,crimson
+red,orange,darkorange
+blue,green,lightblue
+blue,purple,indigo
+yellow,green,olive
+yellow,orange,#FFD580
+yellow,purple,white
+red,green,white
+blue,orange,white
