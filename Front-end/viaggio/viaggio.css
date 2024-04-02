@@ -1,0 +1,110 @@
+body {
+    margin: 0; /* Rimuove il margine del body */
+}
+
+.main-header {
+    background-color: #b3e0ff; /* Colore celeste chiaro */
+    height: 130px; /* Altezza dell'header */
+    display: flex; /* Permette di allineare verticalmente il contenuto al centro */
+    align-items: center; /* Allinea verticalmente il contenuto al centro */
+    justify-content: space-between;; /* Allinea orizzontalmente il contenuto al centro */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Aggiunge l'effetto sfumato */
+}
+
+.logo-container {
+    display: flex; /* Questo assicura che il logo sia centrato verticalmente nel container */
+    align-items: center; /* Allinea verticalmente il logo */
+    justify-content: flex-start; /* Allinea il logo a sinistra */
+    flex: 0 1 auto; /* Imposta la crescita flessibile a 0, la riduzione a 1, e la base flessibile a auto */
+}
+
+.header-logo {
+    height: 100px;
+    margin-left: 30px; /* O un'altra misura di spazio dal bordo sinistro */
+    border-radius: 15px;
+    filter: drop-shadow(2px 4px 15px rgba(0,0,0,0.5)); /* Aggiungi un'ombreggiatura al logo */
+    /* Altre proprietà di styling del logo se necessarie */
+}
+
+.game-title-container {
+    flex-grow: 1;
+    text-align: center; /* Centra il titolo */
+    position: absolute; /* Rende il titolo assolutamente posizionato rispetto all'header */
+    left: 50%; /* Sposta il titolo al centro dell'header */
+    transform: translateX(-100%); /* Sposta il titolo indietro di metà della sua larghezza, centrando esattamente il testo */
+}
+
+#gameTitle {
+    font-size: 7em; /* Dimensione del titolo */
+    font-weight: bold; /* Rendi il testo grassetto */
+    background: -webkit-linear-gradient(#b3e0ff, #000); /* Sfumatura dal celeste chiaro a nero */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Rende il colore del testo trasparente, mostrando lo sfondo */
+    margin: 0; /* Rimuove il margine di default di h1 */
+}
+
+.travel-mode-container {
+    display: flex;
+    align-items: center;
+    margin-left: 60%; /*Aggiunge argine a sinistra*/
+    margin-right: auto; /* Aggiunge automaticamente margine a destra per spingere tutto a sinistra */
+}
+
+.travel-mode-icon {
+    height: 110px; /* Imposta l'altezza dell'icona a 110 pixel */
+    width: auto; /* Imposta la larghezza automaticamente per mantenere il rapporto d'aspetto basato sull'altezza */
+    border-radius: 10px; /* Arrotonda gli angoli dell'icona con un raggio di 10 pixel */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Aggiunge un'ombra sotto l'icona con un effetto di sfocatura leggero */
+}
+
+.travel-mode-title {
+    margin-left: 25px; /* Imposta la distanza tra l'icona e il testo a 20 pixel */
+    font-size: 2.5em; /* Aumenta la dimensione del font del titolo a 2.5em */
+    color: #000; /* Imposta il colore del testo a nero */
+    font-weight: bold; /* Applica uno stile di testo in grassetto */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Aggiunge un'ombra al testo per migliorarne la leggibilità e l'aspetto */
+}
+
+
+/* Stili per la griglia dei mondi */
+
+.worlds-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px; /* Spazio sotto l'header */
+    padding: 0 20%; /* Padding laterale per centrare la griglia nella pagina */
+}
+
+.world {
+    width: 300px; /* Larghezza del contenitore del mondo */
+    margin: 80px 100px; /* Margin intorno al contenitore per separazione */
+    display: flex; /* Usa flexbox per allineare l'immagine e il testo */
+    flex-direction: column; /* Organizza i figli in colonna */
+    align-items: center; /* Allinea i figli al centro sull'asse trasversale */
+    text-align: center; /* Centra il testo */
+}
+
+.world-flag {
+    width: 350px; /* Larghezza fissa per tutte le icone dei mondi */
+    height: 350px; /* Altezza fissa per tutte le icone dei mondi */
+    object-fit: contain; /* Mantiene le proporzioni dell'immagine */
+    border-radius: 50%; /* Rende l'immagine circolare */
+    background: #FFFFFF; /* Imposta uno sfondo bianco */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombreggiatura leggera */
+    margin-bottom: 10px; /* Spazio tra l'immagine della bandiera e il nome del mondo */
+    cursor: pointer; /* Indica che l'elemento è cliccabile */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* Effetti di transizione fluidi */
+}
+
+.world-flag:hover {
+    transform: translateY(-10px); /* Effetto di sollevamento al passaggio del mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5); /* Ombreggiatura più marcata al passaggio del mouse */
+}
+
+.world-name {
+    font-size: 2em; /* Dimensione del testo per il nome del mondo */
+    font-weight: bold; /* Testo in grassetto */
+}
+
+
