@@ -37,7 +37,7 @@ body {
 }
 
 #gameTitle {
-    font-size: 5em; /* Dimensione del titolo */
+    font-size: 7em; /* Dimensione del titolo */
     font-weight: bold; /* Rendi il testo grassetto */
     background: -webkit-linear-gradient(#b3e0ff, #000); /* Sfumatura dal celeste chiaro a nero */
     -webkit-background-clip: text;
