@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var iconContainers = document.querySelectorAll('.icon-container');
-    var dropdownMenu = document.querySelector('#dropdownMenu');
+    var iconContainers = document.querySelectorAll('.mode-title-container');
+    var dropdownMenu = document.querySelector('#dropdownHeaderMenu');
     var pageContainer = document.querySelector('#pageContentContainer');
     var dropdownImage = dropdownMenu.querySelector('.mode-icon');
 
@@ -18,17 +18,17 @@ document.addEventListener('DOMContentLoaded', function() {
             pageContainer.style.filter = 'blur(5px)'; /* Applica un filtro di sfocatura al contenuto della pagina */
 
             /* Cambia l'immagine nel menu a tendina in base all'elemento su cui il mouse è passato sopra */
-            var iconLabel = iconContainer.querySelector('.icon-label').textContent;
-            if (iconLabel === 'Creatore') {
+            var iconLabel = iconContainer.querySelector('.mode-title').textContent;
+            if (iconLabel === 'Creator') {
                 dropdownImage.src = '/src/images/IconaCreatore4.png';
                 dropdownImage.dataset.link = '/src/html/creatore.html';
-            } else if (iconLabel === 'Duello') {
+            } else if (iconLabel === 'Duel') {
                 dropdownImage.src = '/src/images/IconaDuello3.png';
                 dropdownImage.dataset.link = '/src/html/duello.html';
-            } else if (iconLabel === 'Sfida Giornaliera') {
+            } else if (iconLabel === 'Daily Challenge') {
                 dropdownImage.src = '/src/images/IconaSfidaGiornaliera2.png';
                 dropdownImage.dataset.link = '/src/html/sfida_giornaliera.html';
-            } else if (iconLabel === 'Viaggio') {
+            } else if (iconLabel === 'Journey') {
                 dropdownImage.src = '/src/images/IconaViaggioGame1.png';
                 dropdownImage.dataset.link = '/src/html/viaggio.html';
             }
@@ -43,5 +43,16 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Cambia la posizione della finestra quando l'immagine nel menu a tendina viene cliccata */
     dropdownImage.addEventListener('click', function() {
         window.location.href = dropdownImage.dataset.link;
+    });
+
+
+    document.getElementById('menuIcon').addEventListener('click', function() {
+        var menuContainer = document.getElementById('writtenModesDropdownContainer');
+        menuContainer.style.display = 'block';
+    });
+
+    document.getElementById('closeIcon').addEventListener('click', function() {
+        var menuContainer = document.getElementById('writtenModesDropdownContainer');
+        menuContainer.style.display = 'none';
     });
 });
