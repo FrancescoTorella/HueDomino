@@ -1,0 +1,146 @@
+/* body {
+    margin: 0; 
+}
+
+.page-content-container{
+    width: 100vw;
+}
+
+.nations-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 100%;
+    
+}
+
+.nation-div{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+@media (max-width: 710px) {
+    .nations-container{
+        grid-template-columns: 1fr 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr; 
+    }
+}
+
+@media (max-width: 450px) {
+    .nations-container{
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr 1fr 1fr 1fr; 
+    }
+}
+
+.world-flag{
+    width: 70%;
+    aspect-ratio: 1/1;
+    border-radius: 10%;
+    box-shadow: 3px 3px 6px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer; 
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+    
+}
+
+.world-flag:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);     
+    
+}
+
+.world-name {
+    font-size: 2em; 
+    font-weight: bold; 
+}  */
+
+/* .nation-container{
+    width: 10rem;
+    height: 10rem;
+} */
+
+.left-box-container{
+    position: absolute;
+    left: 8vw;
+    top: 30vh;
+    width: 40vw;
+    height: 50vh;
+    border: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 0;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden; /* Nasconde qualsiasi parte dell'immagine che esce dal contenitore */
+    width: 100%;
+    height: 100%;
+}
+
+.grid-item img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.grid-item p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 5vw;
+    margin: 0;
+    font-family: "Arial", sans-serif; /* Modifica con il tuo font */
+    /*color: white; /* Testo bianco */
+    font-weight: bold; /* Testo grassetto */
+    font-style: italic; /* Testo corsivo */
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5); /* Aggiungi un'ombra al testo per dare un effetto 3D */
+    /*text-shadow: 2px 2px 2px black; /* Bordo nero intorno al testo */
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); /* Sfumatura di colore */
+    -webkit-background-clip: text; /* Applica lo sfondo al testo */
+    -moz-background-clip: text; /* Aggiungi questa linea */
+    -ms-background-clip: text; /* Aggiungi questa linea */
+    background-clip: text; /* Define the standard property 'background-clip' for compatibility */
+    color: transparent; /* Rende il colore del testo trasparente per mostrare lo sfondo */
+    animation: rotate 2s linear infinite;
+}
+
+.right-box-container{
+    position: absolute;
+    right: 5vw;
+    top: 15vh;
+    width: 40vw;
+    height: 80vh;
+    border: 1px solid black;
+    padding: 0;
+}
+
+.card-title {
+    white-space: nowrap;
+}
