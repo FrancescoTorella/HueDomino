@@ -173,9 +173,11 @@ export function handleMouseDown(event) {
             if(oldColor1 === defaultSquarebuttonsColor ^ oldColor2 === defaultSquarebuttonsColor){
                 fillArea(i1, j1, oldColor2);
                 fillArea(i2, j2, oldColor1);
+                fillThinButtons();
             } else if (oldColor1 !== oldColor2){
                 fillArea(i1, j1, oldColor2,1);
                 fillArea(i2, j2, oldColor1,1);
+                fillThinButtons();
             }else{
                 this.style.backgroundColor = oldColor1;
             }
@@ -208,8 +210,8 @@ export function handleMouseOverEvent() {
 }
 
 //Funzione per la colorazione di aree quadrate manualmente
-export function setColor(){
-    if (selectedColor && !selectionMode) {
+export function handleSquareButtonMouseClick(){
+    if (selectedColor && !selectionMode && !playMode) {
         // Applica il colore selezionato alla casella cliccata
         //this.style.backgroundColor = selectedColor;
 
@@ -220,6 +222,7 @@ export function setColor(){
         
         // chiama fillArea per colorare le aree adiacenti con lo stesso colore
         fillArea(i, j, selectedColor);
+        fillThinButtons();
     }else if(selectionMode){
         //se la modalità di selezione è attiva, allora evidenzia il bottone quadrato cambiando l'ombra
         if(this.style.boxShadow === ''){
@@ -229,6 +232,10 @@ export function setColor(){
         }
 
     }
+    // else if(playMode && this.style.backgroundColor !== defaultSquarebuttonsColor){
+    //     //aggiungi la classe animate  se non presente (per ora)
+    //     this.classList.toggle('darken');
+    // }
 }
 
 //Funzione principale per l'espanzione del colore
@@ -282,7 +289,7 @@ export function fillArea(i, j, color,maxCells = 1024) {
         }
     }
 
-    fillThinButtons();
+    //fillThinButtons();
 }
 
 //Registra le combinazioni di colori
@@ -297,7 +304,20 @@ export function combineColors(color1, color2) {
     }
     color1 = color1.toLowerCase().trim();
     color2 = color2.toLowerCase().trim();
-    return colorCombinations[`${color1}${color2}`] || color2;
+    const colorCombination = colorCombinations[`${color1}${color2}`];
+
+    if (colorCombination) {
+        return colorCombination;
+    } else {
+        const keys = Object.keys(colorCombinations);
+        if (keys.some(key => key.includes(color1))) {
+            return color2;
+        } else if (keys.some(key => key.includes(color2))) {
+            return color1;
+        } else {
+            return color2; // fallback se nessuno dei colori è presente in una chiave
+        }
+    }
 }
 
 // Funzione per verificare se un bordo sottile è attivo
@@ -344,8 +364,10 @@ export function fillThinButtons(){
             let i2 = parseInt(button.getAttribute('data-row2'));
             let j2 = parseInt(button.getAttribute('data-col2'));
             //se il colore di uno dei bottoni quadrati adiecenti è il colore di default o se i bottoni quadrati adiacenti hanno colori diversi, allora imposta il colore del bottone sottile a default
-            if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor || matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
+            if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
                 button.style.backgroundColor = defaultThinbuttonsColor;
+            }else if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
+                button.style.backgroundColor = selectedThinbuttonsColor;
             }else{
                 //alrimenti imposta il colore del bottone sottile con il colore dei bottoni quadrati adiacenti
                 button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
@@ -359,7 +381,7 @@ export function saveThinButtonConfig() {
     // Crea un array di oggetti contenenti l'ID del bottone sottile e il suo colore
     const data = Array.from(thinButtonsMap).map(([thinId, thinButton]) => ({
         thinId,
-        color: thinButton.style.backgroundColor,
+        selected: thinButton.style.backgroundColor === defaultThinbuttonsColor ? 0 : 1
     }));
 
     // Invia i dati al server effettuando una richiesta di salvataggio
@@ -379,10 +401,11 @@ export function loadThinButtonConfig() {
         .then(response => response.json())
         .then(data => {
             // colora i bottoni secondo i dati caricati
-            data.forEach(({THINID, COLOR}) => {
+            data.forEach(({THINID, SELECTED}) => {
                 const thinButton = thinButtonsMap.get(THINID);
                 if (thinButton) {
-                    thinButton.style.backgroundColor = COLOR;
+                    const isSelected = Number(SELECTED) === 0 ? false : true;
+                    thinButton.style.backgroundColor = isSelected ? selectedThinbuttonsColor : defaultThinbuttonsColor;
                 }
             });
         });
@@ -395,10 +418,12 @@ export async function loadColorCombinations() {
     const data = await response.text();
     const rows = data.split('\n').slice(1);
     rows.forEach(row => {
-        const cols = row.split(',');
-        const color1 = cols[0].toLowerCase().trim();
-        const color2 = cols[1].toLowerCase().trim();
-        const result = cols[2].toLowerCase().trim();
+        const cols = row.split(",");
+        let color1 = cols[0].toLowerCase().trim();
+        let color2 = cols[1].toLowerCase().trim();
+        let result = cols[2].toLowerCase().trim();
+
+
         colorCombinations[`${color1}${color2}`] = result;
         colorCombinations[`${color2}${color1}`] = result;
     });

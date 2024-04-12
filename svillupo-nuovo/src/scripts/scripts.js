@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
             row.push(button);
 
             // Aggiungi un ascoltatore di eventi per il clic del mouse sui bottoni quadrati per la loro colorazione
-            button.addEventListener('click', f.setColor);
+            button.addEventListener('click', f.handleSquareButtonMouseClick);
             
             // Crea un bottone sottile orizzontale se non è l'ultima colonna
             if (j < cols - 1) {

@@ -1,8 +1,8 @@
 //salva il colore iniziale dei bottoni quadrati
-export const defaultSquarebuttonsColor = 'rgb(245, 245, 245)';
+export const defaultSquarebuttonsColor = 'azure';
 
 //salva il colore iniziale dei bottoni sottili
-export const defaultThinbuttonsColor = 'white';
+export const defaultThinbuttonsColor = 'whitesmoke';
 
 //numero di righe e colonne
 export const rows = 32;

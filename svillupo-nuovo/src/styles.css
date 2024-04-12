@@ -100,8 +100,6 @@
 
 
 
-
-
 #colorButtonsArea {
     position: fixed; /* Posiziona il contenitore dei bottoni in modo fisso */
     right: 0; /* Posizionalo a destra della pagina */
@@ -169,4 +167,8 @@
 
 .basic-control-button.play-mode-button-active{
     background-color: #0f0; /* Cambia il colore di sfondo in verde */
+}
+
+.darken {
+    filter: brightness(50%);
 }
