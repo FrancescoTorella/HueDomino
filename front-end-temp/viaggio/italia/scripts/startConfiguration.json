@@ -1,0 +1,7170 @@
+[
+    {
+      "coordinates": [
+        0,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        0,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        0,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        0,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        0,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        0,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        0,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        21
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        27
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        0,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        0,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        0,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        2
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        3
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        10
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        17
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        18
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        19
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        23
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        1,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        1,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        1,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        1
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        7
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        18
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        2,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        2,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        2,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        7
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        12
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        27
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        3,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        3,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        3,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        4,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        4,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        4,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        4,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        4,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        28
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        4,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        4,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        2
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        24
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        5,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        5,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        5,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        3
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        6,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        23
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        6,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        6,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        17
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        7,
+        28
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        7,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        7,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        8,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        23
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        8,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        8,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        2
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        5
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        19
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        24
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        9,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        9,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        9,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        5
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        10,
+        7
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        10,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        10,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        19
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        10,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        10,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        10,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        10,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        10,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        11,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        11,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        11,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        11,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        11,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        11,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        11,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        11,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        11,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        3
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        23
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        12,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        12,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        12,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        13,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        28
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        13,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        13,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        14,
+        1
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        14,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        14,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        10
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        14,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        14,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        14,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        14,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        14,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        3
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        19
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        27
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        15,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        15,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        15,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        16,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        16,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        16,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        16,
+        27
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        16,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        16,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        16,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        5
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        7
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        21
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        23
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        17,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        17,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        17,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        1
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        3
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        7
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        21
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        28
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        18,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        18,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        18,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        19,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        24
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        19,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        19,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        10
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        12
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        18
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        24
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        20,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        20,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        20,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        2
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        5
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        21,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        21,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        21,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        5
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        17
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        21
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        23
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        22,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        22,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        22,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        5
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        10
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        12
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        16
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        17
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        23,
+        28
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        23,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        23,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        2
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        5
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        6
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        18
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        26
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        24,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        24,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        24,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        10
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        17
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        24
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        25,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        25,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        25,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        3
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        11
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        14
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        17
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        21
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        25
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        26,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        26,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        26,
+        31
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        2
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        3
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        7
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        9
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        10
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        12
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        13
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        18
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        20
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        22
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        23
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        24
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        27,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        27,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        30
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        27,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        8
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        10
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        13
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        17
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        19
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        21
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        27
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        28,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        28,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        28,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        0
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        2
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        3
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        4
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        8
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        10
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        12
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        14
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        15
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        24
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        29,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        27
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        28
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        29,
+        29
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        29,
+        31
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        0
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        1
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        4
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        5
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        6
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        7
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        9
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        11
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        12
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        15
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        16
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        17
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        19
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        20
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        21
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        22
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        23
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        24
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        25
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        26
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        30,
+        27
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        28
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        29
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        30,
+        30
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        30,
+        31
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        0
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        1
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        2
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        3
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        4
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        5
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        6
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        7
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        8
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        9
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        10
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        11
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        12
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        13
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        14
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        15
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        16
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        17
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        18
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        19
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        20
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        21
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        22
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        23
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        24
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        25
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        26
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        27
+      ],
+      "color": "blue"
+    },
+    {
+      "coordinates": [
+        31,
+        28
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        29
+      ],
+      "color": "yellow"
+    },
+    {
+      "coordinates": [
+        31,
+        30
+      ],
+      "color": "red"
+    },
+    {
+      "coordinates": [
+        31,
+        31
+      ],
+      "color": "blue"
+    }
+  ]
