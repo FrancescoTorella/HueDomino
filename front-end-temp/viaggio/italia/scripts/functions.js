@@ -9,7 +9,7 @@ let colorCombinations = {};
 let mouseDown = false;
 
 //colore dei bottoni sottili selezionati
-let selectedThinbuttonsColor = 'black';
+let selectedThinbuttonsColor = 'white';
 
 // Variabile globale per la modalità di selezione
 let selectionMode = false;
@@ -34,7 +34,27 @@ export function handleButtonClick(button) {
         } else {
             // Altrimenti, rimuovi la classe 'pulsing' dal bottone che sta pulsando
             pulsingButton.classList.remove('pulsing');
+            
+
+           
+
+            //se il bottone cliccato è vicino al bottone pulsante allora invoca fillArea
+            let ic = button.getAttribute('data-row');
+            let jc = button.getAttribute('data-col');
+
+            let ip = pulsingButton.getAttribute('data-row');
+            let jp = pulsingButton.getAttribute('data-col');
             pulsingButton = null;
+            console.log(ic,jc,ip,jp);
+            if(ic==ip+1 && jc==jp || ic==ip && jc==jp+1 || ic==ip-1 && jc==jp || ic==ip && jc==jp-1){
+                let oldColor1 = matrix[ic][jc].style.backgroundColor;
+                let oldColor2 = matrix[ip][jp].style.backgroundColor;
+                if(oldColor1 != oldColor2){
+                    fillArea(ic, jc, oldColor2,1);
+                    fillArea(ip, jp, oldColor1,1);
+                    fillThinButtons();
+                }
+            }
         }
 
         // Impedisci che l'evento si propaghi al document
@@ -63,27 +83,25 @@ function getJsonData(url) {
         });
 }
 
-export function fillButtons(filename, matrix) {
-    return fetch(filename)
-        .then(response => response.json())
-        .then(data => {
-            // il tuo codice per colorare i bottoni
-            getJsonData(filename)
-            .then(buttonColors => {
-                for (let i = 0; i < matrix.length; i++) {
-                    for (let j = 0; j < matrix[i].length; j++) {
-                        const button = matrix[i][j];
-                        const color = buttonColors.find(bc => bc.coordinates[0] === i && bc.coordinates[1] === j).color;
-                        if (button && color) {
-                            matrix[i][j].style.backgroundColor = color;
-                        }
-                    }
+export async function fillButtons(filename, matrix) {
+    try {
+        const response = await fetch(filename);
+        const data = await response.json();
+
+        const buttonColors = await getJsonData(filename);
+
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                const button = matrix[i][j];
+                const color = buttonColors.find(bc => bc.coordinates[0] === i && bc.coordinates[1] === j).color;
+                if (button && color) {
+                    matrix[i][j].style.backgroundColor = color;
                 }
-            })
-            .catch(error => {
-                console.error('Si è verificato un errore:', error);
-            });
-        });
+            }
+        }
+    } catch (error) {
+        console.error('Si è verificato un errore:', error);
+    }
 }
 
 export async function loadColorCombinations() {
@@ -100,8 +118,11 @@ export async function loadColorCombinations() {
     }
 }
 
+
+
 //Funzione principale per l'espanzione del colore
 export function fillArea(i, j, color,maxCells = 1024) {
+    console.log(i,j);
     let visited = new Set();
     let queue = [{i: i, j: j, distance: 0}];
 
@@ -116,13 +137,12 @@ export function fillArea(i, j, color,maxCells = 1024) {
 
 
             // Se il colore corrente è uguale al nuovo colore, continua al prossimo ciclo
-            if (playMode && oldColor === newColor) {
-                continue;
-            }
 
             matrix[i][j].style.backgroundColor = newColor;
 
             // Aggiungi le celle adiacenti alla coda solo se non hanno già il nuovo colore e la distanza è minore di maxCells
+            i = parseInt(i);
+            j= parseInt(j);
             if (i > 0 && !activeBorder(i-1,j,i,j)){
                 //colorBorder(i-1,j,i,j,newColor);
                 if (matrix[i-1][j].style.backgroundColor !== newColor && distance < maxCells) {
@@ -185,10 +205,12 @@ export function combineColors(color1, color2) {
 // Funzione per verificare se un bordo sottile è attivo
 export function activeBorder(i1, j1, i2, j2) {
     // Costruisci l'ID del bottone sottile
+    console.log(parseInt(i1),parseInt(j1),parseInt(i2),parseInt(j2));
     let thinId = 'h-border-' + i1 + '-' + j1 + '-' + i2 + '-' + j2;
     if (i1 === i2) {
         thinId = 'v-border-' + i1 + '-' + j1 + '-' + i2 + '-' + j2;
     }
+
 
     // Seleziona il bottone sottile dalla mappa
     let thinButton = thinButtonsMap.get(thinId);
@@ -207,6 +229,7 @@ export function colorBorder(i1, j1, i2, j2, color) {
 
     // Seleziona il bottone sottile dalla mappa
     let thinButton = thinButtonsMap.get(thinId);
+    
 
     // Cambia il colore del bottone sottile
     thinButton.style.backgroundColor = color;
@@ -217,29 +240,18 @@ export function fillThinButtons(){
     // Seleziona i bottoni sottili dalla mappa thinButtonsMap
     const thinButtons = Array.from(thinButtonsMap.values());
 
-    //colora i bottoni sottili se non sono neri e se i bottoni quadrati adiacenti hanno lo stesso colore
     thinButtons.forEach(button => {
         //se il bottone non è nero, allora prendi i colori dei bottoni quadrati adiacenti
-        if(button.style.backgroundColor !== selectedThinbuttonsColor){
-            let i1 = parseInt(button.getAttribute('data-row1'));
-            let j1 = parseInt(button.getAttribute('data-col1'));
-            let i2 = parseInt(button.getAttribute('data-row2'));
-            let j2 = parseInt(button.getAttribute('data-col2'));
-            //console.log(i1,j1,i2,j2);
-            //se il colore di uno dei bottoni quadrati adiecenti è il colore di default o se i bottoni quadrati adiacenti hanno colori diversi, allora imposta il colore del bottone sottile a default
-            if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
-                //console.log('default');
-                button.style.backgroundColor = defaultThinbuttonsColor;
-            }else if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
-                //console.log('diversi');
-                button.style.backgroundColor = selectedThinbuttonsColor;
-            }else{
-                //alrimenti imposta il colore del bottone sottile con il colore dei bottoni quadrati adiacenti
-                //console.log('uguale');
-                button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
-            }
+        let i1 = parseInt(button.getAttribute('data-row1'));
+        let j1 = parseInt(button.getAttribute('data-col1'));
+        let i2 = parseInt(button.getAttribute('data-row2'));
+        let j2 = parseInt(button.getAttribute('data-col2'));
 
-            //console.log("colori", matrix[i1][j1].style.backgroundColor,matrix[i2][j2].style.backgroundColor);
+        if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
+            button.style.backgroundColor = selectedThinbuttonsColor;
+        }else{
+            //alrimenti imposta il colore del bottone sottile con il colore dei due bottoni
+            button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
         }
     });
 }

@@ -31,6 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             //assegna l'evento di gestione del click
             f.handleButtonClick(button);
+
+            //assegna le coordinate al bottone
+            button.setAttribute('data-row', i);
+            button.setAttribute('data-col', j);
             
 
             //aggiungilo alla riga
@@ -83,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 thinButton.classList.add("horizontal-thin-button");
 
                 // Assegna un ID al bottone sottile in base alle coordinate dei bottoni quadrati adiacenti
-                thinButton.id = 'v-border-' + i + '-' + j +'-' + i + '-' + (j + 1);
+                thinButton.id = 'h-border-' + i + '-' + j +'-' + (i+1) + '-' + j;
 
                 // Imposta il colore di default per il bottone sottile
                 thinButton.style.backgroundColor = defaultThinbuttonsColor;
@@ -108,12 +112,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     f.fillButtons('startConfiguration.json', matrix).then(() => {
-        //stampa i colori dei bottoni per debug
-        for(let i = 0; i < rows; i++){
-            for(let j = 0; j < cols; j++){
-                console.log('colore',matrix[i][j].style.backgroundColor);
-            }
-        }
         f.fillThinButtons();
     });
     
