@@ -13,7 +13,10 @@ Qui scriveremo tutti gli aggiornamenti che facciamo al codice, per ora pensavo d
 -Mappa aggiornamento: 'fede'
 
    -Ho caricato la mappa dell'italia con l'aeroplanino ci stanno delle cose rivedibili:
+   
       - Le immagini delle mappe "pixelose" o migliorabili, stesso vale per colorazioni, e volendo icone, task opzionale.
+      
       - Miglioramento responsive, sistemare alcune cose come orbita (angolo, posizioni) da calcolare in base a grandezza finestra, per la pioggia o blocco ridimensionamento pagina o da sistemare l'animazione alla chiamata della funzione in caso di ridimensionamento. Task abbastanza importante.
+      
       - Pagina da rendere responsive, da gestire CSS, quando si riduce la dimensione deve ridursi il left box e non il right box, porre dei limiti di ridimensionamento sul right box, far si che su mobile occupi l'intera pagina insieme alla barra.  Task molto importante.
   
