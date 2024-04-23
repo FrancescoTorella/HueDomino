@@ -9,7 +9,9 @@ Qui scriveremo tutti gli aggiornamenti che facciamo al codice, per ora pensavo d
 - Per il momento direi che entro una settimana dobbiamo arrivare ad un punto tale che:
    - Il sito ha un bell'aspetto
    - i livelli funzionano, cioè è stata implementata la loro logica (anche se non sono tutti e se ancora il loro aspetto non è il massimo)
+  
 -Mappa aggiornamento: 'fede'
+
    -Ho caricato la mappa dell'italia con l'aeroplanino ci stanno delle cose rivedibili:
       - Le immagini delle mappe "pixelose" o migliorabili, stesso vale per colorazioni, e volendo icone, task opzionale.
       - Miglioramento responsive, sistemare alcune cose come orbita (angolo, posizioni) da calcolare in base a grandezza finestra, per la pioggia o blocco ridimensionamento pagina o da sistemare l'animazione alla chiamata della funzione in caso di ridimensionamento. Task abbastanza importante.
