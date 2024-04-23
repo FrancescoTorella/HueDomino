@@ -1,0 +1,128 @@
+.left-box-container{
+    position: absolute;
+    left: 8vw;
+    top: 30vh;
+    width: 40vw;
+    height: 50vh;
+    border: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 0;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden; /* Nasconde qualsiasi parte dell'immagine che esce dal contenitore */
+    width: 100%;
+    height: 100%;
+}
+
+.grid-item img {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    max-width: none;
+    max-height: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
+}
+
+.grid-item p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 5vw;
+    margin: 0;
+    font-family: "Arial", sans-serif; /* Modifica con il tuo font */
+    /*color: white; /* Testo bianco */
+    font-weight: bold; /* Testo grassetto */
+    font-style: italic; /* Testo corsivo */
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5); /* Aggiungi un'ombra al testo per dare un effetto 3D */
+    /*text-shadow: 2px 2px 2px black; /* Bordo nero intorno al testo */
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); /* Sfumatura di colore */
+    -webkit-background-clip: text; /* Applica lo sfondo al testo */
+    -moz-background-clip: text; /* Aggiungi questa linea */
+    -ms-background-clip: text; /* Aggiungi questa linea */
+    background-clip: text; /* Define the standard property 'background-clip' for compatibility */
+    color: transparent; /* Rende il colore del testo trasparente per mostrare lo sfondo */
+    animation: rotate 2s linear infinite;
+}
+
+.right-box-container{
+    position: absolute;
+    right: 5vw;
+    top: 15vh;
+    width: 40vw;
+    height: 80vh;
+    border: 1px solid black;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.map-italy {
+    width: 100%;  /* L'immagine coprirà la larghezza del contenitore */
+    height: 100%; /* L'altezza si adatterà automaticamente mantenendo le proporzioni dell'immagine */
+    display: block; /* Rimuove eventuali spazi extra sotto l'immagine */
+}
+
+.level-icon {
+    position: absolute;
+    width: 3%; /* Regola la dimensione delle icone in base alle tue esigenze */
+    cursor: pointer; /* Cambia il cursore quando l'utente passa sopra l'icona */
+    transition: transform 0.3s, filter 0.3s; /* Aggiunge una transizione per il feedback visivo */
+    z-index: 2; /* Assicura che l'icona sia sopra agli altri elementi */
+}
+
+/* Puoi aggiungere pseudo-classi per le interazioni, come un leggero ingrandimento al passaggio del mouse */
+.level-icon:hover {
+    transform: scale(1.5);
+}
+
+.aeroplanino-icon{
+    position: absolute;
+    width: 11%;
+}
+
+/*La funzione per l'esplosione di colori a seguito di completamento di un livello*/
+.color-line {
+    position: absolute; /* Posiziona ogni goccia in modo assoluto rispetto al suo contenitore */
+    width: 0.3%; /* Larghezza della goccia */
+    height: 1%; /* Altezza della goccia per una forma più allungata */
+    background-color: red; /* Colore iniziale della goccia, poi sovrascritto dinamicamente */
+    opacity: 1; /* Imposta l'opacità iniziale a piena per visibilità massima */
+    transition: top 4s linear, opacity 4s ease-out; /* Transizione fluida per movimento e dissolvenza */
+    border-radius: 50% 50% 50% 50%/60% 60% 40% 40%; /* Crea una forma di goccia arrotondata */
+    transform: rotate(180deg); /* Ruota la goccia per avere la punta verso il basso, simula la caduta */
+    pointer-events: none; /* Evita che le gocce interferiscano con l'interazione dell'utente */
+    z-index: 3; /* Assicura che le gocce siano visualizzate sopra altri elementi */
+}
+
+
