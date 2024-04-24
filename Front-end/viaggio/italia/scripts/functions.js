@@ -9,7 +9,7 @@ let colorCombinations = {};
 let mouseDown = false;
 
 //colore dei bottoni sottili selezionati
-let selectedThinbuttonsColor = 'white';
+let selectedThinbuttonsColor = 'black';
 
 // Variabile globale per la modalità di selezione
 let selectionMode = false;
@@ -26,41 +26,76 @@ let pulsingButton = null;
 
 // Funzione per gestire il click del bottone
 export function handleButtonClick(button) {
+   
     button.onclick = function(event) {
         // Se nessun altro bottone sta pulsando, fai pulsare questo bottone
-        if (pulsingButton === null) {
-            this.classList.add('pulsing');
-            pulsingButton = button;
-        } else {
-            // Altrimenti, rimuovi la classe 'pulsing' dal bottone che sta pulsando
-            pulsingButton.classList.remove('pulsing');
-            
 
-           
 
-            //se il bottone cliccato è vicino al bottone pulsante allora invoca fillArea
-            let ic = Number(button.getAttribute('data-row'));
-            let jc = Number(button.getAttribute('data-col'));
+        if(selectedColor === null){
+            if (pulsingButton === null) {
+                this.classList.add('pulsing');
+                pulsingButton = button;
+            } else {
+                // Altrimenti, rimuovi la classe 'pulsing' dal bottone che sta pulsando
+                pulsingButton.classList.remove('pulsing');
+                
+    
+                
+    
+                //se il bottone cliccato è vicino al bottone pulsante allora invoca fillArea
+                let ic = Number(button.getAttribute('data-row'));
+                let jc = Number(button.getAttribute('data-col'));
+    
+                let ip = Number(pulsingButton.getAttribute('data-row'));
+                let jp = Number(pulsingButton.getAttribute('data-col'));
+                pulsingButton = null;
+                if(ic==ip+1 && jc==jp || ic==ip && jc==jp+1 || ic==ip-1 && jc==jp || ic==ip && jc==jp-1){
 
-            let ip = Number(pulsingButton.getAttribute('data-row'));
-            let jp = Number(pulsingButton.getAttribute('data-col'));
-            pulsingButton = null;
-            console.log(ic,jc,ip,jp);
-            if(ic==ip+1 && jc==jp || ic==ip && jc==jp+1 || ic==ip-1 && jc==jp || ic==ip && jc==jp-1){
-                let oldColor1 = matrix[ic][jc].style.backgroundColor;
-                let oldColor2 = matrix[ip][jp].style.backgroundColor;
-                if(oldColor1 != oldColor2){
-                    fillArea(ic, jc, oldColor2,1);
-                    fillArea(ip, jp, oldColor1,1);
-                    fillThinButtons();
+                    //ottieni bottone sottile corrispondente
+                    let thinButton;
+                    if(ic==ip+1 && jc==jp){
+                        thinButton = thinButtonsMap.get('h-border-' + ip + '-' + jp + '-' + ic + '-' + jc);
+                    }else if(ic==ip && jc==jp+1){
+                        thinButton = thinButtonsMap.get('v-border-' + ip + '-' + jp + '-' + ic + '-' + jc);
+                    }else if(ic==ip-1 && jc==jp){
+                        thinButton = thinButtonsMap.get('h-border-' + ic + '-' + jc + '-' + ip + '-' + jp);
+                    }else if(ic==ip && jc==jp-1){
+                        thinButton = thinButtonsMap.get('v-border-' + ic + '-' + jc + '-' + ip + '-' + jp);
+                    }
+
+                    thinButton.style.backgroundColor = defaultThinbuttonsColor;
+                    let oldColor1 = matrix[ic][jc].style.backgroundColor;
+                    let oldColor2 = matrix[ip][jp].style.backgroundColor;
+                    if(oldColor1 === defaultSquarebuttonsColor ^ oldColor2 === defaultSquarebuttonsColor){
+                        fillArea(ic, jc, oldColor2);
+                        fillArea(ip, jp, oldColor1);
+                        fillThinButtons();
+                    } else if (oldColor1 !== oldColor2){
+                        fillArea(ic, jc, oldColor2,1);
+                        fillArea(ip, jp, oldColor1,1);
+                        fillThinButtons();
+                    }else{
+                        this.style.backgroundColor = oldColor1;
+                    }
                 }
             }
+        }else{
+            let i = button.getAttribute('data-row');
+            let j = button.getAttribute('data-col');
+            fillArea(i,j,selectedColor);
+            fillThinButtons();
         }
+
+        
 
         // Impedisci che l'evento si propaghi al document
         event.stopPropagation();
-    };
+        
+
+    }
 }
+
+
 
 //annulla l'effetto di pulsing se viene premuta una qualunque altra parte dello schermo
 export function handleDocumentClick() {
@@ -83,6 +118,7 @@ function getJsonData(url) {
         });
 }
 
+
 export async function fillButtons(filename, matrix) {
     try {
         const response = await fetch(filename);
@@ -104,25 +140,57 @@ export async function fillButtons(filename, matrix) {
     }
 }
 
-export async function loadColorCombinations() {
-    const response = await fetch('color-combinations.json');
-    const data = await response.json();
+export async function loadThinButtonsStartConfig(filename) {
+    try {
+        const response = await fetch(filename);
+        const data = await response.json();
 
-    for (let combination of data) {
-        let color1 = combination.color1.toLowerCase().trim();
-        let color2 = combination.color2.toLowerCase().trim();
-        let result = combination.result.toLowerCase().trim();
-
-        colorCombinations[`${color1}${color2}`] = result;
-        colorCombinations[`${color2}${color1}`] = result;
+        thinButtonsMap.forEach((button, id) => {
+            const buttonData = data.find(b => b.id === id);
+            if (buttonData && buttonData.selected) {
+                button.style.backgroundColor = selectedThinbuttonsColor;
+            } else {
+                button.style.backgroundColor = defaultThinbuttonsColor;
+            }
+        });
+    } catch (error) {
+        console.error('Si è verificato un errore:', error);
     }
 }
 
 
+export async function loadColorCombinations() {
+    try {
+        // Carica il file JSON
+        const response = await fetch('color-combinations.json');
+        const data = await response.json();
+
+        // Estrai i colori primari dalle prime tre righe
+        const primaryColors = [data[0].color1, data[1].color1, data[2].color1];
+
+        // Ottieni i div
+        const firstColorDiv = parent.document.getElementById('firstColorDiv');
+        const secondColorDiv = parent.document.getElementById('secondColorDiv');
+        const thirdColorDiv = parent.document.getElementById('thirdColorDiv');
+
+        // Applica i colori come sfondo ai div
+        firstColorDiv.style.backgroundColor = primaryColors[0];
+        secondColorDiv.style.backgroundColor = primaryColors[1];
+        thirdColorDiv.style.backgroundColor = primaryColors[2];
+
+        // Estrai le combinazioni di colori da tutte le righe e caricale in colorCombinations
+        data.forEach(row => {
+            colorCombinations[`${row.color1}${row.color2}`] = row.result;
+            colorCombinations[`${row.color2}${row.color1}`] = row.result;
+        });
+
+    } catch (error) {
+        console.error('Si è verificato un errore:', error);
+    }
+}
 
 //Funzione principale per l'espanzione del colore
 export function fillArea(i, j, color,maxCells = 1024) {
-    console.log(i,j);
     let visited = new Set();
     let queue = [{i: i, j: j, distance: 0}];
 
@@ -137,8 +205,12 @@ export function fillArea(i, j, color,maxCells = 1024) {
 
 
             // Se il colore corrente è uguale al nuovo colore, continua al prossimo ciclo
+            if ( oldColor === newColor) {
+                continue;
+            }
 
             matrix[i][j].style.backgroundColor = newColor;
+            
 
             // Aggiungi le celle adiacenti alla coda solo se non hanno già il nuovo colore e la distanza è minore di maxCells
             i = parseInt(i);
@@ -205,7 +277,6 @@ export function combineColors(color1, color2) {
 // Funzione per verificare se un bordo sottile è attivo
 export function activeBorder(i1, j1, i2, j2) {
     // Costruisci l'ID del bottone sottile
-    console.log(parseInt(i1),parseInt(j1),parseInt(i2),parseInt(j2));
     let thinId = 'h-border-' + i1 + '-' + j1 + '-' + i2 + '-' + j2;
     if (i1 === i2) {
         thinId = 'v-border-' + i1 + '-' + j1 + '-' + i2 + '-' + j2;
@@ -242,16 +313,28 @@ export function fillThinButtons(){
 
     thinButtons.forEach(button => {
         //se il bottone non è nero, allora prendi i colori dei bottoni quadrati adiacenti
-        let i1 = parseInt(button.getAttribute('data-row1'));
-        let j1 = parseInt(button.getAttribute('data-col1'));
-        let i2 = parseInt(button.getAttribute('data-row2'));
-        let j2 = parseInt(button.getAttribute('data-col2'));
+        if(button.style.backgroundColor !== selectedThinbuttonsColor){
+            let i1 = parseInt(button.getAttribute('data-row1'));
+            let j1 = parseInt(button.getAttribute('data-col1'));
+            let i2 = parseInt(button.getAttribute('data-row2'));
+            let j2 = parseInt(button.getAttribute('data-col2'));
 
-        if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
-            button.style.backgroundColor = selectedThinbuttonsColor;
-        }else{
-            //alrimenti imposta il colore del bottone sottile con il colore dei due bottoni
-            button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
+            if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
+                button.style.backgroundColor = defaultThinbuttonsColor;
+            }else if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
+                button.style.backgroundColor = selectedThinbuttonsColor;
+            }else{
+                //alrimenti imposta il colore del bottone sottile con il colore dei bottoni quadrati adiacenti
+                button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
+            }
         }
     });
+}
+
+export function handleColorDivClick() {
+    selectedColor = this.style.backgroundColor;
+}
+
+export function handleEraserIconClick() {
+    selectedColor = null;
 }
