@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     document.addEventListener("click", f.handleDocumentClick);
     await f.loadColorCombinations();
 
-    // Crea una griglia di bottoni quadrati e bottoni sottili a seconda del numero di righe e colonne
+    //Crea una griglia di bottoni quadrati e bottoni sottili a seconda del numero di righe e colonne
     for (let i = 0; i < rows; i++) {
         // Crea una riga della matrice
         let row = [];
@@ -40,6 +40,9 @@ document.addEventListener("DOMContentLoaded", async function() {
 
             //aggiungilo alla riga
             rowDiv.appendChild(button);
+
+            // Imposta il colore di default per il bottone
+            button.style.backgroundColor = defaultSquarebuttonsColor;
 
             // Aggiungi il bottone alla matrice
             row.push(button);
@@ -111,10 +114,32 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
+    //associa gli eventi ai bottoni di selezione del colore
+    //cerca i div di colore
+    // parent.document.getElementById("firstColor").addEventListener("click", f.handleColorDivClick);
+    // parent.document.getElementById("secondColor").addEventListener("click", f.handleColorDivClick);
+    // parent.document.getElementById("thirdColor").addEventListener("click", f.handleColorDivClick);
 
-    f.fillButtons('startConfiguration.json', matrix).then(() => {
-        f.fillThinButtons();
-    });
+    let firstColorDiv = parent.document.getElementById('firstColorDiv');
+    firstColorDiv.addEventListener("click", f.handleColorDivClick);
+
+    let secondColorDiv = parent.document.getElementById('secondColorDiv');
+    secondColorDiv.addEventListener("click", f.handleColorDivClick);
+
+    let thirdColorDiv = parent.document.getElementById('thirdColorDiv');
+    thirdColorDiv.addEventListener("click", f.handleColorDivClick);
+
+    //assegna evento all'eraser
+    let eraser = parent.document.getElementById('eraseIcon');
+    eraser.addEventListener("click", f.handleEraserIconClick);
+    
+
+
+    // f.fillButtons('startConfiguration.json', matrix).then(() => {
+    //     f.fillThinButtons();
+    // });
+
+    f.loadThinButtonsStartConfig("config.json");
     
 });
 
