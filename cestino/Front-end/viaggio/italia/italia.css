@@ -74,4 +74,55 @@
     height: 80vh;
     border: 1px solid black;
     padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.map-italy {
+    width: 100%;  /* L'immagine coprirà la larghezza del contenitore */
+    height: 100%; /* L'altezza si adatterà automaticamente mantenendo le proporzioni dell'immagine */
+    display: block; /* Rimuove eventuali spazi extra sotto l'immagine */
+}
+
+.level-icon {
+    position: absolute;
+    width: 3%; /* Regola la dimensione delle icone in base alle tue esigenze */
+    cursor: pointer; /* Cambia il cursore quando l'utente passa sopra l'icona */
+    transition: transform 0.3s, filter 0.3s; /* Aggiunge una transizione per il feedback visivo */
+    z-index: 2; /* Assicura che l'icona sia sopra agli altri elementi */
+}
+
+/* Puoi aggiungere pseudo-classi per le interazioni, come un leggero ingrandimento al passaggio del mouse */
+.level-icon:hover {
+    transform: scale(1.5);
+}
+
+.aeroplanino-icon{
+    position: absolute;
+    width: 11%;
+}
+
+/*La funzione per l'esplosione di colori a seguito di completamento di un livello*/
+.color-line {
+    position: absolute; /* Posiziona ogni goccia in modo assoluto rispetto al suo contenitore */
+    width: 0.3%; /* Larghezza della goccia */
+    height: 1%; /* Altezza della goccia per una forma più allungata */
+    background-color: red; /* Colore iniziale della goccia, poi sovrascritto dinamicamente */
+    opacity: 1; /* Imposta l'opacità iniziale a piena per visibilità massima */
+    transition: top 4s linear, opacity 4s ease-out; /* Transizione fluida per movimento e dissolvenza */
+    border-radius: 50% 50% 50% 50%/60% 60% 40% 40%; /* Crea una forma di goccia arrotondata */
+    transform: rotate(180deg); /* Ruota la goccia per avere la punta verso il basso, simula la caduta */
+    pointer-events: none; /* Evita che le gocce interferiscano con l'interazione dell'utente */
+    z-index: 3; /* Assicura che le gocce siano visualizzate sopra altri elementi */
+}
+
+

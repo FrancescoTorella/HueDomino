@@ -4,13 +4,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('/src/images/viaggio/italia/italyBackground.png');
+    background-image: url('italyBackground.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 
-.main-container{
+.main-container {
+    box-sizing: border-box;
     height: 100vh; 
     width: 80vw;
     display: flex;
@@ -34,16 +35,29 @@ body{
 
 }
 
-.leftsidebar-icons{
-    height: 5vw;
-    width: auto;
-    fill: white;
+.leftsidebar-icons, .rightsidebar-icons {
+    height: 70px; 
+    width: 70px;
+    display: flex;
+    flex-direction: column;
 }
 
-.rightsidebar-icons{
-    height: 5vw;
-    width: auto;
-    fill: white;
+
+.moves-left-div {
+    border: 4px solid white;
+    border-radius: 10%;
+    width: 50%; 
+    padding-top: 50%; 
+    margin-top: auto;
+}
+
+.color-div{
+    border-radius: 10%;
+    width: 50%; 
+    padding-top: 50%; 
+    margin-top: 5vh;
+    background-color: red;
+    
 }
 
 .left-sidebar {
@@ -62,6 +76,24 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000; /* Assicurati che l'immagine sia sopra gli altri elementi */
+    z-index: 1000; 
 }
 
+#restartIcon{
+    margin-top: 2vh;
+} 
+
+#undoIcon{
+    margin-bottom: 2vh;
+}
+
+@media (max-width: 950px) {
+    .leftsidebar-icons, .rightsidebar-icons{
+        width: 70%;
+        height: auto;
+    }
+    
+    .moves-left-div{
+        border: 0.4vw solid white;
+    }
+}
