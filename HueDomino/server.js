@@ -10,8 +10,8 @@ const app = express();
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'Hue Domino',
-  password: '291706',
+  database: 'HueDomino',
+  password: 'Gesco122002',
   port: 5432,
 });
 
@@ -21,6 +21,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
+
+// Serve static files from the "public" directory
+app.use(express.static('public'));
+
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
