@@ -86,12 +86,12 @@
     animation: rotate 2s linear infinite;
 }
 
-.right-box-container{
+.right-box-container {
     position: absolute;
     right: 5vw;
     top: 15vh;
-    width: 60vw;
-    height: 80vh;
+    width: 35vw; /* Puoi scegliere una percentuale iniziale per la larghezza */
+    aspect-ratio: 7/10; /* Imposta il rapporto di aspetto a 7:10 */
     border: none;
     padding: 0;
     overflow: hidden;
@@ -99,6 +99,7 @@
     justify-content: center;
     align-items: center;
 }
+
 
 .map-container {
     position: relative;
@@ -111,6 +112,7 @@
     width: 100%;  /* L'immagine coprirà la larghezza del contenitore */
     height: 100%; /* L'altezza si adatterà automaticamente mantenendo le proporzioni dell'immagine */
     display: block; /* Rimuove eventuali spazi extra sotto l'immagine */
+    position: relative;
 }
 
 .level-icon {
