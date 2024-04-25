@@ -21,3 +21,32 @@ body{
 .goback-icon:hover {
     transform: scale(1.1);
 }
+
+.login-logo{
+    height: 60%;
+    width: 60%;
+}
+
+.title {
+    font-family: 'Pixel3D';
+    color: #646464;
+    font-size: 300%;
+}
+
+@media (max-width: 392px){
+    .title{
+        font-size: 250%;
+    }
+}
+
+@media (max-width: 338px){
+    .title{
+        font-size: 200%;
+    }
+}
+
+
+@font-face {
+    font-family: 'Pixel3D';
+    src: url('../fonts/3DThirteenPixelFontsRegular-2dPv.ttf') format('truetype');
+}

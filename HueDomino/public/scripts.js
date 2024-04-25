@@ -109,4 +109,18 @@ document.addEventListener('DOMContentLoaded', function() {
     //       loginButton.textContent = 'Profile Settings'; // Cambia il testo del pulsante
     //     }
     //   });
+
+    window.onload = function() {
+        console.log('La pagina è stata caricata');
+        console.log('I cookie attuali sono: ', document.cookie);
+      
+        if (document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='))) {
+          console.log('Il cookie loggedIn è stato trovato');
+          const message = document.createElement('p');
+          message.textContent = 'Login effettuato';
+          document.body.appendChild(message);
+        } else {
+          console.log('Il cookie loggedIn non è stato trovato');
+        }
+    };
 });

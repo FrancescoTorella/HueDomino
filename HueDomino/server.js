@@ -57,6 +57,8 @@ app.post('/login', async (req, res) => {
 
       // Check the password
       if (await bcrypt.compare(password, hashedPassword)) {
+        // Set a cookie to indicate that the user is logged in
+        res.cookie('loggedIn', 'true', { maxAge: 900000 });
         res.send('Login successful');
       } else {
         res.status(401).send('Incorrect password');
