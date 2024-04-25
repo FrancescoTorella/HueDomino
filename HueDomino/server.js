@@ -26,7 +26,13 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 app.post('/register', async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, email } = req.body;
+
+  // Check email format
+  const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).send('Invalid email format');
+  }
 
   // Check password length
   if (password.length < 8) {
@@ -38,33 +44,39 @@ app.post('/register', async (req, res) => {
 
   // Store the user in the database
   try {
-    const result = await pool.query('INSERT INTO users (username, password) VALUES ($1, $2)', [username, hashedPassword]);
+    const result = await pool.query('INSERT INTO users (username, password, email) VALUES ($1, $2, $3)', [username, hashedPassword, email]); 
+    res.cookie('loggedIn', 'true', { maxAge: 900000 });
     res.status(201).send('User created');
   } catch (err) {
-    console.error(err);
-    res.status(500).send('Server error');
+    if (err.code === '23505') {
+      if (err.detail.includes('username')) {
+        res.status(409).send('Username already in use');
+      } else if (err.detail.includes('email')) {
+        res.status(409).send('Email already in use');
+      }
+    } else {
+      console.error(err);
+      res.status(500).send('Server error');
+    }
   }
 });
 
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
-  // Retrieve the user from the database
   try {
-    const result = await pool.query('SELECT password FROM users WHERE username = $1', [username]);
+    const result = await pool.query('SELECT * FROM users WHERE username = $1 OR email = $1', [username]);
     if (result.rows.length > 0) {
-      const hashedPassword = result.rows[0].password;
-
-      // Check the password
-      if (await bcrypt.compare(password, hashedPassword)) {
-        // Set a cookie to indicate that the user is logged in
+      const user = result.rows[0];
+      const passwordMatch = await bcrypt.compare(password, user.password);
+      if (passwordMatch) {
         res.cookie('loggedIn', 'true', { maxAge: 900000 });
-        res.send('Login successful');
+        res.status(200).send('Login successful');
       } else {
-        res.status(401).send('Incorrect password');
+        res.status(401).send('Incorrect username or password');
       }
     } else {
-      res.status(404).send('User not found');
+      res.status(401).send('Incorrect username or password');
     }
   } catch (err) {
     console.error(err);
