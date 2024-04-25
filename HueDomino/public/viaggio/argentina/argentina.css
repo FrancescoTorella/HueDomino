@@ -2,7 +2,7 @@
     position: absolute;
     left: 8vw;
     top: 30vh;
-    width: 40vw;
+    width: 25vw;
     height: 50vh;
     border: none;
     padding: 0;
@@ -17,17 +17,37 @@
     overflow: hidden; /* Nasconde qualsiasi parte dell'immagine che esce dal contenitore */
     width: 100%;
     height: 100%;
+    max-height: 33vh;
+    background-color: #fff;
+    display: flex; /* Centra l'immagine nel contenitore */
+    justify-content: center;
+    align-items: center;
 }
 
 .grid-item img {
-    position: absolute;
-    min-width: 100%;
-    min-height: 100%;
-    max-width: none;
-    max-height: none;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    object-fit: contain; /* Mantiene le proporzioni dell'immagine mentre si adatta al contenitore */
+    width: auto; /* Imposta la larghezza dell'immagine a auto */
+    height: auto; /* Imposta l'altezza dell'immagine a auto */
+    max-width: 100%; /* Impedisce all'immagine di sforare il contenitore in larghezza */
+    max-height: 100%; /* Impedisce all'immagine di sforare il contenitore in altezza */
+    margin: auto; /* Centra l'immagine nel contenitore */
+}
+
+#left-box {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    #left-box {
+        display: none; /* Nasconde il contenitore sinistro */
+    }
+
+    #right-box {
+        box-sizing: border-box; /* Include padding e bordo nella larghezza e altezza totali del contenitore */
+        width: 100%; /* Imposta la larghezza del contenitore destro al 100% */
+        padding: 10px; /* Aggiunge un padding di 10px su tutti i lati del contenitore */
+        margin: auto; /* Centra il contenitore nel suo contenitore padre */
+    }
 }
 
 @keyframes rotate {
@@ -70,7 +90,7 @@
     position: absolute;
     right: 5vw;
     top: 15vh;
-    width: 40vw;
+    width: 60vw;
     height: 80vh;
     border: 1px solid black;
     padding: 0;
