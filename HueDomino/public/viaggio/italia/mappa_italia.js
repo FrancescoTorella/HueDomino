@@ -147,7 +147,7 @@ function createColorRain() {
 //Funzione per aggiornare l'immagine al superamento del livello
 function updateMapImage() {     
     var mapImage = document.querySelector('.map-italy');
-    var imageName = "/Front-end/images/viaggio_images/italia/italiaCarta_" + (livello) + ".jpg";
+    var imageName = "images/italiaCarta_" + (livello) + ".jpg";
     mapImage.src = imageName;
 }
 
