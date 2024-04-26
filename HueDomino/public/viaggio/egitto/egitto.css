@@ -86,12 +86,16 @@
     animation: rotate 2s linear infinite;
 }
 
-.right-box-container{
+.right-box-container {
     position: absolute;
     right: 5vw;
     top: 15vh;
-    width: 60vw;
-    height: 80vh;
-    border: 1px solid black;
+    width: 35vw; /* Puoi scegliere una percentuale iniziale per la larghezza */
+    aspect-ratio: 7/10; /* Imposta il rapporto di aspetto a 7:10 */
+    border: none;
     padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
