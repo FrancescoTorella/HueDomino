@@ -472,3 +472,39 @@ export function saveMatrixAsJson() {
     // Rimuovi l'elemento dal DOM
     document.body.removeChild(element);
 }
+
+export async function convertCsvToJsonAndDownload() {
+    try {
+        // Fai una richiesta al server per ottenere i dati convertiti
+        const response = await fetch('/convert-csv');
+
+        // Controlla se la richiesta è andata a buon fine
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        // Ottieni i dati JSON dalla risposta
+        const jsonData = await response.json();
+
+        // Crea un elemento 'a' temporaneo
+        let element = document.createElement('a');
+
+        // Imposta l'attributo href come un blob di dati della stringa JSON
+        element.setAttribute('href', 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(jsonData)));
+
+        // Imposta l'attributo download per il nome del file che desideri
+        element.setAttribute('download', 'output.json');
+
+        // Aggiungi l'elemento al DOM
+        document.body.appendChild(element);
+
+        // Simula un click sull'elemento per avviare il download
+        element.click();
+
+        // Rimuovi l'elemento dal DOM
+        document.body.removeChild(element);
+    } catch (error) {
+        console.error('Si è verificato un errore:', error);
+    }
+}
+

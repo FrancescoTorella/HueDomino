@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", async function() {
     //aggiungi evento di click al documento per annullare l'effetto di pulsing
     parent.document.addEventListener("click",f.handleDocumentClick);
     await f.loadColorCombinations();
-    await f.initializeLeftMoves("left-moves.json");
-    await f.initializeFinalConfig('finalColorConfig.json');
+    await f.initializeLeftMoves();
+    await f.initializeFinalConfig();
 
     //Crea una griglia di bottoni quadrati e bottoni sottili a seconda del numero di righe e colonne
     for (let i = 0; i < rows; i++) {
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", async function() {
     undo.addEventListener("click",f.handleUndoIconClick);
     
 
-    f.loadThinButtonsStartConfig("config.json");
+    f.loadThinButtonsStartConfig();
     
 });
 

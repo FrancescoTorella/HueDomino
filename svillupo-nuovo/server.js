@@ -45,3 +45,20 @@ app.get('/load', (req, res) => {
             res.send(results);
         });
 });
+
+app.get('/convert-csv', (req, res) => {
+    const results = [];
+
+    fs.createReadStream('out.csv')
+        .pipe(csvParser({
+            mapHeaders: ({ header }) => header === 'THINID' ? 'id' : header.toLowerCase()
+        }))
+        .on('data', (data) => {
+            // Converti il campo 'selected' da stringa a booleano
+            data.selected = data.selected === '1';
+            results.push(data);
+        })
+        .on('end', () => {
+            res.json(results);
+        });
+});

@@ -214,6 +214,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Aggiungi un event listener al bottone "Salva Configurazione" per salvare la matrice quando il bottone viene cliccato
     document.getElementById('saveColorConfig').addEventListener('click', f.saveMatrixAsJson);
+
+    //aggiungi un event listener al bottone "scarica configurazione" per salvare la configurazione iniziale in un file json
+    document.getElementById('downloadConfig').addEventListener('click',f.convertCsvToJsonAndDownload);
 });
 
 

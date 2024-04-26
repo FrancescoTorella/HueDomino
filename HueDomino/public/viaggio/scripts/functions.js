@@ -6,21 +6,11 @@ import{ matrix, thinButtonsMap } from './data.js';
 //Tiene traccia delle combinazioni di colori
 let colorCombinations = {};
 
-//Tiene traccia dello stato del mouse
-let mouseDown = false;
-
 //colore dei bottoni sottili selezionati
 let selectedThinbuttonsColor = 'black';
 
-// Variabile globale per la modalità di selezione
-let selectionMode = false;
-
-//Variabile globale per la modalità di gioco
-let playMode = false;
-
 // Dichiarazione della variabile selectedColor
 let selectedColor = null;
-
 
 // Variabile per tenere traccia del bottone che sta pulsando
 let pulsingButton = null;
@@ -111,8 +101,6 @@ export function handleButtonClick(button) {
                 return;
             }
 
-            
-
             //salva stato prima di effettuare una mossa
             saveState();
 
@@ -125,12 +113,8 @@ export function handleButtonClick(button) {
             checkColorsMatch();
         }
 
-        
-
         // Impedisci che l'evento si propaghi al document
         event.stopPropagation();
-        
-
     }
 }
 
@@ -144,41 +128,9 @@ export function handleDocumentClick() {
     }
 }
 
-function getJsonData(url) {
-    return fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Errore HTTP: " + response.status);
-            }
-            return response.json();
-        });
-}
-
-
-export async function fillButtons(filename, matrix) {
+export async function loadThinButtonsStartConfig() {
     try {
-        const response = await fetch(filename);
-        const data = await response.json();
-
-        const buttonColors = await getJsonData(filename);
-
-        for (let i = 0; i < matrix.length; i++) {
-            for (let j = 0; j < matrix[i].length; j++) {
-                const button = matrix[i][j];
-                const color = buttonColors.find(bc => bc.coordinates[0] === i && bc.coordinates[1] === j).color;
-                if (button && color) {
-                    matrix[i][j].style.backgroundColor = color;
-                }
-            }
-        }
-    } catch (error) {
-        console.error('Si è verificato un errore:', error);
-    }
-}
-
-export async function loadThinButtonsStartConfig(filename) {
-    try {
-        const response = await fetch(filename);
+        const response = await fetch('config.json');
         const data = await response.json();
 
         thinButtonsMap.forEach((button, id) => {
@@ -348,19 +300,25 @@ export function fillThinButtons(){
     const thinButtons = Array.from(thinButtonsMap.values());
 
     thinButtons.forEach(button => {
+        let i1 = parseInt(button.getAttribute('data-row1'));
+        let j1 = parseInt(button.getAttribute('data-col1'));
+        let i2 = parseInt(button.getAttribute('data-row2'));
+        let j2 = parseInt(button.getAttribute('data-col2'));
+
         //se il bottone non è nero, allora prendi i colori dei bottoni quadrati adiacenti
         if(button.style.backgroundColor !== selectedThinbuttonsColor){
-            let i1 = parseInt(button.getAttribute('data-row1'));
-            let j1 = parseInt(button.getAttribute('data-col1'));
-            let i2 = parseInt(button.getAttribute('data-row2'));
-            let j2 = parseInt(button.getAttribute('data-col2'));
-
+            
             if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
                 button.style.backgroundColor = defaultThinbuttonsColor;
             }else if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
                 button.style.backgroundColor = selectedThinbuttonsColor;
             }else{
                 //alrimenti imposta il colore del bottone sottile con il colore dei bottoni quadrati adiacenti
+                button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
+            }
+        }else{
+            //se i bottoni quadrati adiacenti sono dello stesso colore allora deseleziona il bottone sottile
+            if( matrix[i1][j1].style.backgroundColor !== defaultSquarebuttonsColor && matrix[i1][j1].style.backgroundColor === matrix[i2][j2].style.backgroundColor ){
                 button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
             }
         }
@@ -453,9 +411,9 @@ export async function restoreState(){
 }
 
 export function handleRestartIconClick(){
-    initializeLeftMoves("left-moves.json");
+    initializeLeftMoves();
     resetColor();
-    loadThinButtonsStartConfig("config.json");
+    loadThinButtonsStartConfig();
 }
 
 export function handleUndoIconClick(){
@@ -464,9 +422,9 @@ export function handleUndoIconClick(){
     displayLeftMoves();
 }
 
-export async function initializeLeftMoves(fileName) {
+export async function initializeLeftMoves() {
     try {
-        const response = await fetch(fileName);
+        const response = await fetch("left-moves.json");
         const movesData = await response.json();
         leftMoves = movesData.leftMoves;
         displayLeftMoves();
@@ -480,10 +438,10 @@ function displayLeftMoves() {
     movesLeftDiv.textContent = leftMoves;
 }
 
-export async function initializeFinalConfig(fileName) {
+export async function initializeFinalConfig() {
     try {
         // Ottieni i dati dal file JSON
-        const response = await fetch(fileName);
+        const response = await fetch('finalColorConfig.json');
         const data = await response.json();
 
         // Resetta finalConfigMatrix
