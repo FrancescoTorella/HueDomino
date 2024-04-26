@@ -2,6 +2,7 @@
 import { defaultSquarebuttonsColor, defaultThinbuttonsColor,rows,cols } from './constants.js';
 import{ matrix, thinButtonsMap } from './data.js';
 
+
 //Tiene traccia delle combinazioni di colori
 let colorCombinations = {};
 
@@ -19,6 +20,7 @@ let playMode = false;
 
 // Dichiarazione della variabile selectedColor
 let selectedColor = null;
+
 
 //Funzione per il click del mouse
 export function handleMouseClick(event) {

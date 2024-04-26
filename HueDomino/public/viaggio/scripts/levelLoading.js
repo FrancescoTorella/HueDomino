@@ -12,8 +12,9 @@ document.addEventListener("DOMContentLoaded", async function() {
     const buttonGrid = document.getElementById("buttonGrid");
 
     //aggiungi evento di click al documento per annullare l'effetto di pulsing
-    document.addEventListener("click", f.handleDocumentClick);
+    parent.document.addEventListener("click",f.handleDocumentClick);
     await f.loadColorCombinations();
+    await f.initializeLeftMoves("left-moves.json");
 
     //Crea una griglia di bottoni quadrati e bottoni sottili a seconda del numero di righe e colonne
     for (let i = 0; i < rows; i++) {
@@ -114,11 +115,6 @@ document.addEventListener("DOMContentLoaded", async function() {
         }
     }
 
-    //associa gli eventi ai bottoni di selezione del colore
-    //cerca i div di colore
-    // parent.document.getElementById("firstColor").addEventListener("click", f.handleColorDivClick);
-    // parent.document.getElementById("secondColor").addEventListener("click", f.handleColorDivClick);
-    // parent.document.getElementById("thirdColor").addEventListener("click", f.handleColorDivClick);
 
     let firstColorDiv = parent.document.getElementById('firstColorDiv');
     firstColorDiv.addEventListener("click", f.handleColorDivClick);
@@ -132,12 +128,15 @@ document.addEventListener("DOMContentLoaded", async function() {
     //assegna evento all'eraser
     let eraser = parent.document.getElementById('eraseIcon');
     eraser.addEventListener("click", f.handleEraserIconClick);
+
+    //assegna evento a reload
+    let restart = parent.document.getElementById('restartIcon');
+    restart.addEventListener("click", f.handleRestartIconClick);
+
+    //assegna evento ad undo
+    let undo = parent.document.getElementById('undoIcon');
+    undo.addEventListener("click",f.handleUndoIconClick);
     
-
-
-    // f.fillButtons('startConfiguration.json', matrix).then(() => {
-    //     f.fillThinButtons();
-    // });
 
     f.loadThinButtonsStartConfig("config.json");
     

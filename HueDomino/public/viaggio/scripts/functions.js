@@ -2,6 +2,7 @@
 import { defaultSquarebuttonsColor, defaultThinbuttonsColor,rows,cols } from './constants.js';
 import{ matrix, thinButtonsMap } from './data.js';
 
+
 //Tiene traccia delle combinazioni di colori
 let colorCombinations = {};
 
@@ -24,6 +25,18 @@ let selectedColor = null;
 // Variabile per tenere traccia del bottone che sta pulsando
 let pulsingButton = null;
 
+//variabile per tener traccia delle mosse rimanenti
+let leftMoves = null;
+
+//variabile per debugging
+let debugging = true;
+
+//variabili copia
+let matrixPrev = null;
+let thinButtonsMapPrev = null;
+let leftMovesPrev = null;
+
+
 // Funzione per gestire il click del bottone
 export function handleButtonClick(button) {
    
@@ -36,10 +49,16 @@ export function handleButtonClick(button) {
                 this.classList.add('pulsing');
                 pulsingButton = button;
             } else {
+                if(debugging) console.log("pulsing");
+                
                 // Altrimenti, rimuovi la classe 'pulsing' dal bottone che sta pulsando
                 pulsingButton.classList.remove('pulsing');
                 
-    
+                //esci dalla funzione se il numero di mosse è esaurito
+                if(leftMoves <= 0){
+                    pulsingButton = null;
+                    return;
+                }
                 
     
                 //se il bottone cliccato è vicino al bottone pulsante allora invoca fillArea
@@ -50,6 +69,10 @@ export function handleButtonClick(button) {
                 let jp = Number(pulsingButton.getAttribute('data-col'));
                 pulsingButton = null;
                 if(ic==ip+1 && jc==jp || ic==ip && jc==jp+1 || ic==ip-1 && jc==jp || ic==ip && jc==jp-1){
+
+                    //salva stato prima di effettuare una mossa
+                    saveState();
+                    
 
                     //ottieni bottone sottile corrispondente
                     let thinButton;
@@ -77,13 +100,27 @@ export function handleButtonClick(button) {
                     }else{
                         this.style.backgroundColor = oldColor1;
                     }
+
+                    leftMoves -= 1;
+                    displayLeftMoves();
                 }
             }
         }else{
+
+            //esci dalla funzione se il numero di mosse è esaurito
+            if(leftMoves <= 0){
+                return;
+            }
+
+            //salva stato prima di effettuare una mossa
+            saveState();
+
             let i = button.getAttribute('data-row');
             let j = button.getAttribute('data-col');
             fillArea(i,j,selectedColor);
             fillThinButtons();
+            leftMoves -= 1;
+            displayLeftMoves();
         }
 
         
@@ -99,13 +136,10 @@ export function handleButtonClick(button) {
 
 //annulla l'effetto di pulsing se viene premuta una qualunque altra parte dello schermo
 export function handleDocumentClick() {
-    // Trova tutti i bottoni che hanno la classe 'pulsing'
-    let pulsingButtons = document.querySelectorAll('.pulsing');
-
-    // Rimuovi la classe 'pulsing' da tutti i bottoni
-    pulsingButtons.forEach(function(button) {
-        button.classList.remove('pulsing');
-    });
+    if(pulsingButton != null){
+        pulsingButton.classList.remove('pulsing');
+        pulsingButton = null;
+    }
 }
 
 function getJsonData(url) {
@@ -332,9 +366,115 @@ export function fillThinButtons(){
 }
 
 export function handleColorDivClick() {
+    //se ci sono bottoni che stanno 
     selectedColor = this.style.backgroundColor;
 }
 
 export function handleEraserIconClick() {
     selectedColor = null;
 }
+
+function resetColor(){
+    //resetta il colore attuale
+    selectedColor = null;
+
+    //esegui un ciclo su tutti i bottoni quadrati
+    matrix.forEach(row => {
+        row.forEach(cell => {
+            // Resetta il colore del bottone quadrato
+            cell.style.backgroundColor = defaultSquarebuttonsColor;
+        });
+    });
+}
+
+function saveState(){
+    // Crea un array per salvare lo stato dei bottoni quadrati
+    let squareButtonsState = [];
+
+    // Attraversa la matrice e salva lo stato di ogni bottone quadrato
+    matrix.forEach((row, y) => {
+        row.forEach((cell, x) => {
+            squareButtonsState.push({
+                x: x,
+                y: y,
+                color: cell.style.backgroundColor
+            });
+        });
+    });
+
+    // Salva lo stato dei bottoni quadrati in localStorage
+    localStorage.setItem('matrixPrev', JSON.stringify(squareButtonsState));
+
+    // Crea un array per salvare lo stato dei bottoni sottili
+    let thinButtonsState = [];
+
+    // Attraversa thinButtonsMap e salva lo stato di ogni bottone sottile
+    for (let [id, button] of thinButtonsMap) {
+        thinButtonsState.push({
+            id: id,
+            selected: button.style.backgroundColor === selectedThinbuttonsColor
+        });
+    }
+
+    // Salva lo stato dei bottoni sottili in localStorage
+    localStorage.setItem('thinButtonsMapPrev', JSON.stringify(thinButtonsState));
+
+    // Salva le mosse rimanenti
+    localStorage.setItem('leftMovesPrev', leftMoves.toString());
+}
+
+export async function restoreState(){
+    // Ripristina lo stato dei bottoni sottili
+    const thinButtonsState = localStorage.getItem('thinButtonsMapPrev');
+    if (thinButtonsState) {
+        const thinButtonsStateObj = JSON.parse(thinButtonsState);
+        for (let buttonState of thinButtonsStateObj) {
+            if (buttonState.selected) {
+                thinButtonsMap.get(buttonState.id).style.backgroundColor = selectedThinbuttonsColor;
+            } else {
+                thinButtonsMap.get(buttonState.id).style.backgroundColor = defaultThinbuttonsColor;
+            }
+        }
+    }
+
+    // Ripristina lo stato dei bottoni quadrati
+    const squareButtonsState = localStorage.getItem('matrixPrev');
+    if (squareButtonsState) {
+        const squareButtonsStateObj = JSON.parse(squareButtonsState);
+        squareButtonsStateObj.forEach(buttonState => {
+            matrix[buttonState.y][buttonState.x].style.backgroundColor = buttonState.color;
+        });
+    }
+
+    // Ripristina le mosse rimanenti
+    leftMoves = parseInt(localStorage.getItem('leftMovesPrev'), 10);
+}
+
+export function handleRestartIconClick(){
+    initializeLeftMoves("left-moves.json");
+    resetColor();
+    loadThinButtonsStartConfig("config.json");
+}
+
+export function handleUndoIconClick(){
+    restoreState();
+    fillThinButtons();
+    displayLeftMoves();
+}
+
+export async function initializeLeftMoves(fileName) {
+    try {
+        const response = await fetch(fileName);
+        const movesData = await response.json();
+        leftMoves = movesData.leftMoves;
+        displayLeftMoves();
+    } catch (error) {
+        console.error('Si è verificato un errore:', error);
+    }
+}
+
+function displayLeftMoves() {
+    const movesLeftDiv = parent.document.getElementById('movesLeftLabel');
+    movesLeftDiv.textContent = leftMoves;
+}
+
