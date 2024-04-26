@@ -500,7 +500,7 @@ export async function initializeFinalConfig(fileName) {
             finalConfigMatrix[item.x][item.y] = item.color === "default" ? defaultSquarebuttonsColor : item.color;
         }
 
-        if(debugging) console.log(finalConfigMatrix);
+        
     } catch (error) {
         console.error('Si è verificato un errore:', error);
     }
