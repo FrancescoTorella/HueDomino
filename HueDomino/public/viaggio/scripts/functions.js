@@ -31,10 +31,8 @@ let leftMoves = null;
 //variabile per debugging
 let debugging = true;
 
-//variabili copia
-let matrixPrev = null;
-let thinButtonsMapPrev = null;
-let leftMovesPrev = null;
+//variabile per configurazione finale
+let finalConfigMatrix = null;
 
 
 // Funzione per gestire il click del bottone
@@ -103,6 +101,7 @@ export function handleButtonClick(button) {
 
                     leftMoves -= 1;
                     displayLeftMoves();
+                    checkColorsMatch();
                 }
             }
         }else{
@@ -111,6 +110,8 @@ export function handleButtonClick(button) {
             if(leftMoves <= 0){
                 return;
             }
+
+            
 
             //salva stato prima di effettuare una mossa
             saveState();
@@ -121,6 +122,7 @@ export function handleButtonClick(button) {
             fillThinButtons();
             leftMoves -= 1;
             displayLeftMoves();
+            checkColorsMatch();
         }
 
         
@@ -476,5 +478,71 @@ export async function initializeLeftMoves(fileName) {
 function displayLeftMoves() {
     const movesLeftDiv = parent.document.getElementById('movesLeftLabel');
     movesLeftDiv.textContent = leftMoves;
+}
+
+export async function initializeFinalConfig(fileName) {
+    try {
+        // Ottieni i dati dal file JSON
+        const response = await fetch(fileName);
+        const data = await response.json();
+
+        // Resetta finalConfigMatrix
+        finalConfigMatrix = [];
+
+        // Itera sui dati
+        for (let item of data) {
+            // Se la riga corrispondente all'indice y non esiste ancora, creala
+            if (!finalConfigMatrix[item.x]) {
+                finalConfigMatrix[item.x] = [];
+            }
+
+            // Aggiungi il colore alla posizione corrispondente nella matrice
+            finalConfigMatrix[item.x][item.y] = item.color === "default" ? defaultSquarebuttonsColor : item.color;
+        }
+
+        if(debugging) console.log(finalConfigMatrix);
+    } catch (error) {
+        console.error('Si è verificato un errore:', error);
+    }
+}
+
+function checkColorsMatch() {
+
+    //fai il controllo solo se rimangono un certo numero di mosse 
+    if(leftMoves < 5){
+        // Assicurati che matrix e finalConfigMatrix abbiano la stessa dimensione
+        if (matrix.length !== finalConfigMatrix.length) {
+            return false;
+        }
+
+        // Itera su ciascun elemento della matrice
+        for (let i = 0; i < matrix.length; i++) {
+            if (matrix[i].length !== finalConfigMatrix[i].length) {
+                return false;
+            }
+
+            for (let j = 0; j < matrix[i].length; j++) {
+                // Ottieni il colore dell'elemento in matrix
+                let matrixColor = matrix[i][j].style.backgroundColor;
+
+                // Ottieni il colore corrispondente in finalConfigMatrix
+                let finalConfigColor = finalConfigMatrix[i][j];
+
+                // Se i colori non corrispondono, restituisci false
+                if (matrixColor !== finalConfigColor) {
+                    
+                    return false;
+                }
+            }
+        }
+
+        //stampa su console per ora
+        console.log("Passed!!")
+
+        // Se tutti i colori corrispondono, restituisci true
+        return true;
+
+    }
+    
 }
 

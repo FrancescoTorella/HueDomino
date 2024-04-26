@@ -19,11 +19,11 @@ app.post('/save', (req, res) => {
         path: 'out.csv',
         header: [
             {id: 'thinId', title: 'THINID'},
-            {id: 'color', title: 'COLOR'},
+            {id: 'selected', title: 'SELECTED'},
         ]
     });
     //estrae i dati dalla richiesta e li scrive nel file CSV
-    const records = req.body.map(({thinId, color}) => ({thinId, color}));
+    const records = req.body.map(({thinId, selected}) => ({thinId, selected}));
 
     //manda una conferma di avvenuta scrittura
     csvWriter.writeRecords(records)

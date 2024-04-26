@@ -211,6 +211,9 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Aggiungi un ascoltatore di eventi al pulsante carica
     document.getElementById('loadConfigButton').addEventListener('click', f.loadThinButtonConfig);
+
+    // Aggiungi un event listener al bottone "Salva Configurazione" per salvare la matrice quando il bottone viene cliccato
+    document.getElementById('saveColorConfig').addEventListener('click', f.saveMatrixAsJson);
 });
 
 

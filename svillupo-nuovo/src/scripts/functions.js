@@ -430,3 +430,45 @@ export async function loadColorCombinations() {
         colorCombinations[`${color2}${color1}`] = result;
     });
 }
+
+export function saveMatrixAsJson() {
+    // Crea un nuovo array per memorizzare i dati dei colori
+    let colorData = [];
+
+    // Itera su ciascun elemento della matrice
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            // Ottieni il colore dell'elemento
+            let color = matrix[i][j].style.backgroundColor;
+
+            // Se il colore è uguale a defaultSquareButtonsColor, salvalo come "default"
+            if (color === defaultSquarebuttonsColor) {
+                color = "default";
+            }
+
+            // Aggiungi un oggetto con le coordinate x, y e il colore all'array
+            colorData.push({x: i, y: j, color: color});
+        }
+    }
+
+    // Converti l'array in una stringa JSON
+    let jsonStr = JSON.stringify(colorData);
+
+    // Crea un elemento 'a' temporaneo
+    let element = document.createElement('a');
+
+    // Imposta l'attributo href come un blob di dati della stringa JSON
+    element.setAttribute('href', 'data:text/json;charset=utf-8,' + encodeURIComponent(jsonStr));
+
+    // Imposta l'attributo download per il nome del file che desideri
+    element.setAttribute('download', 'matrix.json');
+
+    // Aggiungi l'elemento al DOM
+    document.body.appendChild(element);
+
+    // Simula un click sull'elemento per avviare il download
+    element.click();
+
+    // Rimuovi l'elemento dal DOM
+    document.body.removeChild(element);
+}
