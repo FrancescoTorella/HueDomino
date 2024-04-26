@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }else if (width > 2500 && width <= 3000) {
             rightBox.style.width = "30vw";
         } else {
-            rightBox.style.width = "25vw";
+            rightBox.style.width = "26vw";
         }
     }
 

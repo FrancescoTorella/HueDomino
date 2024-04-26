@@ -89,7 +89,7 @@
 .right-box-container {
     position: absolute;
     right: 5vw;
-    top: 15vh;
+    top: 8vh;
     width: 35vw; /* Puoi scegliere una percentuale iniziale per la larghezza */
     aspect-ratio: 7/10; /* Imposta il rapporto di aspetto a 7:10 */
     border: none;
@@ -108,7 +108,7 @@
     transition: transform 0.5s ease;
 }
 
-.map-italy {
+.map-country {
     width: 100%;  /* L'immagine coprirà la larghezza del contenitore */
     height: 100%; /* L'altezza si adatterà automaticamente mantenendo le proporzioni dell'immagine */
     display: block; /* Rimuove eventuali spazi extra sotto l'immagine */
