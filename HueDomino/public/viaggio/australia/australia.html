@@ -1,66 +1,65 @@
 <!DOCTYPE html> 
 <html>
-<head>
-    <title>Viaggio - Hue Dominion</title>
-    <link rel="stylesheet" type="text/css" href="../../main.css">
-    <link rel="stylesheet" type="text/css" href="australia.css">
-    <link rel="stylesheet" type="text/css" href="../../styles/bootstrap.css">
-    <meta name="viewport" content="width=device-width" initial-scale="1.0">
-    
-    <script src = "mappa_australia.js"></script>
-    
-</head>
-<body>
-    <header>
-        <div id="main-header" class="main-header">
-            <div class="logo-container">
-                <img src="../../icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
-            </div>
-            <div class="title-container">
-                <h1 class ="title">Hue Domino</h1>
-            </div>
-            <div class="modes-container">
-                <div class="written-modes-container">
-                    <div class="mode-title-container">
-                        <p class="mode-title">Journey</p>
-                    </div>
-                    <div class="mode-title-container">
-                        <p class="mode-title">Daily Challenge</p>
-                    </div>
-                    <div class="mode-title-container">
-                        <p class="mode-title">Duel</p>
-                    </div>
-                    <div class="mode-title-container">
-                        <p class="mode-title">Creator</p>
-                    </div>
+    <head>
+        <title>Viaggio - Hue Dominion</title>
+        <link rel="stylesheet" type="text/css" href="/main.css">
+        <link rel="stylesheet" type="text/css" href="/viaggio/australia/australia.css">
+        <link rel="stylesheet" href="/styles/bootstrap.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <script src="/viaggio/australia/mappa_australia.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="main-header" class="main-header">
+                <div class="logo-container">
+                    <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
                 </div>
-                <div class="icon-menu-container">
-                    <div id="menuIcon" class="menu-icon">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </div>
-                    <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
-                        <div class="text-wrapper">
-                            <a href="../viaggio.html"><p class="mode-title">Journey</p></a>
-                            <a href="../../daily_challenge/sfida_giornaliera.html"><p class="mode-title">Daily Challenge</p></a>
-                            <a href="../../duello/duello.html"><p class="mode-title">Duel</p></a>
-                            <a href="../../creatore/creatore.html"><p class="mode-title">Creator</p></a>
+                <div class="title-container">
+                    <h1 class ="title">Hue Domino</h1>
+                </div>
+                <div class="modes-container">
+                    <div class="written-modes-container">
+                        <div class="mode-title-container">
+                            <p class="mode-title">Journey</p>
+                        </div>
+                        <div class="mode-title-container">
+                            <p class="mode-title">Daily Challenge</p>
+                        </div>
+                        <div class="mode-title-container">
+                            <p class="mode-title">Duel</p>
+                        </div>
+                        <div class="mode-title-container">
+                            <p class="mode-title">Creator</p>
                         </div>
                     </div>
+                    <div class="icon-menu-container">
+                        <div id="menuIcon" class="menu-icon">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </div>
+                        <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
+                            <div class="text-wrapper">
+                                <a href="/journey"><p class="mode-title">Journey</p></a>
+                                <a href="/daily_challenge"><p class="mode-title">Daily Challenge</p></a>
+                                <a href="/duel"><p class="mode-title">Duel</p></a>
+                                <a href="/creator"><p class="mode-title">Creator</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-                
             </div>
-        </div>
-        <div id="dropdownHeaderMenu" class="dropdown-header-menu">
-            <img src="" class="mode-icon">
-        </div> 
-        <script src="scripts.js"></script> 
-    </header>
+            <div id="dropdownHeaderMenu" class="dropdown-header-menu">
+                <img src="" class="mode-icon">
+            </div> 
+            <script src="/viaggio/australia/scripts.js"></script> 
+        </header>
     <div id="pageContentContainer">
         <div id ="left-box" class="left-box-container">
             <div id="1-1" class="grid-item">
-                <img src="images/australia.png">
+                <img src="/viaggio/australia/images/australia.png">
             </div>
             <div id="2-1" class="grid-item">
                 <p class="grid-item">
@@ -70,20 +69,20 @@
         </div>
         <div id="right-box" class="right-box-container">
             <div class="map-container">
-                <img src="images/australiaCarta_0.png" alt="Mappa Australia" class="map-country" >
+                <img src="/viaggio/australia/images/australiaCarta_0.png" alt="Mappa Australia" class="map-country" >
                 
-                <img src="images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 18%; left: 72%;" onclick="openLevel(1);">
-                <img src="images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 37%; left: 80%;" onclick="openLevel(2);">
-                <img src="images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 57%; left: 85%;" onclick="openLevel(3);">
-                <img src="images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 91%; left: 79%;" onclick="openLevel(4);">
-                <img src="images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 65%; left: 66%;" onclick="openLevel(5);">
-                <img src="images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 51%; left: 42%;" onclick="openLevel(6);">
-                <img src="images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 57%; left: 20%;" onclick="openLevel(7);">
-                <img src="images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 37%; left: 15%;" onclick="openLevel(8);">
-                <img src="images/livello.png" alt="Livello 9" class="level-icon" data-level="9" style="top: 27%; left: 40%;" onclick="openLevel(9);">
-                <img src="images/livello.png" alt="Livello 10" class="level-icon" data-level="10"style="top:43%; left: 60%;" onclick="openLevel(10);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 18%; left: 72%;" onclick="openLevel(1);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 37%; left: 80%;" onclick="openLevel(2);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 57%; left: 85%;" onclick="openLevel(3);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 91%; left: 79%;" onclick="openLevel(4);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 65%; left: 66%;" onclick="openLevel(5);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 51%; left: 42%;" onclick="openLevel(6);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 57%; left: 20%;" onclick="openLevel(7);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 37%; left: 15%;" onclick="openLevel(8);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 9" class="level-icon" data-level="9" style="top: 27%; left: 40%;" onclick="openLevel(9);">
+                <img src="/viaggio/australia/images/livello.png" alt="Livello 10" class="level-icon" data-level="10"style="top:43%; left: 60%;" onclick="openLevel(10);">
 
-                <img src="images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                <img src="/viaggio/australia/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
             </div>
         </div>
     </div>

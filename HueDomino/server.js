@@ -8,8 +8,8 @@ const pageRoutes = require('./routes/pageRoutes');
 app.use(express.json());
 app.use(express.static('public'));
 
-app.use(authRoutes);
-app.use(pageRoutes);
+app.use('/', authRoutes);
+app.use('/', pageRoutes);
 
 const port = 3000;
 app.listen(port, () => {

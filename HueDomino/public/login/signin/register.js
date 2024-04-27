@@ -19,7 +19,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
       if (response.status === 201) {
         // Registrazione riuscita
         console.log('Registrazione riuscita');
-        window.location.href = '../../index.html';
+        window.location.href = '/';
         // Qui potresti reindirizzare l'utente alla pagina di login, ad esempio:
         // window.location.href = '/login.html';
       } else {

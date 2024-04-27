@@ -34,16 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 var iconLabel = iconContainer.querySelector('.mode-title').textContent;
                 if (iconLabel === 'Creator') {
                     dropdownImage.src = 'images/IconaCreatore4.png';
-                    dropdownImage.dataset.link = 'creatore/creatore.html';
+                    dropdownImage.dataset.link = '/creator';
                 } else if (iconLabel === 'Duel') {
                     dropdownImage.src = 'images/IconaDuello3.png';
-                    dropdownImage.dataset.link = 'duello/duello.html';
+                    dropdownImage.dataset.link = '/duel';
                 } else if (iconLabel === 'Daily Challenge') {
                     dropdownImage.src = 'images/IconaSfidaGiornaliera2.png';
-                    dropdownImage.dataset.link = 'daily_challenge/sfida_giornaliera.html';
+                    dropdownImage.dataset.link = '/daily_challenge';
                 } else if (iconLabel === 'Journey') {
                     dropdownImage.src = 'images/IconaViaggioGame1.png';
-                    dropdownImage.dataset.link = 'viaggio/viaggio.html';
+                    dropdownImage.dataset.link = '/journey';
                 }
             }
         });
@@ -103,9 +103,9 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    document.getElementById('loginButton').addEventListener('click', function() {
-        window.location.href = 'login/login.html';
-    });
+    // document.getElementById('loginButton').addEventListener('click', function() {
+    //     window.location.href = 'login/login.html';
+    // });
 
     // function isLoggedIn() {
     //     // Controlla se esiste un cookie chiamato 'session'
@@ -123,26 +123,41 @@ document.addEventListener('DOMContentLoaded', function() {
     //   });
 
     window.onload = function() {
-        console.log('I cookie attuali sono: ', document.cookie);
       
-        const userId = document.cookie.split(';').find(item => item.trim().startsWith('userId=')).split('=')[1];
+        
       
         if (document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='))) {
-          console.log('Il cookie loggedIn è stato trovato');
           // rendi visibile l'elemento temporary-div
           const temp = document.getElementById("temporaryDiv");
           temp.style.display = "block"; // o qualsiasi altro valore di display che desideri
-    
-          // invia una richiesta al server per verificare se l'utente può giocare al livello 1
-          fetch(`/checkPlayable?userId=${userId}`)
+
+          const userId = document.cookie.split(';').find(item => item.trim().startsWith('userId=')).split('=')[1];
+
+          if(userId){
+            // Esegui una richiesta GET al tuo server per ottenere i livelli giocabili
+            fetch(`/checkPlayable?userId=${userId}`)
             .then(response => response.json())
             .then(data => {
-              if (data.canPlay) {
-                // rendi il bottone Level 1 cliccabile
-                const level1Button = document.getElementById("level1Button");
-                level1Button.disabled = false;
-              }
+                console.log(data);
+                // `data.playableLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello giocabile
+                data.playableLevels.forEach(level => {
+                    // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
+                    const button = document.getElementById(`level${level.levelnumber}ItalyButton`);
+                    if (button) {
+                        
+                        // Cambia il colore del bottone in giallo
+                        button.style.backgroundColor = 'yellow';
+                        // Rendi il bottone cliccabile rimuovendo l'attributo `disabled`
+                        button.disabled = false;
+                    }
+                });
+            })
+            .catch(error => {
+            console.error('Error:', error);
             });
+          }
+    
+          
         } else {
           console.log('Il cookie loggedIn non è stato trovato');
         }

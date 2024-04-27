@@ -49,8 +49,8 @@ router.post('/register', async (req, res) => {
     try {
         const user = await db.createUser(username, password, email);
         // Registrazione riuscita
-        res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000, httpOnly: true });
-        res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000, httpOnly: true });
+        res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
+        res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
         res.status(201).json({ message: 'Registrazione riuscita' });
         
     } catch (error) {
@@ -70,7 +70,7 @@ router.get('/checkPlayable', async (req, res) => {
   try {
     const playableLevels = await db.checkPlayable(userId);
 
-    console.log(playableLevels);
+    //console.log(playableLevels);
 
     res.json({ playableLevels });
   } catch (err) {
