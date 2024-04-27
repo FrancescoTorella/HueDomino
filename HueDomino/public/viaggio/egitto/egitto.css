@@ -83,7 +83,7 @@
     -ms-background-clip: text; /* Aggiungi questa linea */
     background-clip: text; /* Define the standard property 'background-clip' for compatibility */
     color: transparent; /* Rende il colore del testo trasparente per mostrare lo sfondo */
-    animation: rotate 2s linear infinite;
+    animation: rotate 2s linear;
 }
 
 .right-box-container {
