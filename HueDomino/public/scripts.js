@@ -138,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function() {
             fetch(`/checkPlayable?userId=${userId}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 // `data.playableLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello giocabile
                 data.playableLevels.forEach(level => {
                     // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
