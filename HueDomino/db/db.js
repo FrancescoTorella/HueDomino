@@ -35,8 +35,8 @@ async function createUser(username, password, email) {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
   
     // Store the user in the database
-    const result = await pool.query('INSERT INTO users (username, password, email) VALUES ($1, $2, $3)', [username, hashedPassword, email]); 
-    return result;
+    const result = await pool.query('INSERT INTO users (username, password, email) VALUES ($1, $2, $3) RETURNING id', [username, hashedPassword, email]);
+    return result.rows[0];
 }
 
 // Funzione per ottenere un utente dal database per username

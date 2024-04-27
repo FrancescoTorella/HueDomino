@@ -78,4 +78,9 @@ router.get('/journey/france', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'francia', 'france.html'));
 });
 
+// Rotta per la pagina italia
+router.get('/journey/italy/level1', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'italia', 'level1.html'));
+});
+
 module.exports = router;
