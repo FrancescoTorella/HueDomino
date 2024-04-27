@@ -214,7 +214,20 @@ p{
 
 
 
+@keyframes scaleUp {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    100% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
 .dropdown-header-menu{
+    backface-visibility: hidden;
+    transform: translateZ(0);
     display: none;
     position: fixed;
     width: 100%; 
@@ -224,7 +237,8 @@ p{
     align-items: left;
     justify-content: left;
     margin: 0;
-    z-index: 100;
+    animation: scaleUp 0.5s;
+    padding-top: 0;
 }
 
 .mode-icon{
