@@ -5,39 +5,52 @@ document.addEventListener('DOMContentLoaded', function() {
     var dropdownImage = dropdownMenu.querySelector('.mode-icon');
     var menuIcon = document.getElementById('menuIcon');
     var menuContainer = document.getElementById('writtenModesDropdownContainer');
+    var menu = document.querySelector('.dropdown-header-menu');
+    var menuIsOpen = false;
 
     var hideDropdownMenu = function() {
         /* Verifica se il mouse è ancora sopra #dropdownMenu prima di nasconderlo */
         if (!dropdownMenu.matches(':hover')) {
-            dropdownMenu.style.display = 'none'; /* Nasconde completamente il menu a tendina */
-            pageContainer.style.filter = 'none'; /* Rimuove il filtro di sfocatura */
+            menu.classList.add('closing');
+            menuIsOpen = false;
+            setTimeout(function() {
+                if (!menuIsOpen) {
+                    dropdownMenu.style.display = 'none'; /* Nasconde completamente il menu a tendina */
+                    pageContainer.style.filter = 'none'; /* Rimuove il filtro di sfocatura */
+                }
+            }, 500); // 500ms è la durata della tua animazione
         }
     };
 
     iconContainers.forEach(function(iconContainer) {
         iconContainer.addEventListener('mouseenter', function() {
-            dropdownMenu.style.display = 'block';
-            pageContainer.style.filter = 'blur(5px)'; /* Applica un filtro di sfocatura al contenuto della pagina */
+            if (!menuIsOpen) {
+                dropdownMenu.style.display = 'block'; 
+                pageContainer.style.filter = 'blur(5px)'; /* Applica un filtro di sfocatura al contenuto della pagina */
+                menu.classList.remove('closing');
+                menuIsOpen = true;
 
             /* Cambia l'immagine nel menu a tendina in base all'elemento su cui il mouse è passato sopra */
-            var iconLabel = iconContainer.querySelector('.mode-title').textContent;
-            if (iconLabel === 'Creator') {
-                dropdownImage.src = '../../images/IconaCreatore4.png';
-                dropdownImage.dataset.link = '../../creatore/creatore.html';
-            } else if (iconLabel === 'Duel') {
-                dropdownImage.src = '../../images/IconaDuello3.png';
-                dropdownImage.dataset.link = '../../duello/duello.html';
-            } else if (iconLabel === 'Daily Challenge') {
-                dropdownImage.src = '../../images/IconaSfidaGiornaliera2.png';
-                dropdownImage.dataset.link = '../../daily_challenge/sfida_giornaliera.html';
-            } else if (iconLabel === 'Journey') {
-                dropdownImage.src = '../../images/IconaViaggioGame1.png';
-                dropdownImage.dataset.link = '../../viaggio/viaggio.html';
+                var iconLabel = iconContainer.querySelector('.mode-title').textContent;
+                if (iconLabel === 'Creator') {
+                    dropdownImage.src = '../../images/IconaCreatore4.png';
+                    dropdownImage.dataset.link = '../../creatore/creatore.html';
+                } else if (iconLabel === 'Duel') {
+                    dropdownImage.src = '../../images/IconaDuello3.png';
+                    dropdownImage.dataset.link = '../../duello/duello.html';
+                } else if (iconLabel === 'Daily Challenge') {
+                    dropdownImage.src = '../../images/IconaSfidaGiornaliera2.png';
+                    dropdownImage.dataset.link = '../../daily_challenge/sfida_giornaliera.html';
+                } else if (iconLabel === 'Journey') {
+                    dropdownImage.src = '../../images/IconaViaggioGame1.png';
+                    dropdownImage.dataset.link = '../../viaggio/viaggio.html';
+                }
             }
         });
 
         iconContainer.addEventListener('mouseleave', hideDropdownMenu);
     });
+
 
     /* Nasconde #dropdownMenu quando il mouse esce da esso */
     dropdownMenu.addEventListener('mouseleave', hideDropdownMenu);

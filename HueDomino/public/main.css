@@ -225,6 +225,21 @@ p{
     }
 }
 
+@keyframes scaleDown {
+    0% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+    100% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+}
+
+.dropdown-header-menu.closing {
+    animation: scaleDown 0.5s;
+}
+
 .dropdown-header-menu{
     backface-visibility: hidden;
     transform: translateZ(0);
