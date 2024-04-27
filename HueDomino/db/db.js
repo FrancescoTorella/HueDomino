@@ -51,4 +51,13 @@ async function getUserByEmail(email) {
     return result.rows[0];
 }
 
-module.exports = { createUser, getUserByEmail, getUserByUsername };
+async function checkPlayable(userId) {
+  const result = await pool.query(
+    'SELECT levelNumber, levelNation FROM playable WHERE userID = $1',
+    [userId]
+  );
+
+  return result.rows;
+}
+
+module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable };

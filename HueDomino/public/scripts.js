@@ -113,11 +113,24 @@ document.addEventListener('DOMContentLoaded', function() {
     window.onload = function() {
         console.log('I cookie attuali sono: ', document.cookie);
       
+        const userId = document.cookie.split(';').find(item => item.trim().startsWith('userId=')).split('=')[1];
+      
         if (document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='))) {
           console.log('Il cookie loggedIn è stato trovato');
-          const message = document.createElement('p');
-          message.textContent = 'Login effettuato';
-          document.body.appendChild(message);
+          // rendi visibile l'elemento temporary-div
+          const temp = document.getElementById("temporaryDiv");
+          temp.style.display = "block"; // o qualsiasi altro valore di display che desideri
+    
+          // invia una richiesta al server per verificare se l'utente può giocare al livello 1
+          fetch(`/checkPlayable?userId=${userId}`)
+            .then(response => response.json())
+            .then(data => {
+              if (data.canPlay) {
+                // rendi il bottone Level 1 cliccabile
+                const level1Button = document.getElementById("level1Button");
+                level1Button.disabled = false;
+              }
+            });
         } else {
           console.log('Il cookie loggedIn non è stato trovato');
         }

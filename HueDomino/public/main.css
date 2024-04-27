@@ -293,3 +293,7 @@ p{
     cursor: pointer;
     transition: 0.3s;
 }
+
+.temporary-div{
+    display: none;
+}

@@ -15,7 +15,8 @@ router.post('/authenticate', async (req, res) => {
       const match = await bcrypt.compare(password, user.password);
       if (match) {
         // Login successful
-        res.cookie('loggedIn', 'true', { maxAge: 900000 });
+        res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
+        res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
         res.status(200).json({ message: 'Login successful' });
         
       } else {
@@ -48,7 +49,8 @@ router.post('/register', async (req, res) => {
     try {
         const user = await db.createUser(username, password, email);
         // Registrazione riuscita
-        res.cookie('loggedIn', 'true', { maxAge: 900000 });
+        res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000, httpOnly: true });
+        res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000, httpOnly: true });
         res.status(201).json({ message: 'Registrazione riuscita' });
         
     } catch (error) {
@@ -59,6 +61,22 @@ router.post('/register', async (req, res) => {
             res.status(500).json({ message: 'Errore durante la registrazione' });
         }
     }
+});
+
+
+router.get('/checkPlayable', async (req, res) => {
+  const userId = req.query.userId;
+
+  try {
+    const playableLevels = await db.checkPlayable(userId);
+
+    console.log(playableLevels);
+
+    res.json({ playableLevels });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Si è verificato un errore durante la verifica del livello giocabile' });
+  }
 });
 
 module.exports = router;
