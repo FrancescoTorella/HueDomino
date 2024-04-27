@@ -111,7 +111,6 @@ document.addEventListener('DOMContentLoaded', function() {
     //   });
 
     window.onload = function() {
-        console.log('La pagina è stata caricata');
         console.log('I cookie attuali sono: ', document.cookie);
       
         if (document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='))) {

@@ -30,17 +30,21 @@ document.getElementById('registerForm').addEventListener('submit', function(even
     .catch(function (error) {
       if (error.response.status === 400) {
         // Show an error message based on the error message from the server
-        if (error.response.data === 'Invalid email format') {
+        if (error.response.data.message === 'Invalid email format') {
           document.getElementById('emailError').textContent = 'Invalid email format';
-        } else if (error.response.data === 'Password must be at least 8 characters') {
+        } else if (error.response.data.message === 'Password must be at least 8 characters') {
           document.getElementById('passwordError').textContent = 'Password must be at least 8 characters';
+        } else {
+          console.log(error.response.data.message);
         }
       } else if (error.response.status === 409) {
         // Show an error message based on the error message from the server
-        if (error.response.data === 'Username already in use') {
+        if (error.response.data.message === 'Username already in use') {
           document.getElementById('usernameError').textContent = 'Username already in use';
-        } else if (error.response.data === 'Email already in use') {
+        } else if (error.response.data.message === 'Email already in use') {
           document.getElementById('emailError').textContent = 'Email already in use';
+        } else {
+          console.log(error.response.data.message);
         }
       } else {
         console.error("Other error");
