@@ -5,7 +5,7 @@
 -- Dumped from database version 16.2
 -- Dumped by pg_dump version 16.2
 
--- Started on 2024-04-27 20:31:17 CEST
+-- Started on 2024-04-28 09:36:40 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -27,8 +27,7 @@ CREATE FUNCTION public.add_to_playable() RETURNS trigger
     LANGUAGE plpgsql
     AS $$
 BEGIN
-  INSERT INTO playable (userid, levelnumber, levelnation)
-  VALUES (NEW.id, 1, 'italy');
+  INSERT INTO playable (userid, levelnumber, levelNation) VALUES (NEW.userid, NEW.levelnumber + 1, NEW.levelNation);
   RETURN NEW;
 END;
 $$;
@@ -113,7 +112,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3626 (class 0 OID 0)
+-- TOC entry 3627 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -130,7 +129,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 3618 (class 0 OID 16687)
+-- TOC entry 3619 (class 0 OID 16687)
 -- Dependencies: 217
 -- Data for Name: level; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -142,17 +141,18 @@ COPY public.level (num, nation) FROM stdin;
 
 
 --
--- TOC entry 3620 (class 0 OID 16724)
+-- TOC entry 3621 (class 0 OID 16724)
 -- Dependencies: 219
 -- Data for Name: passed; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.passed (userid, levelnumber, levelnation) FROM stdin;
+7	1	italy
 \.
 
 
 --
--- TOC entry 3619 (class 0 OID 16703)
+-- TOC entry 3620 (class 0 OID 16703)
 -- Dependencies: 218
 -- Data for Name: playable; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -168,11 +168,12 @@ COPY public.playable (userid, levelnumber, levelnation) FROM stdin;
 21	1	italy
 22	1	italy
 23	1	italy
+7	2	italy
 \.
 
 
 --
--- TOC entry 3617 (class 0 OID 16674)
+-- TOC entry 3618 (class 0 OID 16674)
 -- Dependencies: 216
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -192,7 +193,7 @@ COPY public.users (id, username, password, email) FROM stdin;
 
 
 --
--- TOC entry 3627 (class 0 OID 0)
+-- TOC entry 3628 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -254,6 +255,14 @@ CREATE TRIGGER add_to_playable AFTER INSERT ON public.users FOR EACH ROW EXECUTE
 
 
 --
+-- TOC entry 3473 (class 2620 OID 16746)
+-- Name: passed add_to_playable_trigger; Type: TRIGGER; Schema: public; Owner: postgres
+--
+
+CREATE TRIGGER add_to_playable_trigger AFTER INSERT ON public.passed FOR EACH ROW EXECUTE FUNCTION public.add_to_playable();
+
+
+--
 -- TOC entry 3469 (class 2606 OID 16732)
 -- Name: passed passed_levelnumber_levelnation_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
@@ -298,7 +307,7 @@ ALTER TABLE ONLY public.playable
     ADD CONSTRAINT playable_userid_fkey FOREIGN KEY (userid) REFERENCES public.users(id);
 
 
--- Completed on 2024-04-27 20:31:17 CEST
+-- Completed on 2024-04-28 09:36:40 CEST
 
 --
 -- PostgreSQL database dump complete

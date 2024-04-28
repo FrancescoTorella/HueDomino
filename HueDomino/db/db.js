@@ -60,4 +60,9 @@ async function checkPlayable(userId) {
   return result.rows;
 }
 
-module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable };
+async function insertPassedLevel(userId, levelNumber, levelNation) {
+  const result = await pool.query('INSERT INTO passed (userid, levelnumber, levelNation) VALUES ($1, $2, $3) RETURNING *', [userId, levelNumber, levelNation]);
+  return result.rows[0];
+}
+
+module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, insertPassedLevel };

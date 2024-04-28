@@ -497,10 +497,37 @@ function checkColorsMatch() {
         //stampa su console per ora
         console.log("Passed!!")
 
+        //effettua la richiesta al server per registrare sul db che l'utente ha completato il livello
+        handleLevelCompletion();
+
         // Se tutti i colori corrispondono, restituisci true
         return true;
 
     }
     
+}
+
+function handleLevelCompletion(){
+    let userId = 7; // sostituisci con l'ID dell'utente
+    let levelNumber = 1; // sostituisci con il numero del livello
+    let levelNation = "italy"; // sostituisci con la nazione a cui appartiene il livello
+
+    fetch('/api/passed', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            userId: userId,
+            levelNumber: levelNumber,
+            levelNation: levelNation,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+
 }
 

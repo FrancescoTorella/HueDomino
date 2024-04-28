@@ -79,4 +79,16 @@ router.get('/checkPlayable', async (req, res) => {
   }
 });
 
+router.post('/api/passed', async (req, res) => {
+  const { userId, levelNumber, levelNation } = req.body;
+
+  try {
+    const result = await db.insertPassedLevel(userId, levelNumber, levelNation);
+    res.json(result);
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 module.exports = router;
