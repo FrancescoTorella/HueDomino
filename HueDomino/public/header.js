@@ -34,16 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 var iconLabel = iconContainer.querySelector('.mode-title').textContent;
                 if (iconLabel === 'Creator') {
                     dropdownImage.src = '/images/IconaCreatore4.png';
-                    dropdownImage.dataset.link = '/creatore/creatore.html';
+                    dropdownImage.dataset.link = '/creator';
                 } else if (iconLabel === 'Duel') {
                     dropdownImage.src = '/images/IconaDuello3.png';
-                    dropdownImage.dataset.link = '/duello/duello.html';
+                    dropdownImage.dataset.link = '/duel';
                 } else if (iconLabel === 'Daily Challenge') {
                     dropdownImage.src = '/images/IconaSfidaGiornaliera2.png';
-                    dropdownImage.dataset.link = '/daily_challenge/sfida_giornaliera.html';
+                    dropdownImage.dataset.link = '/daily_challenge';
                 } else if (iconLabel === 'Journey') {
                     dropdownImage.src = '/images/IconaViaggioGame1.png';
-                    dropdownImage.dataset.link = '/viaggio/viaggio.html';
+                    dropdownImage.dataset.link = '/journey';
                 }
             }
         });

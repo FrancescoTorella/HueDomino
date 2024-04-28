@@ -14,7 +14,7 @@
                 <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
             </div>
             <div class="title-container">
-                <h1 class ="title">Hue Domino</h1>
+                <h1 class="title">Hue Domino</h1>
             </div>
             <div class="modes-container">
                 <div class="written-modes-container">
@@ -30,6 +30,9 @@
                     <div class="mode-title-container">
                         <p class="mode-title">Creator</p>
                     </div>
+                    <div class="mode-title-container">
+                        <button id="loginButton" class="login-button" onclick="window.location.href='/login/login.html'">Login</button>
+                    </div>
                 </div>
                 <div class="icon-menu-container">
                     <div id="menuIcon" class="menu-icon">
@@ -39,10 +42,11 @@
                     </div>
                     <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
                         <div class="text-wrapper">
-                            <a href="/viaggio/viaggio.html"><p class="mode-title">Journey</p></a>
-                            <a href="/daily_challenge/sfida_giornaliera.html"><p class="mode-title">Daily Challenge</p></a>
-                            <a href="/duello/duello.html"><p class="mode-title">Duel</p></a>
-                            <a href="/creatore/creatore.html"><p class="mode-title">Creator</p></a>
+                            <a href="/login"><p class="mode-title">Login</p></a>
+                            <a href="/journey"><p class="mode-title">Journey</p></a>
+                            <a href="/daily_challenge"><p class="mode-title">Daily Challenge</p></a>
+                            <a href="/duel"><p class="mode-title">Duel</p></a>
+                            <a href="/creator"><p class="mode-title">Creator</p></a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +56,7 @@
         <div id="dropdownHeaderMenu" class="dropdown-header-menu">
             <img src="" class="mode-icon">
         </div> 
-        <script src="/header.js"></script> 
+        <script src="/header.js"></script>
     </header>
 
     <main id="pageContentContainer" class="page-content-container">
@@ -60,7 +64,7 @@
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/italia/italy.html">
+                        <a href="/journey/italy">
                             <img src="/viaggio/images/italy.png" class="card-img-top" alt="Italy">
                         </a>
                         
@@ -71,7 +75,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/usa/usa.html">
+                        <a href="/journey/usa">
                             <img src="/viaggio/images/usa.png" class="card-img-top" alt="Usa">
                         </a>
                         <div class="card-body">
@@ -81,7 +85,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/giappone/japan.html">
+                        <a href="/journey/japan">
                             <img src="/viaggio/images/japan.png" class="card-img-top" alt="Japan">
                         </a>
                         <div class="card-body">
@@ -91,7 +95,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/islanda/iceland.html">
+                        <a href="/journey/iceland">
                             <img src="/viaggio/images/iceland.png" class="card-img-top" alt="Iceland">
                         </a>
                         <div class="card-body">
@@ -101,7 +105,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/australia/australia.html">
+                        <a href="/journey/australia">
                             <img src="/viaggio/images/australia.png" class="card-img-top" alt="Australia">
                         </a>
                         <div class="card-body">
@@ -111,7 +115,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/francia/france.html">
+                        <a href="/journey/france">
                             <img src="/viaggio/images/france.png" class="card-img-top" alt="France">
                         </a>
                         <div class="card-body">
@@ -121,7 +125,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/argentina/argentina.html">
+                        <a href="/journey/argentina">
                             <img src="/viaggio/images/argentina.png" class="card-img-top" alt="Argentina">
                         </a>
                         <div class="card-body">
@@ -131,7 +135,7 @@
                 </div>
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 p-3">
                     <div class="card m-3">
-                        <a href="/viaggio/canada/canada.html">
+                        <a href="/journey/canada">
                             <img src="/viaggio/images/canada.png" class="card-img-top" alt="Canada">
                         </a>
                         <div class="card-body">
