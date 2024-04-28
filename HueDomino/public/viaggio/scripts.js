@@ -33,17 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
             /* Cambia l'immagine nel menu a tendina in base all'elemento su cui il mouse è passato sopra */
                 var iconLabel = iconContainer.querySelector('.mode-title').textContent;
                 if (iconLabel === 'Creator') {
-                    dropdownImage.src = '../images/IconaCreatore4.png';
-                    dropdownImage.dataset.link = '../creatore/creatore.html';
+                    dropdownImage.src = '/images/IconaCreatore4.png';
+                    dropdownImage.dataset.link = '/creatore/creatore.html';
                 } else if (iconLabel === 'Duel') {
-                    dropdownImage.src = '../images/IconaDuello3.png';
-                    dropdownImage.dataset.link = '../duello/duello.html';
+                    dropdownImage.src = '/images/IconaDuello3.png';
+                    dropdownImage.dataset.link = '/duello/duello.html';
                 } else if (iconLabel === 'Daily Challenge') {
-                    dropdownImage.src = '../images/IconaSfidaGiornaliera2.png';
-                    dropdownImage.dataset.link = '../daily_challenge/sfida_giornaliera.html';
+                    dropdownImage.src = '/images/IconaSfidaGiornaliera2.png';
+                    dropdownImage.dataset.link = '/daily_challenge/sfida_giornaliera.html';
                 } else if (iconLabel === 'Journey') {
-                    dropdownImage.src = '../images/IconaViaggioGame1.png';
-                    dropdownImage.dataset.link = '../viaggio/viaggio.html';
+                    dropdownImage.src = '/images/IconaViaggioGame1.png';
+                    dropdownImage.dataset.link = '/viaggio/viaggio.html';
                 }
             }
         });
