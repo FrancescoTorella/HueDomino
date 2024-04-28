@@ -17,6 +17,7 @@ router.post('/authenticate', async (req, res) => {
         // Login successful
         res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
         res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
+        const sessionId = await db.createSession(user.id);
         res.status(200).json({ message: 'Login successful' });
         
       } else {
@@ -49,8 +50,11 @@ router.post('/register', async (req, res) => {
     try {
         const user = await db.createUser(username, password, email);
         // Registrazione riuscita
+        // res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
+        // res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
         res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
         res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
+        const sessionId = await db.createSession(user.id);
         res.status(201).json({ message: 'Registrazione riuscita' });
         
     } catch (error) {

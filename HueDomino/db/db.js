@@ -2,6 +2,7 @@ const { Pool } = require('pg');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const { validateEmail, validatePassword } = require('../utils/utils.js');
+const { v4: uuidv4 } = require('uuid');
 
 
 // Crea un nuovo pool di connessioni PostgreSQL
@@ -79,4 +80,20 @@ async function insertPassedLevel(userId, levelNumber, levelNation) {
   }
 }
 
-module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, checkPassed,insertPassedLevel };
+async function createSession(userId) {
+  // Genera un ID di sessione univoco
+  const sessionId = uuidv4();
+
+  // Calcola la data di scadenza della sessione
+  const expiresAt = new Date();
+  expiresAt.setHours(expiresAt.getHours() + 1); // La sessione scade dopo 1 ora
+
+  // Inserisci la nuova sessione nel database
+  const query = 'INSERT INTO sessions (session_id, user_id, expires_at) VALUES ($1, $2, $3)';
+  await pool.query(query, [sessionId, userId, expiresAt]);
+
+  // Restituisci l'ID della sessione
+  return sessionId;
+}
+
+module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, checkPassed,insertPassedLevel, createSession };

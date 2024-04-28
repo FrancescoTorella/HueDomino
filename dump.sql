@@ -5,7 +5,7 @@
 -- Dumped from database version 16.2
 -- Dumped by pg_dump version 16.2
 
--- Started on 2024-04-28 09:36:40 CEST
+-- Started on 2024-04-28 18:03:31 CEST
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 220 (class 1255 OID 16744)
+-- TOC entry 221 (class 1255 OID 16744)
 -- Name: add_to_playable(); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -41,16 +41,16 @@ SET default_table_access_method = heap;
 
 --
 -- TOC entry 217 (class 1259 OID 16687)
--- Name: level; Type: TABLE; Schema: public; Owner: postgres
+-- Name: levels; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.level (
+CREATE TABLE public.levels (
     num integer NOT NULL,
     nation character varying(255) NOT NULL
 );
 
 
-ALTER TABLE public.level OWNER TO postgres;
+ALTER TABLE public.levels OWNER TO postgres;
 
 --
 -- TOC entry 219 (class 1259 OID 16724)
@@ -58,9 +58,9 @@ ALTER TABLE public.level OWNER TO postgres;
 --
 
 CREATE TABLE public.passed (
-    userid integer,
-    levelnumber integer,
-    levelnation character varying(255)
+    userid integer NOT NULL,
+    levelnumber integer NOT NULL,
+    levelnation character varying(255) NOT NULL
 );
 
 
@@ -72,13 +72,28 @@ ALTER TABLE public.passed OWNER TO postgres;
 --
 
 CREATE TABLE public.playable (
-    userid integer,
-    levelnumber integer,
-    levelnation character varying(255)
+    userid integer NOT NULL,
+    levelnumber integer NOT NULL,
+    levelnation character varying(255) NOT NULL
 );
 
 
 ALTER TABLE public.playable OWNER TO postgres;
+
+--
+-- TOC entry 220 (class 1259 OID 16755)
+-- Name: sessions; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.sessions (
+    session_id character varying(255) NOT NULL,
+    user_id integer NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    expires_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.sessions OWNER TO postgres;
 
 --
 -- TOC entry 216 (class 1259 OID 16674)
@@ -89,7 +104,7 @@ CREATE TABLE public.users (
     id integer NOT NULL,
     username character varying(255) NOT NULL,
     password character varying(255) NOT NULL,
-    email character varying(255)
+    email character varying(255) NOT NULL
 );
 
 
@@ -112,7 +127,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3627 (class 0 OID 0)
+-- TOC entry 3638 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -121,7 +136,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 3456 (class 2604 OID 16677)
+-- TOC entry 3460 (class 2604 OID 16677)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -129,30 +144,42 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 3619 (class 0 OID 16687)
+-- TOC entry 3629 (class 0 OID 16687)
 -- Dependencies: 217
--- Data for Name: level; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: levels; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.level (num, nation) FROM stdin;
+COPY public.levels (num, nation) FROM stdin;
 1	italy
 2	italy
+3	italy
+4	italy
+5	italy
+6	italy
+7	italy
+8	italy
 \.
 
 
 --
--- TOC entry 3621 (class 0 OID 16724)
+-- TOC entry 3631 (class 0 OID 16724)
 -- Dependencies: 219
 -- Data for Name: passed; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 COPY public.passed (userid, levelnumber, levelnation) FROM stdin;
 7	1	italy
+7	2	italy
+7	3	italy
+7	4	italy
+7	5	italy
+7	6	italy
+7	7	italy
 \.
 
 
 --
--- TOC entry 3620 (class 0 OID 16703)
+-- TOC entry 3630 (class 0 OID 16703)
 -- Dependencies: 218
 -- Data for Name: playable; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -169,11 +196,28 @@ COPY public.playable (userid, levelnumber, levelnation) FROM stdin;
 22	1	italy
 23	1	italy
 7	2	italy
+7	3	italy
+7	4	italy
+7	5	italy
+7	6	italy
+7	7	italy
+7	8	italy
 \.
 
 
 --
--- TOC entry 3618 (class 0 OID 16674)
+-- TOC entry 3632 (class 0 OID 16755)
+-- Dependencies: 220
+-- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.sessions (session_id, user_id, created_at, expires_at) FROM stdin;
+f0204f9c-9a12-4409-bf8a-2266432cf663	7	2024-04-28 17:52:12.69278	2024-04-28 18:52:12.692
+\.
+
+
+--
+-- TOC entry 3628 (class 0 OID 16674)
 -- Dependencies: 216
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -193,7 +237,7 @@ COPY public.users (id, username, password, email) FROM stdin;
 
 
 --
--- TOC entry 3628 (class 0 OID 0)
+-- TOC entry 3639 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -202,16 +246,25 @@ SELECT pg_catalog.setval('public.users_id_seq', 23, true);
 
 
 --
--- TOC entry 3464 (class 2606 OID 16691)
--- Name: level level_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- TOC entry 3469 (class 2606 OID 16691)
+-- Name: levels level_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.level
+ALTER TABLE ONLY public.levels
     ADD CONSTRAINT level_pkey PRIMARY KEY (num, nation);
 
 
 --
--- TOC entry 3466 (class 2606 OID 16738)
+-- TOC entry 3473 (class 2606 OID 16748)
+-- Name: passed passed_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.passed
+    ADD CONSTRAINT passed_unique UNIQUE (userid, levelnumber, levelnation);
+
+
+--
+-- TOC entry 3471 (class 2606 OID 16738)
 -- Name: playable playable_unique; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -220,7 +273,16 @@ ALTER TABLE ONLY public.playable
 
 
 --
--- TOC entry 3458 (class 2606 OID 16686)
+-- TOC entry 3475 (class 2606 OID 16760)
+-- Name: sessions sessions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_pkey PRIMARY KEY (session_id);
+
+
+--
+-- TOC entry 3463 (class 2606 OID 16686)
 -- Name: users unique_email; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -229,7 +291,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 3460 (class 2606 OID 16681)
+-- TOC entry 3465 (class 2606 OID 16681)
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -238,7 +300,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 3462 (class 2606 OID 16683)
+-- TOC entry 3467 (class 2606 OID 16683)
 -- Name: users users_username_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -247,7 +309,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 3472 (class 2620 OID 16745)
+-- TOC entry 3482 (class 2620 OID 16745)
 -- Name: users add_to_playable; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -255,7 +317,7 @@ CREATE TRIGGER add_to_playable AFTER INSERT ON public.users FOR EACH ROW EXECUTE
 
 
 --
--- TOC entry 3473 (class 2620 OID 16746)
+-- TOC entry 3483 (class 2620 OID 16746)
 -- Name: passed add_to_playable_trigger; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
@@ -263,16 +325,16 @@ CREATE TRIGGER add_to_playable_trigger AFTER INSERT ON public.passed FOR EACH RO
 
 
 --
--- TOC entry 3469 (class 2606 OID 16732)
+-- TOC entry 3478 (class 2606 OID 16732)
 -- Name: passed passed_levelnumber_levelnation_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.passed
-    ADD CONSTRAINT passed_levelnumber_levelnation_fkey FOREIGN KEY (levelnumber, levelnation) REFERENCES public.level(num, nation);
+    ADD CONSTRAINT passed_levelnumber_levelnation_fkey FOREIGN KEY (levelnumber, levelnation) REFERENCES public.levels(num, nation);
 
 
 --
--- TOC entry 3470 (class 2606 OID 16739)
+-- TOC entry 3479 (class 2606 OID 16739)
 -- Name: passed passed_playable_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -281,7 +343,7 @@ ALTER TABLE ONLY public.passed
 
 
 --
--- TOC entry 3471 (class 2606 OID 16727)
+-- TOC entry 3480 (class 2606 OID 16727)
 -- Name: passed passed_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -290,16 +352,16 @@ ALTER TABLE ONLY public.passed
 
 
 --
--- TOC entry 3467 (class 2606 OID 16711)
+-- TOC entry 3476 (class 2606 OID 16711)
 -- Name: playable playable_levelnumber_levelnation_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.playable
-    ADD CONSTRAINT playable_levelnumber_levelnation_fkey FOREIGN KEY (levelnumber, levelnation) REFERENCES public.level(num, nation);
+    ADD CONSTRAINT playable_levelnumber_levelnation_fkey FOREIGN KEY (levelnumber, levelnation) REFERENCES public.levels(num, nation);
 
 
 --
--- TOC entry 3468 (class 2606 OID 16706)
+-- TOC entry 3477 (class 2606 OID 16706)
 -- Name: playable playable_userid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -307,7 +369,16 @@ ALTER TABLE ONLY public.playable
     ADD CONSTRAINT playable_userid_fkey FOREIGN KEY (userid) REFERENCES public.users(id);
 
 
--- Completed on 2024-04-28 09:36:40 CEST
+--
+-- TOC entry 3481 (class 2606 OID 16761)
+-- Name: sessions sessions_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.sessions
+    ADD CONSTRAINT sessions_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id);
+
+
+-- Completed on 2024-04-28 18:03:31 CEST
 
 --
 -- PostgreSQL database dump complete
