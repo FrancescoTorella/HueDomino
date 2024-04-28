@@ -60,9 +60,23 @@ async function checkPlayable(userId) {
   return result.rows;
 }
 
-async function insertPassedLevel(userId, levelNumber, levelNation) {
-  const result = await pool.query('INSERT INTO passed (userid, levelnumber, levelNation) VALUES ($1, $2, $3) RETURNING *', [userId, levelNumber, levelNation]);
-  return result.rows[0];
+async function checkPassed(userId) {
+  const result = await pool.query(
+    'SELECT levelNumber, levelNation FROM passed WHERE userID = $1',
+    [userId]
+  );
+
+  return result.rows;
 }
 
-module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, insertPassedLevel };
+async function insertPassedLevel(userId, levelNumber, levelNation) {
+  const result = await pool.query('INSERT INTO passed (userid, levelnumber, levelNation) VALUES ($1, $2, $3) ON CONFLICT (userid, levelnumber, levelNation) DO NOTHING RETURNING *', [userId, levelNumber, levelNation]);
+  // Se l'entry esiste già, restituisci un oggetto vuoto
+  if (result.rows.length === 0) {
+    return {};
+  } else {
+    return result.rows[0];
+  }
+}
+
+module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, checkPassed,insertPassedLevel };

@@ -78,9 +78,12 @@ router.get('/journey/france', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'francia', 'france.html'));
 });
 
-// Rotta per la pagina italia
-router.get('/journey/italy/level1', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'italia', 'level1.html'));
+// Rotta per un livello
+router.get('/journey/:levelNation/:levelNumber', (req, res) => {
+    const { levelNation, levelNumber } = req.params;
+    res.cookie('levelNation', levelNation ,{ maxAge: 60 * 60 * 1000});
+    res.cookie('levelNumber', levelNumber ,{ maxAge: 60 * 60 * 1000});
+    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'level', 'level.html'));
 });
 
 module.exports = router;

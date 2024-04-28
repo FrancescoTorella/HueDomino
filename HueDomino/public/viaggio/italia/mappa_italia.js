@@ -136,7 +136,7 @@ function createColorRain() {
                         if(livello < 10)
                             transitionToNextLevel(); // Chiama transitionToNextLevel solo dopo che tutte le gocce sono state gestite
                         aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20); // Riavvia il movimento dell'aeroplanino
-                        updateMapImage();
+                        // updateMapImage();
                     }
                 }, 2000); // Dopo 2 secondi, termina l'animazione e rimuove le gocce
             }, 100);
@@ -152,3 +152,88 @@ function updateMapImage() {
 }
 
 //per vedere le funzioni sul sito andare su console in pagina italia, e scrivere nomeFunzione() "poi invio"
+
+
+//quando carichi la pagina esegui richiesta al server per caricare livelli disponibili
+window.onload = function() {
+    if (document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='))) {
+        // rendi visibile l'elemento temporary-div
+
+        const userId = document.cookie.split(';').find(item => item.trim().startsWith('userId=')).split('=')[1];
+
+        if(userId){
+
+           
+            fetch(`/checkPlayable?userId=${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                // `data.playableLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello giocabile
+                    data.playableLevels.forEach((level,index) => {
+                        // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
+                        const button = document.getElementById(`level${level.levelnumber}ItalyButton`);
+                        if (button) {
+                            
+                            // Cambia il colore del bottone in giallo
+                            button.style.backgroundColor = 'yellow';
+                            // Rendi il bottone cliccabile rimuovendo l'attributo `disabled`
+                            //button.disabled = false;
+
+                            // Controlla se questo è l'ultimo elemento
+                            if (index === data.playableLevels.length - 1) {
+                                // Qui puoi fare quello che vuoi con l'ultimo elemento
+                                livello = index;
+                                console.log('Questo è l\'ultimo livello', livello);
+
+                                const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+
+                               
+                                // Se il cookie esiste, estrai il suo valore
+                                if (justPassedCookie) {
+                                    const justPassed = justPassedCookie.split('=')[1];
+                                    console.log('Il valore del cookie justPassed è:', justPassed);
+
+                                    if( justPassed == livello){
+                                        setTimeout(() => {createColorRain(); }, 3000);
+                                    }
+                                    // Qui puoi fare quello che vuoi con il valore del cookie
+                                }else{
+                                    console.log("cookie just passed non trovato")
+                                    livello = index + 1;
+                                }
+                            }
+                        }
+                    });
+            })
+            .catch(error => {
+            console.error('Error:', error);
+            });
+
+            // Esegui una richiesta GET al tuo server per ottenere i livelli passati
+            fetch(`/checkPassed?userId=${userId}`)
+            .then(response => response.json())
+            .then(data => {
+                // `data.passedLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello passato
+                data.passedLevels.forEach(level => {
+                    // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
+                    const button = document.getElementById(`level${level.levelnumber}ItalyButton`);
+                    if (button) {
+                        
+                        // Cambia il colore del bottone in rosso
+                        button.style.border = '3px solid red';
+                    }
+                });
+            })
+            .catch(error => {
+            console.error('Error:', error);
+            });
+
+        }
+
+        
+  
+        
+      } else {
+        console.log('Il cookie loggedIn non è stato trovato');
+      }
+
+}

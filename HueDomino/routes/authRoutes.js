@@ -79,6 +79,21 @@ router.get('/checkPlayable', async (req, res) => {
   }
 });
 
+router.get('/checkPassed', async (req, res) => {
+  const userId = req.query.userId;
+
+  try {
+    const passedLevels = await db.checkPassed(userId);
+
+    //console.log(playableLevels);
+
+    res.json({ passedLevels });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Si è verificato un errore durante la verifica del livello passato' });
+  }
+});
+
 router.post('/api/passed', async (req, res) => {
   const { userId, levelNumber, levelNation } = req.body;
 

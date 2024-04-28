@@ -24,6 +24,24 @@ let debugging = true;
 //variabile per configurazione finale
 let finalConfigMatrix = null;
 
+//estrai le infromazioni dai cookie
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+
+let userId = parseInt(getCookie('userId'));
+let levelNation = getCookie('levelNation');
+let levelNumber = parseInt(getCookie('levelNumber'));
+
+if(debugging){
+    console.log(userId);
+    console.log(levelNation);
+    console.log(levelNumber);
+}
 
 // Funzione per gestire il click del bottone
 export function handleButtonClick(button) {
@@ -508,9 +526,6 @@ function checkColorsMatch() {
 }
 
 function handleLevelCompletion(){
-    let userId = 7; // sostituisci con l'ID dell'utente
-    let levelNumber = 1; // sostituisci con il numero del livello
-    let levelNation = "italy"; // sostituisci con la nazione a cui appartiene il livello
 
     fetch('/api/passed', {
         method: 'POST',
@@ -524,10 +539,24 @@ function handleLevelCompletion(){
         }),
     })
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        console.log(data);
+
+        // Imposta il cookie
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 1000)); // 10 secondi
+        var expires = "; expires=" + date.toUTCString();
+        document.cookie = `justPassed=${levelNumber}` + expires + "; path=/";
+
+        // Reindirizza l'utente alla pagina dei livelli
+        window.top.location.href = `/journey/${levelNation}`;
+    })
     .catch((error) => {
         console.error('Error:', error);
     });
-
 }
+
+
+
+
 
