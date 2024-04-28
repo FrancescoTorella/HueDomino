@@ -37,7 +37,7 @@
     display: block;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
     #left-box {
         display: none; /* Nasconde il contenitore sinistro */
     }
@@ -89,9 +89,9 @@
 .right-box-container {
     position: absolute;
     right: 5vw;
-    top: 20vh;
-    width: 35vw;
-    aspect-ratio: 10/7; /* Imposta il rapporto di aspetto a 10:7 */
+    top: 15vh;
+    width: 35vw; /* Puoi scegliere una percentuale iniziale per la larghezza */
+    aspect-ratio: 10/10; /* Imposta il rapporto di aspetto a 7:10 */
     border: none;
     padding: 0;
     overflow: hidden;

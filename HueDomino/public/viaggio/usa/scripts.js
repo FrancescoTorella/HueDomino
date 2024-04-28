@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (width <= 500) {
             rightBox.style.top = "25vh"
             rightBox.style.width = "95vw"
-            rightBox.style.aspectRatio = "10/7.5";
         } else if (width > 500 && width <= 800) {
             rightBox.style.width = "90vw"; 
         } else if (width >= 800 && width <= 900) {
