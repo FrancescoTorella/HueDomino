@@ -155,85 +155,96 @@ function updateMapImage() {
 
 
 //quando carichi la pagina esegui richiesta al server per caricare livelli disponibili
-window.onload = function() {
-    if (document.cookie.split(';').some((item) => item.trim().startsWith('loggedIn='))) {
-        // rendi visibile l'elemento temporary-div
+window.onload = async function() {
 
-        const userId = document.cookie.split(';').find(item => item.trim().startsWith('userId=')).split('=')[1];
+    let userId;
 
-        if(userId){
+    const sessionId = document.cookie.split(';').find(item => item.trim().startsWith('sessionId='));
+        
+    if (sessionId) {
+        // Estrai l'ID della sessione dal cookie
+        const sessionIdValue = sessionId.split('=')[1];
 
-           
-            fetch(`/checkPlayable?userId=${userId}`)
-            .then(response => response.json())
-            .then(data => {
-                // `data.playableLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello giocabile
-                    data.playableLevels.forEach((level,index) => {
-                        // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
-                        const button = document.getElementById(`level${level.levelnumber}ItalyButton`);
-                        if (button) {
-                            
-                            // Cambia il colore del bottone in giallo
-                            button.style.backgroundColor = 'yellow';
-                            // Rendi il bottone cliccabile rimuovendo l'attributo `disabled`
-                            //button.disabled = false;
+        try {
+        // Fai una richiesta al server per ottenere i dettagli della sessione
+        const response = await fetch('/session/' + sessionIdValue);
+        const session = await response.json();
 
-                            // Controlla se questo è l'ultimo elemento
-                            if (index === data.playableLevels.length - 1) {
-                                // Qui puoi fare quello che vuoi con l'ultimo elemento
-                                livello = index;
-                                console.log('Questo è l\'ultimo livello', livello);
-
-                                const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
-
-                               
-                                // Se il cookie esiste, estrai il suo valore
-                                if (justPassedCookie) {
-                                    const justPassed = justPassedCookie.split('=')[1];
-                                    console.log('Il valore del cookie justPassed è:', justPassed);
-
-                                    if( justPassed == livello){
-                                        setTimeout(() => {createColorRain(); }, 3000);
-                                    }
-                                    // Qui puoi fare quello che vuoi con il valore del cookie
-                                }else{
-                                    console.log("cookie just passed non trovato")
-                                    livello = index + 1;
-                                }
-                            }
-                        }
-                    });
-            })
-            .catch(error => {
+        // Stampa i dettagli della sessione sulla console
+        
+        userId = session.user_id;
+        } catch (error) {
             console.error('Error:', error);
-            });
-
-            // Esegui una richiesta GET al tuo server per ottenere i livelli passati
-            fetch(`/checkPassed?userId=${userId}`)
-            .then(response => response.json())
-            .then(data => {
-                // `data.passedLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello passato
-                data.passedLevels.forEach(level => {
-                    // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
-                    const button = document.getElementById(`level${level.levelnumber}ItalyButton`);
-                    if (button) {
-                        
-                        // Cambia il colore del bottone in rosso
-                        button.style.border = '3px solid red';
-                    }
-                });
-            })
-            .catch(error => {
-            console.error('Error:', error);
-            });
-
         }
+    } else {
+        console.log('Il cookie sessionId non è stato trovato');
+    }
+
+    
+           
+    fetch(`/checkPlayable?userId=${userId}`)
+    .then(response => response.json())
+    .then(data => {
+        // `data.playableLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello giocabile
+        data.playableLevels.forEach((level,index) => {
+            // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
+            const button = document.getElementById(`level${level.levelnumber}ItalyButton`);
+            if (button) {
+                
+                // Cambia il colore del bottone in giallo
+                button.style.backgroundColor = 'yellow';
+                // Rendi il bottone cliccabile rimuovendo l'attributo `disabled`
+                //button.disabled = false;
+
+                // Controlla se questo è l'ultimo elemento
+                if (index === data.playableLevels.length - 1) {
+                    // Qui puoi fare quello che vuoi con l'ultimo elemento
+                    livello = index;
+                    console.log('Questo è l\'ultimo livello', livello);
+
+                    const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+
+                    
+                    // Se il cookie esiste, estrai il suo valore
+                    if (justPassedCookie) {
+                        const justPassed = justPassedCookie.split('=')[1];
+                        console.log('Il valore del cookie justPassed è:', justPassed);
+
+                        if( justPassed == livello){
+                            setTimeout(() => {createColorRain(); }, 3000);
+                        }
+                        // Qui puoi fare quello che vuoi con il valore del cookie
+                    }else{
+                        console.log("cookie just passed non trovato")
+                        livello = index + 1;
+                    }
+                }
+            }
+        });
+    })
+    .catch(error => {
+    console.error('Error:', error);
+    });
+
+    // Esegui una richiesta GET al tuo server per ottenere i livelli passati
+    fetch(`/checkPassed?userId=${userId}`)
+    .then(response => response.json())
+    .then(data => {
+        // `data.passedLevels` dovrebbe essere un array di oggetti, dove ogni oggetto rappresenta un livello passato
+        data.passedLevels.forEach(level => {
+            // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
+            const button = document.getElementById(`level${level.levelnumber}ItalyButton`);
+            if (button) {
+                
+                // Cambia il colore del bottone in rosso
+                button.style.border = '3px solid red';
+            }
+        });
+    })
+    .catch(error => {
+    console.error('Error:', error);
+    });
 
         
-  
-        
-      } else {
-        console.log('Il cookie loggedIn non è stato trovato');
-      }
 
 }

@@ -17,7 +17,7 @@ router.post('/authenticate', async (req, res) => {
         // Login successful
         res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
         res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
-        const sessionId = await db.createSession(user.id);
+        const sessionId = await db.createSession(user.id,res);
         res.status(200).json({ message: 'Login successful' });
         
       } else {
@@ -54,7 +54,7 @@ router.post('/register', async (req, res) => {
         // res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
         res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
         res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
-        const sessionId = await db.createSession(user.id);
+        const sessionId = await db.createSession(user.id,res);
         res.status(201).json({ message: 'Registrazione riuscita' });
         
     } catch (error) {
@@ -65,6 +65,15 @@ router.post('/register', async (req, res) => {
             res.status(500).json({ message: 'Errore durante la registrazione' });
         }
     }
+});
+
+router.get('/session/:id', async (req, res) => {
+  const session = await db.getSession(req.params.id);
+  if (session) {
+    res.json(session);
+  } else {
+    res.status(404).json({ message: 'Session not found' });
+  }
 });
 
 

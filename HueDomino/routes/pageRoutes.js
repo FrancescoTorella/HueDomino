@@ -86,4 +86,10 @@ router.get('/journey/:levelNation/:levelNumber', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'level', 'level.html'));
 });
 
+//rotta per il profilo
+router.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'profilo', 'profilo.html'));
+});
+
+
 module.exports = router;

@@ -78,7 +78,7 @@ async function insertPassedLevel(userId, levelNumber, levelNation) {
   }
 }
 
-async function createSession(userId) {
+async function createSession(userId,res) {
   // Genera un ID di sessione univoco
   const sessionId = uuidv4();
 
@@ -90,8 +90,24 @@ async function createSession(userId) {
   const query = 'INSERT INTO sessions (session_id, user_id, expires_at) VALUES ($1, $2, $3)';
   await pool.query(query, [sessionId, userId, expiresAt]);
 
+  res.cookie('sessionId', sessionId, { maxAge: 70 * 60 * 1000 });
+
   // Restituisci l'ID della sessione
   return sessionId;
 }
 
-module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, checkPassed,insertPassedLevel, createSession };
+async function getSession(sessionId) {
+  // Esegui una query per cercare la sessione con l'ID specificato
+  const query = 'SELECT * FROM sessions WHERE session_id = $1';
+  const result = await pool.query(query, [sessionId]);
+
+  // Se la query ha restituito una riga, restituisci quella riga
+  if (result.rows.length > 0) {
+    return result.rows[0];
+  }
+
+  // Altrimenti, restituisci null
+  return null;
+}
+
+module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, checkPassed,insertPassedLevel, createSession, getSession };

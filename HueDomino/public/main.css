@@ -362,5 +362,5 @@ p{
 }
 
 .temporary-div{
-    display: none;
+    display: block;
 }
