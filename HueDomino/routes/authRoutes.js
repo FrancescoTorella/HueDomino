@@ -34,7 +34,7 @@ router.post('/authenticate', async (req, res) => {
 // Rotta per registrare un nuovo utente
 router.post('/register', async (req, res) => {
     const { username, password, email } = req.body;
-
+    console.log('Ricevuto una richiesta di registrazione');
     // Controlla se l'username o l'email sono già stati presi
     const existingUser = await db.getUserByUsername(username);
     if (existingUser) {

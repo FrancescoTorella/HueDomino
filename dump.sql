@@ -32,6 +32,15 @@ BEGIN
 END;
 $$;
 
+CREATE FUNCTION public.add_user_to_playable() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+BEGIN
+  INSERT INTO playable (userid, levelnumber, levelNation) VALUES (NEW.id, 1, 'italy');
+  RETURN NEW;
+END;
+$$;
+
 
 ALTER FUNCTION public.add_to_playable() OWNER TO postgres;
 
@@ -313,7 +322,7 @@ ALTER TABLE ONLY public.users
 -- Name: users add_to_playable; Type: TRIGGER; Schema: public; Owner: postgres
 --
 
-CREATE TRIGGER add_to_playable AFTER INSERT ON public.users FOR EACH ROW EXECUTE FUNCTION public.add_to_playable();
+CREATE TRIGGER add_to_playable AFTER INSERT ON public.users FOR EACH ROW EXECUTE FUNCTION public.add_user_to_playable();
 
 
 --
