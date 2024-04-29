@@ -60,14 +60,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     menuIcon.addEventListener('click', function() {
+        var modeTitles = menuContainer.querySelectorAll('.mode-title');
+    
         // Se il menu è aperto
         if (menuContainer.classList.contains('menu-container-open')) {
             // Chiudi il menu
-            menuContainer.classList.remove('menu-container-open');
+            menuContainer.classList.add('menu-container-closing');
+            // Aggiungi la classe 'fade-out' alle scritte
+            modeTitles.forEach(function(modeTitle) {
+                modeTitle.classList.add('fade-out');
+            });
+            // Ascolta l'evento animationend
+            menuContainer.addEventListener('animationend', function() {
+                // Solo dopo che l'animazione è terminata, rimuovi le classi
+                menuContainer.classList.remove('menu-container-open');
+                menuContainer.classList.remove('menu-container-closing');
+                // Rimuovi la classe 'fade-out' dalle scritte
+                modeTitles.forEach(function(modeTitle) {
+                    modeTitle.classList.remove('fade-out');
+                });
+            }, { once: true }); // L'evento sarà rimosso dopo essere stato gestito una volta
             // Rimuovi la classe 'change' dall'icona del menu
             menuIcon.classList.remove('change');
         } else {
             // Altrimenti, apri il menu
+            menuContainer.classList.remove('menu-container-closing');
             menuContainer.classList.add('menu-container-open');
             // Aggiungi la classe 'change' all'icona del menu
             menuIcon.classList.add('change');

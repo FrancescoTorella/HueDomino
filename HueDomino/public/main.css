@@ -282,6 +282,7 @@ p{
 #writtenModesDropdownContainer {
     display: none;
     text-align: left;
+    transform-origin: top;
 }
 
 #menuIcon {
@@ -303,6 +304,42 @@ p{
 
 .menu-container-open {
     display: block !important;
+    animation: expand 0.5s forwards;
+}
+
+@keyframes expand {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.menu-container-closing {
+    animation: collapse 0.5s forwards;
+}
+
+@keyframes collapse {
+    0% {
+        transform: scaleY(1);
+    }
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+.mode-title.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
 
 #writtenModesDropdownContainer .text-wrapper {
