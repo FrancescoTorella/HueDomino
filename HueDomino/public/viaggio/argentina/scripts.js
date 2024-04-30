@@ -6,10 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const height = window.innerHeight;
 
         if (width <= 500) {
-            rightBox.style.width = "90vw"
-            rightBox.style.aspectRatio = "6/10";
+            rightBox.style.width = "90vw";
+            rightBox.style.top = "20vh";
+            //rightBox.style.aspectRatio = "6/10";
         } else if (width > 500 && width <= 800) {
-            rightBox.style.width = "80vw"; 
+            rightBox.style.width = "80vw";
+            rightBox.style.top = "5vh"; 
         } else if (width >= 800 && width <= 900) {
             rightBox.style.width = "75vw";
         }else if (width >900 && width <= 1000) {

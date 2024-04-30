@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
             rightBox.style.top = "25vh"
             rightBox.style.width = "95vw"
         } else if (width > 500 && width <= 800) {
-            rightBox.style.width = "90vw"; 
+            rightBox.style.width = "90vw";
+            rightBox.style.top = "5vh"; 
         } else if (width >= 800 && width <= 900) {
             rightBox.style.width = "90vw";
         }else if (width >900 && width <= 1000) { 
