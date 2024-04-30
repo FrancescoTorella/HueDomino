@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // document.getElementById('loginButton').addEventListener('click', function() {
-    //     window.location.href = 'login/login.html';
-    // });
 
     // function isLoggedIn() {
     //     // Controlla se esiste un cookie chiamato 'session'
-    //     const sessionCookie = document.cookie.split('; ').find(row => row.startsWith('session='));
+    //     const sessionCookie = document.cookie.split('; ').find(row => row.startsWith('sessionId='));
     //     // Se il cookie esiste, l'utente è loggato
     //     return sessionCookie !== undefined;
     // }

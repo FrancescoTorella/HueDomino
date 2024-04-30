@@ -6,10 +6,45 @@
     
 }
 
+body {
+    background: linear-gradient(to top, #d3d3d3, #2c3e50); /* Aggiungi uno sfondo grigio più chiaro sfumato dall'alto in basso */
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
 .nations-container{
     width: 95%;
     height: 100vh;
 } 
+
+.nations-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+.nation {
+    flex: calc(25% - 10px);
+    box-sizing: border-box;
+    padding: 5px 5px;
+}
+
+@media (max-width: 1100px) {
+    .nation {
+        flex: calc(50% - 10px); /* 2 elementi per riga */
+    }
+}
+
+.nation img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; 
+    border: 1px solid black;
+    transition: transform 0.3s
+}
+
+.nation img:hover {
+    transform: scale(1.03); /* Ingrandisci l'immagine del 10% quando il cursore passa sopra */
+}
 
 .card-title {
     white-space: nowrap;
