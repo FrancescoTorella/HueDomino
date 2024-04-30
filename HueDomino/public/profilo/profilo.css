@@ -149,8 +149,16 @@
     clip-path: url('/profilo/icons/semicricle.svg#semicircle');
 }
 
-.settings-form, .settings-title {
+.settings-form, .section-title, .stat-element {
     margin-left: 20px;
+}
+
+.stat-element{
+    margin-top: 30px;
+}
+
+.section-title{
+    margin-top: 20px;
 }
 
 .back-button {
