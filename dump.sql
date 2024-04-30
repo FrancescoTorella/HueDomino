@@ -151,6 +151,14 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
+INSERT INTO public.levels (num, nation) VALUES (1, 'italy');
+INSERT INTO public.levels (num, nation) VALUES (2, 'italy');
+INSERT INTO public.levels (num, nation) VALUES (3, 'italy');
+INSERT INTO public.levels (num, nation) VALUES (4, 'italy');
+INSERT INTO public.levels (num, nation) VALUES (5, 'italy');
+INSERT INTO public.levels (num, nation) VALUES (6, 'italy');
+INSERT INTO public.levels (num, nation) VALUES (7, 'italy');
+INSERT INTO public.levels (num, nation) VALUES (8, 'italy');
 
 --
 -- TOC entry 3629 (class 0 OID 16687)
@@ -158,91 +166,91 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: levels; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.levels (num, nation) FROM stdin;
-1	italy
-2	italy
-3	italy
-4	italy
-5	italy
-6	italy
-7	italy
-8	italy
-\.
+-- COPY public.levels (num, nation) FROM stdin;
+-- 1	italy
+-- 2	italy
+-- 3	italy
+-- 4	italy
+-- 5	italy
+-- 6	italy
+-- 7	italy
+-- 8	italy
+-- \.
 
 
---
--- TOC entry 3631 (class 0 OID 16724)
--- Dependencies: 219
--- Data for Name: passed; Type: TABLE DATA; Schema: public; Owner: postgres
---
+-- --
+-- -- TOC entry 3631 (class 0 OID 16724)
+-- -- Dependencies: 219
+-- -- Data for Name: passed; Type: TABLE DATA; Schema: public; Owner: postgres
+-- --
 
-COPY public.passed (userid, levelnumber, levelnation) FROM stdin;
-7	1	italy
-7	2	italy
-7	3	italy
-7	4	italy
-7	5	italy
-7	6	italy
-7	7	italy
-\.
-
-
---
--- TOC entry 3630 (class 0 OID 16703)
--- Dependencies: 218
--- Data for Name: playable; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.playable (userid, levelnumber, levelnation) FROM stdin;
-7	1	italy
-9	1	italy
-13	1	italy
-17	1	italy
-18	1	italy
-19	1	italy
-20	1	italy
-21	1	italy
-22	1	italy
-23	1	italy
-7	2	italy
-7	3	italy
-7	4	italy
-7	5	italy
-7	6	italy
-7	7	italy
-7	8	italy
-\.
+-- COPY public.passed (userid, levelnumber, levelnation) FROM stdin;
+-- 7	1	italy
+-- 7	2	italy
+-- 7	3	italy
+-- 7	4	italy
+-- 7	5	italy
+-- 7	6	italy
+-- 7	7	italy
+-- \.
 
 
---
--- TOC entry 3632 (class 0 OID 16755)
--- Dependencies: 220
--- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
---
+-- --
+-- -- TOC entry 3630 (class 0 OID 16703)
+-- -- Dependencies: 218
+-- -- Data for Name: playable; Type: TABLE DATA; Schema: public; Owner: postgres
+-- --
 
-COPY public.sessions (session_id, user_id, created_at, expires_at) FROM stdin;
-f0204f9c-9a12-4409-bf8a-2266432cf663	7	2024-04-28 17:52:12.69278	2024-04-28 18:52:12.692
-\.
+-- COPY public.playable (userid, levelnumber, levelnation) FROM stdin;
+-- 7	1	italy
+-- 9	1	italy
+-- 13	1	italy
+-- 17	1	italy
+-- 18	1	italy
+-- 19	1	italy
+-- 20	1	italy
+-- 21	1	italy
+-- 22	1	italy
+-- 23	1	italy
+-- 7	2	italy
+-- 7	3	italy
+-- 7	4	italy
+-- 7	5	italy
+-- 7	6	italy
+-- 7	7	italy
+-- 7	8	italy
+-- \.
 
 
---
--- TOC entry 3628 (class 0 OID 16674)
--- Dependencies: 216
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
+-- --
+-- -- TOC entry 3632 (class 0 OID 16755)
+-- -- Dependencies: 220
+-- -- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
+-- --
 
-COPY public.users (id, username, password, email) FROM stdin;
-7	Francesco	$2b$10$hvKSLuQ53KooGamYbDO40OIh60CdL73fWYuDjwbjEgv4SB9wbof8a	gesco2002@gmail.com
-9	Francesco2	$2b$10$GKLfs2dHA2ALi5LBKlCRguaG2EwGnGXy3N1EUNYvqUULNHMi5lMMO	francescotorella2002@gmail.com
-13	FrancescoUni	$2b$10$wZVrwcEjgGq.srXPCWjVC.Js75Wj4nY4jPT6tQLt6lVZw2QOqON2i	torella.1984820@studenti.uniroma1.it
-17	garoga123	$2b$10$PudyFLjuCDb80Xoe/VYl1.MKPWrPedLLdtuDJko0JVQnO5VJQFVrq	garoga8602@weirby.com
-18	garoga123231	$2b$10$0a.GfD47LYbluU60NKkKvuRVL86hOFN4HJot4GN3rfgano0peY.VW	garogaaaa8602@weirby.com
-19	FrancescoGaroga	$2b$10$X6hINPGZPkWe8gGuPxbbFO1kahbDKzwh7jnnQfDU8Ud3u7SvSMGpe	gibffim12892@msback.comf
-20	FrancescoGimmi	$2b$10$sYjsCIG84PcnklHMf4zztOEbxYgDr6Z7fhk1inA6rFXZaQb6MPEqW	gibim12892@msback.com
-21	FrancescoGimmiee	$2b$10$dhVTfv/kTuxhT0BCpyFzSOWw3g7sawwgC3qWTZAXtAkNuuVoh6IAa	gibwrrim12892@msback.com
-22	FrancescoG	$2b$10$CCVAqLk7FqL/JnbJdmNYnup04kF1BsXvPxeQffy.mDDf/8pmJJWU2	gibfim12892@msback.com
-23	Francescofg	$2b$10$EvK6jodHwOn.jvqvQ.eLTuCyEvn8igCpr3TLUocOECEj6KHFg6I4O	fdgibim12892@msback.com
-\.
+-- COPY public.sessions (session_id, user_id, created_at, expires_at) FROM stdin;
+-- f0204f9c-9a12-4409-bf8a-2266432cf663	7	2024-04-28 17:52:12.69278	2024-04-28 18:52:12.692
+-- \.
+
+
+-- --
+-- -- TOC entry 3628 (class 0 OID 16674)
+-- -- Dependencies: 216
+-- -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
+-- --
+
+-- COPY public.users (id, username, password, email) FROM stdin;
+-- 7	Francesco	$2b$10$hvKSLuQ53KooGamYbDO40OIh60CdL73fWYuDjwbjEgv4SB9wbof8a	gesco2002@gmail.com
+-- 9	Francesco2	$2b$10$GKLfs2dHA2ALi5LBKlCRguaG2EwGnGXy3N1EUNYvqUULNHMi5lMMO	francescotorella2002@gmail.com
+-- 13	FrancescoUni	$2b$10$wZVrwcEjgGq.srXPCWjVC.Js75Wj4nY4jPT6tQLt6lVZw2QOqON2i	torella.1984820@studenti.uniroma1.it
+-- 17	garoga123	$2b$10$PudyFLjuCDb80Xoe/VYl1.MKPWrPedLLdtuDJko0JVQnO5VJQFVrq	garoga8602@weirby.com
+-- 18	garoga123231	$2b$10$0a.GfD47LYbluU60NKkKvuRVL86hOFN4HJot4GN3rfgano0peY.VW	garogaaaa8602@weirby.com
+-- 19	FrancescoGaroga	$2b$10$X6hINPGZPkWe8gGuPxbbFO1kahbDKzwh7jnnQfDU8Ud3u7SvSMGpe	gibffim12892@msback.comf
+-- 20	FrancescoGimmi	$2b$10$sYjsCIG84PcnklHMf4zztOEbxYgDr6Z7fhk1inA6rFXZaQb6MPEqW	gibim12892@msback.com
+-- 21	FrancescoGimmiee	$2b$10$dhVTfv/kTuxhT0BCpyFzSOWw3g7sawwgC3qWTZAXtAkNuuVoh6IAa	gibwrrim12892@msback.com
+-- 22	FrancescoG	$2b$10$CCVAqLk7FqL/JnbJdmNYnup04kF1BsXvPxeQffy.mDDf/8pmJJWU2	gibfim12892@msback.com
+-- 23	Francescofg	$2b$10$EvK6jodHwOn.jvqvQ.eLTuCyEvn8igCpr3TLUocOECEj6KHFg6I4O	fdgibim12892@msback.com
+-- \.
 
 
 --
