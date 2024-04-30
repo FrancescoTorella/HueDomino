@@ -89,15 +89,27 @@
 .right-box-container {
     position: absolute;
     right: 5vw;
-    top: 15vh;
+    top: 5vh;
     width: 35vw; /* Puoi scegliere una percentuale iniziale per la larghezza */
-    aspect-ratio: 10/10; /* Imposta il rapporto di aspetto a 7:10 */
+    /*aspect-ratio: 10/10; /* Imposta il rapporto di aspetto a 7:10 */
     border: none;
     padding: 0;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.right-box-container::before {
+    content: "";
+    float: left;
+    padding-top: 100%; /* Imposta questo al valore desiderato per il rapporto di aspetto */
+}
+
+.right-box-container::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .map-container {
