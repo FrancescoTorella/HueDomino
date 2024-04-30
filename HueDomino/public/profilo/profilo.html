@@ -30,7 +30,25 @@
 
         <div id="impostazioni" class="content">
             <img class="back-button" src="/profilo/icons/back.svg" alt="Icona Indietro">
-            Contenuto delle Impostazioni
+            <h2 class="settings-title">Impostazioni utente</h2>
+            <form class="settings-form">
+                <label for="foto-profilo" class="profile-image-container">
+                    <div class="profile-image" id="profile-image"></div>
+                    <div class="profile-image-overlay">
+                        <span>Modifica</span>
+                    </div>
+                </label>
+                <input type="file" id="foto-profilo" name="foto-profilo" accept="image/*" style="display: none;"><br>
+                <label for="descrizione" class="col-form-label">Descrizione:</label><br>
+                <textarea id="descrizione" name="descrizione" rows="4" cols="50" class="form-control descrizione-larghezza"></textarea><br>
+                <label for="username" class="col-form-label" >Nome utente:</label><br>
+                <input type="text" id="username" name="username" class="form-control username-larghezza"><br>
+                <label for="old-password" class="col-form-label" >Vecchia Password:</label><br>
+                <input type="password" id="old-password" name="old-password" autocomplete="off" class="form-control old-password-larghezza"><br>
+                <label for="new-password" class="col-form-label" >Nuova Password:</label><br>
+                <input type="password" id="new-password" name="new-password" class="form-control new-password-larghezza"><br>
+                <input type="submit" value="Applica modifiche" class="btn btn-light border">
+            </form>
         </div>
         <div id="statistiche" class="content">
             <img class="back-button" src="/profilo/icons/back.svg" alt="Icona Indietro">

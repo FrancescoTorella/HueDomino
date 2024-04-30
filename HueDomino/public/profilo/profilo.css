@@ -120,3 +120,58 @@
     display: none;
 }
 
+.profile-image {
+    border-radius: 50%;
+    width: 100px; 
+    height: 100px; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/profilo/profileImagePlaceholder.png');
+}
+
+.profile-image-container {
+    position: relative;
+    display: inline-block;
+    width: 100px; 
+    height: 100px; 
+}
+
+.profile-image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(128, 128, 128, 0);
+    color: gray;
+    text-align: center;
+    padding: 5px;
+    clip-path: url('/profilo/icons/semicricle.svg#semicircle');
+}
+
+.settings-form, .settings-title {
+    margin-left: 20px;
+}
+
+.back-button {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.descrizione-larghezza {
+    max-width: 500px; 
+}
+
+.username-larghezza{
+    max-width: 500px; 
+}
+
+.old-password-larghezza{
+    max-width: 500px; 
+}
+
+.new-password-larghezza{
+    max-width: 500px; 
+}

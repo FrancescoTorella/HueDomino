@@ -58,3 +58,11 @@ $(document).ready(function(){
         }
     });
 });
+
+$('#foto-profilo').on('change', function(e) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        $('#profile-image').css('background-image', 'url(' + event.target.result + ')');
+    };
+    reader.readAsDataURL(e.target.files[0]);
+});

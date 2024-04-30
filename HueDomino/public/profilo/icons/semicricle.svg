@@ -1,0 +1,3 @@
+<svg id="semicircle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+    <path d="M0,25 A25,25 0 0,0 50,25 L0,25 Z" fill="#000000"/>
+</svg>
