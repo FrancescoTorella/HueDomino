@@ -110,6 +110,8 @@ function createColorRain() {
     clearInterval(aeroplaninoMovementInterval); 
 
     const aeroplaninoRect = aeroplanino.getBoundingClientRect();
+    const aeroplaninoTop = aeroplaninoRect.top + window.scrollY;
+    const aeroplaninoLeft = aeroplaninoRect.left + window.scrollX;
     const numberOfDrops = 200;  //Numero di gocce da creare
     let dropsCompleted = 0; // Variabile per tenere traccia delle gocce completate
 
@@ -120,12 +122,12 @@ function createColorRain() {
             let drop = document.createElement('div');
             drop.className = 'color-line';
             drop.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
-            drop.style.left = `${aeroplaninoRect.left + aeroplaninoRect.width * Math.random()}px`;
-            drop.style.top = `${aeroplaninoRect.top + aeroplaninoRect.height / 2}px`;
+            drop.style.left = `${aeroplaninoLeft + aeroplaninoRect.width * Math.random()}px`;
+            drop.style.top = `${aeroplaninoTop + aeroplaninoRect.height / 2}px`;
             document.body.appendChild(drop);
 
             setTimeout(() => {
-                drop.style.top = `${aeroplaninoRect.top + aeroplaninoRect.height / 2 + 100}px`;
+                drop.style.top = `${aeroplaninoTop + aeroplaninoRect.height / 2 + 100}px`;
                 drop.style.opacity = '0';
 
                 setTimeout(() => {
