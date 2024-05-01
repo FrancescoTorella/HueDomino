@@ -10,21 +10,28 @@ document.addEventListener('DOMContentLoaded', function() {
             rightBox.style.width = "95vw"
         } else if (width > 500 && width <= 800) {
             rightBox.style.width = "90vw"; 
-            rightBox.style.top = "5vh";
+            rightBox.style.top = "10vh"
         } else if (width >= 800 && width <= 900) {
             rightBox.style.width = "90vw";
+            rightBox.style.top = "10vh"
         }else if (width >900 && width <= 1000) { 
             rightBox.style.width = "90vw";
+            rightBox.style.top = "5vh";
         }else if (width > 1000 && width <= 1500) {
             rightBox.style.width = "60vw";
+            rightBox.style.top = "5vh";
         }else if (width > 1500 && width <= 2000) {
             rightBox.style.width = "55vw"; 
+            rightBox.style.top = "5vh";
         }else if (width > 2000 && width <= 2500) {
             rightBox.style.width = "45vw";
+            rightBox.style.top = "5vh";
         }else if (width > 2500 && width <= 3000) {
             rightBox.style.width = "40vw";
+            rightBox.style.top = "5vh";
         } else {
             rightBox.style.width = "35vw";
+            rightBox.style.top = "5vh";
         }
     }
 

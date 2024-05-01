@@ -153,13 +153,12 @@ ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
-
+ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 --
 -- TOC entry 3461 (class 2604 OID 16677)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
 
 
 --
@@ -168,102 +167,17 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: levels; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.levels (num, nation) FROM stdin;
-1	italy
-2	italy
-3	italy
-4	italy
-5	italy
-6	italy
-7	italy
-8	italy
-\.
+-- COPY public.levels (num, nation) FROM stdin;
+-- 1	italy
+-- 2	italy
+-- 3	italy
+-- 4	italy
+-- 5	italy
+-- 6	italy
+-- 7	italy
+-- 8	italy
+-- \.
 
-
---
--- TOC entry 3634 (class 0 OID 16724)
--- Dependencies: 219
--- Data for Name: passed; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.passed (userid, levelnumber, levelnation) FROM stdin;
-7	1	italy
-7	2	italy
-7	3	italy
-7	4	italy
-7	5	italy
-7	6	italy
-7	7	italy
-24	1	italy
-24	2	italy
-\.
-
-
---
--- TOC entry 3633 (class 0 OID 16703)
--- Dependencies: 218
--- Data for Name: playable; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.playable (userid, levelnumber, levelnation) FROM stdin;
-7	1	italy
-9	1	italy
-13	1	italy
-17	1	italy
-18	1	italy
-19	1	italy
-20	1	italy
-21	1	italy
-22	1	italy
-23	1	italy
-7	2	italy
-7	3	italy
-7	4	italy
-7	5	italy
-7	6	italy
-7	7	italy
-7	8	italy
-24	1	italy
-24	2	italy
-24	3	italy
-\.
-
-
---
--- TOC entry 3635 (class 0 OID 16755)
--- Dependencies: 220
--- Data for Name: sessions; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.sessions (session_id, user_id, created_at, expires_at) FROM stdin;
-f0204f9c-9a12-4409-bf8a-2266432cf663	7	2024-04-28 17:52:12.69278	2024-04-28 18:52:12.692
-7269536a-b42a-40c0-bfb0-5862e0d7ed13	24	2024-04-29 15:46:45.860243	2024-04-29 16:46:45.86
-4aac3c53-3a1e-49f1-a6c7-0c037dbf651d	7	2024-04-29 16:16:23.585932	2024-04-29 17:16:23.585
-ec2ffbe4-e423-4ec4-a263-fb433f3e24c4	7	2024-04-29 16:17:50.425573	2024-04-29 17:17:50.425
-9e2f1546-46f1-479c-9ad4-601856357247	24	2024-04-29 22:18:52.084259	2024-04-29 23:18:52.083
-488e95e7-02dc-42f2-b4a6-7e3869e23744	7	2024-04-30 07:53:46.591997	2024-04-30 08:53:46.591
-\.
-
-
---
--- TOC entry 3631 (class 0 OID 16674)
--- Dependencies: 216
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.users (id, username, password, email, description, path_to_profile_picture) FROM stdin;
-7	Francesco	$2b$10$hvKSLuQ53KooGamYbDO40OIh60CdL73fWYuDjwbjEgv4SB9wbof8a	gesco2002@gmail.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-9	Francesco2	$2b$10$GKLfs2dHA2ALi5LBKlCRguaG2EwGnGXy3N1EUNYvqUULNHMi5lMMO	francescotorella2002@gmail.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-13	FrancescoUni	$2b$10$wZVrwcEjgGq.srXPCWjVC.Js75Wj4nY4jPT6tQLt6lVZw2QOqON2i	torella.1984820@studenti.uniroma1.it	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-17	garoga123	$2b$10$PudyFLjuCDb80Xoe/VYl1.MKPWrPedLLdtuDJko0JVQnO5VJQFVrq	garoga8602@weirby.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-18	garoga123231	$2b$10$0a.GfD47LYbluU60NKkKvuRVL86hOFN4HJot4GN3rfgano0peY.VW	garogaaaa8602@weirby.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-19	FrancescoGaroga	$2b$10$X6hINPGZPkWe8gGuPxbbFO1kahbDKzwh7jnnQfDU8Ud3u7SvSMGpe	gibffim12892@msback.comf	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-20	FrancescoGimmi	$2b$10$sYjsCIG84PcnklHMf4zztOEbxYgDr6Z7fhk1inA6rFXZaQb6MPEqW	gibim12892@msback.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-21	FrancescoGimmiee	$2b$10$dhVTfv/kTuxhT0BCpyFzSOWw3g7sawwgC3qWTZAXtAkNuuVoh6IAa	gibwrrim12892@msback.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-22	FrancescoG	$2b$10$CCVAqLk7FqL/JnbJdmNYnup04kF1BsXvPxeQffy.mDDf/8pmJJWU2	gibfim12892@msback.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-23	Francescofg	$2b$10$EvK6jodHwOn.jvqvQ.eLTuCyEvn8igCpr3TLUocOECEj6KHFg6I4O	fdgibim12892@msback.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-24	mamma	$2b$10$JmE/RLhCUjlyHsc5Sg46QeIrhqLJyPYquTp8tN4PLgnn69.bRAWlq	luciac.73@gmail.com	Hello! I love playing Hue Domino	../immagini_profilo/default.png
-\.
 
 
 --
