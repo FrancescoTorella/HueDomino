@@ -37,26 +37,33 @@ $(document).ready( async function() {
     $('#profileImage').attr('src', user.path_to_profile_picture);
     $('.profile-image-settings').css('background-image', 'url(' + user.path_to_profile_picture + ')');
 
-    $('#upload-form').on('submit', function(e) {
-        e.preventDefault();
+    $('#foto-profilo').on('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                $('.profile-image-settings').css('background-image', 'url(' + reader.result + ')');
+                
+                const formData = new FormData($('#uploadProfileImageForm')[0]);
+                formData.append('user-id', ID_UTENTE);
 
-        //stampa l'ID dell'utente sulla console
-        console.log(ID_UTENTE);
-    
-        const formData = new FormData(this);
-        $.ajax({
-            url: '/upload-profile-image/' + ID_UTENTE, // Aggiungi l'ID dell'utente all'URL
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+                $.ajax({
+                    url: '/upload-profile-image/' + ID_UTENTE,
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log(response);
+                        location.reload();
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
             }
-        });
+            reader.readAsDataURL(file);
+        }
     });
 
     

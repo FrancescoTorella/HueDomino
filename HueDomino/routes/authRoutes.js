@@ -2,6 +2,8 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const router = express.Router();
 const db = require('../db/db');
+const multer = require('multer');
+const fs = require('fs');
 // const cors = require('cors');
 // const cookieParser = require('cookie-parser');
 
@@ -15,8 +17,6 @@ router.post('/authenticate', async (req, res) => {
       const match = await bcrypt.compare(password, user.password);
       if (match) {
         // Login successful
-        res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
-        res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
         const sessionId = await db.createSession(user.id,res);
         res.status(200).json({ message: 'Login successful' });
         
@@ -52,8 +52,6 @@ router.post('/register', async (req, res) => {
         // Registrazione riuscita
         // res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
         // res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
-        res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
-        res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
         const sessionId = await db.createSession(user.id,res);
         res.status(201).json({ message: 'Registrazione riuscita' });
         
@@ -128,6 +126,45 @@ router.get('/utente/:id', async (req, res) => {
     } else {
         res.status(404).json({ message: 'Utente non trovato' });
     }
+});
+
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const dir = `./immagini_profilo/user${req.params.userId}`; // Usa req.params.userId invece di req.body['user-id']
+    fs.exists(dir, exist => {
+      if (!exist) {
+        return fs.mkdir(dir, error => cb(error, dir))
+      }
+      return cb(null, dir)
+    })
+  },
+  filename: (req, file, cb) => {
+    cb(null, 'profile.png'); // qui sovrascriviamo sempre l'immagine esistente
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// Rotta POST per l'upload dell'immagine del profilo
+router.post('/upload-profile-image/:userId', upload.single('foto-profilo'), async (req, res) => {
+  const newProfileImagePath = `http://localhost:3000/immagini_profilo/user${req.params.userId}/profile.png`;
+
+  try {
+      // Trova l'utente nel database utilizzando l'ID dell'utente
+      const user = await db.updateUser(req.params.userId,newProfileImagePath);
+
+      if (!user) {
+          res.status(404).send('Utente non trovato');
+          return;
+      }
+    
+
+      res.send('Immagine del profilo caricata con successo');
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Si è verificato un errore durante l\'aggiornamento dell\'immagine del profilo');
+  }
 });
 
 module.exports = router;

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
-const multer = require('multer');
+
 
 // Rotta per la pagina principale
 router.get('/', (req, res) => {
@@ -94,7 +94,7 @@ router.get('/profile', (req, res) => {
 });
 
 
-// Rotta per le immagini del profilo
+// Rotta per le immagini del profilo di default
 router.get('/immagini_profilo/:imageName', (req, res) => {
     const { imageName } = req.params;
     const imagePath = path.join(__dirname, '..', 'immagini_profilo', imageName);
@@ -111,33 +111,27 @@ router.get('/immagini_profilo/:imageName', (req, res) => {
     });
 });
 
+//rotta per le immagini di profilo personalizzate
+router.get('/immagini_profilo/user:id/:imageName', (req, res) => {
+    const { id, imageName } = req.params;
+    const imagePath = path.join(__dirname, '..', 'immagini_profilo', `user${id}`, imageName);
+
+    console.log("Richiesta immagine:", imagePath);
+
+    fs.access(imagePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error("Immagine non trovata:", imagePath);
+            res.status(404).send("Immagine non trovata");
+        } else {
+            res.sendFile(imagePath);
+        }
+    });
+});
+
 //Rotta per cambiare immagine profilo
 // Configura multer per salvare i file caricati nella cartella immagini_profilo
 // Configura multer per salvare i file caricati nella cartella immagini_profilo
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      const dir = `./immagini_profilo/user${req.params.userId}`; // Usa req.params.userId invece di req.body['user-id']
-      fs.exists(dir, exist => {
-        if (!exist) {
-          return fs.mkdir(dir, error => cb(error, dir))
-        }
-        return cb(null, dir)
-      })
-    },
-    filename: (req, file, cb) => {
-      cb(null, 'profile.png'); // qui sovrascriviamo sempre l'immagine esistente
-    }
-  });
-  
-const upload = multer({ storage: storage });
 
-// Rotta POST per l'upload dell'immagine del profilo
-router.post('/upload-profile-image/:userId', upload.single('foto-profilo'), async (req, res) => { // Aggiungi :userId alla rotta
-    const newProfileImagePath = `/immagini_profilo/user${req.params.userId}/profile.png`; // Usa req.params.userId invece di req.body['user-id']
-    // Aggiorna il database con il nuovo percorso dell'immagine
-    // ...
-    res.send('Immagine del profilo caricata con successo');
-});
 
 
 module.exports = router;

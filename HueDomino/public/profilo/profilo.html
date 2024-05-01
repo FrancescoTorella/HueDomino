@@ -32,7 +32,7 @@
         <div id="impostazioni" class="content">
             <img class="back-button" src="/profilo/icons/back.svg" alt="Icona Indietro">
             <h2 class="section-title">Impostazioni utente:</h2>
-            <form id="uploadProfileImageForm"  method="post" enctype="multipart/form-data">
+            <form id="uploadProfileImageForm"  class="settings-form" method="post" enctype="multipart/form-data">
                 <label for="foto-profilo" class="profile-image-container">
                     <div class="profile-image-settings" id="profileImageSettings"></div>
                     <div class="profile-image-overlay">
@@ -40,22 +40,7 @@
                     </div>
                 </label>
                 <input type="file" id="foto-profilo" name="foto-profilo" accept="image/*" style="display: none;">
-                <input type="submit" value="Carica immagine del profilo">
             </form>
-            <script>
-                $(document).ready(function() {
-                    $('#foto-profilo').on('change', function() {
-                        const file = this.files[0];
-                        if (file) {
-                            const reader = new FileReader();
-                            reader.onloadend = function() {
-                                $('.profile-image-settings').css('background-image', 'url(' + reader.result + ')');
-                            }
-                            reader.readAsDataURL(file);
-                        }
-                    });
-                });
-            </script>
             <form class="settings-form">
                 <input type="file" id="foto-profilo" name="foto-profilo" accept="image/*" style="display: none;"><br>
                 <label for="descrizione" class="col-form-label">Descrizione:</label><br>

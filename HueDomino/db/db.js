@@ -55,6 +55,22 @@ async function getUserByEmail(email) {
     return result.rows[0];
 }
 
+async function updateUser(userId, newProfileImagePath) {
+  const query = `
+      UPDATE users
+      SET path_to_profile_picture = $1
+      WHERE id = $2
+  `;
+
+  try {
+      const result = await pool.query(query, [newProfileImagePath, userId]);
+      return result.rowCount > 0; // Restituisce true se almeno una riga è stata aggiornata
+  } catch (error) {
+      console.error(error);
+      return false;
+  }
+}
+
 async function checkPlayable(userId) {
   const result = await pool.query(
     'SELECT levelNumber, levelNation FROM playable WHERE userID = $1',
@@ -95,7 +111,7 @@ async function createSession(userId,res) {
   const query = 'INSERT INTO sessions (session_id, user_id, expires_at) VALUES ($1, $2, $3)';
   await pool.query(query, [sessionId, userId, expiresAt]);
 
-  res.cookie('sessionId', sessionId, { maxAge: 70 * 60 * 1000 });
+  res.cookie('sessionId', sessionId, { maxAge: 240 * 60 * 1000 });
 
   // Restituisci l'ID della sessione
   return sessionId;
@@ -115,6 +131,8 @@ async function getSession(sessionId) {
   return null;
 }
 
+
+
 module.exports = { 
   createUser, 
   getUserByEmail, 
@@ -124,5 +142,6 @@ module.exports = {
   insertPassedLevel, 
   createSession, 
   getSession,
-  getUserById
+  getUserById,
+  updateUser
  };
