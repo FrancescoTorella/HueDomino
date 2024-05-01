@@ -6,26 +6,29 @@ document.addEventListener('DOMContentLoaded', function() {
         const height = window.innerHeight;
 
         if (width <= 500) {
-            rightBox.style.width = "90vw"
-            rightBox.style.top = "20vh";
-            //rightBox.style.aspectRatio = "6/10";
-        } else if (width > 500 && width <= 800) {
-            rightBox.style.width = "80vw"; 
-            rightBox.style.top = "5vh";
-        } else if (width >= 800 && width <= 900) {
-            rightBox.style.width = "75vw";
-        }else if (width >900 && width <= 1000) {
-            rightBox.style.width = "60vw";
+            rightBox.style.top = "20vh"
+            rightBox.style.width = "95vw"
+        } else if (width > 500 && width <= 900) {
+            rightBox.style.width = "90vw";
+            rightBox.style.top = "20vh"; 
+        } else if (width >900 && width <= 1000) { 
+            rightBox.style.width = "90vw";
+            rightBox.style.top = "10vh"; 
         }else if (width > 1000 && width <= 1500) {
-            rightBox.style.width = "50vw";
+            rightBox.style.width = "60vw";
+            rightBox.style.top = "10vh"; 
         }else if (width > 1500 && width <= 2000) {
-            rightBox.style.width = "40vw"; 
+            rightBox.style.width = "52vw"; 
+            rightBox.style.top = "10vh"; 
         }else if (width > 2000 && width <= 2500) {
-            rightBox.style.width = "35vw";
+            rightBox.style.width = "45vw";
+            rightBox.style.top = "10vh"; 
         }else if (width > 2500 && width <= 3000) {
-            rightBox.style.width = "30vw";
+            rightBox.style.width = "37vw";
+            rightBox.style.top = "10vh"; 
         } else {
-            rightBox.style.width = "25vw";
+            rightBox.style.width = "32vw";
+            rightBox.style.top = "10vh"; 
         }
     }
 
