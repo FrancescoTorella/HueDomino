@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/styles/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/main.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -31,7 +32,7 @@
                         <p class="mode-title">Creator</p>
                     </div>
                     <div class="mode-title-container">
-                        <button id="loginButton" class="login-button" onclick="window.location.href='/login/login.html'">Login</button>
+                        <button id="loginButton" class="login-button" onclick="window.location.href='/login'">Login</button>
                     </div>
                 </div>
                 <div class="icon-menu-container">
@@ -42,7 +43,7 @@
                     </div>
                     <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
                         <div class="text-wrapper">
-                            <a href="/login"><p class="mode-title">Login</p></a>
+                            <a id="loginButtonSmall" href="/login"><p class="mode-title">Login</p></a>
                             <a href="/journey"><p class="mode-title">Journey</p></a>
                             <a href="/daily_challenge"><p class="mode-title">Daily Challenge</p></a>
                             <a href="/duel"><p class="mode-title">Duel</p></a>
@@ -60,9 +61,7 @@
     </header>
 
 <div id="pageContentContainer" class="page-content-container">
-    <div id="temporaryDiv" class="temporary-div">
-        <a href="/profile"><p>Profilo</p></a>
-    </div>
+   
 </div>
 
 

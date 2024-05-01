@@ -41,17 +41,37 @@
                 </label>
                 <input type="file" id="foto-profilo" name="foto-profilo" accept="image/*" style="display: none;">
             </form>
-            <form class="settings-form">
-                <input type="file" id="foto-profilo" name="foto-profilo" accept="image/*" style="display: none;"><br>
+            <form id="updateDescription" class="settings-form">
+                <br>
                 <label for="descrizione" class="col-form-label">Descrizione:</label><br>
-                <textarea id="descrizione" name="descrizione" rows="4" cols="50" class="form-control descrizione-larghezza"></textarea><br>
+                <textarea id="descrizione" name="descrizione" rows="4" cols="50" class="form-control descrizione-larghezza" maxlength="50"></textarea><br>
+            </form>
+            <form id="updateUsername" class="settings-form">
                 <label for="username" class="col-form-label" >Nome utente:</label><br>
                 <input type="text" id="username" name="username" class="form-control username-larghezza"><br>
-                <label for="old-password" class="col-form-label" >Vecchia Password:</label><br>
-                <input type="password" id="old-password" name="old-password" autocomplete="off" class="form-control old-password-larghezza"><br>
+                <span id="usernameError" class="error-message"></span><br>
+                <label for="password" class="col-form-label" >Password:</label><br>
+                <input type="password" id="passwordForUsername" name="password" class="form-control password-larghezza"><br>
+                <span id="passwordErrorInUpdateUsername" class="error-message"></span><br>
+                <input type="submit" value="Cambia Nome Utente" class="btn btn-light border"><br>
+            </form>
+            <form id="updateEmail" class="settings-form">
+                <label for="email" class="col-form-label" >Nuova Email:</label><br>
+                <input type="text" id="email" name="email" class="form-control email-larghezza"><br>
+                <span id="emailError" class="error-message"></span><br>
+                <label for="password" class="col-form-label" >Password:</label><br>
+                <input type="password" id="passwordForEmail" name="password" class="form-control password-larghezza"><br>
+                <span id="passwordErrorInUpdateEmail" class="error-message"></span><br>
+                <input type="submit" value="Cambia Email" class="btn btn-light border"><br>
+            </form>
+            <form id="updatePassword" class="settings-form">
                 <label for="new-password" class="col-form-label" >Nuova Password:</label><br>
-                <input type="password" id="new-password" name="new-password" class="form-control new-password-larghezza"><br>
-                <input type="submit" value="Applica modifiche" class="btn btn-light border">
+                <input type="password" id="newPassword" name="new-password" class="form-control new-password-larghezza"><br>
+                <span id="newPasswordError" class="error-message"></span><br>
+                <label for="old-password" class="col-form-label" >Vecchia Password:</label><br>
+                <input type="password" id="oldPassword" name="old-password" autocomplete="off" class="form-control old-password-larghezza"><br>
+                <span id="oldPasswordError" class="error-message"></span><br>
+                <input type="submit" value="Cambia Password" class="btn btn-light border">
             </form>
         </div>
         <div id="statistiche" class="content">

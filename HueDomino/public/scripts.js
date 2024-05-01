@@ -29,6 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(session => {
               // Stampa i dettagli della sessione sulla console
               console.log('Dettagli della sessione:', session);
+              //se il cookie viene trovato cambia il tasto login in impostazioni profilo
+              $('#loginButton').text('Profilo');
+              $('#loginButton').attr('onclick', 'window.location.href = "/profile"');
+              $('#loginButtonSmall').text('Profilo');
+              $('#loginButtonSmall').attr('href', '/profile');
             })
             .catch(error => console.error('Error:', error));
         } else {

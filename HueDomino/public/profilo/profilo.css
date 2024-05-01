@@ -30,7 +30,7 @@
 .sidebar {
     padding-top: 20px;
     background-color: #f5f5f5; 
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .sidebar ul {
@@ -188,5 +188,13 @@
 }
 
 .new-password-larghezza{
+    max-width: 500px; 
+}
+
+.password-larghezza{
+    max-width: 500px; 
+}
+
+.email-larghezza{
     max-width: 500px; 
 }

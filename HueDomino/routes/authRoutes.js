@@ -3,9 +3,12 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 const db = require('../db/db');
 const multer = require('multer');
+const bodyParser = require('body-parser');
 const fs = require('fs');
 // const cors = require('cors');
 // const cookieParser = require('cookie-parser');
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({ extended: true }));
 
 router.post('/authenticate', async (req, res) => {
     const { username, password } = req.body;
@@ -152,7 +155,7 @@ router.post('/upload-profile-image/:userId', upload.single('foto-profilo'), asyn
 
   try {
       // Trova l'utente nel database utilizzando l'ID dell'utente
-      const user = await db.updateUser(req.params.userId,newProfileImagePath);
+      const user = await db.updateUserProfileImage(req.params.userId,newProfileImagePath);
 
       if (!user) {
           res.status(404).send('Utente non trovato');
@@ -166,5 +169,119 @@ router.post('/upload-profile-image/:userId', upload.single('foto-profilo'), asyn
       res.status(500).send('Si è verificato un errore durante l\'aggiornamento dell\'immagine del profilo');
   }
 });
+
+
+// Rotta POST per l'aggiornamento della descrizione dell'utente
+router.post('/update-description/:userId', async (req, res) => {
+  const newDescription = req.body.description;
+
+  console.log('Aggiornamento della descrizione dell\'utente', req.params.userId, newDescription);
+
+  try {
+      // Trova l'utente nel database utilizzando l'ID dell'utente
+      const user = await db.updateDescription(req.params.userId,newDescription);
+
+      if (!user) {
+          res.status(404).send('Utente non trovato');
+          return;
+      }
+
+      res.send('Descrizione aggiornata con successo');
+  } catch (error) {
+      console.error(error);
+      res.status(500).send('Si è verificato un errore durante l\'aggiornamento della descrizione');
+  }
+});
+
+// Rotta POST per l'aggiornamento dello username
+router.post('/update-username/:userId', async (req, res) => {
+  const newUsername = req.body.username;
+  const password = req.body.password;
+
+  console.log('Aggiornamento dello username dell\'utente', req.params.userId, newUsername);
+
+  try {
+      // Trova l'utente nel database utilizzando l'ID dell'utente
+      const user = await db.updateUsername(req.params.userId, newUsername, password);
+
+      if (!user) {
+          res.status(404).send('Utente non trovato');
+          return;
+      }
+
+      res.send('Username aggiornato con successo');
+  } catch (error) {
+      if(error.message === 'Username already in use'){
+          res.status(409).send('Username già in uso');
+      }else if(error.message === 'Incorrect password'){
+          res.status(401).send('Password errata');
+      }else{
+          res.status(500).send('Si è verificato un errore durante l\'aggiornamento dello username');
+      }
+  }
+});
+
+// Rotta POST per l'aggiornamento dell'email
+router.post('/update-email/:userId', async (req, res) => {
+  const newEmail = req.body.email;
+  const password = req.body.password;
+
+  console.log('Aggiornamento dell\'email dell\'utente', req.params.userId, newEmail);
+
+  try {
+      // Trova l'utente nel database utilizzando l'ID dell'utente
+      const user = await db.updateEmail(req.params.userId, newEmail, password);
+
+      if (!user) {
+          res.status(404).send('Utente non trovato');
+          return;
+      }
+
+      res.send('Email aggiornata con successo');
+  } catch (error) {
+    if(error.message === 'Email already in use'){
+      res.status(409).send('Email già in uso');
+    }else if(error.message === 'Incorrect password'){
+        res.status(401).send('Password errata');
+    }else if(error.message === 'Invalid email format'){
+        res.status(400).send('Formato email non valido');
+    }
+    else{
+        res.status(500).send('Si è verificato un errore durante l\'aggiornamento dello username');
+    }
+  }
+});
+
+
+//Rotta per l'aggiornamento della password
+router.post('/update-password/:userId', async (req, res) => {
+  const newPassword = req.body.newPassword;
+  const oldPassword = req.body.oldPassword;
+
+  console.log('Aggiornamento della password dell\'utente', req.params.userId);
+
+  try {
+      // Trova l'utente nel database utilizzando l'ID dell'utente
+      const user = await db.updatePassword(req.params.userId, oldPassword, newPassword);
+
+      if (!user) {
+          res.status(404).send('Utente non trovato');
+          return;
+      }
+
+      res.send('Password aggiornata con successo');
+  } catch (error) {
+      if(error.message === 'Incorrect Password'){
+          res.status(401).send('Password errata');
+      }else if(error.message === 'Password must be at least 8 characters'){
+          res.status(400).send('La password deve essere lunga almeno 8 caratteri');
+      }
+      else{
+          res.status(500).send('Si è verificato un errore durante l\'aggiornamento della password');
+      }
+  }
+});
+
+
 
 module.exports = router;
