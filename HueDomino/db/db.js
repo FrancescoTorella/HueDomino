@@ -113,69 +113,58 @@ async function updateUsername(userId, newUsername, password) {
 
 //funzione per l'aggiornamento dell' email
 async function updateEmail(userId, newEmail, password) {
-  try {
-
-      // Verifica se la nuova email è valida
-      if (!validateEmail(newEmail)) {
-          throw new Error('Invalid email format');
-      }
-
-      // Verifica se la nuova email è già in uso
-      const emailInUse = await pool.query('SELECT * FROM users WHERE email = $1', [newEmail]);
-      if (emailInUse.rows.length > 0) {
-          throw new Error('Email already in use');
-      }
-
-      // trova l'utente nel database utilizzando l'ID dell'utente
-      const user = await pool.query('SELECT * FROM users WHERE id = $1', [userId]);
-
-      console.log(password);
-
-      // Verifica se la password fornita corrisponde alla password dell'utente
-      const passwordMatch = await bcrypt.compare(password, user.rows[0].password);
-
-      if (!passwordMatch) {
-          throw new Error('Incorrect Password');
-      }
-
-      // Se la password è corretta, aggiorna l'email dell'utente
-      const result = await pool.query('UPDATE users SET email = $1 WHERE id = $2', [newEmail, userId]);
-      return result.rowCount > 0; // Restituisce true se almeno una riga è stata aggiornata
-  } catch (error) {
-      console.error(error);
-      return false;
+  // Verifica se la nuova email è valida
+  if (!validateEmail(newEmail)) {
+      throw new Error('Invalid email format');
   }
+
+  // Verifica se la nuova email è già in uso
+  const emailInUse = await pool.query('SELECT * FROM users WHERE email = $1', [newEmail]);
+  if (emailInUse.rows.length > 0) {
+      throw new Error('Email already in use');
+  }
+
+  // trova l'utente nel database utilizzando l'ID dell'utente
+  const user = await pool.query('SELECT * FROM users WHERE id = $1', [userId]);
+
+  console.log(password);
+
+  // Verifica se la password fornita corrisponde alla password dell'utente
+  const passwordMatch = await bcrypt.compare(password, user.rows[0].password);
+
+  if (!passwordMatch) {
+      throw new Error('Incorrect Password');
+  }
+
+  // Se la password è corretta, aggiorna l'email dell'utente
+  const result = await pool.query('UPDATE users SET email = $1 WHERE id = $2', [newEmail, userId]);
+  return result.rowCount > 0; // Restituisce true se almeno una riga è stata aggiornata
 }
 
 
 //funzione per l'aggiornamento della password
 async function updatePassword(userId, oldPassword, newPassword) {
-  try {
-      const user = await pool.query('SELECT * FROM users WHERE id = $1', [userId]);
+  const user = await pool.query('SELECT * FROM users WHERE id = $1', [userId]);
 
-      // Stampa le password per il debug
-      console.log('Old password:', oldPassword);
-      console.log('New password:', newPassword);
+  // Stampa le password per il debug
+  console.log('Old password:', oldPassword);
+  console.log('New password:', newPassword);
 
-      // Verifica se la password fornita corrisponde alla password dell'utente
-      const passwordMatch = await bcrypt.compare(oldPassword, user.rows[0].password);
+  // Verifica se la password fornita corrisponde alla password dell'utente
+  const passwordMatch = await bcrypt.compare(oldPassword, user.rows[0].password);
 
-      if (!passwordMatch) {
-          throw new ValidationError('Incorrect Password');
-      }
-
-      if(!validatePassword(newPassword)){
-          throw new ValidationError('Password must be at least 8 characters');
-      }
-
-      // Se la password è corretta, aggiorna la password dell'utente
-      const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
-      const result = await pool.query('UPDATE users SET password = $1 WHERE id = $2', [hashedPassword, userId]);
-      return result.rowCount > 0; // Restituisce true se almeno una riga è stata aggiornata
-  } catch (error) {
-      console.error(error);
-      return false;
+  if (!passwordMatch) {
+      throw new ValidationError('Incorrect Password');
   }
+
+  if(!validatePassword(newPassword)){
+      throw new ValidationError('Password must be at least 8 characters');
+  }
+
+  // Se la password è corretta, aggiorna la password dell'utente
+  const hashedPassword = await bcrypt.hash(newPassword, saltRounds);
+  const result = await pool.query('UPDATE users SET password = $1 WHERE id = $2', [hashedPassword, userId]);
+  return result.rowCount > 0; // Restituisce true se almeno una riga è stata aggiornata
 }
 
 async function checkPlayable(userId) {

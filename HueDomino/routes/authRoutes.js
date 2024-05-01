@@ -213,7 +213,7 @@ router.post('/update-username/:userId', async (req, res) => {
   } catch (error) {
       if(error.message === 'Username already in use'){
           res.status(409).send('Username già in uso');
-      }else if(error.message === 'Incorrect password'){
+      }else if(error.message === 'Incorrect Password'){
           res.status(401).send('Password errata');
       }else{
           res.status(500).send('Si è verificato un errore durante l\'aggiornamento dello username');
@@ -241,7 +241,7 @@ router.post('/update-email/:userId', async (req, res) => {
   } catch (error) {
     if(error.message === 'Email already in use'){
       res.status(409).send('Email già in uso');
-    }else if(error.message === 'Incorrect password'){
+    }else if(error.message === 'Incorrect Password'){
         res.status(401).send('Password errata');
     }else if(error.message === 'Invalid email format'){
         res.status(400).send('Formato email non valido');

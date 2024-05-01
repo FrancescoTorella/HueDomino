@@ -88,6 +88,10 @@ $(document).ready( async function() {
 
     $('#updateUsername').on('submit', function(e) {
         e.preventDefault();
+
+        //Rimuovi eventuali errori precedenti
+        $('#usernameError').text('');
+        $('#passwordErrorInUpdateUsername').text('');
     
         var username = $('#username').val();
         var password = $('#passwordForUsername').val();
@@ -107,7 +111,7 @@ $(document).ready( async function() {
                 if(jqXHR.status == 409){
                     $('#usernameError').text('Username già in uso');
                 }else if(jqXHR.status == 401){
-                    $('#passwordErrorInUpdateUsername').val('Password errata');
+                    $('#passwordErrorInUpdateUsername').text('Password errata');
                 }else{
                     console.log(textStatus, errorThrown);
                 }
@@ -117,6 +121,10 @@ $(document).ready( async function() {
 
     $('#updatePassword').on('submit', function(e) {
         e.preventDefault();
+
+        //Rimuovi eventuali errori precedenti
+        $('#oldPasswordError').text('');
+        $('#newPasswordError').text('');
     
         var oldPassword = $('#oldPassword').val();
         var newPassword = $('#newPassword').val();
@@ -133,13 +141,24 @@ $(document).ready( async function() {
                 location.reload();
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+                if(jqXHR.status == 400){
+                    $('#newPasswordError').text('La password deve contenere almeno 8 caratteri');
+                }else if(jqXHR.status == 401){
+                    $('#oldPasswordError').text('Password errata');
+                }else{
+                    console.log(textStatus, errorThrown);
+                }
             }
         });
     });
 
     $('#updateEmail').on('submit', function(e) {
         e.preventDefault();
+
+        //Rimuovi eventuali errori precedenti
+        $('#emailError').text('');
+        $('#passwordErrorInUpdateEmail').text('');
+
     
         var email = $('#email').val();
         var password = $('#passwordForEmail').val();
@@ -156,9 +175,23 @@ $(document).ready( async function() {
                 location.reload();
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+                if(jqXHR.status == 409){
+                    $('#emailError').text('Email già in uso');
+                }else if(jqXHR.status == 401){
+                    $('#passwordErrorInUpdateEmail').text('Password errata');
+                }else if(jqXHR.status == 400){
+                    $('#emailError').text('Formato email non valido');
+                }
+                else{
+                    console.log(textStatus, errorThrown);
+                }
             }
         });
+    });
+
+    $('#logoutButton').click(function() {
+        document.cookie = 'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        window.location.href = '/';
     });
 
     

@@ -198,3 +198,25 @@
 .email-larghezza{
     max-width: 500px; 
 }
+
+#logoutButton {
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border-color: red;
+    transition: background-color 0.3s ease;
+    margin-right: 20px;
+}
+
+#logout-button:hover {
+    background-color: #ab4c19;
+}
+
+#logoutButtonText{
+    color: red;
+}
+
+.submit-button{
+    margin-bottom: 20px;
+}
