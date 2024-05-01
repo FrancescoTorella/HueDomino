@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var menuContainer = document.getElementById('writtenModesDropdownContainer');
     var menu = document.querySelector('.dropdown-header-menu');
     var menuIsOpen = false;
+    var dropdownText = document.getElementById('dropdown-text');
 
     var hideDropdownMenu = function() {
         /* Verifica se il mouse è ancora sopra #dropdownMenu prima di nasconderlo */
@@ -33,17 +34,27 @@ document.addEventListener('DOMContentLoaded', function() {
             /* Cambia l'immagine nel menu a tendina in base all'elemento su cui il mouse è passato sopra */
                 var iconLabel = iconContainer.querySelector('.mode-title').textContent;
                 if (iconLabel === 'Creator') {
-                    dropdownImage.src = '/images/IconaCreatore4.png';
-                    dropdownImage.dataset.link = '/creator';
+                    dropdownText.innerHTML = 'Creator text';
                 } else if (iconLabel === 'Duel') {
-                    dropdownImage.src = '/images/IconaDuello3.png';
-                    dropdownImage.dataset.link = '/duel';
+                    dropdownText.innerHTML = 'Duel text';
                 } else if (iconLabel === 'Daily Challenge') {
-                    dropdownImage.src = '/images/IconaSfidaGiornaliera2.png';
-                    dropdownImage.dataset.link = '/daily_challenge';
+                    dropdownText.innerHTML = 'Daily Challenge text';
                 } else if (iconLabel === 'Journey') {
-                    dropdownImage.src = '/images/IconaViaggioGame1.png';
-                    dropdownImage.dataset.link = '/journey';
+                    dropdownText.innerHTML = `
+                        <a href="/journey"><h2>All worlds</h2></a>
+                        <div class="column">
+                            <a href="/journey/italy"<p>Italy</p></a>
+                            <p>USA</p>
+                            <p>Japan</p>
+                            <p>Iceland</p>
+                        </div>
+                        <div class="column">
+                            <p>Australia</p>
+                            <p>France</p>
+                            <p>Argentina</p>
+                            <p>Canada</p>
+                        </div>
+            `;
                 }
             }
         });
@@ -52,12 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     /* Nasconde #dropdownMenu quando il mouse esce da esso */
     dropdownMenu.addEventListener('mouseleave', hideDropdownMenu);
-
-    /* Cambia la posizione della finestra quando l'immagine nel menu a tendina viene cliccata */
-    dropdownImage.addEventListener('click', function() {
-        window.location.href = dropdownImage.dataset.link;
-    });
-
 
     menuIcon.addEventListener('click', function() {
         var modeTitles = menuContainer.querySelectorAll('.mode-title');

@@ -364,3 +364,12 @@ p{
 .temporary-div{
     display: block;
 }
+
+#dropdown-text .column {
+    float: left;
+    width: 50%;
+}
+
+#dropdown-text p {
+    margin: 0;
+}
