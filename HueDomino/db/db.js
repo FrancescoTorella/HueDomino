@@ -9,7 +9,7 @@ const { v4: uuidv4 } = require('uuid');
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
-    database: 'temp',
+    database: 'HueDomino',
     password: 'HueDomino',
     port: 5432,
 });
@@ -35,6 +35,11 @@ async function createUser(username, password, email) {
     const hashedPassword = await bcrypt.hash(password, saltRounds);
     // Store the user in the database
     const result = await pool.query('INSERT INTO users (username, password, email) VALUES ($1, $2, $3) RETURNING id', [username, hashedPassword, email]);
+    return result.rows[0];
+}
+// Funzione per ottenere un utente dal database per ID
+async function getUserById(id) {
+    const result = await pool.query('SELECT * FROM users WHERE id = $1', [id]);
     return result.rows[0];
 }
 
@@ -110,4 +115,14 @@ async function getSession(sessionId) {
   return null;
 }
 
-module.exports = { createUser, getUserByEmail, getUserByUsername, checkPlayable, checkPassed,insertPassedLevel, createSession, getSession };
+module.exports = { 
+  createUser, 
+  getUserByEmail, 
+  getUserByUsername, 
+  checkPlayable, 
+  checkPassed,
+  insertPassedLevel, 
+  createSession, 
+  getSession,
+  getUserById
+ };

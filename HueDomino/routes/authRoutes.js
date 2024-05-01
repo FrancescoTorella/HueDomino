@@ -119,4 +119,15 @@ router.post('/api/passed', async (req, res) => {
   }
 });
 
+//gestisci la richiesta di informazioni sull'utente
+router.get('/utente/:id', async (req, res) => {
+    console.log('Richiesta di informazioni sull\'utente', req.params.id); 
+    const user = await db.getUserById(req.params.id);
+    if (user) {
+        res.json(user);
+    } else {
+        res.status(404).json({ message: 'Utente non trovato' });
+    }
+});
+
 module.exports = router;
