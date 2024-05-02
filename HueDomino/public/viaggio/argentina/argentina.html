@@ -2,9 +2,9 @@
 <html>
     <head>
         <title>Viaggio - Hue Dominion</title>
-        <link rel="stylesheet" type="text/css" href="/main.css">
         <link rel="stylesheet" type="text/css" href="/viaggio/mondi.css">
         <link rel="stylesheet" href="/styles/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/main.css">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         
         <script src="/viaggio/argentina/mappa_argentina.js"></script>
@@ -22,19 +22,19 @@
                 <div class="modes-container">
                     <div class="written-modes-container">
                         <div class="mode-title-container">
-                            <p class="mode-title">Journey</p>
+                            <a href="/journey"><p class="mode-title">Journey</p></a>
                         </div>
                         <div class="mode-title-container">
-                            <p class="mode-title">Daily Challenge</p>
+                            <a href="/daily_challenge"><p class="mode-title">Daily Challenge</p></a>
                         </div>
                         <div class="mode-title-container">
-                            <p class="mode-title">Duel</p>
+                            <a href="/duel"><p class="mode-title">Duel</p></a>
                         </div>
                         <div class="mode-title-container">
-                            <p class="mode-title">Creator</p>
+                            <a href="/creator"><p class="mode-title">Creator</p></a>
                         </div>
                         <div class="mode-title-container">
-                            <button id="loginButton" class="login-button" onclick="window.location.href='/login/login.html'">Login</button>
+                            <button id="loginButton" class="login-button" onclick="window.location.href='/login'">Login</button>
                         </div>
                     </div>
                     <div class="icon-menu-container">
@@ -45,7 +45,7 @@
                         </div>
                         <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
                             <div class="text-wrapper">
-                                <a href="/login"><p class="mode-title">Login</p></a>
+                                <a id="loginButtonSmall" href="/login"><p class="mode-title">Login</p></a>
                                 <a href="/journey"><p class="mode-title">Journey</p></a>
                                 <a href="/daily_challenge"><p class="mode-title">Daily Challenge</p></a>
                                 <a href="/duel"><p class="mode-title">Duel</p></a>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div id="dropdownHeaderMenu" class="dropdown-header-menu">
-                <img src="" class="mode-icon">
+                <div id="dropdown-text"></div>
             </div> 
             <script src="/header.js"></script>
         </header>

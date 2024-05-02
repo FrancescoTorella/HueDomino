@@ -41,18 +41,17 @@ document.addEventListener('DOMContentLoaded', function() {
                     dropdownText.innerHTML = 'Daily Challenge text';
                 } else if (iconLabel === 'Journey') {
                     dropdownText.innerHTML = `
-                        <a href="/journey"><h2>All worlds</h2></a>
                         <div class="column">
                             <a href="/journey/italy"<p>Italy</p></a>
-                            <p>USA</p>
-                            <p>Japan</p>
-                            <p>Iceland</p>
+                            <a href="/journey/usa"><p>USA</p></a>
+                            <a href="/journey/japan"><p>Japan</p></a>
+                            <a href="/journey/iceland"><p>Iceland</p></a>
                         </div>
                         <div class="column">
-                            <p>Australia</p>
-                            <p>France</p>
-                            <p>Argentina</p>
-                            <p>Canada</p>
+                            <a href="/journey/australia"><p>Australia</p></a>
+                            <a href="/journey/france"><p>France</p></a>
+                            <a href="/journey/argentina"><p>Argentina</p></a>
+                            <a href="/journey/canada"><p>Canada</p></a>
                         </div>
             `;
                 }
