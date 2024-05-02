@@ -40,9 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20);           //20 è il tempo di aggiornamento della posizione dell'aeroplanino in ms cambiarlo influisce sulla velocità
 });
 
-
-
-
 // Funzione che gestisce la transizione dell'aeroplanino al livello successivo
 function transitionToNextLevel() {
     if (livello >= 10) {
@@ -246,14 +243,6 @@ window.onload = async function() {
     })
     .catch(error => {
     console.error('Error:', error);
-    });
-
-    $('.level-icon').click(function(event) {
-        event.preventDefault();
-        var levelNumber = $(this).data('level');
-        console.log('user id:', userId);
-        document.cookie = 'userId=' + userId + ';max-age=' + (60 * 60) + ';path=/';
-        window.location.href = '/journey/italy/' + levelNumber;
     });
 
         

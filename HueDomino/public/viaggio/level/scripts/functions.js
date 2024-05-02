@@ -35,14 +35,13 @@ function getCookie(name) {
 
 
 
-
-let userId = parseInt(getCookie('userId'));
+//let userId = parseInt(getCookie('userId'));
 let levelNation = getCookie('levelNation');
 let levelNumber = parseInt(getCookie('levelNumber'));
 
 if(debugging){
-    console.log(getCookie('userId'));
-    console.log(userId);
+    //console.log(getCookie('userId'));
+    //console.log(userId);
     console.log(levelNation);
     console.log(levelNumber);
 }
@@ -529,7 +528,31 @@ function checkColorsMatch() {
     
 }
 
-function handleLevelCompletion(){
+async function handleLevelCompletion(){
+
+    let userId;
+
+    const sessionId = document.cookie.split(';').find(item => item.trim().startsWith('sessionId='));
+        
+    if (sessionId) {
+        // Estrai l'ID della sessione dal cookie
+        const sessionIdValue = sessionId.split('=')[1];
+
+        try {
+        // Fai una richiesta al server per ottenere i dettagli della sessione
+        const response = await fetch('/session/' + sessionIdValue);
+        const session = await response.json();
+
+        // Stampa i dettagli della sessione sulla console
+        
+        userId = session.user_id;
+        console.log('ID utente:', userId);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    } else {
+        console.log('Il cookie sessionId non è stato trovato');
+    }
 
     fetch('/api/passed', {
         method: 'POST',
