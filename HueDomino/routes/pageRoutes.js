@@ -83,8 +83,8 @@ router.get('/journey/france', (req, res) => {
 // Rotta per un livello
 router.get('/journey/:levelNation/:levelNumber', (req, res) => {
     const { levelNation, levelNumber } = req.params;
-    res.cookie('levelNation', levelNation ,{ maxAge: 60 * 60 * 1000});
-    res.cookie('levelNumber', levelNumber ,{ maxAge: 60 * 60 * 1000});
+    res.cookie('levelNation', levelNation ,{ maxAge: 1 * 60 * 1000});
+    res.cookie('levelNumber', levelNumber ,{ maxAge: 1 * 60 * 1000});
     res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'level', 'level.html'));
 });
 

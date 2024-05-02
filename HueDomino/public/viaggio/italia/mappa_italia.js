@@ -175,6 +175,7 @@ window.onload = async function() {
         // Stampa i dettagli della sessione sulla console
         
         userId = session.user_id;
+        console.log('ID utente:', userId);
         } catch (error) {
             console.error('Error:', error);
         }
@@ -245,6 +246,14 @@ window.onload = async function() {
     })
     .catch(error => {
     console.error('Error:', error);
+    });
+
+    $('.level-icon').click(function(event) {
+        event.preventDefault();
+        var levelNumber = $(this).data('level');
+        console.log('user id:', userId);
+        document.cookie = 'userId=' + userId + ';max-age=' + (60 * 60) + ';path=/';
+        window.location.href = '/journey/italy/' + levelNumber;
     });
 
         

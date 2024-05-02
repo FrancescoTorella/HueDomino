@@ -1,4 +1,5 @@
 
+//import { get } from '../../../../routes/pageRoutes.js';
 import { defaultSquarebuttonsColor, defaultThinbuttonsColor,rows,cols } from './constants.js';
 import{ matrix, thinButtonsMap } from './data.js';
 
@@ -33,11 +34,14 @@ function getCookie(name) {
 }
 
 
+
+
 let userId = parseInt(getCookie('userId'));
 let levelNation = getCookie('levelNation');
 let levelNumber = parseInt(getCookie('levelNumber'));
 
 if(debugging){
+    console.log(getCookie('userId'));
     console.log(userId);
     console.log(levelNation);
     console.log(levelNumber);
