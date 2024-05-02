@@ -121,4 +121,31 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdown.style.backgroundColor = 'rgba(100, 100, 100, 1)';
         }
     });
+
+    window.onload = function() {
+        // Cerca il cookie 'sessionId'
+        const sessionId = document.cookie.split(';').find(item => item.trim().startsWith('sessionId='));
+      
+        if (sessionId) {
+          // Estrai l'ID della sessione dal cookie
+          const sessionIdValue = sessionId.split('=')[1];
+      
+          // Fai una richiesta al server per ottenere i dettagli della sessione
+          fetch('/session/' + sessionIdValue)
+            .then(response => response.json())
+            .then(session => {
+              // Stampa i dettagli della sessione sulla console
+              console.log('Dettagli della sessione:', session);
+              //se il cookie viene trovato cambia il tasto login in impostazioni profilo
+              $('#loginButton').text('Profilo');
+              $('#loginButton').attr('onclick', 'window.location.href = "/profile"');
+              var newElementSmall = $('<p>').text('Profilo').addClass('mode-title');
+              $('#loginButtonSmall').empty().append(newElementSmall);
+              $('#loginButtonSmall').attr('href', '/profile');
+            })
+            .catch(error => console.error('Error:', error));
+        } else {
+          console.log('Il cookie sessionId non è stato trovato');
+        }
+    };
 });
