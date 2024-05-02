@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 menuIsOpen = true;
 
             /* Cambia l'immagine nel menu a tendina in base all'elemento su cui il mouse è passato sopra */
-                var iconLabel = iconContainer.querySelector('.mode-title').textContent;
+            var iconLabelElement = iconContainer.querySelector('.mode-title');
+            if (iconLabelElement) {
+                var iconLabel = iconLabelElement.textContent;
                 if (iconLabel === 'Creator') {
                     dropdownText.innerHTML = 'Creator text';
                 } else if (iconLabel === 'Duel') {
@@ -56,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
                 }
             }
+        }
         });
 
         iconContainer.addEventListener('mouseleave', hideDropdownMenu);
@@ -137,9 +140,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
                 // Stampa i dettagli della sessione sulla console
                 console.log('Dettagli della sessione:', session);
-                //se il cookie viene trovato cambia il tasto login in impostazioni profilo
-                $('#loginButton').text('Profilo');
-                $('#loginButton').attr('onclick', 'window.location.href = "/profile"');
+                const userId = session.user_id;
+                const profileImagePath = '../immagini_profilo/user' + userId + '/profile.png';
+                $('#loginButton').replaceWith('<img id="profileImage">');
+                $.ajax({
+                    type: 'HEAD',
+                    url: profileImagePath,
+                    success: function() {
+                        // Se la richiesta ha successo, il percorso dell'immagine esiste
+                        // Imposta l'attributo 'src' dell'immagine del profilo
+                        $('#profileImage').attr('src', profileImagePath);
+                    },
+                    error: function() {
+                        // Se la richiesta fallisce, il percorso dell'immagine non esiste
+                        // Imposta l'attributo 'src' dell'immagine del profilo su un'immagine segnaposto
+                        $('#profileImage').attr('src', '../immagini_profilo/default.png');
+                    }
+                });
+                $('#profileImage').css({
+                    'width': '2.5vw',  // Imposta la larghezza dell'immagine
+                    'height': '2.5vw',  // Imposta l'altezza dell'immagine
+                    'border-radius': '50%',  // Rende l'immagine circolare
+                    'object-fit': 'cover'  // Assicura che l'immagine copra completamente l'area del cerchio
+                });
+                $('#profileImage').attr('onclick', 'window.location.href = "/profile"');
                 var newElementSmall = $('<p>').text('Profilo').addClass('mode-title');
                 $('#loginButtonSmall').empty().append(newElementSmall);
                 $('#loginButtonSmall').attr('href', '/profile');
