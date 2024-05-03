@@ -9,6 +9,8 @@ import * as f from './functions.js';
 
 document.addEventListener("DOMContentLoaded", async function() {
 
+    
+
     const buttonGrid = document.getElementById("buttonGrid");
 
     //aggiungi evento di click al documento per annullare l'effetto di pulsing
@@ -140,6 +142,6 @@ document.addEventListener("DOMContentLoaded", async function() {
     
 
     f.loadThinButtonsStartConfig();
-    
+
 });
 

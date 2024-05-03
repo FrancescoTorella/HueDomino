@@ -37,3 +37,5 @@ colorIcon.addEventListener('touchstart', function() {
 colorIcon.addEventListener('touchend', function() {
     colorPopup.style.display = 'none';
 });
+
+

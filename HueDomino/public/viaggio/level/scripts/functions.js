@@ -575,8 +575,10 @@ async function handleLevelCompletion(){
         var expires = "; expires=" + date.toUTCString();
         document.cookie = `justPassed=${levelNumber}` + expires + "; path=/";
 
+        parent.document.querySelector('.level-completion').style.display = 'block';
+
         // Reindirizza l'utente alla pagina dei livelli
-        window.top.location.href = `/journey/${levelNation}`;
+        //window.top.location.href = `/journey/${levelNation}`;
     })
     .catch((error) => {
         console.error('Error:', error);

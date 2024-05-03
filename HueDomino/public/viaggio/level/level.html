@@ -9,20 +9,22 @@
     <title>Level</title>
 </head>
 <body>
-
+    <div id="orientation-icon-div">
+        <p id="orientation-text">Orienta il dispositivo in orizzontale per una migliore esperienza di gioco</p>
+        <img src="/viaggio/level/rotate.png" id="orientation-icon" alt="Orienta il dispositivo in orizzontale">
+    </div>
     <img src="/viaggio/level/level1Icon.png" alt="Italy: level 1" id="popupFinalImage" class="popup-image">
     <img src="/viaggio/level/palceholder.png" alt="Italy: level1 colors" id="popupColorImage" class="popup-image">
     <div class="sidebar left-sidebar">
-        <img src="/viaggio/level/icons/image.svg"
-        alt="openImage" id="openImageIcon" class="leftsidebar-icons">
+        <img src="/viaggio/level/icons/image.svg" alt="openImage" id="openImageIcon" class="leftsidebar-icons">
         <div id="movesLeftDiv" class="moves-left-div">
             <p id="movesLeftLabel" class="moves-left-label"></p>
         </div>
         <img src="/viaggio/level/icons/arrow-counterclockwise.svg" alt="restart" class="leftsidebar-icons" id="restartIcon">
-        <img src="/viaggio/level/icons/arrow-left.svg" alt="undo" class="leftsidebar-icons" id="undoIcon">
+        <img src="/viaggio/level/icons/arrow-left.svg" title="Ricomincia il livello" alt="undo" class="leftsidebar-icons" id="undoIcon">
     </div>
     <div class="iframe-container">
-        <iframe class="main-container" src="/viaggio/level/scripts/grid.html" scrolling="no"></iframe>
+        <iframe id="mainContainer" class="main-container" src="/viaggio/level/scripts/grid.html" scrolling="no"></iframe>
     </div>
         
     <div class="sidebar right-sidebar">
@@ -33,9 +35,18 @@
         <img src="/viaggio/level/icons/eraser-fill.svg" alt="erase" class="rightsidebar-icons" id="eraseIcon">
     </div>
 
+    <div class="level-completion d-flex flex-column justify-content-around align-items-center">
+        <h2 id="levelCompletionText" class="mb-3">Livello completato!</h2>
+        <img src="/viaggio/level/level1Icon.png" id="levelCompletedImage" class="img-fluid mb-3">
+        <div>
+            <button id="backToMenuButton" class="btn btn-primary mr-2">Torna al menu</button>
+            <button id="nextLevelButton" class="btn btn-primary ml-2">Vai al livello successivo</button>
+        </div>
+    </div>
 
     
     <script src="/viaggio/level/scripts/levelAnimation.js"></script>
+        
     
     
 </body>

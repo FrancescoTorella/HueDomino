@@ -1,5 +1,5 @@
 color1,color2,result
-tan,antiquewhite, navajowhite
-antiquewhite,forestgreen, gainsboro
-forestgreen,tan, teal
-tan, navajowhite, burlywood
+darkslategray, gainsboro, dimgray
+gainsboro, steelblue, deepskyblue
+steelblue, darkslategray, lightblue
+steelblue, lightblue, lightsteelblue
