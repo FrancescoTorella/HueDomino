@@ -9,14 +9,19 @@ body{
     background-size: cover;
 }
 
+.iframe-container {
+    overflow: visible;
+}
+
 
 .main-container {
     box-sizing: border-box;
     height: 100vh; 
-    width: 80vw;
+    width: 82vw;
     display: flex;
     padding: 2%;
     justify-content: center;
+    overflow: auto;
 }
 
 

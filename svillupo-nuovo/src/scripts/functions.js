@@ -159,6 +159,7 @@ export function handleMouseDown(event) {
         }
     }else if(playMode){
         //se è attiva la modalità di gioco e se il bottone sottile è selezionato, allora gestisci l'evento di espansione del colore
+        
         if (this.style.backgroundColor === selectedThinbuttonsColor) {
             
 
@@ -173,10 +174,12 @@ export function handleMouseDown(event) {
             let oldColor2 = matrix[i2][j2].style.backgroundColor;
             //se il colore di uno dei bottoni quadrati adiacenti è diverso dal colore di default
             if(oldColor1 === defaultSquarebuttonsColor ^ oldColor2 === defaultSquarebuttonsColor){
+                console.log('espansione colore');
                 fillArea(i1, j1, oldColor2);
                 fillArea(i2, j2, oldColor1);
                 fillThinButtons();
             } else if (oldColor1 !== oldColor2){
+                console.log('espansione colore', oldColor1, oldColor2, combineColors(oldColor1, oldColor2));
                 fillArea(i1, j1, oldColor2,1);
                 fillArea(i2, j2, oldColor1,1);
                 fillThinButtons();
@@ -253,6 +256,7 @@ export function fillArea(i, j, color,maxCells = 1024) {
 
             let oldColor = matrix[i][j].style.backgroundColor;
             let newColor = combineColors(oldColor, color);
+            console.log('oldColor', oldColor, 'newColor', newColor);
 
 
             // Se il colore corrente è uguale al nuovo colore, continua al prossimo ciclo
@@ -359,12 +363,13 @@ export function fillThinButtons(){
 
     //colora i bottoni sottili se non sono neri e se i bottoni quadrati adiacenti hanno lo stesso colore
     thinButtons.forEach(button => {
+        let i1 = parseInt(button.getAttribute('data-row1'));
+        let j1 = parseInt(button.getAttribute('data-col1'));
+        let i2 = parseInt(button.getAttribute('data-row2'));
+        let j2 = parseInt(button.getAttribute('data-col2'));
         //se il bottone non è nero, allora prendi i colori dei bottoni quadrati adiacenti
         if(button.style.backgroundColor !== selectedThinbuttonsColor){
-            let i1 = parseInt(button.getAttribute('data-row1'));
-            let j1 = parseInt(button.getAttribute('data-col1'));
-            let i2 = parseInt(button.getAttribute('data-row2'));
-            let j2 = parseInt(button.getAttribute('data-col2'));
+            
             //se il colore di uno dei bottoni quadrati adiecenti è il colore di default o se i bottoni quadrati adiacenti hanno colori diversi, allora imposta il colore del bottone sottile a default
             if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
                 button.style.backgroundColor = defaultThinbuttonsColor;
@@ -374,6 +379,13 @@ export function fillThinButtons(){
                 //alrimenti imposta il colore del bottone sottile con il colore dei bottoni quadrati adiacenti
                 button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
             }
+        }else{
+            //se il bottone è nero, allora controlla se i bottoni quadrati adiacenti hanno lo stesso colore
+            if(matrix[i1][j1].style.backgroundColor === matrix[i2][j2].style.backgroundColor && matrix[i1][j1].style.backgroundColor !== defaultSquarebuttonsColor){
+                button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
+            }
+        
+            
         }
     });
 }
