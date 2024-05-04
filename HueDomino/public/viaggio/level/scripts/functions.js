@@ -26,14 +26,11 @@ let debugging = true;
 let finalConfigMatrix = null;
 
 //estrai le infromazioni dai cookie
-
 function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
-
-
 
 //let userId = parseInt(getCookie('userId'));
 let levelNation = getCookie('levelNation');
@@ -46,6 +43,39 @@ if(debugging){
     console.log(levelNumber);
 }
 
+//variabili per tener traccia dei filepath
+let colorCombinationsPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/color-combinations.json';
+let leftMovesPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/left-moves.json';
+let finalColorConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/final-color-config.json';
+let startConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/start-config.json';
+
+if(debugging){
+    console.log(colorCombinationsPath);
+    console.log(leftMovesPath);
+    console.log(finalColorConfigPath);
+    console.log(startConfigPath);
+
+}
+
+//imposta il filepath alle immagini di riferimento
+let imgElement = parent.document.getElementById('popupFinalImage');
+imgElement.src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
+imgElement = parent.document.getElementById('levelCompletedImage');
+imgElement.src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
+
+//imposta il path ai bottoni del div di fine livello
+let nextLevelButton = parent.document.getElementById('nextLevelButton');
+if(levelNumber < 8){    
+    nextLevelButton.onclick = function() {
+        parent.window.location.href = '/journey/' + levelNation + '/' + (levelNumber + 1);
+    }
+}else{
+    nextLevelButton.style.display = 'none';
+}
+let backToMenuButton = parent.document.getElementById('backToMenuButton');
+backToMenuButton.onclick = function() {
+    parent.window.location.href = '/journey/' + levelNation;
+}
 // Funzione per gestire il click del bottone
 export function handleButtonClick(button) {
    
@@ -151,7 +181,7 @@ export function handleDocumentClick() {
 
 export async function loadThinButtonsStartConfig() {
     try {
-        const response = await fetch('config.json');
+        const response = await fetch(startConfigPath);
         const data = await response.json();
 
         thinButtonsMap.forEach((button, id) => {
@@ -171,7 +201,7 @@ export async function loadThinButtonsStartConfig() {
 export async function loadColorCombinations() {
     try {
         // Carica il file JSON
-        const response = await fetch('color-combinations.json');
+        const response = await fetch(colorCombinationsPath);
         const data = await response.json();
 
         // Estrai i colori primari dalle prime tre righe
@@ -474,7 +504,7 @@ export function handleUndoIconClick(){
 
 export async function initializeLeftMoves() {
     try {
-        const response = await fetch("left-moves.json");
+        const response = await fetch(leftMovesPath);
         const movesData = await response.json();
         leftMoves = movesData.leftMoves;
         displayLeftMoves();
@@ -491,7 +521,7 @@ function displayLeftMoves() {
 export async function initializeFinalConfig() {
     try {
         // Ottieni i dati dal file JSON
-        const response = await fetch('finalColorConfig.json');
+        const response = await fetch(finalColorConfigPath);
         const data = await response.json();
 
         // Resetta finalConfigMatrix
@@ -607,7 +637,8 @@ async function handleLevelCompletion(){
         var expires = "; expires=" + date.toUTCString();
         document.cookie = `justPassed=${levelNumber}` + expires + "; path=/";
 
-        parent.document.querySelector('.level-completion').style.display = 'block';
+        parent.document.querySelector('#content').classList.add('blur-effect');
+        parent.document.querySelector('.level-completion-div').style.display = 'flex';
 
         // Reindirizza l'utente alla pagina dei livelli
         //window.top.location.href = `/journey/${levelNation}`;

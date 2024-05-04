@@ -42,7 +42,7 @@ router.get('/creator', (req, res) => {
 
 // Rotta per la pagina italia
 router.get('/journey/italy', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'italia', 'italy.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'italy', 'italy.html'));
 });
 
 // Rotta per la pagina stati uniti 
