@@ -357,7 +357,7 @@ export function colorBorder(i1, j1, i2, j2, color) {
 }
 
 //Funzione per colorare insieme di bottoni sottili
-export function fillThinButtons(){
+export function fillThinButtonsAtEnd(){
     // Seleziona i bottoni sottili dalla mappa thinButtonsMap
     const thinButtons = Array.from(thinButtonsMap.values());
 
@@ -390,12 +390,41 @@ export function fillThinButtons(){
     });
 }
 
+export function fillThinButtons(){
+    // Seleziona i bottoni sottili dalla mappa thinButtonsMap
+    const thinButtons = Array.from(thinButtonsMap.values());
+
+    //colora i bottoni sottili se non sono neri e se i bottoni quadrati adiacenti hanno lo stesso colore
+    thinButtons.forEach(button => {
+        //se il bottone non è nero, allora prendi i colori dei bottoni quadrati adiacenti
+        if(button.style.backgroundColor !== selectedThinbuttonsColor){
+
+            let i1 = parseInt(button.getAttribute('data-row1'));
+            let j1 = parseInt(button.getAttribute('data-col1'));
+            let i2 = parseInt(button.getAttribute('data-row2'));
+            let j2 = parseInt(button.getAttribute('data-col2'));
+            
+            //se il colore di uno dei bottoni quadrati adiecenti è il colore di default o se i bottoni quadrati adiacenti hanno colori diversi, allora imposta il colore del bottone sottile a default
+            if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
+                button.style.backgroundColor = defaultThinbuttonsColor;
+            }else if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
+                button.style.backgroundColor = selectedThinbuttonsColor;
+            }else{
+                //alrimenti imposta il colore del bottone sottile con il colore dei bottoni quadrati adiacenti
+                button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
+            }
+        }
+    });
+}
+
+
+
 // Funzione per salvare la configurazione dei bottoni sottili
 export function saveThinButtonConfig() {
     // Crea un array di oggetti contenenti l'ID del bottone sottile e il suo colore
     const data = Array.from(thinButtonsMap).map(([thinId, thinButton]) => ({
-        thinId,
-        selected: thinButton.style.backgroundColor === defaultThinbuttonsColor ? 0 : 1
+        id: thinId,
+        selected: thinButton.style.backgroundColor === selectedThinbuttonsColor ? true : false
     }));
 
     // Invia i dati al server effettuando una richiesta di salvataggio
@@ -415,28 +444,29 @@ export function loadThinButtonConfig() {
         .then(response => response.json())
         .then(data => {
             // colora i bottoni secondo i dati caricati
-            data.forEach(({THINID, SELECTED}) => {
-                const thinButton = thinButtonsMap.get(THINID);
+            data.forEach(({id, selected}) => {
+                const thinButton = thinButtonsMap.get(id);
                 if (thinButton) {
-                    const isSelected = Number(SELECTED) === 0 ? false : true;
-                    thinButton.style.backgroundColor = isSelected ? selectedThinbuttonsColor : defaultThinbuttonsColor;
+                    if(selected){
+                        thinButton.style.backgroundColor = selectedThinbuttonsColor;
+                    }else{
+                        thinButton.style.backgroundColor = defaultThinbuttonsColor;
+                    }
                 }
             });
         });
 }
-
 // Leggi il file CSV e popola l'oggetto colorCombinations
 // Questa funzione dovrebbe essere chiamata all'avvio del programma
+// Leggi il file JSON e popola l'oggetto colorCombinations
+// Questa funzione dovrebbe essere chiamata all'avvio del programma
 export async function loadColorCombinations() {
-    const response = await fetch('../color-combinations.csv');
-    const data = await response.text();
-    const rows = data.split('\n').slice(1);
-    rows.forEach(row => {
-        const cols = row.split(",");
-        let color1 = cols[0].toLowerCase().trim();
-        let color2 = cols[1].toLowerCase().trim();
-        let result = cols[2].toLowerCase().trim();
-
+    const response = await fetch('../color-combinations.json');
+    const data = await response.json();
+    data.forEach(({color1, color2, result}) => {
+        color1 = color1.toLowerCase().trim();
+        color2 = color2.toLowerCase().trim();
+        result = result.toLowerCase().trim();
 
         colorCombinations[`${color1}${color2}`] = result;
         colorCombinations[`${color2}${color1}`] = result;

@@ -158,26 +158,26 @@ document.addEventListener("DOMContentLoaded", function() {
     let uniqueColors = new Set();
 
     // Leggi il file CSV e crea un nuovo pulsante per ogni colore unico
-    fetch('../../color-combinations.csv')
-        .then(response => response.text())
-        .then(data => {
-            const rows = data.split('\n').slice(1);
-            rows.forEach(row => {
-                const cols = row.split(',');
-                const color = cols[0].toLowerCase().trim();
+    // Leggi il file JSON e crea un nuovo pulsante per ogni colore unico
+    // Leggi il file JSON e crea un nuovo pulsante per ogni colore unico
+    fetch('../../color-combinations.json')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(({color1}) => {
+            color1 = color1.toLowerCase().trim();
 
-                // Se il colore non è già nel Set, crea un nuovo pulsante per il colore e aggiungilo all'area dei pulsanti dei colori
-                if (!uniqueColors.has(color)) {
-                    uniqueColors.add(color);
-                    let colorButton = document.createElement('button');
-                    colorButton.classList.add('color-button');
-                    colorButton.id = color + 'Button';
-                    colorButton.style.backgroundColor = color;
-                    colorButton.textContent = color.charAt(0).toUpperCase() + color.slice(1); // Capitalize the color name
-                    colorButtonsArea.appendChild(colorButton);
-                }
-            });
-        
+            // Se il colore non è già nel Set, crea un nuovo pulsante per il colore e aggiungilo all'area dei pulsanti dei colori
+            if (!uniqueColors.has(color1)) {
+                uniqueColors.add(color1);
+                let colorButton = document.createElement('button');
+                colorButton.classList.add('color-button');
+                colorButton.id = color1 + 'Button';
+                colorButton.style.backgroundColor = color1;
+                colorButton.textContent = color1.charAt(0).toUpperCase() + color1.slice(1); // Capitalize the color name
+                colorButtonsArea.appendChild(colorButton);
+            }
+        });
+
         // Aggiungi un ascoltatore di eventi a ciascun pulsante di colore
         let colorButtons = document.getElementsByClassName('color-button');
         for (let i = 0; i < colorButtons.length; i++) {
@@ -217,6 +217,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //aggiungi un event listener al bottone "scarica configurazione" per salvare la configurazione iniziale in un file json
     document.getElementById('downloadConfig').addEventListener('click',f.convertCsvToJsonAndDownload);
+
+    //aggiungi un evento listener al bottone rimpi bottoni sottili per preparare il livello alla foto
+    document.getElementById('fillThinButtonsAtEndButton').addEventListener('click',f.fillThinButtonsAtEnd);
 });
 
 

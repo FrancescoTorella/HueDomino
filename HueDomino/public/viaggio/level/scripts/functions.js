@@ -315,20 +315,20 @@ export function colorBorder(i1, j1, i2, j2, color) {
     thinButton.style.backgroundColor = color;
 }
 
-//Funzione per colorare insieme di bottoni sottili
-export function fillThinButtons(){
+function fillThinButtonsAtEnd(){
     // Seleziona i bottoni sottili dalla mappa thinButtonsMap
     const thinButtons = Array.from(thinButtonsMap.values());
 
+    //colora i bottoni sottili se non sono neri e se i bottoni quadrati adiacenti hanno lo stesso colore
     thinButtons.forEach(button => {
         let i1 = parseInt(button.getAttribute('data-row1'));
         let j1 = parseInt(button.getAttribute('data-col1'));
         let i2 = parseInt(button.getAttribute('data-row2'));
         let j2 = parseInt(button.getAttribute('data-col2'));
-
         //se il bottone non è nero, allora prendi i colori dei bottoni quadrati adiacenti
         if(button.style.backgroundColor !== selectedThinbuttonsColor){
             
+            //se il colore di uno dei bottoni quadrati adiecenti è il colore di default o se i bottoni quadrati adiacenti hanno colori diversi, allora imposta il colore del bottone sottile a default
             if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
                 button.style.backgroundColor = defaultThinbuttonsColor;
             }else if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
@@ -338,8 +338,37 @@ export function fillThinButtons(){
                 button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
             }
         }else{
-            //se i bottoni quadrati adiacenti sono dello stesso colore allora deseleziona il bottone sottile
-            if( matrix[i1][j1].style.backgroundColor !== defaultSquarebuttonsColor && matrix[i1][j1].style.backgroundColor === matrix[i2][j2].style.backgroundColor ){
+            //se il bottone è nero, allora controlla se i bottoni quadrati adiacenti hanno lo stesso colore
+            if(matrix[i1][j1].style.backgroundColor === matrix[i2][j2].style.backgroundColor && matrix[i1][j1].style.backgroundColor !== defaultSquarebuttonsColor){
+                button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
+            }
+        
+            
+        }
+    });
+}
+
+export function fillThinButtons(){
+    // Seleziona i bottoni sottili dalla mappa thinButtonsMap
+    const thinButtons = Array.from(thinButtonsMap.values());
+
+    //colora i bottoni sottili se non sono neri e se i bottoni quadrati adiacenti hanno lo stesso colore
+    thinButtons.forEach(button => {
+        //se il bottone non è nero, allora prendi i colori dei bottoni quadrati adiacenti
+        if(button.style.backgroundColor !== selectedThinbuttonsColor){
+
+            let i1 = parseInt(button.getAttribute('data-row1'));
+            let j1 = parseInt(button.getAttribute('data-col1'));
+            let i2 = parseInt(button.getAttribute('data-row2'));
+            let j2 = parseInt(button.getAttribute('data-col2'));
+            
+            //se il colore di uno dei bottoni quadrati adiecenti è il colore di default o se i bottoni quadrati adiacenti hanno colori diversi, allora imposta il colore del bottone sottile a default
+            if(matrix[i1][j1].style.backgroundColor === defaultSquarebuttonsColor || matrix[i2][j2].style.backgroundColor === defaultSquarebuttonsColor){
+                button.style.backgroundColor = defaultThinbuttonsColor;
+            }else if( matrix[i1][j1].style.backgroundColor !== matrix[i2][j2].style.backgroundColor){
+                button.style.backgroundColor = selectedThinbuttonsColor;
+            }else{
+                //alrimenti imposta il colore del bottone sottile con il colore dei bottoni quadrati adiacenti
                 button.style.backgroundColor = matrix[i1][j1].style.backgroundColor;
             }
         }
@@ -517,6 +546,9 @@ function checkColorsMatch() {
 
         //stampa su console per ora
         console.log("Passed!!")
+
+        //riempi i bottoni sottili
+        fillThinButtonsAtEnd();
 
         //effettua la richiesta al server per registrare sul db che l'utente ha completato il livello
         handleLevelCompletion();
