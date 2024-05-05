@@ -7,24 +7,37 @@ body{
     background-color: #646464 !important;
 }
 
-.main-container{
-   height: 50% !important;
 
+
+#logoContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.goback-icon {
-    height: 8%;
-    width: 8%;
-    transition: transform 0.3s ease-in-out;
+#titleContainer{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 5%;
+    font-size: large;
 }
 
-.goback-icon:hover {
+
+#goBackIcon{
+    height: 70px;
+    width: 70px;
+    transition: 0.3s ease;
+}
+
+
+#goBackIcon:hover {
     transform: scale(1.1);
 }
 
 .login-logo{
-    height: 60%;
-    width: 60%;
+    height: 70%;
+    width: 70%;
 }
 
 .title {
@@ -49,4 +62,67 @@ body{
 @font-face {
     font-family: 'Pixel3D';
     src: url('../fonts/3DThirteenPixelFontsRegular-2dPv.ttf') format('truetype');
+}
+
+.form-label{
+    display: flex;
+    justify-content: left;
+    font-family: 'VT323';
+    font-size: 150%;
+    margin-left: 5px;
+    color: #646464;
+
+}
+
+#loginError{
+    display: flex;
+    justify-content: left;
+}
+
+#passwordError{
+    display: flex;
+    justify-content: left;
+}
+
+#signInButton{
+    margin-left: 5%;
+    background: #646464;
+}
+
+#signInButton::before{
+    background: #646464;
+}
+
+#signInButton::after{
+    background: #646464;
+}
+
+#loginButton{
+    background: #ffea0098;
+    color: black;
+}
+
+#loginButton::before{
+    background:  #ffea0098;
+}
+
+#loginButton::after{
+    background: #ffea0098;
+}
+
+#registerButton{
+    background: #ffea0098;
+    color: black;
+}
+
+#registerButton::before{
+    background:  #ffea0098;
+}
+
+#registerButton::after{
+    background: #ffea0098;
+}
+
+.form-control{
+    font-family: 'VT323';
 }

@@ -33,3 +33,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     }
   });
 });
+
+$('#goBackIcon').click(function() {
+  window.location.href = '/';
+});

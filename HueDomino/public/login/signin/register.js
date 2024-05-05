@@ -51,3 +51,7 @@ document.getElementById('registerForm').addEventListener('submit', function(even
       }
     });
   });
+
+  $('#goBackIcon').click(function() {
+    window.location.href = '/login';
+  });
