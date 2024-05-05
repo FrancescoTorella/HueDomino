@@ -22,6 +22,9 @@ let leftMoves = null;
 //variabile per debugging
 let debugging = true;
 
+//variabile per animazioni
+let animation = false;
+
 //variabile per configurazione finale
 let finalConfigMatrix = null;
 
@@ -79,9 +82,11 @@ backToMenuButton.onclick = function() {
 // Funzione per gestire il click del bottone
 export function handleButtonClick(button) {
    
-    button.onclick = function(event) {
+    button.onclick = async function(event) {
         // Se nessun altro bottone sta pulsando, fai pulsare questo bottone
-
+        if(animation){
+            return;
+        }
 
         if(selectedColor === null){
             if (pulsingButton === null) {
@@ -129,13 +134,17 @@ export function handleButtonClick(button) {
                     let oldColor1 = matrix[ic][jc].style.backgroundColor;
                     let oldColor2 = matrix[ip][jp].style.backgroundColor;
                     if(oldColor1 === defaultSquarebuttonsColor ^ oldColor2 === defaultSquarebuttonsColor){
-                        fillArea(ic, jc, oldColor2);
-                        fillArea(ip, jp, oldColor1);
+                        animation = true;
+                        await fillArea(ic, jc, oldColor2);
+                        await fillArea(ip, jp, oldColor1);
                         fillThinButtons();
+                        animation = false;
                     } else if (oldColor1 !== oldColor2){
-                        fillArea(ic, jc, oldColor2,1);
-                        fillArea(ip, jp, oldColor1,1);
+                        animation = true;
+                        await fillArea(ic, jc, oldColor2,1);
+                        await fillArea(ip, jp, oldColor1,1);
                         fillThinButtons();
+                        animation = false;
                     }else{
                         this.style.backgroundColor = oldColor1;
                     }
@@ -157,8 +166,10 @@ export function handleButtonClick(button) {
 
             let i = button.getAttribute('data-row');
             let j = button.getAttribute('data-col');
-            fillArea(i,j,selectedColor);
+            animation = true;
+            await fillArea(i,j,selectedColor);
             fillThinButtons();
+            animation = false;
             leftMoves -= 1;
             displayLeftMoves();
             checkColorsMatch();
@@ -228,8 +239,12 @@ export async function loadColorCombinations() {
     }
 }
 
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 //Funzione principale per l'espanzione del colore
-export function fillArea(i, j, color,maxCells = 1024) {
+export async function fillArea(i, j, color,maxCells = 1024) {
     let visited = new Set();
     let queue = [{i: i, j: j, distance: 0}];
 
@@ -247,9 +262,10 @@ export function fillArea(i, j, color,maxCells = 1024) {
             if ( oldColor === newColor) {
                 continue;
             }
+            await delay(10);
 
             matrix[i][j].style.backgroundColor = newColor;
-            
+        
 
             // Aggiungi le celle adiacenti alla coda solo se non hanno già il nuovo colore e la distanza è minore di maxCells
             i = parseInt(i);
@@ -278,6 +294,7 @@ export function fillArea(i, j, color,maxCells = 1024) {
                     queue.push({i: i, j: j + 1, distance: distance + 1});
                 }
             }
+            
             
         }
     }
