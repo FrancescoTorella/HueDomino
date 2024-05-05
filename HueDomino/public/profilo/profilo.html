@@ -5,20 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" type = "text/css" href = "/profilo/profilo.css">
     <link rel = "stylesheet" type = "text/css" href = "/styles/bootstrap.css">
+    <link rel = "stylesheet" type = "text/css" href = "/styles/pixeledButtons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Il Tuo Profilo</title>
 </head>
 <body>
     <div class="header">
-        <img id="profileImage" class="profile-image" src="" alt="Foto del Profilo">
-        <div class="profile-info">
-            <div id="profileName" class="profile-name">NomedelProfilo</div>
-            <div id="profileDescription" class="profile-description">Questaèladescrizionedelprofilo</div>
+        <div class="row">
+            <div class="col-12 col-xxl-1 col-md-2 col-sm-3 image-container">
+                <img id="profileImage" class="profile-image" src="" alt="Foto del Profilo">
+            </div>
+            <div class="col-12 col-xxl-7 col-md-4 col-sm-5 profile-info">
+                <div id="profileName" class="profile-name">NomedelProfilo</div>
+                <div id="profileDescription" class="profile-description">Questaèladescrizionedelprofilo</div>
+            </div>
+            <div class="col-12 col-xxl-4 col-sm-4 col-md-6 buttons-container">
+                <button id="mainMenuButton" class="pixel2">
+                    <span id="mainMenuButtonText">Menu</span>
+                    <img class="menu-icon" src="/profilo/icons/backGreen.svg" alt="Icona Menu">
+                </button>
+                <button id="logoutButton" class="pixel2">
+                    <span id="logoutButtonText">Logout</span>
+                    <img class="logout-icon" src="/profilo/icons/logout.svg" alt="Icona Logout">
+                </button>
+            </div>
         </div>
-        <button id="logoutButton" class="btn btn-danger">
-            <span id="logoutButtonText">Logout</span>
-            <img class="logout-icon" src="/profilo/icons/logout.svg" alt="Icona Logout">
-        </button>
     </div>
 
     <div class="main">
@@ -57,7 +68,7 @@
                 <label for="password" class="col-form-label" >Password:</label><br>
                 <input type="password" id="passwordForUsername" name="password" class="form-control password-larghezza">
                 <span id="passwordErrorInUpdateUsername" class="text-danger"></span><br>
-                <input type="submit" value="Cambia Nome Utente" class="btn btn-light border submit-button"><br><br>
+                <button type="submit" id="changeUsernameButton" class="pixel2">Cambia Nome Utente</button><br><br>
             </form>
             <form id="updateEmail" class="settings-form">
                 <label for="email" class="col-form-label" >Nuova Email:</label><br>
@@ -66,7 +77,7 @@
                 <label for="password" class="col-form-label" >Password:</label><br>
                 <input type="password" id="passwordForEmail" name="password" class="form-control password-larghezza">
                 <span id="passwordErrorInUpdateEmail" class="text-danger"></span><br>
-                <input type="submit" value="Cambia Email" class="btn btn-light border submit-button"><br><br>
+                <button type="submit" id="changePasswordButton" class="pixel2">Cambia Email</button><br><br>
             </form>
             <form id="updatePassword" class="settings-form">
                 <label for="new-password" class="col-form-label" >Nuova Password:</label><br>
@@ -75,7 +86,7 @@
                 <label for="old-password" class="col-form-label" >Vecchia Password:</label><br>
                 <input type="password" id="oldPassword" name="old-password" autocomplete="off" class="form-control old-password-larghezza">
                 <span id="oldPasswordError" class="text-danger"></span><br>
-                <input type="submit" value="Cambia Password" class="btn btn-light border submit-button"><br><br>
+                <button type="submit" id="changePasswordButton" class="pixel2">Cambia Password</button><br><br>
             </form>
         </div>
         <div id="statistiche" class="content">
