@@ -52,12 +52,12 @@ router.get('/journey/usa', (req, res) => {
 
 // Rotta per la pagina islanda
 router.get('/journey/iceland', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'islanda', 'iceland.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'iceland', 'iceland.html'));
 });
 
 // Rotta per la pagina giappone
 router.get('/journey/japan', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'giappone', 'japan.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'japan', 'japan.html'));
 });
 
 // Rotta per la pagina canada
@@ -77,7 +77,7 @@ router.get('/journey/australia', (req, res) => {
 
 // Rotta per la pagina francia
 router.get('/journey/france', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'francia', 'france.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'viaggio', 'france', 'france.html'));
 });
 
 // Rotta per un livello
