@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 const { validateEmail, validatePassword } = require('../utils/utils.js');
 const { v4: uuidv4 } = require('uuid');
