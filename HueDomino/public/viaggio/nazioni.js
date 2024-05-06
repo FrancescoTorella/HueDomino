@@ -8,7 +8,7 @@ function mouseOverEffect() {
 }
 
 function mouseOutEffect() {
-    this.style.opacity = '0.3';
+    this.style.opacity = '0.4';
     this.style.filter = 'blur(4px)';
 }
 
