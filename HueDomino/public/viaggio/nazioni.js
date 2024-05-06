@@ -51,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     body.style.backgroundSize = 'cover'; // Imposta l'immagine di sfondo per coprire l'intero elemento body
                     nationTitle.style.display = 'flex';
 
+
                 } else if (index == succ) {
                     nation.style.transform = 'translateX(30%) scale(0.2)'; // Destra
                     nation.style.display = 'flex';
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     nation.addEventListener('mouseover', mouseOverEffect);
                     nation.addEventListener('mouseout', mouseOutEffect);
                     nationTitle.style.display = 'none'; // Nascondi il titolo della nazione
-                   
+
                 } else if (index == prec ) {
                     nation.style.transform = 'translateX(-30%) scale(0.2)'; // Sinistra
                     nation.style.display = 'flex';
@@ -68,6 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     nation.addEventListener('mouseover', mouseOverEffect);
                     nation.addEventListener('mouseout', mouseOutEffect)
                     nationTitle.style.display = 'none'; // Nascondi il titolo della nazione
+
                     
                 } else {
                     nation.style.display = 'none';
@@ -186,7 +188,20 @@ document.addEventListener("DOMContentLoaded", function() {
             setupCarousel();
         }
     });
-
+    
+    window.addEventListener('keydown', function(event) {
+        switch (event.key) {
+            case 'ArrowRight':
+                currentIndex = (currentIndex + 1) % totalNations; // Scorri verso destra
+                break;
+            case 'ArrowLeft':
+                currentIndex = (currentIndex - 1 + totalNations) % totalNations; // Scorri verso sinistra
+                break;
+            default:
+                return; // Esci se il tasto premuto non è una freccia destra o sinistra
+        }
+        setupCarousel();
+    });
     
     window.addEventListener('wheel', handleScroll, { passive: false });
     setupCarousel(); // Imposta il carousel al caricamento della pagina
