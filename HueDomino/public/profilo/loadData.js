@@ -194,6 +194,10 @@ $(document).ready( async function() {
         window.location.href = '/';
     });
 
+    $('#mainMenuButton').click(function() {
+        window.location.href = '/';
+    });
+
     
 
 });
