@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/main.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <script src="/viaggio/nazioni.js"></script>
+
 </head>
 <body>
     <header>
@@ -59,56 +62,65 @@
         <script src="/header.js"></script>
     </header>
 
+
     <main id="pageContentContainer" class="page-content-container">
-        <div class="nations-container">
-            <div class="row">
-                <div class="nation">
-                    <a href="/journey/italy">
-                        <img src="/viaggio/images/italy.png" alt="Italy">
-                    </a>
-                </div>
-                <div class="nation">
-                    <a href="/journey/usa">
-                        <img src="/viaggio/images/usa.png" alt="Usa">
-                    </a>
-                </div>
-                <div class="nation">
-                    <a href="/journey/japan">
-                        <img src="/viaggio/images/japan.png" alt="Japan">
-                    </a>
-                </div>
-                <div class="nation">
-                    <a href="/journey/iceland">
-                        <img src="/viaggio/images/iceland.png" alt="Iceland">
-                    </a>
-                </div>
-                <div class="nation">
-                    <a href="/journey/australia">
-                        <img src="/viaggio/images/australia.png" alt="Australia">
-                    </a>
-                </div>
-                <div class="nation">
-                    <a href="/journey/france">
-                        <img src="/viaggio/images/france.png" alt="France">
-                    </a>
-                </div>
-                <div class="nation">
-                    <a href="/journey/argentina">
-                        <img src="/viaggio/images/argentina.png" alt="Argentina">
-                    </a>
-                </div>
-                <div class="nation">
-                    <a href="/journey/canada">
-                        <img src="/viaggio/images/canada.png" alt="Canada">
-                    </a>
-                </div>
+        <div id="nationsCarousel" class="nations-container">
+            <!-- Container per le nazioni con link attivi -->
+            
+            <div id = "italy" class="nation" data-index="0">
+                <div class="nation-title">italy</div>
+                <a href="/journey/italy">
+                    <img src="/viaggio/images/italy.png" alt="Italy">
+                </a>
+            </div>
+            <div id = "usa" class="nation" data-index="1">
+                <div class="nation-title">usa</div>
+                <a href="/journey/usa">
+                    <img src="/viaggio/images/usa.png" alt="USA">
+                </a>
+            </div>
+            <div id = "japan" class="nation" data-index="2">
+                <div class="nation-title">japan</div>
+                <a href="/journey/japan">
+                    <img src="/viaggio/images/japan.png" alt="Japan">
+                </a>
+            </div>
+            <div id = "iceland" class="nation" data-index="3">
+                <div class="nation-title">iceland</div>
+                <a href="/journey/iceland">
+                    <img src="/viaggio/images/iceland.png" alt="Iceland">
+                </a>
+            </div>
+            <div id = "australia" class="nation" data-index="4">
+                <div class="nation-title">australia</div>
+                <a href="/journey/australia">
+                    <img src="/viaggio/images/australia.png" alt="Australia">
+                </a>
+            </div>
+            <div id = "france" class="nation" data-index="5">
+                <div class="nation-title">france</div>
+                <a href="/journey/france">
+                    <img src="/viaggio/images/france.png" alt="France">
+                </a>
+            </div>
+            <div id = "argentina" class="nation" data-index="6">
+                <div class="nation-title">argentina</div>
+                <a href="/journey/argentina">
+                    <img src="/viaggio/images/argentina.png" alt="Argentina">
+                </a>
+            </div>
+            <div id ="canada" class="nation" data-index="7">
+                <div class="nation-title">canada</div>
+                <a href="/journey/canada">
+                    <img src="/viaggio/images/canada.png" alt="Canada">
+                </a>
             </div>
         </div>
     </main>
+    
         
         
 
-    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>
