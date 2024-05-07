@@ -130,28 +130,30 @@ export function handleButtonClick(button) {
                         thinButton = thinButtonsMap.get('v-border-' + ic + '-' + jc + '-' + ip + '-' + jp);
                     }
 
-                    thinButton.style.backgroundColor = defaultThinbuttonsColor;
-                    let oldColor1 = matrix[ic][jc].style.backgroundColor;
-                    let oldColor2 = matrix[ip][jp].style.backgroundColor;
-                    if(oldColor1 === defaultSquarebuttonsColor ^ oldColor2 === defaultSquarebuttonsColor){
-                        animation = true;
-                        await fillArea(ic, jc, oldColor2);
-                        await fillArea(ip, jp, oldColor1);
-                        fillThinButtons();
-                        animation = false;
-                    } else if (oldColor1 !== oldColor2){
-                        animation = true;
-                        await fillArea(ic, jc, oldColor2,1);
-                        await fillArea(ip, jp, oldColor1,1);
-                        fillThinButtons();
-                        animation = false;
-                    }else{
-                        this.style.backgroundColor = oldColor1;
-                    }
+                    if(thinButton.style.backgroundColor === selectedThinbuttonsColor){
+                        thinButton.style.backgroundColor = defaultThinbuttonsColor;
+                        let oldColor1 = matrix[ic][jc].style.backgroundColor;
+                        let oldColor2 = matrix[ip][jp].style.backgroundColor;
+                        if(oldColor1 === defaultSquarebuttonsColor ^ oldColor2 === defaultSquarebuttonsColor){
+                            animation = true;
+                            await fillArea(ic, jc, oldColor2);
+                            await fillArea(ip, jp, oldColor1);
+                            fillThinButtons();
+                            animation = false;
+                        } else if (oldColor1 !== oldColor2){
+                            animation = true;
+                            await fillArea(ic, jc, oldColor2,1);
+                            await fillArea(ip, jp, oldColor1,1);
+                            fillThinButtons();
+                            animation = false;
+                        }else{
+                            this.style.backgroundColor = oldColor1;
+                        }
 
-                    leftMoves -= 1;
-                    displayLeftMoves();
-                    checkColorsMatch();
+                        leftMoves -= 1;
+                        displayLeftMoves();
+                        checkColorsMatch();
+                    }
                 }
             }
         }else{
@@ -262,7 +264,7 @@ export async function fillArea(i, j, color,maxCells = 1024) {
             if ( oldColor === newColor) {
                 continue;
             }
-            await delay(10);
+            await delay(100/(2.71**distance));
 
             matrix[i][j].style.backgroundColor = newColor;
         
@@ -294,7 +296,6 @@ export async function fillArea(i, j, color,maxCells = 1024) {
                     queue.push({i: i, j: j + 1, distance: distance + 1});
                 }
             }
-            
             
         }
     }
