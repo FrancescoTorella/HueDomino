@@ -135,16 +135,23 @@ export function handleButtonClick(button) {
                         let oldColor1 = matrix[ic][jc].style.backgroundColor;
                         let oldColor2 = matrix[ip][jp].style.backgroundColor;
                         if(oldColor1 === defaultSquarebuttonsColor ^ oldColor2 === defaultSquarebuttonsColor){
+
                             animation = true;
+                            if(oldColor1 === defaultSquarebuttonsColor){
+                                thinButton.style.backgroundColor = oldColor2;
+                            }else{
+                                thinButton.style.backgroundColor = oldColor1;
+                            }
                             await fillArea(ic, jc, oldColor2);
                             await fillArea(ip, jp, oldColor1);
-                            fillThinButtons();
+                            //fillThinButtons();
                             animation = false;
                         } else if (oldColor1 !== oldColor2){
                             animation = true;
+                            thinButton.style.backgroundColor = combineColors(oldColor1, oldColor2);
                             await fillArea(ic, jc, oldColor2,1);
                             await fillArea(ip, jp, oldColor1,1);
-                            fillThinButtons();
+                            //fillThinButtons();
                             animation = false;
                         }else{
                             this.style.backgroundColor = oldColor1;
@@ -168,13 +175,15 @@ export function handleButtonClick(button) {
 
             let i = button.getAttribute('data-row');
             let j = button.getAttribute('data-col');
-            animation = true;
-            await fillArea(i,j,selectedColor);
-            fillThinButtons();
-            animation = false;
-            leftMoves -= 1;
-            displayLeftMoves();
-            checkColorsMatch();
+            if (matrix[i][j].style.backgroundColor === defaultSquarebuttonsColor) {
+                animation = true;
+                await fillArea(i,j,selectedColor);
+                //fillThinButtons();
+                animation = false;
+                leftMoves -= 1;
+                displayLeftMoves();
+                checkColorsMatch();
+            }
         }
 
         // Impedisci che l'evento si propaghi al document
@@ -273,27 +282,39 @@ export async function fillArea(i, j, color,maxCells = 1024) {
             i = parseInt(i);
             j= parseInt(j);
             if (i > 0 && !activeBorder(i-1,j,i,j)){
-                //colorBorder(i-1,j,i,j,newColor);
+                
                 if (matrix[i-1][j].style.backgroundColor !== newColor && distance < maxCells) {
+                    colorBorder(i-1,j,i,j,newColor);
                     queue.push({i: i - 1, j: j, distance: distance + 1});
+                }else if (matrix[i-1][j].style.backgroundColor !== newColor && distance >= maxCells){
+                    colorBorder(i-1,j,i,j,selectedThinbuttonsColor);
                 }
             } 
             if (i < rows - 1 && !activeBorder(i,j,i+1,j)){
-                //colorBorder(i,j,i+1,j,newColor);
+                
                 if (matrix[i+1][j].style.backgroundColor !== newColor && distance < maxCells) {
+                    colorBorder(i,j,i+1,j,newColor);
                     queue.push({i: i + 1, j: j, distance: distance + 1});
+                }else if (matrix[i+1][j].style.backgroundColor !== newColor && distance >= maxCells){
+                    colorBorder(i,j,i+1,j,selectedThinbuttonsColor);
                 }
             }
             if (j > 0 && !activeBorder(i,j-1,i,j)){
-                //colorBorder(i,j-1,i,j,newColor);
+                
                 if (matrix[i][j-1].style.backgroundColor !== newColor && distance < maxCells) {
+                    colorBorder(i,j-1,i,j,newColor);
                     queue.push({i: i, j: j - 1, distance: distance + 1});
+                }else if (matrix[i][j-1].style.backgroundColor !== newColor && distance >= maxCells){
+                    colorBorder(i,j-1,i,j,selectedThinbuttonsColor);
                 }
             }
             if (j < cols - 1 && !activeBorder(i,j,i,j+1)){
-                //colorBorder(i,j,i,j+1,newColor);
+                
                 if (matrix[i][j+1].style.backgroundColor !== newColor && distance < maxCells) {
+                    colorBorder(i,j,i,j+1,newColor);
                     queue.push({i: i, j: j + 1, distance: distance + 1});
+                }else if (matrix[i][j+1].style.backgroundColor !== newColor && distance >= maxCells){
+                    colorBorder(i,j,i,j+1,selectedThinbuttonsColor);
                 }
             }
             
