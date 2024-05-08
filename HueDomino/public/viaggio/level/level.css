@@ -197,7 +197,7 @@ body{
 .level-completion-div{
     height: auto;
     width: auto;
-    display: flex;
+    display: none;
     position: absolute;
     justify-content: center;
     top: 50%;
@@ -221,8 +221,22 @@ body{
         rgba(255, 215, 0, 0.5) 150px,
         rgba(255, 255, 0, 0.5) 150px,
         rgba(255, 255, 0, 0.5) 175px,
-        rgba(173, 255, 47, 0.5) 175px,
-        rgba(173, 255, 47, 0.5) 200px
+        rgba(227, 255, 47, 0.5) 175px,
+        rgba(227, 255, 47, 0.5) 175px,
+        rgba(255, 255, 0, 0.5) 200px,
+        rgba(255, 255, 0, 0.5) 225px,
+        rgba(255, 215, 0, 0.5) 225px,
+        rgba(255, 215, 0, 0.5) 250px,
+        rgba(255, 165, 0, 0.5) 250px,
+        rgba(255, 165, 0, 0.5) 275px,
+        rgba(255, 99, 71, 0.5) 275px,
+        rgba(255, 99, 71, 0.5) 300px,
+        rgba(255, 69, 0, 0.5) 300px,
+        rgba(255, 69, 0, 0.5) 325px,
+        rgba(220, 20, 60, 0.5) 325px,
+        rgba(220, 20, 60, 0.5) 350px,
+        rgba(139, 0, 0, 0.5) 350px,
+        rgba(139, 0, 0, 0.5) 375px
     ),
     repeating-linear-gradient(
         to bottom,
@@ -243,7 +257,7 @@ body{
         rgba(173, 255, 47, 0.5) 175px,
         rgba(173, 255, 47, 0.5) 200px
     );
-    border: 10px solid #646464;
+    border: 10px solid darkslategray;
     padding: 20px;
     z-index: 1000; 
 
@@ -257,20 +271,20 @@ body{
 }
 
 .level-completion-div::before {
-    border: 10px solid #646464;
+    border: 10px solid darkslategray;
     top: 0;
-    left: -5%;
-    width: 110%;
-    height: 507px;
+    left: -19px;
+    width: calc(100% + 38px);
+    height: 100%;
     z-index: -1;
 }
 
 .level-completion-div::after {
-    border: 10px solid #646464;
-    top: -20px;
+    border: 10px solid darkslategray;
+    top: -19px;
     left: -1px;
-    width: 384px;
-    height: 546px;
+    width: calc(100% + 2px);
+    height: calc(100% + 38px);
     z-index: -2;
 }
 
@@ -296,4 +310,16 @@ body{
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+}
+
+#backToMenuButton, #backToMenuButton::before, #backToMenuButton::after {
+    background-color: blue;
+}
+
+#nextLevelButton, #nextLevelButton::before, #nextLevelButton::after {
+    background-color: blue;
+}
+
+#levelCompletionText{
+    color: darkslategray;
 }

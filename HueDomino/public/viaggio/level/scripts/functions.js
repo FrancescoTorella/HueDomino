@@ -51,6 +51,7 @@ let colorCombinationsPath = '/viaggio/' + levelNation + '/level' + levelNumber +
 let leftMovesPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/left-moves.json';
 let finalColorConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/final-color-config.json';
 let startConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/start-config.json';
+parent.document.getElementById('content').style.backgroundImage = 'url(/viaggio/' + levelNation +'/' + levelNation +'Background.png)';
 
 if(debugging){
     console.log(colorCombinationsPath);
