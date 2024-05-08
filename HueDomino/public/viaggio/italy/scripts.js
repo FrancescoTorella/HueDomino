@@ -6,32 +6,34 @@ document.addEventListener('DOMContentLoaded', function() {
         const height = window.innerHeight;
 
         if (width <= 500) {
-            rightBox.style.width = "90vw";
+            rightBox.style.width = "120vw";
             rightBox.style.top = "20vh";
+            rightBox.style.left = "-8vw";
         } else if (width > 500 && width <= 800) {
-            rightBox.style.width = "80vw"; 
-            rightBox.style.top = "10vh";
+            rightBox.style.width = "100vw"; 
+            rightBox.style.top = "15vh";
+            rightBox.style.left = "0vw";
         } else if (width >= 800 && width <= 900) {
-            rightBox.style.width = "75vw";
-            rightBox.style.top = "5vh";
+            rightBox.style.width = "95vw";
+            rightBox.style.top = "15vh";
         }else if (width >900 && width <= 1000) {
-            rightBox.style.width = "60vw";
-            rightBox.style.top = "5vh";
+            rightBox.style.width = "90vw";
         }else if (width > 1000 && width <= 1500) {
-            rightBox.style.width = "50vw";
-            rightBox.style.top = "5vh";
+            rightBox.style.width = "60vw";
+            rightBox.style.top = "12vh";
+            rightBox.style.right = "3vw";
         }else if (width > 1500 && width <= 2000) {
-            rightBox.style.width = "40vw"; 
-            rightBox.style.top = "5vh";
+            rightBox.style.width = "50vw"; 
+            rightBox.style.top = "12vh";
         }else if (width > 2000 && width <= 2500) {
-            rightBox.style.width = "35vw";
-            rightBox.style.top = "5vh";
+            rightBox.style.width = "40vw";
+            rightBox.style.top = "12vh";
         }else if (width > 2500 && width <= 3000) {
             rightBox.style.width = "30vw";
-            rightBox.style.top = "5vh";
+            rightBox.style.top = "12vh";
         } else {
-            rightBox.style.width = "26vw";
-            rightBox.style.top = "5vh";
+            rightBox.style.width = "25vw";
+            rightBox.style.top = "12vh";
         }
     }
 

@@ -89,9 +89,9 @@
 .right-box-container {
     position: absolute;
     right: 5vw;
-    top: 8vh;
+    top: 15vh;
     width: 35vw; /* Puoi scegliere una percentuale iniziale per la larghezza */
-    aspect-ratio: 7/10; /* Imposta il rapporto di aspetto a 7:10 */
+    aspect-ratio: 8/10; /* Imposta il rapporto di aspetto a 7:10 */
     border: none;
     padding: 0;
     overflow: hidden;
