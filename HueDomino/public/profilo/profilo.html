@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" type = "text/css" href = "/profilo/profilo.css">
     <link rel = "stylesheet" type = "text/css" href = "/styles/bootstrap.css">
+    <link rel = "stylesheet" type = "text/css" href = "/styles/pixeledborder.css">
     <link rel = "stylesheet" type = "text/css" href = "/styles/pixeledButtons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Il Tuo Profilo</title>
@@ -13,7 +14,9 @@
     <div class="header">
         <div class="row">
             <div class="col-12 col-xxl-1 col-md-2 col-sm-3 image-container">
-                <img id="profileImage" class="profile-image" src="" alt="Foto del Profilo">
+                <div class="profile-image-container">
+                    <img id="profileImage" class="profile-image" src="" alt="Foto del Profilo">
+                </div> 
             </div>
             <div class="col-12 col-xxl-7 col-md-4 col-sm-5 profile-info">
                 <div id="profileName" class="profile-name">NomedelProfilo</div>
@@ -49,7 +52,10 @@
             <h2 class="section-title">Impostazioni utente:</h2>
             <form id="uploadProfileImageForm"  class="settings-form" method="post" enctype="multipart/form-data">
                 <label for="foto-profilo" class="profile-image-container">
-                    <div class="profile-image-settings" id="profileImageSettings"></div>
+                    <!-- <div class="profile-image-settings" id="profileImageSettings"></div> -->
+                    <div class="profile-image-container">
+                        <img id="profileImageSettings" class="profile-image" src="" alt="Foto del Profilo">
+                    </div> 
                     <div class="profile-image-overlay">
                         <span>Modifica</span>
                     </div>
@@ -120,7 +126,8 @@
     
     <script src="/profilo/layout.js"></script>
     <script src="/profilo/loadData.js"></script>
-
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="/styles/customDiv.js"></script> -->
     
 
 </body>

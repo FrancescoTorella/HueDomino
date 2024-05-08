@@ -17,12 +17,10 @@ body{
 }
 
 .profile-image {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     object-fit: cover;
-    border-radius: 50%;
-    margin-right: 20px; 
-}
+} 
 
 .profile-info {
     display: flex;
@@ -59,7 +57,7 @@ body{
 }
 
 #logoutButton,#logoutButton::before,#logoutButton::after, #mainMenuButton,#mainMenuButton::before,#mainMenuButton::after {
-    background-color: darkgrey;
+    background-color: darkslategray;
 }
 
 @media (max-width: 765px) {
@@ -93,11 +91,12 @@ body{
 }
 
 .profile-name {
-    font-size: 24px;
+    font-size: 35px;
     word-wrap: break-word; 
     overflow-wrap: break-word; 
     word-break: break-all; 
     hyphens: auto; 
+    color: darkslategray;
 }
 
 
@@ -108,13 +107,14 @@ body{
     overflow-wrap: break-word; 
     word-break: break-all; 
     hyphens: auto; 
+    color: black;
 }
 
 
 
 .sidebar {
     padding-top: 20px;
-    background-color: #f5f5f5; 
+    background-color: plum; 
     min-height: 100vh;
 }
 
@@ -136,6 +136,7 @@ body{
 
 .content {
     position: relative;
+    background-color: #e0e0e0;
 }
 
 
@@ -160,49 +161,23 @@ body{
 }
 
 
-
-/* CSS per schermi di larghezza superiore a 300px */
-/* @media (min-width: 400px) {
-    .header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        height: 150px;
-        background-color: #f0f0f0;
-        padding: 20px;
-        overflow: visible;
-    }
-    .profile-info {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-} */
-
 .header {
     width: 100%;
-    background-color: #f0f0f0;
     padding: 20px;
+    
+    background: linear-gradient(
+    to bottom,
+    rgba(255, 20, 147, 0.5) 0%, rgba(255, 20, 147, 0.5) 20%,
+    rgba(255, 105, 180, 0.5) 20%, rgba(255, 105, 180, 0.5) 40%,
+    rgba(219, 112, 147, 0.5) 40%, rgba(219, 112, 147, 0.5) 60%,
+    rgba(173, 255, 47, 0.5) 60%, rgba(173, 255, 47, 0.5) 80%,
+    rgba(50, 205, 50, 0.5) 80%, rgba(50, 205, 50, 0.5) 100%
+);
+
+
+
 }
 
-/* CSS per schermi di larghezza inferiore a 300px */
-/* @media (max-width: 399px) {
-    .header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        background-color: #f0f0f0;
-        padding: 20px;
-    }
-    .profile-info {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-} */
 
 .menu-icon {
     size: 24px;
@@ -231,9 +206,37 @@ body{
 
 .profile-image-container {
     position: relative;
-    display: inline-block;
-    width: 100px; 
-    height: 100px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95px;
+    width: 95px;
+    border: 3px solid darkslategray;
+    padding: 3px;
+
+}
+
+.profile-image-container::before,
+.profile-image-container::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 3px solid darkslategray;
+}
+
+.profile-image-container::before {
+  left: -5px;
+  top: -1px;
+  width: calc(100% + 10px);
+  height: calc(100% + 2px);
+}
+
+.profile-image-container::after {
+  top: -5px;
+  left: -1px;
+  height: calc(100% + 10px);
+  width: calc(100% + 2px);
 }
 
 .profile-image-overlay {
@@ -251,7 +254,6 @@ body{
     text-align: center;
     padding: 5px;
     padding-bottom: 10px;
-    /* clip-path: url('/profilo/icons/semicricle.svg#semicircle'); */
 }
 
 .settings-form, .section-title, .stat-element {
@@ -307,8 +309,9 @@ body{
     color: red;
 }
 
-
-
+#mainMenuButtonText{ 
+    color: lime;
+}
 
 
 #changeUsernameButton {
@@ -338,3 +341,23 @@ body{
     background: gold;
 }
 
+/* #profileImagePixeledContainerOuter {
+    border: 3px solid black;
+    width: 80px;
+    height: 80px;
+}
+
+#profileImagePixeledContainerMiddle {
+    border: 3px solid black;
+    width: calc(100% + 10px);
+    left: -5px;
+    top: 0px;
+}
+
+#profileImagePixeledContainerInner {
+    border: 3px solid black;
+    height: calc(100% + 10px);
+    width: 100%;
+    top: -5px;
+    left: 0px;
+} */

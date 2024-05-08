@@ -38,7 +38,7 @@ $(document).ready( async function() {
     $('#username').val(user.username);
     $('#email').val(user.email);
     $('#profileImage').attr('src', user.path_to_profile_picture);
-    $('.profile-image-settings').css('background-image', 'url(' + user.path_to_profile_picture + ')');
+    $('#profileImageSettings').attr('src', user.path_to_profile_picture);
 
     $('#foto-profilo').on('change', function() {
         const file = this.files[0];
