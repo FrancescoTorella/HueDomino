@@ -16,6 +16,9 @@ header{
 
 .page-content-container {
     margin-top: 10vh;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 .main-header {
