@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #colorContainer {
+            width: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .color-row {
+            display: flex;
+            margin-bottom: 10px;
+            justify-content: space-between;
+            width: 100%;
+        }
+        .color-dot {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="colorContainer"></div>
+
+    <script>
+        fetch('/viaggio/italy/level1/color-combinations.json')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('colorContainer');
+                data.forEach(item => {
+                    const row = document.createElement('div');
+                    row.className = 'color-row';
+
+                    const dot1 = document.createElement('div');
+                    dot1.className = 'color-dot';
+                    dot1.style.backgroundColor = item.color1;
+                    row.appendChild(dot1);
+
+                    const plus = document.createElement('div');
+                    plus.textContent = '+';
+                    plus.style.fontSize = '40px';
+                    plus.style.lineHeight = '50px';
+                    plus.style.margin = '0 10px';
+                    row.appendChild(plus);
+
+                    const dot2 = document.createElement('div');
+                    dot2.className = 'color-dot';
+                    dot2.style.backgroundColor = item.color2;
+                    row.appendChild(dot2);
+
+                    const equals = document.createElement('div');
+                    equals.textContent = '=';
+                    equals.style.fontSize = '40px';
+                    equals.style.lineHeight = '50px';
+                    equals.style.margin = '0 10px';
+                    row.appendChild(equals);
+
+                    const dot3 = document.createElement('div');
+                    dot3.className = 'color-dot';
+                    dot3.style.backgroundColor = item.result;
+                    row.appendChild(dot3);
+
+                    container.appendChild(row);
+                });
+            });
+    </script>
+</body>
+</html>
