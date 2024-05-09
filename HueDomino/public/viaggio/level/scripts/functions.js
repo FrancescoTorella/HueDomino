@@ -94,7 +94,7 @@ export function handleButtonClick(button) {
                 this.classList.add('pulsing');
                 pulsingButton = button;
             } else {
-                if(debugging) console.log("pulsing");
+                
                 
                 // Altrimenti, rimuovi la classe 'pulsing' dal bottone che sta pulsando
                 pulsingButton.classList.remove('pulsing');
@@ -246,6 +246,8 @@ export async function loadColorCombinations() {
             colorCombinations[`${row.color2}${row.color1}`] = row.result;
         });
 
+        console.log(colorCombinations);
+
     } catch (error) {
         console.error('Si è verificato un errore:', error);
     }
@@ -277,6 +279,8 @@ export async function fillArea(i, j, color,maxCells = 1024) {
             await delay(100/(2.71**distance));
 
             matrix[i][j].style.backgroundColor = newColor;
+
+            
         
 
             // Aggiungi le celle adiacenti alla coda solo se non hanno già il nuovo colore e la distanza è minore di maxCells
@@ -337,7 +341,9 @@ export function combineColors(color1, color2) {
     }
     color1 = color1.toLowerCase().trim();
     color2 = color2.toLowerCase().trim();
+    console.log(color1,color2,`${color1}${color2}`);
     const colorCombination = colorCombinations[`${color1}${color2}`];
+    console.log(colorCombination);
 
     if (colorCombination) {
         return colorCombination;

@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
         <script src="/viaggio/iceland/mappa_islanda.js"></script>
+        <script src="/viaggio/loadLevels.js"></script>
     </head>
     <body>
         <header>
@@ -72,7 +73,7 @@
             </div>
         </div>
         <div id="right-box" class="right-box-container">
-            <div class="map-container">
+            <div id="icelandMapContainer" class="map-container">
                 <img src="/viaggio/iceland/images/islandaCarta_0.png" alt="Mappa Islanda" class="map-country" >
                 
                 <img id="level1IcelandButton" src="/viaggio/iceland/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 32%; left: 15%;" onclick="window.location.href='/journey/iceland/1'">
