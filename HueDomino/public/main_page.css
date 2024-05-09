@@ -1,0 +1,69 @@
+body {
+    background-image: url('images/backround.png');
+    background-size: cover; /* Ridimensiona l'immagine per coprire l'intera pagina */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Non ripetere l'immagine */
+    margin: 0; /* Rimuove il margine predefinito */
+    height: 100vh; /* Imposta l'altezza al 100% del viewport */
+    width: 100vw; /* Imposta la larghezza al 100% del viewport */
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.sky-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
+    width: 50vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
+    position: fixed;
+    top: calc(50vh - 20vw); /* Centra verticalmente */
+    left: calc(50vw - 25vw); /* Centra orizzontalmente */
+
+}
+
+
+.sky-background {
+    background-image: url('images/sky.jpg');
+    height: 50%;
+    width: 50%;
+    background-position: 0 0;
+    background-repeat: repeat-x; /* Ripeti l'immagine orizzontalmente */
+    background-size: 50% 100%; /* Ridimensiona l'immagine per coprire l'intera altezza e metà della larghezza */
+    position: absolute;
+    animation: scrollSky 20s linear infinite; /* Aggiungi questa linea */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 70%;
+}
+
+
+
+@keyframes scrollSky {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0; /* Sposta l'immagine di sfondo alla sinistra */
+    }
+}
+.flying-airplane {
+    position: absolute;
+    width: 8vw; /* or your preferred size */
+    height: 8vh;
+    animation: flyUpDown 4s infinite ease-in-out;
+    left: 35%
+}
+
+
+@keyframes flyUpDown {
+    0%, 100% {
+        bottom: 10%;
+    }
+    50% {
+        bottom: 40%;
+    }
+}
+
