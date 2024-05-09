@@ -197,6 +197,12 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'ArrowLeft':
                 currentIndex = (currentIndex - 1 + totalNations) % totalNations; // Scorri verso sinistra
                 break;
+            case 'Enter':
+                const centralNationLink = document.querySelector('.nation[data-index="' + currentIndex + '"] a');
+                if (centralNationLink) {
+                    centralNationLink.click();
+                }
+                break;
             default:
                 return; // Esci se il tasto premuto non è una freccia destra o sinistra
         }
