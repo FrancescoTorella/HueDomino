@@ -34,7 +34,7 @@ body {
     font-family: 'Font-MK';
     justify-content: center ;
     position: absolute; /* Posizionamento assoluto rispetto al suo contenitore parent */
-    top: -55%; /* Distanza dall'alto del contenitore */
+    top: -60%; /* Distanza dall'alto del contenitore */
     width: 100%; /* Larghezza completa per centrare il testo */
     text-align:center; /* Centra il testo orizzontalmente */
     color: white; /* Colore del testo */
@@ -83,3 +83,5 @@ body {
         transform: translateY(0%);
     }
 }
+
+

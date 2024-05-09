@@ -8,6 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
     var menu = document.querySelector('.dropdown-header-menu');
     var menuIsOpen = false;
     var dropdownText = document.getElementById('dropdown-text');
+    var dropdownMenuHTML = `
+    <div class="column">
+        <a href="/journey/italy"><p>Italy</p></a>
+        <a href="/journey/usa"><p>USA</p></a>
+        <a href="/journey/japan"><p>Japan</p></a>
+        <a href="/journey/iceland"><p>Iceland</p></a>
+    </div>
+    <div class="column">
+        <a href="/journey/australia"><p>Australia</p></a>
+        <a href="/journey/france"><p>France</p></a>
+        <a href="/journey/argentina"><p>Argentina</p></a>
+        <a href="/journey/canada"><p>Canada</p></a>
+    </div>
+`;
 
     var hideDropdownMenu = function() {
         /* Verifica se il mouse è ancora sopra #dropdownMenu prima di nasconderlo */
@@ -35,34 +49,70 @@ document.addEventListener('DOMContentLoaded', function() {
             var iconLabelElement = iconContainer.querySelector('.mode-title');
             if (iconLabelElement) {
                 var iconLabel = iconLabelElement.textContent;
-                if (iconLabel === 'Creator') {
-                    dropdownText.innerHTML = 'Creator text';
-                } else if (iconLabel === 'Duel') {
-                    dropdownText.innerHTML = 'Duel text';
-                } else if (iconLabel === 'Daily Challenge') {
-                    dropdownText.innerHTML = 'Daily Challenge text';
-                } else if (iconLabel === 'Journey') {
+                if (iconLabel === 'Mondi') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
                     dropdownText.innerHTML = `
-                        <div class="column">
-                            <a href="/journey/italy"<p>Italy</p></a>
-                            <a href="/journey/usa"><p>USA</p></a>
-                            <a href="/journey/japan"><p>Japan</p></a>
-                            <a href="/journey/iceland"><p>Iceland</p></a>
-                        </div>
-                        <div class="column">
-                            <a href="/journey/australia"><p>Australia</p></a>
-                            <a href="/journey/france"><p>France</p></a>
-                            <a href="/journey/argentina"><p>Argentina</p></a>
-                            <a href="/journey/canada"><p>Canada</p></a>
-                        </div>
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
+                        ${dropdownMenuHTML}
+                    </div>
             `;
                 }
+                else if (iconLabel === 'Login') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
+                    dropdownText.innerHTML = `
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
+                        <div class="column">
+                            <a href="/login"><p>Accedi</p></a>
+                            <a href="/signin"><p>Registrati</p></a>
+                        </div>
+                    </div>
+                `; 
+                 }
+                 else if (iconLabel === 'Profile') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
+                    dropdownText.innerHTML = `
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
+                        <div class="column">
+                            <a href="/profile#statistiche"><p>Statistiche</p></a>
+                            <a href="/profile#impostazioni"><p>Impostazioni</p></a>
+                            <a href="/profile#amici"><p>Amici</p></a>
+                            <a href="/profile#avatar"><p>Avatar</p></a>
+                            <a href="/profile#medaglie"><p>Medaglie</p></a>
+                            <a href="/profile#livelli"><p>Livelli</p></a>
+                        </div>
+                    </div>
+                `;
+                 }
             }
         }
         });
 
         iconContainer.addEventListener('mouseleave', hideDropdownMenu);
+
+        window.addEventListener('resize', function() {
+            if (menuIsOpen) {
+                var iconLabelElement = iconContainer.querySelector('.mode-title');
+                if (iconLabelElement) {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
+                    var dropdownDiv = dropdownText.querySelector('div');
+                    if (dropdownDiv) {
+                        if (iconLabelElement.textContent === 'Mondi') {
+                            dropdownDiv.style.marginLeft = marginLeft + 'px';
+                        } else if (iconLabelElement.textContent === 'Login') {
+                            dropdownDiv.style.marginLeft = marginLeft + 'px';
+                        } else if (iconLabelElement.textContent === 'Profile') {
+                            dropdownDiv.style.marginLeft = marginLeft  - 10 + 'px';
+                        }
+                    }
+                }
+            }
+        });
     });
+
     /* Nasconde #dropdownMenu quando il mouse esce da esso */
     dropdownMenu.addEventListener('mouseleave', hideDropdownMenu);
 
@@ -142,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Dettagli della sessione:', session);
                 const userId = session.user_id;
                 const profileImagePath = '../immagini_profilo/user' + userId + '/profile.png';
-                $('#loginButton').replaceWith('<img id="profileImage">');
+                $('#loginButton').replaceWith('<div id="profileContainer" class="mode-title"><img id="profileImage" class="mode-title"><p class="mode-title" style="display: none;">Profile</p></div>');
                 $.ajax({
                     type: 'HEAD',
                     url: profileImagePath,
@@ -150,11 +200,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Se la richiesta ha successo, il percorso dell'immagine esiste
                         // Imposta l'attributo 'src' dell'immagine del profilo
                         $('#profileImage').attr('src', profileImagePath);
+                        $('#profileImage').addClass('mode-title');
                     },
                     error: function() {
                         // Se la richiesta fallisce, il percorso dell'immagine non esiste
                         // Imposta l'attributo 'src' dell'immagine del profilo su un'immagine segnaposto
                         $('#profileImage').attr('src', '../immagini_profilo/default.png');
+                        $('#profileImage').addClass('mode-title');
                     }
                 });
                 $('#profileImage').css({
