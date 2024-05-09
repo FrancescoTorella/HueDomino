@@ -8,6 +8,20 @@ document.addEventListener('DOMContentLoaded', function() {
     var menu = document.querySelector('.dropdown-header-menu');
     var menuIsOpen = false;
     var dropdownText = document.getElementById('dropdown-text');
+    var dropdownMenuHTML = `
+    <div class="column">
+        <a href="/journey/italy"><p>Italy</p></a>
+        <a href="/journey/usa"><p>USA</p></a>
+        <a href="/journey/japan"><p>Japan</p></a>
+        <a href="/journey/iceland"><p>Iceland</p></a>
+    </div>
+    <div class="column">
+        <a href="/journey/australia"><p>Australia</p></a>
+        <a href="/journey/france"><p>France</p></a>
+        <a href="/journey/argentina"><p>Argentina</p></a>
+        <a href="/journey/canada"><p>Canada</p></a>
+    </div>
+`;
 
     var hideDropdownMenu = function() {
         /* Verifica se il mouse è ancora sopra #dropdownMenu prima di nasconderlo */
@@ -33,36 +47,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
             /* Cambia l'immagine nel menu a tendina in base all'elemento su cui il mouse è passato sopra */
             var iconLabelElement = iconContainer.querySelector('.mode-title');
+            var profileImage = document.getElementById('profileImage');
             if (iconLabelElement) {
                 var iconLabel = iconLabelElement.textContent;
-                if (iconLabel === 'Creator') {
-                    dropdownText.innerHTML = 'Creator text';
-                } else if (iconLabel === 'Duel') {
-                    dropdownText.innerHTML = 'Duel text';
-                } else if (iconLabel === 'Daily Challenge') {
-                    dropdownText.innerHTML = 'Daily Challenge text';
-                } else if (iconLabel === 'Journey') {
+                if (iconLabel === 'Mondi') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
                     dropdownText.innerHTML = `
-                        <div class="column">
-                            <a href="/journey/italy"<p>Italy</p></a>
-                            <a href="/journey/usa"><p>USA</p></a>
-                            <a href="/journey/japan"><p>Japan</p></a>
-                            <a href="/journey/iceland"><p>Iceland</p></a>
-                        </div>
-                        <div class="column">
-                            <a href="/journey/australia"><p>Australia</p></a>
-                            <a href="/journey/france"><p>France</p></a>
-                            <a href="/journey/argentina"><p>Argentina</p></a>
-                            <a href="/journey/canada"><p>Canada</p></a>
-                        </div>
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
+                        ${dropdownMenuHTML}
+                    </div>
             `;
+                }
+                else if (iconLabel === 'Login') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
+                    dropdownText.innerHTML = `
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
+                        <div class="column">
+                            <a href="/login"><p>Accedi</p></a>
+                            <a href="/signin"><p>Registrati</p></a>
+                        </div>
+                    </div>
+                `;
+                
                 }
             }
         }
         });
 
         iconContainer.addEventListener('mouseleave', hideDropdownMenu);
+
+        window.addEventListener('resize', function() {
+            if (menuIsOpen) {
+                var iconLabelElement = iconContainer.querySelector('.mode-title');
+                if (iconLabelElement && iconLabelElement.textContent === 'Mondi') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
+                    var dropdownDiv = dropdownText.querySelector('div');
+                    if (dropdownDiv) {
+                        dropdownDiv.style.marginLeft = marginLeft + 'px';
+                    }
+                }
+            }
+        });
     });
+
     /* Nasconde #dropdownMenu quando il mouse esce da esso */
     dropdownMenu.addEventListener('mouseleave', hideDropdownMenu);
 
