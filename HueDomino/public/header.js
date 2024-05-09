@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             /* Cambia l'immagine nel menu a tendina in base all'elemento su cui il mouse è passato sopra */
             var iconLabelElement = iconContainer.querySelector('.mode-title');
-            var profileImage = document.getElementById('profileImage');
             if (iconLabelElement) {
                 var iconLabel = iconLabelElement.textContent;
                 if (iconLabel === 'Mondi') {
@@ -69,9 +68,24 @@ document.addEventListener('DOMContentLoaded', function() {
                             <a href="/signin"><p>Registrati</p></a>
                         </div>
                     </div>
+                `; 
+                 }
+                 else if (iconLabel === 'Profile') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
+                    dropdownText.innerHTML = `
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
+                        <div class="column">
+                            <a href="/profile#statistiche"><p>Statistiche</p></a>
+                            <a href="/profile#impostazioni"><p>Impostazioni</p></a>
+                            <a href="/profile#amici"><p>Amici</p></a>
+                            <a href="/profile#avatar"><p>Avatar</p></a>
+                            <a href="/profile#medaglie"><p>Medaglie</p></a>
+                            <a href="/profile#livelli"><p>Livelli</p></a>
+                        </div>
+                    </div>
                 `;
-                
-                }
+                 }
             }
         }
         });
@@ -81,12 +95,18 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('resize', function() {
             if (menuIsOpen) {
                 var iconLabelElement = iconContainer.querySelector('.mode-title');
-                if (iconLabelElement && iconLabelElement.textContent === 'Mondi') {
+                if (iconLabelElement) {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
                     var marginLeft = iconLabelElementRect.left;
                     var dropdownDiv = dropdownText.querySelector('div');
                     if (dropdownDiv) {
-                        dropdownDiv.style.marginLeft = marginLeft + 'px';
+                        if (iconLabelElement.textContent === 'Mondi') {
+                            dropdownDiv.style.marginLeft = marginLeft + 'px';
+                        } else if (iconLabelElement.textContent === 'Login') {
+                            dropdownDiv.style.marginLeft = marginLeft + 'px';
+                        } else if (iconLabelElement.textContent === 'Profile') {
+                            dropdownDiv.style.marginLeft = marginLeft  - 10 + 'px';
+                        }
                     }
                 }
             }
@@ -172,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Dettagli della sessione:', session);
                 const userId = session.user_id;
                 const profileImagePath = '../immagini_profilo/user' + userId + '/profile.png';
-                $('#loginButton').replaceWith('<img id="profileImage">');
+                $('#loginButton').replaceWith('<div id="profileContainer" class="mode-title"><img id="profileImage" class="mode-title"><p class="mode-title" style="display: none;">Profile</p></div>');
                 $.ajax({
                     type: 'HEAD',
                     url: profileImagePath,
@@ -180,11 +200,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Se la richiesta ha successo, il percorso dell'immagine esiste
                         // Imposta l'attributo 'src' dell'immagine del profilo
                         $('#profileImage').attr('src', profileImagePath);
+                        $('#profileImage').addClass('mode-title');
                     },
                     error: function() {
                         // Se la richiesta fallisce, il percorso dell'immagine non esiste
                         // Imposta l'attributo 'src' dell'immagine del profilo su un'immagine segnaposto
                         $('#profileImage').attr('src', '../immagini_profilo/default.png');
+                        $('#profileImage').addClass('mode-title');
                     }
                 });
                 $('#profileImage').css({
