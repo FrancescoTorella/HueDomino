@@ -1,4 +1,9 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=VT323');
+  
 body{
+    font-family: 'VT323', monospace !important;
     background-image: url('/viaggio/images/sky.jpeg');
 }
 
@@ -217,6 +222,7 @@ body{
 .aeroplanino-icon{
     position: absolute;
     width: 11%;
+    z-index: 1;
 }
 
 /*La funzione per l'esplosione di colori a seguito di completamento di un livello*/
@@ -231,4 +237,27 @@ body{
     transform: rotate(180deg); /* Ruota la goccia per avere la punta verso il basso, simula la caduta */
     pointer-events: none; /* Evita che le gocce interferiscano con l'interazione dell'utente */
     z-index: 3; /* Assicura che le gocce siano visualizzate sopra altri elementi */
+}
+
+.not-unlocked-message {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    padding: 20% 10%;
+    padding-top: 35%;
+    background-color: rgba(255, 255, 255, 0); 
+    backdrop-filter: blur(7px);
+    transform: translate(-50%, -50%);
+    font-size: 4vw; /* Rendere il testo più grande */
+    font-family: "VT323", sans-serif;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+    text-align: center;
+    z-index: 5;
 }

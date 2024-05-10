@@ -6,9 +6,8 @@
         <link rel="stylesheet" href="/styles/bootstrap.css">
         <link rel="stylesheet" type="text/css" href="/main.css">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        
-        <script src="/viaggio/argentina/mappa_argentina.js"></script>
-        <script src="/viaggio/loadLevels.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="module" src="/viaggio/argentina/mappa_argentina.js"></script>
         
     </head>
     <body>
@@ -65,7 +64,7 @@
             <div id="argentinaMapContainer" class="map-container">
                 <img src="/viaggio/argentina/images/argentinaCarta_0.png" alt="Mappa dell'argentina" class="map-country" >
                 
-                <img id="level1ArgentinaButton" src="/viaggio/argentina/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 10%; left: 34%;"  onclick="window.location.href='/journey/argentina/1'">
+                <img id="level1ArgentinaButton" src="/viaggio/argentina/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 10%; left: 34%;" onclick="window.location.href='/journey/argentina/1'">
                 <img id="level2ArgentinaButton" src="/viaggio/argentina/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 15%; left: 54%;" onclick="window.location.href='/journey/argentina/2'">
                 <img id="level3ArgentinaButton" src="/viaggio/argentina/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 28%; left: 56%;" onclick="window.location.href='/journey/argentina/3'">
                 <img id="level4ArgentinaButton" src="/viaggio/argentina/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 43%; left: 60%;" onclick="window.location.href='/journey/argentina/4'" >
@@ -76,6 +75,9 @@
                 
 
                 <img src="/viaggio/argentina/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                <div id="notUnlockedMessageArgentina" class="not-unlocked-message">
+                    <p>Oops!! Sembra che tu non abbia ancora sbloccato questo mondo!</p>
+                </div>
             </div>
         </div>
     </div>

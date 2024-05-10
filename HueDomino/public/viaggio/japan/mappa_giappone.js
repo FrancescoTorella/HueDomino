@@ -3,6 +3,7 @@ var mapBox;      // Elemento DOM del contenitore della mappa
 var livello = 1; // Variabile che tiene traccia del livello corrente
 var angle = 0;   // Angolo per calcolare la posizione dell'aeroplanino
 var aeroplaninoMovementInterval; // Variabile per l'intervallo di movimento dell'aeroplanino
+import { loadData } from '../loadLevels.js';
 
 function updateAeroplaninoPosition() {
     let currentLevelIcon = document.querySelector(`.level-icon[data-level="${livello}"]`);      //uso data-level segnata in italia.html sui vari livelli per estrarre le posizioni espresse sempre in italia.html
@@ -29,15 +30,31 @@ function updateAeroplaninoPosition() {
     angle = (angle + 2) % 360;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(async function() {
     aeroplanino = document.querySelector('.aeroplanino-icon');
     mapBox = document.querySelector('.map-container');
-    
-    // Chiamata iniziale per impostare la posizione dell'aeroplanino
-    updateAeroplaninoPosition();
 
-    // Aggiornamento periodico della posizione dell'aeroplanino
-    aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20);           //20 è il tempo di aggiornamento della posizione dell'aeroplanino in ms cambiarlo influisce sulla velocità
+    livello = await loadData("japan");
+    console.log("Livello attuale:", livello);
+
+    if(livello > 1) {
+        updateAeroplaninoPosition();
+
+        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20);      
+        
+        const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+
+        if (justPassedCookie) {
+            const justPassed = justPassedCookie.split('=')[1];
+
+            if( justPassed == livello){
+                setTimeout(() => {createColorRain(); }, 3000);
+            }
+        }
+    }else{
+        //selezione l'elemento notUnlockedMessageAustralia e lo rende visibile
+        $('#notUnlockedMessageJapan').css('display', 'flex');
+    }
 });
 
 
@@ -151,4 +168,3 @@ function updateMapImage() {
     mapImage.src = imageName;
 }
 
-//per vedere le funzioni sul sito andare su console in pagina italia, e scrivere nomeFunzione() "poi invio"

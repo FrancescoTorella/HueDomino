@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('saveColorConfig').addEventListener('click', f.saveMatrixAsJson);
 
     //aggiungi un event listener al bottone "scarica configurazione" per salvare la configurazione iniziale in un file json
-    document.getElementById('downloadConfig').addEventListener('click',f.convertCsvToJsonAndDownload);
+    document.getElementById('downloadConfig').addEventListener('click',f.downloadJsonFile);
 
     //aggiungi un evento listener al bottone rimpi bottoni sottili per preparare il livello alla foto
     document.getElementById('fillThinButtonsAtEndButton').addEventListener('click',f.fillThinButtonsAtEnd);

@@ -1,5 +1,5 @@
 [
-    { "color1": "darkslategrey", "color2": "gainsboro", "result": "dimgray" },
+    { "color1": "darkslategray", "color2": "gainsboro", "result": "dimgray" },
     { "color1": "gainsboro", "color2": "steelblue", "result":"deepskyblue"},
     { "color1": "steelblue", "color2": "darkslategray", "result":  "lightblue"},
     { "color1": "steelblue", "color2": "lightblue", "result": "lightsteelblue"},
