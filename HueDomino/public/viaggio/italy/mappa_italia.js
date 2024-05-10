@@ -30,15 +30,37 @@ function updateAeroplaninoPosition() {
     angle = (angle + 2) % 360;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+$(document).ready(async function() {
     aeroplanino = document.querySelector('.aeroplanino-icon');
     mapBox = document.querySelector('.map-container');
-    
-    // Chiamata iniziale per impostare la posizione dell'aeroplanino
-    updateAeroplaninoPosition();
 
-    // Aggiornamento periodico della posizione dell'aeroplanino
-    aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20);           //20 è il tempo di aggiornamento della posizione dell'aeroplanino in ms cambiarlo influisce sulla velocità
+    livello = await loadData("italy");
+    console.log("Livello attuale:", livello);
+
+    if(livello >= 1) {
+             
+        
+        if(livello <= 8){
+            const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+
+            console.log(justPassedCookie);
+
+            if (justPassedCookie) {
+                const justPassed = justPassedCookie.split('=')[1];
+                livello -= 1;
+                updateAeroplaninoPosition();
+
+
+                setTimeout(() => {createColorRain(); }, 3000);
+            }
+        }
+        updateAeroplaninoPosition();
+
+        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20); 
+    }else{
+        //selezione l'elemento notUnlockedMessageAustralia e lo rende visibile
+        $('#notUnlockedMessageItaly').css('display', 'flex');
+    }
 });
 
 // Funzione che gestisce la transizione dell'aeroplanino al livello successivo
@@ -153,22 +175,3 @@ function updateMapImage() {
 
 //per vedere le funzioni sul sito andare su console in pagina italia, e scrivere nomeFunzione() "poi invio"
 
-
-window.onload = async function() {
-    livello = await loadData("italy");
-    console.log("Livello attuale:", livello);
-
-    //console.log('Questo è l\'ultimo livello', highestWorldLevel.levelnumber);
-    const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
-
-
-    //Se il cookie esiste, estrai il suo valore
-    if (justPassedCookie) {
-         const justPassed = justPassedCookie.split('=')[1];
-         //console.log('Il valore del cookie justPassed è:', justPassed);
-
-         if( justPassed == livello){
-             setTimeout(() => {createColorRain(); }, 3000);
-         }
-    }
-}

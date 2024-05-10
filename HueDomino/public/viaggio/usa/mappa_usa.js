@@ -37,20 +37,28 @@ $(document).ready(async function() {
     livello = await loadData("usa");
     console.log("Livello attuale:", livello);
 
-    if(livello > 1) {
+    if(livello >= 1) {
              
         
-        const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+        if(livello <= 8){
+            const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
 
-        console.log(justPassedCookie);
-
-        if (justPassedCookie) {
+            console.log(justPassedCookie);
             const justPassed = justPassedCookie.split('=')[1];
-            livello -= 1;
-            updateAeroplaninoPosition();
+
+            if (justPassedCookie) {
+
+                livello -= 1;
+                if(livello == justPassed){
+
+                    updateAeroplaninoPosition();
 
 
-            setTimeout(() => {createColorRain(); }, 3000);
+                setTimeout(() => {createColorRain(); }, 3000);
+
+                }
+                
+            }
         }
         updateAeroplaninoPosition();
 

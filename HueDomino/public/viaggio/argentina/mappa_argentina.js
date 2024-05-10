@@ -37,20 +37,36 @@ $(document).ready(async function() {
     livello = await loadData("argentina");
     console.log("Livello attuale:", livello);
 
-    if(livello > 1) {
-        updateAeroplaninoPosition();
-
-        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20);      
+    if(livello >= 1) {
+             
         
-        const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+        if(livello <= 8){
+            const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
 
-        if (justPassedCookie) {
-            const justPassed = justPassedCookie.split('=')[1];
+            console.log(justPassedCookie);
+            
 
-            if( justPassed == livello){
-                setTimeout(() => {createColorRain(); }, 3000);
+            if (justPassedCookie) {
+                const justPassed = justPassedCookie.split('=')[1];
+
+                livello -= 1;
+                if(livello == justPassed){
+
+                    updateAeroplaninoPosition();
+
+
+                    setTimeout(() => {createColorRain(); }, 3000);
+
+                }else{
+                    livello += 1;
+                    updateAeroplaninoPosition();
+                }
+                
             }
         }
+        updateAeroplaninoPosition();
+
+        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20); 
     }else{
         //selezione l'elemento notUnlockedMessageAustralia e lo rende visibile
         $('#notUnlockedMessageArgentina').css('display', 'flex');

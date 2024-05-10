@@ -43,7 +43,7 @@ export async function loadData(nation) {
         async: false,
         success: function(data) {
             data.playableLevels.forEach((level,index) => {
-                //console.log(level);
+                console.log(level);
                 const nationCapitalized = level.levelnation.charAt(0).toUpperCase() + level.levelnation.slice(1);
                 const button = $(`#level${level.levelnumber}${nationCapitalized}Button`);
                 if (button.length > 0 && level.levelnation == nation) {

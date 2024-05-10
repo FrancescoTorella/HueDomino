@@ -37,20 +37,26 @@ $(document).ready(async function() {
     livello = await loadData("canada");
     console.log("Livello attuale:", livello);
 
-    if(livello > 1) {
-        updateAeroplaninoPosition();
-
-        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20);      
+    if(livello >= 1) {
+             
         
-        const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+        if(livello <= 8){
+            const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
 
-        if (justPassedCookie) {
-            const justPassed = justPassedCookie.split('=')[1];
+            console.log(justPassedCookie);
 
-            if( justPassed == livello){
+            if (justPassedCookie) {
+                const justPassed = justPassedCookie.split('=')[1];
+                livello -= 1;
+                updateAeroplaninoPosition();
+
+
                 setTimeout(() => {createColorRain(); }, 3000);
             }
         }
+        updateAeroplaninoPosition();
+
+        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20); 
     }else{
         //selezione l'elemento notUnlockedMessageAustralia e lo rende visibile
         $('#notUnlockedMessageCanada').css('display', 'flex');

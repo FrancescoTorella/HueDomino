@@ -53,7 +53,7 @@ let finalColorConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + 
 let startConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/start-config.json';
 parent.document.getElementById('content').style.backgroundImage = 'url(/viaggio/' + levelNation +'/' + levelNation +'Background.png)';
 parent.document.getElementById('popupFinalImage').src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
-
+parent.document.getElementById('levelCompletedImage').src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
 if(debugging){
     console.log(colorCombinationsPath);
     console.log(leftMovesPath);

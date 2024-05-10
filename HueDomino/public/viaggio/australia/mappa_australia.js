@@ -34,24 +34,29 @@ $(document).ready(async function() {
     aeroplanino = document.querySelector('.aeroplanino-icon');
     mapBox = document.querySelector('.map-container');
 
-
     livello = await loadData("australia");
     console.log("Livello attuale:", livello);
 
-    if(livello > 1) {
-        updateAeroplaninoPosition();
-
-        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20);      
+    if(livello >= 1) {
+             
         
-        const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
+        if(livello <= 8){
+            const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
 
-        if (justPassedCookie) {
-            const justPassed = justPassedCookie.split('=')[1];
+            console.log(justPassedCookie);
 
-            if( justPassed == livello){
+            if (justPassedCookie) {
+                const justPassed = justPassedCookie.split('=')[1];
+                livello -= 1;
+                updateAeroplaninoPosition();
+
+
                 setTimeout(() => {createColorRain(); }, 3000);
             }
         }
+        updateAeroplaninoPosition();
+
+        aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20); 
     }else{
         //selezione l'elemento notUnlockedMessageAustralia e lo rende visibile
         $('#notUnlockedMessageAustralia').css('display', 'flex');
@@ -154,7 +159,7 @@ function createColorRain() {
                         if(livello < 10)
                             transitionToNextLevel(); // Chiama transitionToNextLevel solo dopo che tutte le gocce sono state gestite
                         aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20); // Riavvia il movimento dell'aeroplanino
-                        updateMapImage();
+                        //updateMapImage();
                     }
                 }, 2000); // Dopo 2 secondi, termina l'animazione e rimuove le gocce
             }, 100);
