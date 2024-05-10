@@ -44,14 +44,24 @@ $(document).ready(async function() {
             const justPassedCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('justPassed='));
 
             console.log(justPassedCookie);
+            
 
             if (justPassedCookie) {
                 const justPassed = justPassedCookie.split('=')[1];
+
                 livello -= 1;
-                updateAeroplaninoPosition();
+                if(livello == justPassed){
+
+                    updateAeroplaninoPosition();
 
 
-                setTimeout(() => {createColorRain(); }, 3000);
+                    setTimeout(() => {createColorRain(); }, 3000);
+
+                }else{
+                    livello += 1;
+                    updateAeroplaninoPosition();
+                }
+                
             }
         }
         updateAeroplaninoPosition();
