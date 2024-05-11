@@ -240,10 +240,16 @@ async function getStatistics(userId) {
   const worldsResult = await pool.query(worldsQuery, [userId]);
   const mondiGiocati = worldsResult.rows[0].count;
 
+  //Query per contare il numero di amici dell'utente
+  const friendsQuery = 'SELECT COUNT(*) FROM friendship WHERE userid1 = $1';
+  const friendsResult = await pool.query(friendsQuery, [userId]);
+  const amici = friendsResult.rows[0].count;
+
   // Restituisci le statistiche
   return {
       livelliSuperati: livelliSuperati,
-      mondiGiocati: mondiGiocati
+      mondiGiocati: mondiGiocati,
+      numeroAmici: amici
   };
 }
 
@@ -262,6 +268,26 @@ async function getFriends(userId) {
       const result = await pool.query('SELECT * FROM friendship WHERE userid1 = $1', [userId]);
       return result.rows;
   } catch (error) {
+      console.error(error);
+      throw error;
+  }
+}
+
+async function removeFriend(userId, friendId) {
+  try {
+      const result = await pool.query('DELETE FROM friendship WHERE userid1 = $1 AND userid2 = $2', [userId, friendId]);
+      return result;
+  } catch (error) {
+      console.error(error);
+      throw error;
+  }
+}
+
+async function getLevels(userId) {
+  try {
+      const result = await pool.query('SELECT * FROM passed WHERE userid = $1', [userId]);
+      return result.rows;
+  }catch(error) {
       console.error(error);
       throw error;
   }
@@ -286,5 +312,7 @@ module.exports = {
   updateEmail,
   getStatistics,
   addFriend,
-  getFriends
+  getFriends,
+  removeFriend,
+  getLevels
  };

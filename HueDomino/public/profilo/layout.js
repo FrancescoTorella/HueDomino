@@ -1,6 +1,6 @@
 $(document).ready(function(){
     var animationCompleted = false; // Variabile per tenere traccia se l'animazione è stata completata
-    var currentContent = window.location.hash || "#statistiche";
+    var currentContent = window.location.hash || "#impostazioni";
 
     function checkWidth() {
         if ($(window).width() < 700) { // Se la larghezza dello schermo è inferiore a 700px

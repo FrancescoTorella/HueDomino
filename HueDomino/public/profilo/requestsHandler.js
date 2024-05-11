@@ -172,6 +172,7 @@ $(document).ready( async function() {
             },
             success: function(data) {
                 console.log(data);
+                location.reload();
                 // Aggiorna l'interfaccia utente qui
             },
             error:  function(jqXHR, textStatus, errorThrown) {
@@ -184,6 +185,39 @@ $(document).ready( async function() {
                 }
             }
         });
+    });
+
+    
+
+    $(document).on('click', '#confirmButton',  function(e) {
+        e.preventDefault();
+        var action = $(this).attr('data-action');
+
+        if(action.startsWith('removeFriend')) {
+            var friendId = action.substring('removeFriend'.length);
+            console.log(friendId);
+            var userId = ID_UTENTE;
+        
+            $.ajax({
+                url: '/remove-friend',
+                type: 'POST',
+                data: { 
+                    friendId: friendId,
+                    userId: userId
+                },
+                success: function(data) {
+                    location.reload();
+                    // Aggiorna l'interfaccia utente qui
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }else if(action === 'logout'){
+            document.cookie = 'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+            window.location.href = '/';
+        }
+
     });
 
 

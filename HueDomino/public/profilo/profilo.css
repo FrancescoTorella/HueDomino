@@ -17,8 +17,11 @@ body{
 }
 
 .profile-image {
-    width: 90px;
-    height: 90px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 85px;
+    height: 85px;
     object-fit: cover;
 } 
 
@@ -204,13 +207,13 @@ body{
 }
 
 .profile-image-settings {
-    border-radius: 50%;
+    position: relative;
     width: 100px; 
     height: 100px; 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url('/profilo/profileImagePlaceholder.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 .profile-image-container {
@@ -220,9 +223,9 @@ body{
     align-items: center;
     height: 95px;
     width: 95px;
-    border: 3px solid darkslategray;
+    border: 4px solid darkslategray;
     padding: 0;
-
+    
 }
 
 .profile-image-container::before,
@@ -231,38 +234,37 @@ body{
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 3px solid darkslategray;
+  border: 4px solid darkslategray;
 }
 
 .profile-image-container::before {
-  left: -5px;
+  left: -7px;
   top: -1px;
-  width: calc(100% + 10px);
+  width: calc(100% + 14px);
   height: calc(100% + 2px);
+  
 }
 
 .profile-image-container::after {
-  top: -5px;
+  top: -7px;
   left: -1px;
-  height: calc(100% + 10px);
+  height: calc(100% + 14px);
   width: calc(100% + 2px);
+    
 }
 
 .profile-image-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 60px;
+    left: 25px;
     background-color: rgba(128, 128, 128, 0);
-    color: white;
+    color: rgb(255, 255, 255);
     text-shadow: 
         -1px -1px 0 #000,  
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
     text-align: center;
-    padding: 5px;
-    padding-bottom: 10px;
 }
 
 .settings-form, .section-title, .stat-element {
@@ -310,6 +312,12 @@ body{
 
 .new-friend-larghezza{
     max-width: 500px; 
+}
+
+@media (max-width: 575px) {
+    .new-password-larghezza, .old-password-larghezza, .password-larghezza, .email-larghezza, .username-larghezza, .descrizione-larghezza, .new-friend-larghezza {
+        max-width: 350px;
+    }
 }
 
 
@@ -374,10 +382,12 @@ body{
 
 /* Stile per la tabella */
 #friendsTable {
-    width: 90%;
+    width: 93%;
     border-collapse: collapse; 
     margin-left: 20px;
 }
+
+
 
 /* Stile per le intestazioni delle colonne */
 #friendsTable th {
@@ -390,7 +400,11 @@ body{
 /* Stile per le celle */
 #friendsTable td {
     border: 1px solid #ddd; 
-    padding: 8px; 
+    padding: 11px; 
+}
+
+#friendsTable td:last-child{
+    text-align: center;
 }
 
 /* Stile per le righe */
@@ -402,6 +416,23 @@ body{
     background-color: rgb(198, 215, 198); 
 }
 
+@media (max-width: 575px) {
+    #friendsTable, .friend-form, .settings-form, .section-title, .stat-element, .back-button{
+        margin-left: 10px;
+    }
+}
+
+#removeFriendButton {
+    width: 50px;
+    background: red;
+    color: black;
+    display: block;
+    margin:  auto;
+}
+
+#removeFriendButton::after, #removeFriendButton::before {
+    background: red;
+}
 
 
 .image-container-in-table{
@@ -416,3 +447,133 @@ body{
     }
     
 }
+
+.alert-div {
+    background-color: white;
+    width: 30vw;
+    height: 30vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; 
+    border: 7px solid darkslategray;
+}
+
+.alert-div::after, .alert-div::before {
+    background-color: transparent;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 7px solid darkslategray;
+}
+
+.alert-div::before {
+    left: -12px;
+    top: -1px;
+    width: calc(100% + 24px);
+    height: calc(100% + 2px);
+}
+
+.alert-div::after {
+    top: -12px;
+    left: -1px;
+    height: calc(100% + 24px);
+    width: calc(100% + 2px);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    z-index: 999;
+
+}
+
+.alert-message-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75%;
+}
+.alert-button-row{
+    height: 25%;
+}
+.alert-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#confirmButton {
+    width: 40%;
+    background: red;
+}
+
+#confirmButton::after, #confirmButton::before {
+    background: red;
+}
+
+#cancelButton {
+    width: 40%;
+    background: green;
+}
+
+#cancelButton::after, #cancelButton::before {
+    background: green;
+}
+
+.alert-message{
+    font-size: 35px;
+}
+
+/* CSS */
+#levelsGrid {
+    max-width: 90%;
+}
+
+.card.custom-card {
+    width: 200px; 
+    height: 250px; 
+    margin-bottom: 20px;
+    border: 4px solid darkslategray;
+    border-radius: 0;
+}
+
+.card.custom-card::after, .card.custom-card::before {
+    background-color: transparent;
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border: 4px solid darkslategray;
+}
+
+.card.custom-card::before {
+    left: -7px;
+    top: -1px;
+    width: calc(100% + 14px);
+    height: calc(100% + 2px);
+}
+
+.card.custom-card::after {
+    top: -7px;
+    left: -1px;
+    height: calc(100% + 14px);
+    width: calc(100% + 2px);
+}
+
+.card.custom-card .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+
+.card.custom-card .card-body {
+    height: 30px; 
+}
+

@@ -336,11 +336,13 @@ router.get('/friends/:userId', async (req, res) => {
           const statistiche = await db.getStatistics(friend.userid2);
 
           const friendWithStats = {
+              idAmico: informazioni.id,
               usernameAmico: informazioni.username,
               fotoProfiloAmico: informazioni.path_to_profile_picture,
               descrizioneAmico: informazioni.description,
               livellisuperati: statistiche.livelliSuperati, 
               mondigiocati: statistiche.mondiGiocati, 
+              numeroamici: statistiche.numeroAmici,
               // ... resto delle statistiche ...
           };
 
@@ -354,6 +356,37 @@ router.get('/friends/:userId', async (req, res) => {
       res.status(500).json({ error: 'Errore del server' });
   }
 });
+
+router.post('/remove-friend', async (req, res) => {
+  try {
+
+      const result = await db.removeFriend(req.body.userId, req.body.friendId);
+
+      
+
+      if (result.rowCount === 0) {
+          res.status(404).json({ message: 'Amico non trovato' });
+          return;
+      }
+
+      res.json({ message: 'Amico rimosso con successo' });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Errore del server' });
+  }
+});
+
+router.get('/levels/:userId', async (req, res) =>{
+  try {
+      const levels = await db.getLevels(req.params.userId);
+      res.json(levels);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Errore del server' });
+  }
+  
+});
+
 
 
 module.exports = router;

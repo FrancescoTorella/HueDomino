@@ -38,8 +38,8 @@
     <div class="main">
         <nav class="sidebar">
             <ul>
-                <li><a href="#statistiche"><img class="menu-icon" src="/profilo/icons/statistics.svg" alt="Icona Statistiche" id="statisticsIcon"> Statistiche</a></li>
                 <li><a href="#impostazioni"><img class="menu-icon" src="/profilo/icons/settings.svg" alt="Icona Impostazioni" id="settingsIcon"> Impostazioni</a></li>
+                <li><a href="#statistiche"><img class="menu-icon" src="/profilo/icons/statistics.svg" alt="Icona Statistiche" id="statisticsIcon"> Statistiche</a></li>
                 <li><a href="#amici"><img class="menu-icon" src="/profilo/icons/friends.svg" alt="Icona Amici" id="friendsIcon"> Amici</a></li>
                 <li><a href="#avatar"><img class="menu-icon" src="/profilo/icons/avatar.svg" alt="Icona Avatar" id="avatarIcon"> Avatar</a></li>
                 <li><a href="#medaglie"><img class="menu-icon" src="/profilo/icons/medals.svg" alt="Icona Medaglie" id="medalsIcon"> Medaglie</a></li>
@@ -51,7 +51,7 @@
             <img class="back-button" src="/profilo/icons/back.svg" alt="Icona Indietro">
             <h2 class="section-title">Impostazioni utente:</h2>
             <form id="uploadProfileImageForm"  class="settings-form" method="post" enctype="multipart/form-data">
-                <label for="foto-profilo" class="profile-image-container">
+                <label for="foto-profilo" class="profile-image-settings">
                     <!-- <div class="profile-image-settings" id="profileImageSettings"></div> -->
                     <div class="profile-image-container">
                         <img id="profileImageSettings" class="profile-image" src="" alt="Foto del Profilo">
@@ -117,7 +117,7 @@
                 <tr>
                     <th>Profilo</th>
                     <th>Statistiche</th>
-                    <!-- Aggiungi qui altre colonne per altre statistiche -->
+                    <th>Opzioni</th>
                 </tr>
                 <!-- Le righe per gli amici saranno aggiunte qui dal codice JS -->
             </table>
@@ -133,6 +133,13 @@
         <div id="livelli" class="content">
             <img class="back-button" src="/profilo/icons/back.svg" alt="Icona Indietro">
             <h2 class="section-title">Livelli Completati:</h2>
+            <div class="container">
+                <div id="levelsGrid" class="row m-3">
+                
+                </div>
+
+            </div>
+            
         </div>
     </div>
     
@@ -141,16 +148,57 @@
     <script src="/profilo/layout.js"></script>
     <script type="module" src="/profilo/loadData.js"></script>
     <script type="module" src="/profilo/requestsHandler.js"></script>
+    
+
+
+    <div class="alert-div container-sm text-center col-lg-6 col-12 p-0" id="alertDiv">
+        <div class="row alert-message-row">
+            <div class="col-12 alert-message-container" >
+                <span id="alertMessage" class="alert-message"></span>
+            </div>
+        </div>
+        <div class="row alert-button-row">
+            <div class="col-6 alert-button-container">
+                <button id="cancelButton" class="pixel2">Annulla</button>   
+            </div>
+            <div class="col-6 alert-button-container">
+                <button id="confirmButton" class="pixel2">Conferma</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
     <script>
         $('#logoutButton').click(function() {
-        document.cookie = 'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        window.location.href = '/';
-    });
+            $('#alertDiv, #overlay').show();
+            $('#alertMessage').text('Sei sicuro di voler effettuare il logout?');
+            $('#confirmButton').attr('data-action', 'logout');
+            
+        });
+
+        $(document).on('click','#removeFriendButton', function() {
+            $('#alertDiv, #overlay').show();
+            $('#alertMessage').text('Sei sicuro di voler rimuovere ' + $(this).attr('data-usernameamico')+' dagli amici');
+            $('#confirmButton').attr('data-action', 'removeFriend'+ $(this).attr('data-idamico'));
+        });
+
+
 
         $('#mainMenuButton').click(function() {
             window.location.href = '/';
         });
+
+        $('#alertDiv, #overlay').hide();
+
+        $('#overlay').click(function() {
+            $('#alertDiv, #overlay').hide();
+        });
+        $('#cancelButton').click(function() {
+            $('#alertDiv, #overlay').hide();
+        });
     </script>
+</body>
+</html>
     
 
 </body>
