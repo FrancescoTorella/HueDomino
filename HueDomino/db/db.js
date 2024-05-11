@@ -227,6 +227,46 @@ async function getSession(sessionId) {
   return null;
 }
 
+async function getStatistics(userId) {
+  // Query per contare il numero totale di livelli giocati dall'utente
+  const levelsQuery = 'SELECT COUNT(*) FROM passed WHERE userid = $1';
+  const levelsResult = await pool.query(levelsQuery, [userId]);
+  const livelliSuperati = levelsResult.rows[0].count;
+
+
+
+  // Query per contare il numero di mondi unici giocati dall'utente
+  const worldsQuery = 'SELECT COUNT(DISTINCT levelnation) FROM passed WHERE userid = $1';
+  const worldsResult = await pool.query(worldsQuery, [userId]);
+  const mondiGiocati = worldsResult.rows[0].count;
+
+  // Restituisci le statistiche
+  return {
+      livelliSuperati: livelliSuperati,
+      mondiGiocati: mondiGiocati
+  };
+}
+
+async function addFriend(userId, friendId) {
+  try {
+      const result = await pool.query('INSERT INTO friendship (userid1, userid2) VALUES ($1, $2) ON CONFLICT (userid1, userid2) DO NOTHING', [userId, friendId]);
+      return result;
+  } catch (error) {
+      console.error(error);
+      throw error;
+  }
+}
+
+async function getFriends(userId) {
+  try {
+      const result = await pool.query('SELECT * FROM friendship WHERE userid1 = $1', [userId]);
+      return result.rows;
+  } catch (error) {
+      console.error(error);
+      throw error;
+  }
+}
+
 
 
 module.exports = { 
@@ -243,5 +283,8 @@ module.exports = {
   updateDescription,
   updateUsername,
   updatePassword,
-  updateEmail
+  updateEmail,
+  getStatistics,
+  addFriend,
+  getFriends
  };

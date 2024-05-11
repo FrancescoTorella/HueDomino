@@ -282,6 +282,78 @@ router.post('/update-password/:userId', async (req, res) => {
   }
 });
 
+router.get('/statistiche/:idUtente', async (req, res) => {
+  try {
+      const idUtente = req.params.idUtente;
+      const statistiche = await db.getStatistics(idUtente);
+
+      if (!statistiche) {
+          res.status(404).send('Statistiche non trovate per l\'utente');
+          return;
+      }
+
+      res.status(200).json(statistiche);
+  } catch (error) {
+      res.status(500).send('Si è verificato un errore durante il recupero delle statistiche');
+  }
+});
+
+router.post('/add-friend', async (req, res) => {
+  const friendUsername = req.body.friendUsername;
+  
+  try {
+
+      const friend = await db.getUserByUsername(friendUsername);
+      if (!friend) {
+          res.status(404).json({ message: 'Utente non trovato' });
+          return;
+      }
+
+      const result = await db.addFriend(req.body.userId, friend.id);
+
+      if (result.rowCount === 0) {
+          res.status(409).json({ message: 'Amico già aggiunto' });
+          return;
+      }
+
+      res.json({ message: 'Amico aggiunto con successo' });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Errore del server' });
+  }
+});
+
+router.get('/friends/:userId', async (req, res) => {
+  try {
+      //console.log('Richiesta di amici per l\'utente', req.params.userId);
+
+      const friends = await db.getFriends(req.params.userId);
+      const friendsWithStats = [];
+
+      for(let i = 0; i < friends.length; i++){
+          const friend = friends[i];
+          const informazioni = await db.getUserById(friend.userid2);
+          const statistiche = await db.getStatistics(friend.userid2);
+
+          const friendWithStats = {
+              usernameAmico: informazioni.username,
+              fotoProfiloAmico: informazioni.path_to_profile_picture,
+              descrizioneAmico: informazioni.description,
+              livellisuperati: statistiche.livelliSuperati, 
+              mondigiocati: statistiche.mondiGiocati, 
+              // ... resto delle statistiche ...
+          };
+
+          friendsWithStats.push(friendWithStats);
+      }
+
+      //console.log(friendsWithStats);
+      res.json(friendsWithStats);
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Errore del server' });
+  }
+});
 
 
 module.exports = router;

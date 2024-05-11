@@ -1,28 +1,11 @@
+
+import { getSessionCookie } from './utils.js';
+
 $(document).ready( async function() {
 
-    let ID_UTENTE;
+    let ID_UTENTE = await getSessionCookie();
 
-    const sessionId = document.cookie.split(';').find(item => item.trim().startsWith('sessionId='));
-        
-    if (sessionId) {
-        // Estrai l'ID della sessione dal cookie
-        const sessionIdValue = sessionId.split('=')[1];
-
-        try {
-        // Fai una richiesta al server per ottenere i dettagli della sessione
-        const response = await fetch('/session/' + sessionIdValue);
-        const session = await response.json();
-
-        // Stampa i dettagli della sessione sulla console
-        
-        ID_UTENTE = session.user_id;
-        } catch (error) {
-            console.error('Error:', error);
-        }
-        console.log('Il cookie sessionId è stato trovato');
-    } else {
-        console.log('Il cookie sessionId non è stato trovato');
-    }
+   
 
     // Fai una richiesta al server per ottenere i dettagli dell'utente
     const response = await fetch('/utente/' + ID_UTENTE);
@@ -40,166 +23,70 @@ $(document).ready( async function() {
     $('#profileImage').attr('src', user.path_to_profile_picture);
     $('#profileImageSettings').attr('src', user.path_to_profile_picture);
 
-    $('#foto-profilo').on('change', function() {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = function() {
-                $('.profile-image-settings').css('background-image', 'url(' + reader.result + ')');
-                
-                const formData = new FormData($('#uploadProfileImageForm')[0]);
-                formData.append('user-id', ID_UTENTE);
+    //richiedi le statistiche dell'utente
+    $.ajax({
+        url: '/statistiche/' + ID_UTENTE,
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            // Qui puoi utilizzare i dati delle statistiche come preferisci
+            // Ad esempio, potresti aggiornare l'interfaccia utente con le nuove statistiche
 
-                $.ajax({
-                    url: '/upload-profile-image/' + ID_UTENTE,
-                    type: 'POST',
-                    data: formData,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        console.log(response);
-                        location.reload();
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.log(textStatus, errorThrown);
-                    }
-                });
-            }
-            reader.readAsDataURL(file);
+            $('#livelliSuperati').text(data.livelliSuperati);
+            $('#mondiGiocati').text(data.mondiGiocati);
+        },
+        error: function(error) {
+            console.error('Errore:', error);
         }
     });
 
-    $('#descrizione').on('change', function() {
-        var descrizione = $(this).val();
-
+    //richiedi le informazioni sugli amici dell'utente
+    $.ajax({
+        url: '/friends/' + ID_UTENTE,
+        type: 'GET',
+        success: function(friends) {
+            // Qui puoi utilizzare i dati sugli amici come preferisci
+            // Ad esempio, potresti aggiornare l'interfaccia utente con i nuovi amici
     
-        $.ajax({
-            url: '/update-description/' + ID_UTENTE,
-            type: 'POST',
-            data: { description: descrizione},
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+            // Supponiamo che 'friends' sia un array di oggetti, con ogni oggetto che rappresenta un amico
+
+            console.log(friends);
+
+            var table = document.getElementById('friendsTable');
+
+            for (var i = 0; i < friends.length; i++) {
+                var row = table.insertRow(-1); // Inserisce una nuova riga alla fine della tabella
+
+                var cell1 = row.insertCell(0);
+                cell1.innerHTML = `
+                    <div class="profile-container">
+                        <div class="image-container-in-table">
+                            <div class="profile-image-container ">
+                                <img class="profile-image" src="${friends[i].fotoProfiloAmico}" alt="Foto del Profilo">
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h2>${friends[i].usernameAmico}</h2>
+                            <p>${friends[i].descrizioneAmico}</p>
+                        </div>
+                    </div>
+                `;
+
+                var cell2 = row.insertCell(1);
+                cell2.innerHTML = ` <p>Livelli superati: <span class="stat-text" id="livelliSuperati">${friends[i].livellisuperati}</span></p><p>Mondi giocati: <span class="stat-text" id="mondiGiocati">${friends[i].mondigiocati}</span></p><p>Numero amici: <span class="stat-text" id="numeroAmici">0</span></p><p>Medaglie vinte: <span class="stat-text" id="medaglieVinte">0</span></p><p>Avatar sbloccati: <span class="stat-text" id="avatarSbloccati">0</span></p>`;
+                ;
+
+
+                // Aggiungi qui altre celle per altre statistiche
             }
-        });
+        },
+        error: function(error) {
+            console.error('Errore:', error);
+        }
     });
-
-    $('#updateUsername').on('submit', function(e) {
-        e.preventDefault();
-
-        //Rimuovi eventuali errori precedenti
-        $('#usernameError').text('');
-        $('#passwordErrorInUpdateUsername').text('');
-    
-        var username = $('#username').val();
-        var password = $('#passwordForUsername').val();
-    
-        $.ajax({
-            url: '/update-username/' + ID_UTENTE,
-            type: 'POST',
-            data: { 
-                username: username,
-                password: password
-            },
-            success: function(response) {
-                console.log(response);
-                location.reload();
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                if(jqXHR.status == 409){
-                    $('#usernameError').text('Username già in uso');
-                }else if(jqXHR.status == 401){
-                    $('#passwordErrorInUpdateUsername').text('Password errata');
-                }else{
-                    console.log(textStatus, errorThrown);
-                }
-            }
-        });
-    });
-
-    $('#updatePassword').on('submit', function(e) {
-        e.preventDefault();
-
-        //Rimuovi eventuali errori precedenti
-        $('#oldPasswordError').text('');
-        $('#newPasswordError').text('');
-    
-        var oldPassword = $('#oldPassword').val();
-        var newPassword = $('#newPassword').val();
-    
-        $.ajax({
-            url: '/update-password/' + ID_UTENTE,
-            type: 'POST',
-            data: { 
-                oldPassword: oldPassword,
-                newPassword: newPassword
-            },
-            success: function(response) {
-                console.log(response);
-                location.reload();
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                if(jqXHR.status == 400){
-                    $('#newPasswordError').text('La password deve contenere almeno 8 caratteri');
-                }else if(jqXHR.status == 401){
-                    $('#oldPasswordError').text('Password errata');
-                }else{
-                    console.log(textStatus, errorThrown);
-                }
-            }
-        });
-    });
-
-    $('#updateEmail').on('submit', function(e) {
-        e.preventDefault();
-
-        //Rimuovi eventuali errori precedenti
-        $('#emailError').text('');
-        $('#passwordErrorInUpdateEmail').text('');
-
-    
-        var email = $('#email').val();
-        var password = $('#passwordForEmail').val();
-    
-        $.ajax({
-            url: '/update-email/' + ID_UTENTE,
-            type: 'POST',
-            data: { 
-                email: email,
-                password: password
-            },
-            success: function(response) {
-                console.log(response);
-                location.reload();
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                if(jqXHR.status == 409){
-                    $('#emailError').text('Email già in uso');
-                }else if(jqXHR.status == 401){
-                    $('#passwordErrorInUpdateEmail').text('Password errata');
-                }else if(jqXHR.status == 400){
-                    $('#emailError').text('Formato email non valido');
-                }
-                else{
-                    console.log(textStatus, errorThrown);
-                }
-            }
-        });
-    });
-
-    $('#logoutButton').click(function() {
-        document.cookie = 'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        window.location.href = '/';
-    });
-
-    $('#mainMenuButton').click(function() {
-        window.location.href = '/';
-    });
-
-    
 
 });
+
+
 
     

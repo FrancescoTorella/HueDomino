@@ -308,6 +308,10 @@ body{
     max-width: 500px; 
 }
 
+.new-friend-larghezza{
+    max-width: 500px; 
+}
+
 
 
 #logout-button:hover {
@@ -351,23 +355,64 @@ body{
     background: gold;
 }
 
-/* #profileImagePixeledContainerOuter {
-    border: 3px solid black;
-    width: 80px;
-    height: 80px;
+.stat-text{
+    color: darkred;
 }
 
-#profileImagePixeledContainerMiddle {
-    border: 3px solid black;
-    width: calc(100% + 10px);
-    left: -5px;
-    top: 0px;
+.friend-form{
+    margin-left: 20px;
 }
 
-#profileImagePixeledContainerInner {
-    border: 3px solid black;
-    height: calc(100% + 10px);
-    width: 100%;
-    top: -5px;
-    left: 0px;
-} */
+#addFriendButton {
+    width: 200px;
+    background: gold;
+}
+
+#addFriendButton::after, #addFriendButton::before {
+    background: gold;
+}
+
+/* Stile per la tabella */
+#friendsTable {
+    width: 90%;
+    border-collapse: collapse; 
+    margin-left: 20px;
+}
+
+/* Stile per le intestazioni delle colonne */
+#friendsTable th {
+    background-color: rgb(198, 215, 198); 
+    color: black; 
+    font-size: larger;
+    padding: 15px; 
+}
+
+/* Stile per le celle */
+#friendsTable td {
+    border: 1px solid #ddd; 
+    padding: 8px; 
+}
+
+/* Stile per le righe */
+#friendsTable tr:nth-child(even) {
+    background-color: rgb(226, 249, 192); 
+}
+
+#friendsTable tr:nth-child(odd) {
+    background-color: rgb(198, 215, 198); 
+}
+
+
+
+.image-container-in-table{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+@media (max-width: 575px) {
+    .image-container-in-table {
+        justify-content: center;
+    }
+    
+}
