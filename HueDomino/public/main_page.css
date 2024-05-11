@@ -18,11 +18,34 @@ body {
     height: 40vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
     width: 50vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
     position: fixed;
-    top: calc(50vh - 20vw); /* Centra verticalmente */
-    left: calc(50vw - 25vw); /* Centra orizzontalmente */
+    top: calc(50vh - 22vw); /* Centra verticalmente */
+    left: calc(60vw - 55vw); /* Centra orizzontalmente */
 
 }
 
+.slogan-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
+    width: 25vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
+    position: fixed;
+    top: calc(100vh - 12vw); /* Centra verticalmente */
+    left: calc(70vw - 60vw); /* Centra orizzontalmente */
+   
+}
+
+.slogan-text{
+    font-size: 2vw;
+    color: white;
+    text-align: center;
+    font-family: 'PixelFont';
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 81%;
+    height: 50%;
+}
 
 .sky-background {
     background-image: url('images/sky.jpg');
@@ -37,9 +60,33 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: 70%;
+    border: 0.3px solid white;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flying-airplane {
+    position: absolute;
+    width: 8vw; /* or your preferred size */
+    height: 8vh;
+    animation: flyUpDown 4s infinite ease-in-out;
+    left: 35%
 }
 
 
+.tutorial-box{
+    /*implementare*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
+    width: 35vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
+    position: fixed;
+    top: calc(100vh - 35vw); /* Centra verticalmente */
+    left: calc(60vw - 5vw); /* Centra orizzontalmente */
+    border: 10px solid purple;
+    font-size: 2vw;
+    color: white;
+}
 
 @keyframes scrollSky {
     0% {
@@ -49,13 +96,7 @@ body {
         background-position: -100% 0; /* Sposta l'immagine di sfondo alla sinistra */
     }
 }
-.flying-airplane {
-    position: absolute;
-    width: 8vw; /* or your preferred size */
-    height: 8vh;
-    animation: flyUpDown 4s infinite ease-in-out;
-    left: 35%
-}
+
 
 
 @keyframes flyUpDown {
@@ -67,3 +108,8 @@ body {
     }
 }
 
+
+@font-face {
+    font-family: 'PixelFont';
+    src: url('fonts/Mario-Kart-DS.ttf') format('truetype');
+}
