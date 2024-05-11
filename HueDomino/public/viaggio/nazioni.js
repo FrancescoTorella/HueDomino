@@ -212,6 +212,34 @@ document.addEventListener("DOMContentLoaded", function() {
         setupCarousel();
     });
     
+    function setNationTitleStyle() {
+        const header = document.querySelector('.header');
+        const nation = document.querySelector('.nation[data-index="' + currentIndex + '"]');
+        const nationTitle = document.querySelector('.nation-title');
+
+        if (!header || !nation || !nationTitle) return;
+
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        const vmin = Math.min(vw, vh);
+
+        // Imposta la dimensione del font come 8% del minimo tra la larghezza e l'altezza del viewport
+        const fontSize = vmin * 0.08;
+        nationTitle.style.fontSize = `${fontSize}px`;
+
+        // Calcola la posizione del titolo della nazione come equidistante tra l'header e la nazione
+        const headerBottom = header.getBoundingClientRect().bottom;
+        const nationTop = nation.getBoundingClientRect().top;
+        const middle = (headerBottom + nationTop) / 2;
+
+        // Imposta la posizione del titolo della nazione
+        nationTitle.style.top = `${middle}px`;
+    }
+
+    // Chiama la funzione una volta all'inizio per impostare lo stile iniziale
+    setNationTitleStyle();
+    window.addEventListener('resize', setNationTitleStyle);
+
     window.addEventListener('wheel', handleScroll, { passive: false });
     setupCarousel(); // Imposta il carousel al caricamento della pagina
 });
