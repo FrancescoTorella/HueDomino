@@ -50,7 +50,7 @@ $(document).ready(function(){
         if ($(window).width() < 700) { // Se la larghezza dello schermo è inferiore a 700px // Imposta la variabile animationCompleted a false
             
             $(".content").css({left: '0'}).animate({left: '100%'},500, function() {
-                $("content").hide();
+                $(".content").hide();
             }); // Nascondi tutti i contenuti
             //$(".content").hide(); // Nascondi tutti i contenuti
             $(".sidebar").show().css({left: '-100'}).animate({left: '0'});

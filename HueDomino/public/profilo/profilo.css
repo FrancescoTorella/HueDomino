@@ -147,6 +147,9 @@ body{
         width: 200px;
         position: relative;
     }
+    .back-button {
+        display: none;
+    }
     
 }
 
@@ -155,8 +158,14 @@ body{
     .sidebar, .content {
         width: 100%;
     }
+    .content{
+        min-height: 100vh;
+    }
     .sidebar{
         position: absolute;
+    }
+    .back-button {
+        display: block;
     }
 }
 
@@ -212,7 +221,7 @@ body{
     height: 95px;
     width: 95px;
     border: 3px solid darkslategray;
-    padding: 3px;
+    padding: 0;
 
 }
 
@@ -334,6 +343,7 @@ body{
 
 #changeEmailButton {
     width: 200px;
+    background: gold;
 }
 
 #changeEmailButton::after, #changeEmailButton::before {

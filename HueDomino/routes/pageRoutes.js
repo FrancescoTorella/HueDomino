@@ -99,7 +99,7 @@ router.get('/immagini_profilo/:imageName', (req, res) => {
     const { imageName } = req.params;
     const imagePath = path.join(__dirname, '..', 'immagini_profilo', imageName);
 
-    console.log("Richiesta immagine:", imagePath);
+    //console.log("Richiesta immagine:", imagePath);
 
     fs.access(imagePath, fs.constants.F_OK, (err) => {
         if (err) {
@@ -116,7 +116,7 @@ router.get('/immagini_profilo/user:id/:imageName', (req, res) => {
     const { id, imageName } = req.params;
     const imagePath = path.join(__dirname, '..', 'immagini_profilo', `user${id}`, imageName);
 
-    console.log("Richiesta immagine:", imagePath);
+    //console.log("Richiesta immagine:", imagePath);
 
     fs.access(imagePath, fs.constants.F_OK, (err) => {
         if (err) {

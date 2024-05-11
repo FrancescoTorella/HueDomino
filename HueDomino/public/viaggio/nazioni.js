@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             succ = currentIndex + 1;
         // Nascondi tutte le nazioni tranne quelle con data-index 0, 1 e 7
 
+
         if(currentIndex != 0 && currentIndex != nations.length - 1) {
             nations.forEach(nation => {
                 const index = parseInt(nation.getAttribute('data-index'));
@@ -76,6 +77,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }
+
+
         
         else if(currentIndex == 0) {
             nations.forEach(nation => {
