@@ -15,8 +15,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
-    width: 50vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
+    height: 45vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
+    width: 55vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
     position: fixed;
     top: calc(50vh - 22vw); /* Centra verticalmente */
     left: calc(60vw - 55vw); /* Centra orizzontalmente */
@@ -78,14 +78,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 25vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
-    width: 35vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
+    height: 30vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
+    width: 40vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
     position: fixed;
     top: calc(100vh - 35vw); /* Centra verticalmente */
     left: calc(60vw - 5vw); /* Centra orizzontalmente */
-    border: 10px solid purple;
-    font-size: 2vw;
-    color: white;
 }
 
 @keyframes scrollSky {
