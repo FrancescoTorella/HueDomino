@@ -19,7 +19,7 @@ icon.addEventListener('touchend', function() {
 });
 
 var colorIcon = document.querySelector('#colorPaletteIcon'); // Sostituisci con il selettore corretto per l'icona della palette dei colori
-var colorPopup = document.querySelector('#popupColorImage'); // Sostituisci con il selettore corretto per l'immagine o l'elemento che vuoi mostrare
+var colorPopup = document.querySelector('#colorBox'); // Sostituisci con il selettore corretto per l'immagine o l'elemento che vuoi mostrare
 
 colorIcon.addEventListener('mouseover', function() {
     colorPopup.style.display = 'block';
