@@ -695,7 +695,27 @@ async function handleLevelCompletion(){
     });
 }
 
+export async function showColorCombinations() {
+    console.log('showColorCombinations');
+    try {
+        const response = await fetch('/viaggio/italy/level1/color-combinations.json');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
 
+        const colorBox = document.getElementById('colorBox');
+        colorBox.innerHTML = ''; // Clear the div
+
+        data.forEach(colorCombination => {
+            const p = document.createElement('p');
+            p.textContent = `${colorCombination.color1} + ${colorCombination.color2} = ${colorCombination.result}`;
+            colorBox.appendChild(p);
+        });
+    } catch (error) {
+        console.error('Si è verificato un errore:', error);
+    }
+}
 
 
 
