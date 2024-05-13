@@ -1,96 +1,157 @@
 body {
-    background-image: url('images/backround.png');
-    background-size: cover; /* Ridimensiona l'immagine per coprire l'intera pagina */
-    background-position: center; /* Centra l'immagine */
-    background-repeat: no-repeat; /* Non ripetere l'immagine */
-    margin: 0; /* Rimuove il margine predefinito */
-    height: 100vh; /* Imposta l'altezza al 100% del viewport */
-    width: 100vw; /* Imposta la larghezza al 100% del viewport */
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
     overflow-x: hidden;
+    display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.page-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    height: 90vh; 
+    width: 90vw;
+    margin: 10vh auto 0 auto; 
+    padding: 10px;
+}
+
+.sky-content, .slogan-content, .tutorial-box, .world-box {
+    display: flex;
+    min-width: 40%; 
+    min-height: 40%; 
+    object-fit: contain;
+    position: relative;
 }
 
 .sky-content {
-    display: flex;
+    grid-area: 1 / 1 / 2 / 2; 
     justify-content: center;
     align-items: center;
-    height: 45vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
-    width: 55vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
-    position: fixed;
-    top: calc(50vh - 22vw); /* Centra verticalmente */
-    left: calc(60vw - 55vw); /* Centra orizzontalmente */
-
-}
-
-.slogan-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 10vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
-    width: 25vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
-    position: fixed;
-    top: calc(100vh - 12vw); /* Centra verticalmente */
-    left: calc(70vw - 60vw); /* Centra orizzontalmente */
-   
-}
-
-.slogan-text{
-    font-size: 2vw;
-    color: white;
-    text-align: center;
-    font-family: 'PixelFont';
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    width: 81%;
-    height: 50%;
 }
 
 .sky-background {
     background-image: url('images/sky.jpg');
-    height: 50%;
-    width: 50%;
-    background-position: 0 0;
-    background-repeat: repeat-x; /* Ripeti l'immagine orizzontalmente */
-    background-size: 50% 100%; /* Ridimensiona l'immagine per coprire l'intera altezza e metà della larghezza */
-    position: absolute;
-    animation: scrollSky 20s linear infinite; /* Aggiungi questa linea */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 80%;
+    height: 80%;
+    background-position: center;
+    background-repeat: repeat-x;
+    background-size: contain; 
+    animation: scrollSky 5s linear infinite;
     border-radius: 70%;
     border: 0.3px solid white;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
 }
+
+
 
 .flying-airplane {
     position: absolute;
-    width: 8vw; /* or your preferred size */
+    width: 8vw; 
     height: 8vh;
     animation: flyUpDown 4s infinite ease-in-out;
     left: 35%
 }
 
 
-.tutorial-box{
-    /*implementare*/
-    display: flex;
+
+
+.slogan-content {
+    grid-area: 1 / 2 / 2 / 3; 
     justify-content: center;
     align-items: center;
-    height: 30vw; /* Imposta l'altezza come una percentuale della larghezza del viewport */
-    width: 40vw; /* Imposta la larghezza come una percentuale della larghezza del viewport */
-    position: fixed;
-    top: calc(100vh - 35vw); /* Centra verticalmente */
-    left: calc(60vw - 5vw); /* Centra orizzontalmente */
 }
+
+.slogan-text {
+    font-size: 3.7vh;
+    color: white;
+    font-family: 'PixelFont';
+}
+
+
+
+.tutorial-box {
+    grid-area: 2 / 1 / 3 / 2;
+    cursor: pointer;
+    justify-content: left;
+    align-items: end;
+    padding-top: 20%;
+    padding-right: 50%;
+}
+
+.tutorial-image{
+    object-fit: contain;
+    width: 60%;
+    height: 60%;
+}
+
+#tutorialBox{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+#tutorialVideo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 60vw; 
+    height: 60vh; 
+    transform: translate(-50%, -50%); 
+    display: none; 
+}
+
+
+
+
+.world-box {
+    grid-area: 2 / 2 / 3 / 3; 
+}
+
+
+
+.world-image{
+    width: 70%;
+    height: 70%;
+    object-fit: contain; 
+}
+.world-image:hover{
+    transform: scale(1.2) translateY(-8%);
+    cursor: pointer;
+}
+
+#worldBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-text {
+    text-align: center;
+    font-size: 2vh;
+    color: white;
+    font-family: 'PixelFont';
+}
+
+
 
 @keyframes scrollSky {
     0% {
         background-position: 0 0;
     }
     100% {
-        background-position: -100% 0; /* Sposta l'immagine di sfondo alla sinistra */
+        background-position: -100% 0; 
     }
 }
 
