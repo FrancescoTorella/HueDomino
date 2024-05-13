@@ -695,27 +695,36 @@ async function handleLevelCompletion(){
     });
 }
 
-export async function showColorCombinations() {
-    console.log('showColorCombinations');
-    try {
-        const response = await fetch('/viaggio/italy/level1/color-combinations.json');
+// Fetch the color combinations data
+fetch(colorCombinationsPath)
+    .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json();
+        return response.json();
+    })
+    .then(data => {
+        // Get the colorBox element
+        const colorBox = parent.document.getElementById('colorBox');
 
-        const colorBox = document.getElementById('colorBox');
-        colorBox.innerHTML = ''; // Clear the div
+        // Create the color combinations
+        let colorCombinations = '';
+        for (let i = 0; i < data.length; i++) {
+            colorCombinations += `<div class="colorCombination">
+            <div class="colorCircle" style="background-color: ${data[i].color1};"></div>
+            <span class="operator">+</span>
+            <div class="colorCircle" style="background-color: ${data[i].color2};"></div>
+            <span class="operator">=</span>
+            <div class="colorCircle" style="background-color: ${data[i].result};"></div>
+        </div>`;
+        }
 
-        data.forEach(colorCombination => {
-            const p = document.createElement('p');
-            p.textContent = `${colorCombination.color1} + ${colorCombination.color2} = ${colorCombination.result}`;
-            colorBox.appendChild(p);
-        });
-    } catch (error) {
+        // Set the innerHTML of the colorBox
+        colorBox.innerHTML = colorCombinations;
+    })
+    .catch(error => {
         console.error('Si è verificato un errore:', error);
-    }
-}
+    });
 
 
 
