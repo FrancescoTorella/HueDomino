@@ -64,7 +64,7 @@ function adjustBackgroundSize() {
     var skyBackground = document.querySelector('.sky-background');
 
     // Se la larghezza della viewport non è almeno il doppio dell'altezza
-    if (width < 1.8 * height) {
+    if (width < 1.9 * height) {
         // Imposta background-size a cover
         skyBackground.style.backgroundSize = 'cover';
     } else {
