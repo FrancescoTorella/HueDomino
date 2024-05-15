@@ -93,10 +93,9 @@ body{
 .box-text{
     text-align: center;
     font-size: 10vh;
-    font-family: "Arial", sans-serif; /* Modifica con il tuo font */
+    font-family: 'VT323'; /* Modifica con il tuo font */
     /*color: white; /* Testo bianco */
     font-weight: bold; /* Testo grassetto */
-    font-style: italic; /* Testo corsivo */
     text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5); /* Aggiungi un'ombra al testo per dare un effetto 3D */
     /*text-shadow: 2px 2px 2px black; /* Bordo nero intorno al testo */
     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); /* Sfumatura di colore */
@@ -105,7 +104,6 @@ body{
     -ms-background-clip: text; /* Aggiungi questa linea */
     background-clip: text; /* Define the standard property 'background-clip' for compatibility */
     color: transparent; /* Rende il colore del testo trasparente per mostrare lo sfondo */
-    animation: rotate 2s linear;
 }
 
 
@@ -210,14 +208,4 @@ body{
     text-shadow: 2px 2px 2px black;
     text-align: center;
     z-index: 5;
-}
-
-
-@keyframes rotate {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
 }
