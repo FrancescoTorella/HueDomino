@@ -9,7 +9,7 @@ header{
     height: 10vh;
     padding-left: 0;
     padding-right: 0;
-    background-color:  rgb(245, 20, 240);
+    background-color:  rgb(230, 20, 240);
     top: 0;
     position: fixed;
     z-index: 99;
@@ -17,7 +17,7 @@ header{
 
 .semi-transparent {
     /* background-color: rgba(100, 100, 100, 0.9); */
-    background: linear-gradient(to bottom, rgba(100, 100, 100, 1), rgba(100, 100, 100, 0.6));
+    background: linear-gradient(to bottom, rgba(230, 20, 240, 1), rgba(230, 20, 240, 0.6));
 }
 
 .page-content-container {
@@ -134,7 +134,7 @@ header{
 
 @font-face {
     font-family: 'mariokart';
-    src: url('/viaggio/Mario-Kart-DS.ttf');
+    src: url('/fonts/Mario-Kart-DS.ttf');
 }
 
 @font-face {
@@ -225,7 +225,7 @@ p{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #646464;
+    background-color: rgb(230, 20, 240);
     color: white;
     display: flex;
     flex-direction: column;
@@ -269,7 +269,7 @@ p{
     position: fixed;
     width: 100%; 
     height: 28vh;
-    background-color: #646464;
+    background-color:rgb(230, 20, 240);
     z-index: 100;
     align-items: left;
     justify-content: left;
@@ -375,7 +375,7 @@ p{
 
 .login-button {
     background-color: white;
-    color: #646464;
+    color: rgb(230, 20, 240);
     border: 2px solid white;
     border-radius: 5px;
     padding: 5px 10px;

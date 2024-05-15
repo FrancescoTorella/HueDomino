@@ -103,26 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         iconContainer.addEventListener('mouseleave', hideDropdownMenu);
-
-        window.addEventListener('resize', function() {
-            if (menuIsOpen) {
-                var iconLabelElement = iconContainer.querySelector('.mode-title');
-                if (iconLabelElement) {
-                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left;
-                    var dropdownDiv = dropdownText.querySelector('div');
-                    if (dropdownDiv) {
-                        if (iconLabelElement.textContent === 'Mondi') {
-                            dropdownDiv.style.marginLeft = marginLeft + 'px';
-                        } else if (iconLabelElement.textContent === 'Login') {
-                            dropdownDiv.style.marginLeft = marginLeft + 'px';
-                        } else if (iconLabelElement.textContent === 'Profile') {
-                            dropdownDiv.style.marginLeft = marginLeft  - 10 + 'px';
-                        }
-                    }
-                }
-            }
-        });
     });
 
     /* Nasconde #dropdownMenu quando il mouse esce da esso */
@@ -180,10 +160,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var dropdown = document.querySelector('.dropdown-header-menu');
         if (window.scrollY > 0) {
             header.classList.add('semi-transparent');
-            dropdown.style.backgroundColor = 'rgba(100, 100, 100, 0.6)';
+            dropdown.style.backgroundColor = 'rgba(230, 20, 240, 0.6)';
         } else {
             header.classList.remove('semi-transparent');
-            dropdown.style.backgroundColor = 'rgba(100, 100, 100, 1)';
+            dropdown.style.backgroundColor = 'rgba(230, 20, 240, 1)';
         }
     });
 
