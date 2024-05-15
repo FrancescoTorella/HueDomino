@@ -5,85 +5,93 @@
 body{
     font-family: 'VT323', monospace !important;
     background-image: url('/viaggio/images/sky.jpeg');
-    background-size: cover; 
-    background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
-}
-
-
-.left-box-container{
-    position: fixed;
-    left: 8vw;
-    top: 30vh;
-    width: 25vw;
-    height: 50vh;
-    border: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr;
-    gap: 0;
-}
-
-.grid-item {
-    position: relative;
-    overflow: hidden; /* Nasconde qualsiasi parte dell'immagine che esce dal contenitore */
-    width: 100%;
-    height: 100%;
-    max-height: 33vh;
-    background-color: transparent;
-    display: flex; /* Centra l'immagine nel contenitore */
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    align-items: center;
     justify-content: center;
+}
+
+
+.page-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    height: 89vh; 
+    width: 89vw;
+    margin: 11vh auto auto auto; 
+    padding: 10px;
+    grid-template-areas: "left right";
+}
+
+
+
+.right-box-container, .left-box-container {
+    display: flex;
+    object-fit: contain;
+    position: relative;
+
+}
+
+.left-box-container {
+    grid-area: left; 
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+}
+
+#left-box{
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
 
-.grid-item img {
-    object-fit: contain; /* Mantiene le proporzioni dell'immagine mentre si adatta al contenitore */
-    width: auto; /* Imposta la larghezza dell'immagine a auto */
-    height: auto; /* Imposta l'altezza dell'immagine a auto */
-    max-width: 100%; /* Impedisce all'immagine di sforare il contenitore in larghezza */
-    max-height: 100%; /* Impedisce all'immagine di sforare il contenitore in altezza */
-    margin: auto; /* Centra l'immagine nel contenitore */
+.right-box-container {
+    grid-area: right; 
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:100%;
 }
 
-#left-box {
-    display: block;
+
+
+.grid-item-img {
+    object-fit: contain; /* Mantiene le proporzioni dell'immagine mentre si adatta al contenitore */
+    width: 55%; /* Imposta la larghezza dell'immagine a auto */
+    height: 55%; /* Imposta l'altezza dell'immagine a auto */
 }
+
+
 
 @media (max-width: 900px) {
     #left-box {
         display: none; /* Nasconde il contenitore sinistro */
     }
-
-    #right-box {
-        box-sizing: border-box; /* Include padding e bordo nella larghezza e altezza totali del contenitore */
-        width: 100%; /* Imposta la larghezza del contenitore destro al 100% */
-        padding: 10px; /* Aggiunge un padding di 10px su tutti i lati del contenitore */
-        margin: auto; /* Centra il contenitore nel suo contenitore padre */
+    .right-box-container {
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        overflow: hidden;
     }
+    .map-container {
+        width: 100%;
+    }
+    .page-container{
+        gap: 0px;
+        overflow: hidden;
+        width: 100vw;
+    }
+
 }
 
-@keyframes rotate {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
-}
 
-.grid-item p {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.box-text{
     text-align: center;
-    font-size: 5vw;
-    margin: 0;
+    font-size: 10vh;
     font-family: "Arial", sans-serif; /* Modifica con il tuo font */
     /*color: white; /* Testo bianco */
     font-weight: bold; /* Testo grassetto */
@@ -99,48 +107,22 @@ body{
     animation: rotate 2s linear;
 }
 
-.right-box-container {
-    position: absolute;
-    right: 5vw;
-    width: 35vw; /* Puoi scegliere una percentuale iniziale per la larghezza */
-    /*aspect-ratio: 10/10; /* Imposta il rapporto di aspetto a 7:10 */
-    border: none;
-    padding: 0;
-    overflow: hidden;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.right-box-container::before {
-    content: "";
-    float: left;
-    padding-top: 100%; /* Imposta questo al valore desiderato per il rapporto di aspetto */
-}
 
-.usa-page .right-box-container::before {
-    padding-top: 70%; /* Imposta questo al valore desiderato per il rapporto di aspetto */
-}
-
-.right-box-container::after {
-    content: "";
-    display: table;
-    clear: both;
-}
 
 .map-container {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 90%;
     border: 5px solid black;
-    padding: 5px;
-    margin-bottom: 20%;
     background-color: white;
+    padding: 10px;
+  
 }
+
+/*   CODICE FRA per cornici
 .map-container::before,
 .map-container::after {
   content: "";
@@ -165,48 +147,12 @@ body{
   height: calc(100% + 18px);
   width: 100%;
 }
-
-#icelandMapContainer{
-    margin-top: 10%;
-}
-
-#australiaMapContainer{
-    margin-top: 10%;
-    padding: 30px;
-}
-
-#argentinaMapContainer{
-    margin-top: 10%;
-    padding: 30px;
-}
-
-#usaMapContainer{
-    padding:30px;
-    padding-top: 70px;
-    padding-bottom: 70px;
-}
-
-#canadaMapContainer{
-    margin-top: 10%;
-}
-
-#italyMapContainer{
-    margin-top: 5%;
-}
-
-#franceMapContainer{
-    margin-top: 10%;
-}
-
-#japanMapContainer{
-    padding: 30px;
-}
+*/
 
 .map-country {
     width: 100%;  /* L'immagine coprirà la larghezza del contenitore */
     height: 100%; /* L'altezza si adatterà automaticamente mantenendo le proporzioni dell'immagine */
     display: block; /* Rimuove eventuali spazi extra sotto l'immagine */
-    position: relative;
 }
 
 .level-icon {
@@ -263,4 +209,14 @@ body{
     text-shadow: 2px 2px 2px black;
     text-align: center;
     z-index: 5;
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
+    }
 }

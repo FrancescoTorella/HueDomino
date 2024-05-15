@@ -1,3 +1,4 @@
+/*
 document.addEventListener('DOMContentLoaded', function() {
     // Funzione per aggiustare la dimensione del right box
     function adjustRightBoxSize() {
@@ -38,3 +39,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Chiamata iniziale per impostare le dimensioni al caricamento della pagina
     adjustRightBoxSize();
 });
+*/

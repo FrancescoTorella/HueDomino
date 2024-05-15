@@ -100,7 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdown.style.backgroundColor = 'rgba(100, 100, 100, 1)';
         }
     });
-
+    
+    /*
+    DA CANCELLARE O RIFARE
     // Funzione per aggiustare la dimensione del right box
     function adjustRightBoxSize() {
         const rightBox = document.querySelector('.right-box-container');
@@ -134,4 +136,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Chiamata iniziale per impostare le dimensioni al caricamento della pagina
     adjustRightBoxSize();
+    */
 });

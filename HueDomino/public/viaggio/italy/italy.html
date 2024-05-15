@@ -13,9 +13,7 @@
         <header>
             <div id="main-header" class="main-header">
                 <div class="logo-container">
-                    <a href="/">
-                        <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
-                    </a>
+                    <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
                 </div>
                 <div class="title-container">
                     <h1 class="title">Hue Domino</h1>
@@ -23,10 +21,7 @@
                 <div class="modes-container">
                     <div class="written-modes-container">
                         <div class="mode-title-container">
-                            <a href="/journey"><p class="mode-title">Journey</p></a>
-                        </div>
-                        <div class="mode-title-container">
-                            <a href="/creator"><p class="mode-title">Creator</p></a>
+                            <a href="/journey"><p class="mode-title">Mondi</p></a>
                         </div>
                         <div class="mode-title-container">
                             <button id="loginButton" class="login-button" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
@@ -40,10 +35,8 @@
                         </div>
                         <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
                             <div class="text-wrapper">
-                                <a href="/"><p class="mode-title">Home</p></a>
                                 <a id="loginButtonSmall" href="/login"><p class="mode-title">Login</p></a>
-                                <a href="/journey"><p class="mode-title">Journey</p></a>
-                                <a href="/creator"><p class="mode-title">Creator</p></a>
+                                <a href="/journey"><p class="mode-title">Mondi</p></a>
                             </div>
                         </div>
                     </div>
@@ -55,35 +48,31 @@
             </div> 
             <script src="/header.js"></script>
         </header>
-    <div id="pageContentContainer">
-        <div id ="left-box" class="left-box-container">
-            <div class="grid-item">
-                <img src="/viaggio/italy/images/italy.png" />
+        <div id="pageContentContainer" class="page-container">
+            <div id ="left-box" class="left-box-container">
+                    <img src="/viaggio/italy/images/italy.png" class="grid-item-img" />
+                    <p id="2-1" class="box-text">
+                        Italy
+                    </p>
             </div>
-            <div id="2-1" class="grid-item">
-                <p class="grid-item">
-                    Italy
-                </p>
-            </div>
-        </div>
-        <div id="right-box" class="right-box-container">
-            <div id="italyMapContainer" class="map-container">
-                <img src="/viaggio/italy/images/italiaCarta_0.png" alt="Mappa dell'Italia" class="map-country" >
+            <div id="right-box" class="right-box-container">
+                <div id="italyMapContainer" class="map-container">
+                    <img src="/viaggio/italy/images/italiaCarta_0.png" alt="Mappa dell'Italia" class="map-country" >
+                    
+                    <img id="level1ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 62%; left: 32%;" onclick="window.location.href='/journey/italy/1'">
+                    <img id="level2ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 80%; left: 55%;" onclick="window.location.href='/journey/italy/2'">
+                    <img id="level3ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 61%; left: 65%;" onclick="window.location.href='/journey/italy/3'">
+                    <img id="level4ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 53%; left: 61%;" onclick="window.location.href='/journey/italy/4'" >
+                    <img id="level5ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 48%; left: 51%;" onclick="window.location.href='/journey/italy/5'">
+                    <img id="level6ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 38%; left: 47%;" onclick="window.location.href='/journey/italy/6'">
+                    <img id="level7ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 26%; left: 28%;" onclick="window.location.href='/journey/italy/7'">
+                    <img id="level8ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 18%; left: 42%;" onclick="window.location.href='/journey/italy/8'">
                 
-                <img id="level1ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 62%; left: 27%;" onclick="window.location.href='/journey/italy/1'">
-                <img id="level2ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 83%; left: 58%;" onclick="window.location.href='/journey/italy/2'">
-                <img id="level3ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 63%; left: 69%;" onclick="window.location.href='/journey/italy/3'">
-                <img id="level4ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 53%; left: 63%;" onclick="window.location.href='/journey/italy/4'" >
-                <img id="level5ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 48%; left: 51%;" onclick="window.location.href='/journey/italy/5'">
-                <img id="level6ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 38%; left: 47%;" onclick="window.location.href='/journey/italy/6'">
-                <img id="level7ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 30%; left: 38%;" onclick="window.location.href='/journey/italy/7'">
-                <img id="level8ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 15%; left: 42%;" onclick="window.location.href='/journey/italy/8'">
-            
 
-                <img src="/viaggio/italy/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                    <img src="/viaggio/italy/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                </div>
             </div>
         </div>
-    </div>
     <script src="/viaggio/italy/scripts.js"></script>
-</body>
+    </body>
 </html>

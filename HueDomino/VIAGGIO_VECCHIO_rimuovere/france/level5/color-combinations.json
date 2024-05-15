@@ -1,0 +1,11 @@
+[
+    { "color1": "blue", "color2": "red", "result": "purple" },
+    { "color1": "yellow", "color2": "blue", "result": "green" },
+    { "color1": "red", "color2": "yellow", "result": "orange" },
+    { "color1": "red", "color2": "purple", "result": "crimson" },
+    { "color1": "red", "color2": "orange", "result": "darkorange"},
+    { "color1": "blue", "color2": "green", "result": "lightblue" },
+    { "color1": "blue", "color2": "purple", "result": "indigo" },
+    { "color1": "yellow", "color2": "orange", "result": "bisque" },
+    { "color1": "yellow", "color2": "green", "result": "yellowgreen" }
+]

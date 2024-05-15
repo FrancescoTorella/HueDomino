@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.page-content-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.nations-container {
+    display: flex;
+    position: fixed;
+    margin-bottom: 10%;
+    width: 100%;
+    transition: transform 0.5s ease;
+    transform: translateY(20%); 
+}
+
+
+
+.nation {
+    flex: 0 0 33.3333%;
+    display: flex;
+    height: auto;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.nation-title {
+    font-family: 'Font-MK';
+    justify-content: center ;
+    position: absolute; /* Posizionamento assoluto rispetto al suo contenitore parent */
+    top: -40%; /* Distanza dall'alto del contenitore */
+    width: 100%; /* Larghezza completa per centrare il testo */
+    text-align:center; /* Centra il testo orizzontalmente */
+    color: white; /* Colore del testo */
+    font-size: 8vw; /* Dimensione del font */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombra del testo per migliorare la leggibilità */
+}
+
+
+.nation img {
+    position: relative; 
+    width: 100%;
+    height: auto;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.nation img:hover {
+    transform: scale(1.1);
+}
+
+.card-title {
+    white-space: nowrap;
+}
+
+@font-face {
+    font-family: 'Font-MK';
+    src: url('/fonts/Mario-Kart-DS.ttf') format('truetype');
+}
+
+
+@media (max-width: 950px) {
+    .nation-title {
+        top: -110%;
+        font-size: 14vw;
+    }
+}
+
+@media (min-width: 2400px) {
+    .nation-title{
+        top: -75%;
+    }
+}
+
+@media(max-height: 600px){
+    .nations-container{
+        transform: translateY(0%);
+    }
+}
+
+

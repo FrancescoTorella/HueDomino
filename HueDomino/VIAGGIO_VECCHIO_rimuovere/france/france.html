@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Viaggio - Hue Dominion</title>
+        <link rel="stylesheet" type="text/css" href="/viaggio/mondi.css">
+        <link rel="stylesheet" href="/styles/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="/main.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="module" src="/viaggio/france/mappa_francia.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <div id="main-header" class="main-header">
+                <div class="logo-container">
+                    <a href="/">
+                        <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
+                    </a>
+                </div>
+                <div class="title-container">
+                    <h1 class="title">Hue Domino</h1>
+                </div>
+                <div class="modes-container">
+                    <div class="written-modes-container">
+                        <div class="mode-title-container">
+                            <a href="/journey"><p class="mode-title">Journey</p></a>
+                        </div>
+                        <div class="mode-title-container">
+                            <a href="/creator"><p class="mode-title">Creator</p></a>
+                        </div>
+                        <div class="mode-title-container">
+                            <button id="loginButton" class="login-button" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
+                        </div>
+                    </div>
+                    <div class="icon-menu-container">
+                        <div id="menuIcon" class="menu-icon">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </div>
+                        <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
+                            <div class="text-wrapper">
+                                <a href="/"><p class="mode-title">Home</p></a>
+                                <a id="loginButtonSmall" href="/login"><p class="mode-title">Login</p></a>
+                                <a href="/journey"><p class="mode-title">Journey</p></a>
+                                <a href="/creator"><p class="mode-title">Creator</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="dropdownHeaderMenu" class="dropdown-header-menu">
+                <div id="dropdown-text"></div>
+            </div> 
+            <script src="/header.js"></script>
+        </header>
+    <div id="pageContentContainer">
+        <div id ="left-box" class="left-box-container">
+            <div id="1-1" class="grid-item">
+                <img src="/viaggio/france/images/france.png">
+            </div>
+            <div id="2-1" class="grid-item">
+                <p class="grid-item">
+                    France
+                </p>
+            </div>
+        </div>
+        <div id="right-box" class="right-box-container">
+            <div id="franceMapContainer" class="map-container">
+                <img src="/viaggio/france/images/franciaCarta_0.png" alt="Mappa Francia" class="map-country" >
+                
+                <img id="level1FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 11%; left: 50%;" onclick="window.location.href='/journey/france/1'">
+                <img id="level2FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 30%; left: 72%;" onclick="window.location.href='/journey/france/2'">
+                <img id="level3FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 50%; left: 62%;" onclick="window.location.href='/journey/france/3'">
+                <img id="level4FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 68%; left: 70%;" onclick="window.location.href='/journey/france/4'">
+                <img id="level5FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 78%; left: 45%;" onclick="window.location.href='/journey/france/5'">
+                <img id="level6FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 64%; left: 32%;" onclick="window.location.href='/journey/france/6'">
+                <img id="level7FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 48%; left: 39%;" onclick="window.location.href='/journey/france/7'">
+                <img id="level8FranceButton" src="/viaggio/france/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 32%; left: 12%;" onclick="window.location.href='/journey/france/8'">
+            
+
+                <img src="/viaggio/france/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                <div id="notUnlockedMessageFrance" class="not-unlocked-message">
+                    <p>Oops!! Sembra che tu non abbia ancora sbloccato questo mondo!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/viaggio/france/scripts.js"></script>
+</body>
+</html>

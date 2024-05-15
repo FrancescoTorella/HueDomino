@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>Viaggio - Hue Dominion</title>
+    <link rel="stylesheet" type="text/css" href="/viaggio/viaggio.css">
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/main.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <script src="/viaggio/nazioni.js"></script>
+
+</head>
+<body>
+    <header>
+        <div id="main-header" class="main-header">
+            <div class="logo-container">
+                <a href="/">
+                    <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
+                </a>
+            </div>
+            <div class="title-container">
+                <h1 class="title">Hue Domino</h1>
+            </div>
+            <div class="modes-container">
+                <div class="written-modes-container">
+                    <div class="mode-title-container">
+                        <a href="/journey"><p class="mode-title">Journey</p></a>
+                    </div>
+                    <div class="mode-title-container">
+                        <a href="/creator"><p class="mode-title">Creator</p></a>
+                    </div>
+                    <div class="mode-title-container">
+                        <button id="loginButton" class="login-button" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
+                    </div>
+                </div>
+                <div class="icon-menu-container">
+                    <div id="menuIcon" class="menu-icon">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+                    <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
+                        <div class="text-wrapper">
+                            <a href="/"><p class="mode-title">Home</p></a>
+                            <a id="loginButtonSmall" href="/login"><p class="mode-title">Login</p></a>
+                            <a href="/journey"><p class="mode-title">Journey</p></a>
+                            <a href="/creator"><p class="mode-title">Creator</p></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="dropdownHeaderMenu" class="dropdown-header-menu">
+            <div id="dropdown-text"></div>
+        </div> 
+        <script src="/header.js"></script>
+    </header>
+
+
+    <main id="pageContentContainer" class="page-content-container">
+        <div id="nationsCarousel" class="nations-container">
+            <!-- Container per le nazioni con link attivi -->
+            
+            <div id = "italy" class="nation" data-index="0">
+                <div class="nation-title">italy</div>
+                <a href="/journey/italy">
+                    <img src="/viaggio/images/italy.png" alt="Italy">
+                </a>
+            </div>
+            <div id = "usa" class="nation" data-index="1">
+                <div class="nation-title">usa</div>
+                <a href="/journey/usa">
+                    <img src="/viaggio/images/usa.png" alt="USA">
+                </a>
+            </div>
+            <div id = "japan" class="nation" data-index="2">
+                <div class="nation-title">japan</div>
+                <a href="/journey/japan">
+                    <img src="/viaggio/images/japan.png" alt="Japan">
+                </a>
+            </div>
+            <div id = "iceland" class="nation" data-index="3">
+                <div class="nation-title">iceland</div>
+                <a href="/journey/iceland">
+                    <img src="/viaggio/images/iceland.png" alt="Iceland">
+                </a>
+            </div>
+            <div id = "australia" class="nation" data-index="4">
+                <div class="nation-title">australia</div>
+                <a href="/journey/australia">
+                    <img src="/viaggio/images/australia.png" alt="Australia">
+                </a>
+            </div>
+            <div id = "france" class="nation" data-index="5">
+                <div class="nation-title">france</div>
+                <a href="/journey/france">
+                    <img src="/viaggio/images/france.png" alt="France">
+                </a>
+            </div>
+            <div id = "argentina" class="nation" data-index="6">
+                <div class="nation-title">argentina</div>
+                <a href="/journey/argentina">
+                    <img src="/viaggio/images/argentina.png" alt="Argentina">
+                </a>
+            </div>
+            <div id ="canada" class="nation" data-index="7">
+                <div class="nation-title">canada</div>
+                <a href="/journey/canada">
+                    <img src="/viaggio/images/canada.png" alt="Canada">
+                </a>
+            </div>
+        </div>
+    </main>
+    
+        
+        
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
