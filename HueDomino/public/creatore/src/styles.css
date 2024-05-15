@@ -1,0 +1,962 @@
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
+@font-face {
+    font-family: 'Mario Kart DS';
+    src: url('/fonts/Mario-Kart-DS.ttf') format('truetype');
+}
+
+
+  
+body{
+    font-family: 'VT323', monospace !important;
+    background-image: url('/creatore/src/backgroundCreator.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    /* background-position: center -100px; */
+}
+
+
+h1{
+    font-family: 'Mario Kart DS', sans-serif !important;
+    text-align: center;
+    color: white;
+    font-size: 10vw !important;
+}
+
+.main-container{
+    margin-top: 30px;
+}
+
+.upper-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 20%;
+}
+
+.inner-grid-container{
+    position: relative;
+    display: inline-block;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2%;
+    background-color: antiquewhite;
+    border: 7px solid rgb(40, 15, 90);
+    pointer-events: none;
+}
+
+.inner-grid-container::before, .inner-grid-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 7px solid rgb(65, 23, 150);
+    z-index: 0;
+}
+
+.inner-grid-container::before{
+    top: -1px;
+    left: -13px;
+    width: calc(100% + 26px);
+    height: calc(100% + 2px);
+}
+
+.inner-grid-container::after{
+    top: -13px;
+    left: -1px;
+    height: calc(100% + 26px);
+    width: calc(100% + 2px);
+}
+
+
+
+.grid-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-grid{
+   background-color: antiquewhite;
+   
+}
+
+.color-buttons-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px; 
+    margin-bottom: 30px;
+}
+
+
+
+.color-button {
+    width: 100px; 
+    height: 100px;
+    margin: 10px 30px; 
+
+
+}
+
+@media(max-width: 666px){
+    .main-grid{
+        display: none;
+    }
+}
+
+@media (min-width: 667px){
+    .main-grid{
+        position: relative;
+        padding: 20px;
+        height: 590px; /* Altezza della griglia principale */
+        width: 590px; /* Larghezza della griglia principale */
+        display: grid; /* Imposta il display a griglia */
+        grid-template-columns: repeat(1, 542px); /* Imposta una colonna */
+        grid-template-rows: repeat(31, 15px 2px); /* Imposta 31 coppie di righe */
+        border: 4px solid purple;
+    }
+
+    .main-grid::before, .main-grid::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 4px solid rgb(65, 23, 150);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .main-grid::before{
+        top: 0px;
+        left: -8px;
+        width: calc(100% + 16px);
+        height: calc(100% + 0px);
+    }
+
+    .main-grid::after{
+        top: -8px;
+        left: 0px;
+        height: calc(100% + 16px);
+        width: calc(100% + 0px);
+    } 
+
+    .square-row{
+        display: grid; 
+        grid-template-columns: repeat(31,15px 2px) 15px;
+        grid-gap: 0px;
+        height: 15px;
+        width: 542px;
+    }
+
+    .thin-row{
+        display: grid; 
+        grid-template-columns: repeat(32, 15px); 
+        grid-gap: 2px; 
+        height: 2px;
+        width: 542px;
+    }
+
+    .square-button-container{
+        position: relative;
+        display: inline-block; 
+        width: 15px; 
+        height: 15px; 
+    }
+
+    .square-button {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+        width: 15px; 
+        height: 15px; 
+        border: 0px solid #eae9e9; 
+    }
+
+
+
+    .horizontal-button-container, .vertical-button-container {
+        display: inline-block; 
+        position: relative;
+    }
+
+    .horizontal-button-container {
+        width: 15px; 
+        height: 2px; 
+        padding: 5px 0; 
+        margin: -4px 0; 
+    }
+
+    .vertical-button-container {
+        position: relative;
+        height: 15px; 
+        width: 2px; 
+        padding: 0 5px; 
+         margin: 0 -4px; 
+    }
+
+    .horizontal-thin-button {
+        height: 2px; 
+        width: 15px; 
+        
+        
+    }
+    .vertical-thin-button {
+        position: absolute;
+        top: -2px;
+        left: 0;
+        height: 15px; 
+        width: 2px; 
+        
+    }
+}
+
+
+@media (min-width: 800px){
+    .main-grid{
+        position: relative;
+        padding: 30px;
+        height: 776px; /* Altezza della griglia principale */
+        width: 776px; /* Larghezza della griglia principale */
+        display: grid; /* Imposta il display a griglia */
+        grid-template-columns: repeat(1, 702px); /* Imposta una colonna */
+        grid-template-rows: repeat(31, 20px 2px); /* Imposta 31 coppie di righe */
+        border: 7px solid purple;
+    }
+
+    .main-grid::before, .main-grid::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 7px solid rgb(65, 23, 150);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .main-grid::before{
+        top: -1px;
+        left: -13px;
+        width: calc(100% + 26px);
+        height: calc(100% + 2px);
+    }
+
+    .main-grid::after{
+        top: -13px;
+        left: -1px;
+        height: calc(100% + 26px);
+        width: calc(100% + 2px);
+    } 
+
+    .square-row{
+        display: grid; 
+        grid-template-columns: repeat(31,20px 2px) 20px;
+        grid-gap: 0px;
+        height: 20px;
+        width: 702px;
+    }
+
+    .thin-row{
+        display: grid; 
+        grid-template-columns: repeat(32, 20px); 
+        grid-gap: 2px; 
+        height: 2px;
+        width: 702px;
+    }
+
+    .square-button-container{
+        display: inline-block; 
+        width: 20px; 
+        height: 20px; 
+    }
+
+    .square-button {
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+        width: 20px; 
+        height: 20px; 
+        border: 0px solid #eae9e9; 
+    }
+
+
+
+    .horizontal-button-container, .vertical-button-container {
+        display: inline-block; 
+        position: relative;
+    }
+
+    .horizontal-button-container {
+        width: 20px; 
+        height: 2px; 
+        padding: 5px 0; 
+        margin: -4px 0; 
+    }
+
+    .vertical-button-container {
+        height: 20px; 
+        width: 2px; 
+        padding: 0 5px; 
+         margin: 0 -4px; 
+    }
+
+    .horizontal-thin-button {
+        height: 2px; 
+        width: 20px; 
+        
+        
+    }
+    .vertical-thin-button {
+        height: 20px; 
+        width: 2px; 
+        
+    }
+}
+
+@media (min-width: 1200px){
+    .main-grid{
+        padding: 40px;
+        position: relative;
+        height: 1147px; /* Altezza della griglia principale */
+        width: 1147px; /* Larghezza della griglia principale */
+        display: grid; /* Imposta il display a griglia */
+        grid-template-columns: repeat(1, 1053px); /* Imposta una colonna */
+        grid-template-rows: repeat(31, 30px 3px); /* Imposta 31 coppie di righe */
+        border: 7px solid purple;
+    }
+    
+    .main-grid::before, .main-grid::after{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 7px solid rgb(65, 23, 150);
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .main-grid::before{
+        top: -1px;
+        left: -13px;
+        width: calc(100% + 26px);
+        height: calc(100% + 2px);
+    }
+    .main-grid::after{
+        top: -13px;
+        left: -1px;
+        height: calc(100% + 26px);
+        width: calc(100% + 2px);
+    }
+
+    .square-row{
+        display: grid; 
+        grid-template-columns: repeat(31,30px 3px) 30px;
+        grid-gap: 0px;
+        height: 30px;
+        width: 1053px;
+    }
+    
+    .thin-row{
+        display: grid; 
+        grid-template-columns: repeat(32, 30px); 
+        grid-gap: 3px; 
+        height: 3px;
+        width: 1053px;
+    }
+    
+    .square-button-container{
+        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+        width: 30px; /* Larghezza del contenitore */
+        height: 30px; /* Altezza del contenitore */
+    }
+    
+    .square-button {
+        box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
+        margin: 0; /* Rimuove il margine predefinito */
+        padding: 0; /* Rimuove il padding predefinito */
+        width: 30px; /* Larghezza del pulsante */
+        height: 30px; /* Altezza del pulsante */
+        border: 0px solid #eae9e9; /* Bordo del bottone */
+    }
+    
+    
+    
+    .horizontal-button-container, .vertical-button-container {
+        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+        position: relative; /* Posiziona il contenitore in modo relativo */
+    }
+    
+    .horizontal-button-container {
+        width: 30px; /* Larghezza del contenitore orizzontale */
+        height: 3px; /* Altezza del contenitore orizzontale */;
+        padding: 5px 0; /* Aumenta l'area cliccabile */
+        margin: -4px 0; /* Compensa lo spazio extra occupato dal padding */
+    }
+    
+    .vertical-button-container {
+        height: 30px; /* Altezza del contenitore verticale */
+        width: 3px; /* Larghezza del contenitore verticale */
+        padding: 0 5px; /* Aumenta l'area cliccabile */
+        margin: 0 -4px; /* Compensa lo spazio extra occupato dal padding */
+    }
+    
+    .horizontal-thin-button {
+        height: 3px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+        width: 30px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        
+        
+    }
+    .vertical-thin-button {
+        height: 30px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+        width: 3px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        
+    }
+
+}
+
+@media (min-width: 1600px){
+    .main-grid{
+        padding: 50px;
+        height: 1518px; /* Altezza della griglia principale */
+        width: 1518px; /* Larghezza della griglia principale */
+        display: grid; /* Imposta il display a griglia */
+        grid-template-columns: repeat(1, 1404px); /* Imposta una colonna */
+        grid-template-rows: repeat(31, 40px 4px); /* Imposta 31 coppie di righe */
+    }
+    
+    .square-row{
+        display: grid; 
+        grid-template-columns: repeat(31,40px 4px) 40px;
+        grid-gap: 0px;
+        height: 40px;
+        width: 1404px;
+    }
+    
+    .thin-row{
+        display: grid; 
+        grid-template-columns: repeat(32, 40px); 
+        grid-gap: 4px; 
+        height: 4px;
+        width: 1404px;
+    }
+    
+    .square-button-container{
+        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+        width: 40px; /* Larghezza del contenitore */
+        height: 40px; /* Altezza del contenitore */
+    }
+    
+    .square-button {
+        box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
+        margin: 0; /* Rimuove il margine predefinito */
+        padding: 0; /* Rimuove il padding predefinito */
+        width: 40px; /* Larghezza del pulsante */
+        height: 40px; /* Altezza del pulsante */
+        border: 0px solid #eae9e9; /* Bordo del bottone */
+    }
+    
+    
+    
+    .horizontal-button-container, .vertical-button-container {
+        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+        position: relative; /* Posiziona il contenitore in modo relativo */
+    }
+    
+    .horizontal-button-container {
+        width: 40px; /* Larghezza del contenitore orizzontale */
+        height: 4px; /* Altezza del contenitore orizzontale */;
+        padding: 5px 0; /* Aumenta l'area cliccabile */
+        margin: -4px 0; /* Compensa lo spazio extra occupato dal padding */
+    }
+    
+    .vertical-button-container {
+        height: 40px; /* Altezza del contenitore verticale */
+        width: 4px; /* Larghezza del contenitore verticale */
+        padding: 0 5px; /* Aumenta l'area cliccabile */
+        margin: 0 -4px; /* Compensa lo spazio extra occupato dal padding */
+    }
+    
+    .horizontal-thin-button {
+        height: 4px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+        width: 40px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        
+        
+    }
+    .vertical-thin-button {
+        height: 40px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+        width: 4px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        
+    }
+
+}
+
+@media (min-width: 1950px){
+    .main-grid{
+        padding: 60px;
+        height: 1889px; /* Altezza della griglia principale */
+        width: 1889px; /* Larghezza della griglia principale */
+        display: grid; /* Imposta il display a griglia */
+        grid-template-columns: repeat(1, 1755px); /* Imposta una colonna */
+        grid-template-rows: repeat(31, 50px 5px); /* Imposta 31 coppie di righe */
+    }
+    
+    .square-row{
+        display: grid; 
+        grid-template-columns: repeat(31,50px 5px) 50px;
+        grid-gap: 0px;
+        height: 50px;
+        width: 1755px;
+    }
+    
+    .thin-row{
+        display: grid; 
+        grid-template-columns: repeat(32, 50px); 
+        grid-gap: 5px; 
+        height: 5px;
+        width: 1755px;
+    }
+    
+    .square-button-container{
+        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+        width: 50px; /* Larghezza del contenitore */
+        height: 50px; /* Altezza del contenitore */
+    }
+    
+    .square-button {
+        box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
+        margin: 0; /* Rimuove il margine predefinito */
+        padding: 0; /* Rimuove il padding predefinito */
+        width: 50px; /* Larghezza del pulsante */
+        height: 50px; /* Altezza del pulsante */
+        border: 0px solid #eae9e9; /* Bordo del bottone */
+    }
+    
+    
+    
+    .horizontal-button-container, .vertical-button-container {
+        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
+        position: relative; /* Posiziona il contenitore in modo relativo */
+    }
+    
+    .horizontal-button-container {
+        width: 50px; /* Larghezza del contenitore orizzontale */
+        height: 5px; /* Altezza del contenitore orizzontale */;
+        padding: 5px 0; /* Aumenta l'area cliccabile */
+        margin: -4px 0; /* Compensa lo spazio extra occupato dal padding */
+    }
+    
+    .vertical-button-container {
+        height: 50px; /* Altezza del contenitore verticale */
+        width: 5px; /* Larghezza del contenitore verticale */
+        padding: 0 5px; /* Aumenta l'area cliccabile */
+        margin: 0 -4px; /* Compensa lo spazio extra occupato dal padding */
+    }
+    
+    .horizontal-thin-button {
+        height: 5px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+        width: 50px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        
+        
+    }
+    .vertical-thin-button {
+        height: 50px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
+        width: 5px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        
+    }
+
+}
+
+.vertical-thin-button, .horizontal-thin-button {
+    position: absolute; /* Posiziona i bottoni in modo assoluto */
+    top: 50%; /* Posiziona i bottoni al centro verticalmente nel contenitore */
+    left: 50%; /* Posiziona i bottoni al centro orizzontalmente nel contenitore */
+    transform: translate(-50%, -50%); /* Centra i bottoni nel contenitore */
+    margin: 0; /* Rimuove il margine predefinito */
+    box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
+    /* width: 5px; */
+    padding: 0; /* Rimuove il padding predefinito */
+    min-width: 0; /* Rimuove la larghezza minima predefinita */
+    border-style: hidden; /* Nasconde i bordi */
+    transition: all 0.5s ease; /* Specifica la durata dell'animazione */
+    transform-origin: center; /* Si assicura che l'animazione non influenzi la disposizione degli altri elementi */
+}
+
+.horizontal-button-container:hover .horizontal-thin-button{
+    height: 7px;
+}
+
+
+.vertical-button-container:hover .vertical-thin-button{
+
+    width: 7px;
+} 
+
+
+
+/* #colorButtonsArea {
+    position: fixed; 
+    right: 0; 
+    top: 50%; 
+    transform: translateY(-50%); 
+} */
+
+
+
+
+
+#basicControlButtonsArea {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+#resetAllButton {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    background-color: goldenrod;
+}
+
+#resetAllButton::before, #resetAllButton::after{
+    background-color: goldenrod;
+}
+
+#selectButton {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    background-color: goldenrod;
+}
+
+#selectButton::before, #selectButton::after{
+    background-color: goldenrod;
+}
+
+#playButton {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    background-color: goldenrod;
+}
+
+#playButton::before, #playButton::after{
+    background-color: goldenrod;
+}
+
+#resetColorButton {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    background-color: goldenrod;
+}
+
+#resetColorButton::before, #resetColorButton::after{
+    background-color: goldenrod;
+}
+
+#saveConfigButton {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    font-size: small;
+    background-color: goldenrod;
+}
+
+#saveConfigButton::before, #saveConfigButton::after{
+    background-color: goldenrod;
+}
+
+#loadConfigButton {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    font-size: small;
+    background-color: goldenrod;
+}
+
+#loadConfigButton::before, #loadConfigButton::after{
+    background-color: goldenrod;
+}
+
+#saveColorConfig {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    background-color: goldenrod;
+}
+
+#saveColorConfig::before, #saveColorConfig::after{
+    background-color: goldenrod;
+}
+
+#fillThinButtons {
+    width: 100px; 
+    height: 50px; 
+    margin: 10px; 
+    font-size: small;
+    background-color: goldenrod;
+}
+
+#fillThinButtons::before, #fillThinButtons::after{
+    background-color: goldenrod;
+}
+
+.button-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.lower-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10%;
+}
+
+
+
+#selectionModeButtonsArea {
+    width: 300px; 
+    height: 60px; 
+    position: static; 
+    left: 0; 
+    margin-top: 10px; 
+}
+
+
+.selection-mode-button{
+    width: 50px; 
+    height: 50px;
+    padding: 0;
+    border: none;
+    margin: 5px; 
+}
+
+.button-container{
+    position: relative;
+    border: 4px solid purple;
+    background-color: antiquewhite;
+}
+
+.button-container::before, .button-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgb(65, 23, 150);
+
+}
+
+.button-container::before{
+    top: 0px;
+    left: -8px;
+    width: calc(100% + 16px);
+    height: calc(100% + 0px);
+}
+
+.button-container::after{
+    top: -8px;
+    left: 0px;
+    height: calc(100% + 16px);
+    width: calc(100% + 0px);
+}
+
+.color-button{
+    position: relative;
+    border: 3px solid purple;
+}
+
+
+
+.color-button::before, .color-button::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgb(65, 23, 150);
+
+}
+
+.color-button::before{
+    top: 0px;
+    left: -6px;
+    width: calc(100% + 12px);
+    height: calc(100% + 0px);
+}
+
+.color-button::after{
+    top: -6px;
+    left: 0px;
+    height: calc(100% + 12px);
+    width: calc(100% + 0px);
+}
+
+
+
+.selection-mode-button-active{
+    background-color: #f00 !important; 
+}
+
+.selection-mode-button-active::before{
+    background-color: #f00 !important;
+}
+
+.selection-mode-button-active::after{
+    background-color: #f00 !important;
+}
+
+.play-mode-button-active{
+    background-color: #0f0 !important; 
+}
+
+.play-mode-button-active::before{
+    background-color: #0f0 !important;
+}
+
+.play-mode-button-active::after{
+    background-color: #0f0 !important;
+}
+
+.darken {
+    filter: brightness(50%);
+}
+
+.main-lower-container{
+    position: relative;
+    padding: 10px 0;
+    background-color: antiquewhite;
+    border: 4px solid purple;
+}
+
+.main-lower-container::before, .main-lower-container::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgb(65, 23, 150);
+    pointer-events: none;
+}
+
+.main-lower-container::before{
+    top: 0px;
+    left: -8px;
+    width: calc(100% + 16px);
+    height: calc(100% + 0px);
+}
+
+.main-lower-container::after{
+    top: -8px;
+    left: 0px;
+    height: calc(100% + 16px);
+    width: calc(100% + 0px);
+}
+
+.color-shower{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    margin: 3px 10px;
+}
+
+.color-combination-row{
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    line-height: 100%;
+}
+
+#fotoArea{
+    width: 300px;
+    height: 300px;
+    background-color: #f00;
+}
+
+#colorCombinations{
+    background-color: darkslategray;
+    color: gold;
+}
+
+.textarea-control-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#saveColorCombinationsButton{
+    width: 200px; 
+    height: 50px; 
+    margin: 10px; 
+    background-color: purple;
+}
+
+#saveColorCombinationsButton::before, #saveColorCombinationsButton::after{
+    background-color: purple;
+}
+
+#resetColorCombinationsButton{
+    width: 200px; 
+    height: 50px; 
+    margin: 10px; 
+    background-color: gray;
+}
+
+#resetColorCombinationsButton::before, #resetColorCombinationsButton::after{
+    background-color: gray;
+}
+
+
+.input-file{
+    width: 60%;
+    font-size: 30px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.input-photo-container img{
+    width: 50%;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#orientation-icon-div {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 999; 
+}
+
+@media screen and (max-width: 666px) {
+    #orientation-icon-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+    }
+}
+
+#orientation-icon {
+    width: 30%;
+    height: auto;
+}
+
+#orientation-text{
+    text-align: center;
+    color: black;
+}

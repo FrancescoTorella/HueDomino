@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Modalità Creatore</title>
+    <link rel="stylesheet" href="/creatore/src/styles.css">
+    <link rel="stylesheet" href="/styles/bootstrap.css">
+    <link rel="stylesheet" href="/styles/pixeledButtons.css">
+</head>
+<body>
+    <div class="upper-container">
+        <h1>Creatore</h1>
+    </div>
+    <div class="grid-container">
+            <div id="buttonGrid" class="main-grid">
+                
+            </div>
+    </div>
+    <div id="orientation-icon-div">
+        <p id="orientation-text">Orienta il dispositivo in orizzontale per accedere alla modalità creatore</p>
+        <img src="/viaggio/level/rotate.png" id="orientation-icon" alt="Orienta il dispositivo in orizzontale">
+    </div>
+    
+        
+    <div id="basicControlButtonsArea">
+        <div class="container m-3">
+            <div class="row button-container">
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="resetAllButton" class="pixel2 basic-control-button"> Reset All </button>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="selectButton" class="pixel2">Seleziona</button>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="playButton" class="pixel2 ">Gioca</button>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="resetColorButton" class="pixel2 ">Reset color</button>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="saveConfigButton" class="pixel2 ">Salva Configurazione</button>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="loadConfigButton" class="pixel2">Carica Configurazione</button>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="saveColorConfig" class="pixel2">Salva Colori</button>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 button-row">
+                    <button id="fillThinButtons" class="pixel2">Riempi Bottoni sottili</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="colorButtonsArea" class="color-buttons-container">
+        <!-- questa zona è riempita dal codice javascript-->
+    </div>
+
+    <script src="/creatore/src/scripts/scripts.js" type="module"></script>
+
+
+    <div id="lowerDiv" class="lower-div">
+        <div id="colorCombinationsDiv" class="container m-3 main-lower-container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="m-3">Inserisci le combinazioni di colore che vuoi Implementare nel livello</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <textarea id="colorCombinations" class="form-control" rows="10"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col textarea-control-buttons">
+                    <button id="saveColorCombinationsButton" class="pixel2">Salva Combinazioni</button>
+                </div>
+                <div class="col textarea-control-buttons">
+                    <button id="resetColorCombinationsButton" class="pixel2">Reset</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2 class="m-3">Inserisci l'immagine di riferimento del livello:</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input class="input-file" type="file" id="photoUpload" accept=".png, .jpg, .jpeg">
+                </div>
+            <div class="row input-photo-container">
+                <script>
+                    $('#photoUpload').on('change', function() {
+                        const file = this.files[0];
+                        if (file) {
+                            const reader = new FileReader();
+                            reader.onload = function(e) {
+                                const img = $('<img>').attr('src', e.target.result);
+                                $('.input-photo-container').append(img);
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    });
+                </script>
+
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

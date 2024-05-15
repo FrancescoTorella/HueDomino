@@ -1,0 +1,325 @@
+
+@import url('https://fonts.googleapis.com/css?family=VT323');
+  
+body{
+    font-family: 'VT323', monospace !important;
+}
+
+
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('italyBackground.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: filter 1.5s ease;
+}
+
+.iframe-container {
+    overflow: visible;
+}
+
+
+.main-container {
+    box-sizing: border-box;
+    height: 100vh; 
+    width: 82vw;
+    display: flex;
+    padding: 2%;
+    justify-content: center;
+    overflow: auto;
+}
+
+
+
+.sidebar {
+    background: rgba(0, 0, 0, 0.5); 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 10%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2%;
+
+}
+
+.leftsidebar-icons, .rightsidebar-icons {
+    height: 70px; 
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+
+.leftsidebar-icons:hover, .rightsidebar-icons:hover {
+    /* Ingrandisci l'elemento quando il mouse passa sopra */
+    transform: scale(1.2);
+}
+
+#restartIcon, #undoIcon {
+    cursor: pointer;
+}
+
+.icon-wrapper:hover::after {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+#eraseIcon {
+    margin-top: 4vh;
+}
+
+
+.moves-left-div {
+    border: 4px solid white;
+    border-radius: 10%;
+    width: 50%; 
+   
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.color-div{
+    border-radius: 10%;
+    width: 50%; 
+    padding-top: 50%; 
+    margin-top: 5vh;
+    background-color: red;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.color-div:hover {
+    transform: scale(1.2);
+}
+
+.left-sidebar {
+    left: 0;
+}
+
+.right-sidebar {
+    right: 0;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+.popup-image{
+    height: 60%;
+    width: auto;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 0.3s ease-in-out;
+    z-index: 1000; 
+}
+
+#restartIcon{
+    margin-top: 2vh;
+} 
+
+#undoIcon{
+    margin-bottom: 2vh;
+}
+
+@media (max-width: 950px) {
+    .leftsidebar-icons, .rightsidebar-icons{
+        width: 70%;
+        height: auto;
+    }
+    
+    .moves-left-div{
+        border: 0.4vw solid white;
+    }
+}
+
+.moves-left-label{
+    font-size: 4vw;
+    margin-bottom: 0;
+}
+
+#popup {
+    position: fixed;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#popup {
+    animation: fadeIn 1s ease-in-out;
+}
+
+#orientation-icon-div {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    z-index: 999; 
+}
+
+@media screen and (max-width: 600px) {
+    #orientation-icon-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center; 
+    }
+}
+
+#orientation-icon {
+    width: 30%;
+    height: auto;
+}
+
+#orientation-text{
+    text-align: center;
+    color: black;
+}
+
+.level-completion-div{
+    height: auto;
+    width: auto;
+    display: none;
+    position: absolute;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fadeIn 1s ease-in-out;
+    background: 
+    repeating-linear-gradient(
+        to right,
+        rgba(139, 0, 0, 0.5) 0px,
+        rgba(139, 0, 0, 0.5) 25px,
+        rgba(220, 20, 60, 0.5) 25px,
+        rgba(220, 20, 60, 0.5) 50px,
+        rgba(255, 69, 0, 0.5) 50px,
+        rgba(255, 69, 0, 0.5) 75px,
+        rgba(255, 99, 71, 0.5) 75px,
+        rgba(255, 99, 71, 0.5) 100px,
+        rgba(255, 165, 0, 0.5) 100px,
+        rgba(255, 165, 0, 0.5) 125px,
+        rgba(255, 215, 0, 0.5) 125px,
+        rgba(255, 215, 0, 0.5) 150px,
+        rgba(255, 255, 0, 0.5) 150px,
+        rgba(255, 255, 0, 0.5) 175px,
+        rgba(227, 255, 47, 0.5) 175px,
+        rgba(227, 255, 47, 0.5) 175px,
+        rgba(255, 255, 0, 0.5) 200px,
+        rgba(255, 255, 0, 0.5) 225px,
+        rgba(255, 215, 0, 0.5) 225px,
+        rgba(255, 215, 0, 0.5) 250px,
+        rgba(255, 165, 0, 0.5) 250px,
+        rgba(255, 165, 0, 0.5) 275px,
+        rgba(255, 99, 71, 0.5) 275px,
+        rgba(255, 99, 71, 0.5) 300px,
+        rgba(255, 69, 0, 0.5) 300px,
+        rgba(255, 69, 0, 0.5) 325px,
+        rgba(220, 20, 60, 0.5) 325px,
+        rgba(220, 20, 60, 0.5) 350px,
+        rgba(139, 0, 0, 0.5) 350px,
+        rgba(139, 0, 0, 0.5) 375px
+    ),
+    repeating-linear-gradient(
+        to bottom,
+        rgba(139, 0, 0, 0.5) 0px,
+        rgba(139, 0, 0, 0.5) 25px,
+        rgba(220, 20, 60, 0.5) 25px,
+        rgba(220, 20, 60, 0.5) 50px,
+        rgba(255, 69, 0, 0.5) 50px,
+        rgba(255, 69, 0, 0.5) 75px,
+        rgba(255, 99, 71, 0.5) 75px,
+        rgba(255, 99, 71, 0.5) 100px,
+        rgba(255, 165, 0, 0.5) 100px,
+        rgba(255, 165, 0, 0.5) 125px,
+        rgba(255, 215, 0, 0.5) 125px,
+        rgba(255, 215, 0, 0.5) 150px,
+        rgba(255, 255, 0, 0.5) 150px,
+        rgba(255, 255, 0, 0.5) 175px,
+        rgba(173, 255, 47, 0.5) 175px,
+        rgba(173, 255, 47, 0.5) 200px
+    );
+    border: 10px solid darkslategray;
+    padding: 20px;
+    z-index: 1000; 
+
+}
+
+.level-completion-div::before, .level-completion-div::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.level-completion-div::before {
+    border: 10px solid darkslategray;
+    top: 0;
+    left: -19px;
+    width: calc(100% + 38px);
+    height: 100%;
+    z-index: -1;
+}
+
+.level-completion-div::after {
+    border: 10px solid darkslategray;
+    top: -19px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 38px);
+    z-index: -2;
+}
+
+.level-completion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#levelCompletedImage{
+    width: 55vh;
+    height: auto;
+}
+
+.blur-effect {
+    filter: blur(15px);
+}
+
+.buttons-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#backToMenuButton, #backToMenuButton::before, #backToMenuButton::after {
+    background-color: blue;
+}
+
+#nextLevelButton, #nextLevelButton::before, #nextLevelButton::after {
+    background-color: blue;
+}
+
+#levelCompletionText{
+    color: darkslategray;
+}

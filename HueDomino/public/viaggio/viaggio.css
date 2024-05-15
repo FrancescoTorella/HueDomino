@@ -65,7 +65,7 @@ body {
 
 @font-face {
     font-family: 'Font-MK';
-    src: url('Mario-Kart-DS.ttf') format('truetype');
+    src: url('/fonts/Mario-Kart-DS.ttf') format('truetype');
 }
 
 

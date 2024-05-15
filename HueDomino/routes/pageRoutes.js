@@ -37,7 +37,7 @@ router.get('/duel', (req, res) => {
 
 // Rotta per la pagina creator
 router.get('/creator', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'public', 'creatore', 'creatore.html'));
+    res.sendFile(path.join(__dirname, '..', 'public', 'creatore', 'src', 'index.html'));
 });
 
 // Rotta per la pagina italia
@@ -127,6 +127,8 @@ router.get('/immagini_profilo/user:id/:imageName', (req, res) => {
         }
     });
 });
+
+
 
 //Rotta per cambiare immagine profilo
 // Configura multer per salvare i file caricati nella cartella immagini_profilo
