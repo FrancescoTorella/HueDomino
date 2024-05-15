@@ -98,7 +98,7 @@ body{
     font-weight: bold; /* Testo grassetto */
     text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5); /* Aggiungi un'ombra al testo per dare un effetto 3D */
     /*text-shadow: 2px 2px 2px black; /* Bordo nero intorno al testo */
-    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet); /* Sfumatura di colore */
+    background: rgb(230, 20, 240);
     -webkit-background-clip: text; /* Applica lo sfondo al testo */
     -moz-background-clip: text; /* Aggiungi questa linea */
     -ms-background-clip: text; /* Aggiungi questa linea */
