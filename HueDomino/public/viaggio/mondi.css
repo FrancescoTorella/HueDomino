@@ -38,6 +38,7 @@ body{
 }
 
 .left-box-container {
+    position: fixed;
     grid-area: left; 
     justify-content: center;
     align-items: center;
