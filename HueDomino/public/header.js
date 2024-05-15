@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var iconLabelElement = iconContainer.querySelector('.mode-title');
             if (iconLabelElement) {
                 var iconLabel = iconLabelElement.textContent;
-                if (iconLabel === 'Mondi') {
+                if (iconLabel === 'Journey') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
                     var marginLeft = iconLabelElementRect.left;
                     dropdownText.innerHTML = `
@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         <div class="column">
-                            <a href="/login"><p>Accedi</p></a>
-                            <a href="/signin"><p>Registrati</p></a>
+                            <a href="/login"><p>Login</p></a>
+                            <a href="/signin"><p>Sign&nbsp;in</p></a>
                         </div>
                     </div>
                 `; 
@@ -82,6 +82,18 @@ document.addEventListener('DOMContentLoaded', function() {
                             <a href="/profile#avatar"><p>Avatar</p></a>
                             <a href="/profile#medaglie"><p>Medaglie</p></a>
                             <a href="/profile#livelli"><p>Livelli</p></a>
+                        </div>
+                    </div>
+                `;
+                 }
+                 else if (iconLabel === 'Creator') {
+                    var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
+                    var marginLeft = iconLabelElementRect.left;
+                    dropdownText.innerHTML = `
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px;">
+                        <div class="column">
+                            <a href="/creator"><p>Create&nbsp;your&nbsp;level</p></a>
+                            <a href=""><p>Play&nbsp;your&nbsp;friends'&nbsp;levels</p></a>
                         </div>
                     </div>
                 `;

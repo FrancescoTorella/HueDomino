@@ -9,7 +9,7 @@ header{
     height: 10vh;
     padding-left: 0;
     padding-right: 0;
-    background-color: #646464;
+    background-color:  rgb(245, 20, 240);
     top: 0;
     position: fixed;
     z-index: 99;
@@ -65,7 +65,7 @@ header{
 
 
 .main-header .title {
-    font-family: 'Pixel3D';
+    font-family: 'mariokart';
     font-size: 7vh;
     color: #eee;
     /* font-size: clamp(1.5rem, 4vw, 3rem);  */
@@ -133,6 +133,11 @@ header{
 }
 
 @font-face {
+    font-family: 'mariokart';
+    src: url('/viaggio/Mario-Kart-DS.ttf');
+}
+
+@font-face {
     font-family: 'Pixel3D';
     src: url('fonts/3DThirteenPixelFontsRegular-2dPv.ttf') format('truetype');
 }
@@ -164,7 +169,7 @@ p{
     height: 100%;
     width: 50%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-content: end;
     margin-left: auto;
     margin-right: 5vw;
