@@ -101,40 +101,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    
     /*
-    DA CANCELLARE O RIFARE
     // Funzione per aggiustare la dimensione del right box
     function adjustRightBoxSize() {
+    	const pageContainer = document.querySelector('.page-container');
         const rightBox = document.querySelector('.right-box-container');
+        const leftBox = document.querySelector('.left-box-container');
+        const mapContainer = document.querySelector('.map-container');
         const width = window.innerWidth;
         const height = window.innerHeight;
 
-        if (width <= 500) {
-            rightBox.style.width = "90vw"
-            rightBox.style.aspectRatio = "6/10";
-        } else if (width > 500 && width <= 800) {
-            rightBox.style.width = "80vw"; 
-        } else if (width >= 800 && width <= 900) {
-            rightBox.style.width = "75vw";
-        }else if (width >900 && width <= 1000) {
-            rightBox.style.width = "60vw";
-        }else if (width > 1000 && width <= 1500) {
-            rightBox.style.width = "50vw";
-        }else if (width > 1500 && width <= 2000) {
-            rightBox.style.width = "40vw"; 
-        }else if (width > 2000 && width <= 2500) {
-            rightBox.style.width = "35vw";
-        }else if (width > 2500 && width <= 3000) {
-            rightBox.style.width = "30vw";
-        } else {
-            rightBox.style.width = "25vw";
-        }
+        if(height > 1.9*(width)){
+        	leftBox.style.display = "none";
+        	rightBox.style.grid-column = "1/-1";
+        	rightBox.style.grid-row = "1/-1";
+        	rightBox.style.overflow = "hidden";
+        	mapContainer.style.width = "100%";
+        	pageContainer.style.gap = "0px"
+        	pageContainer.style.overflow = "hidden";
+        	pageContainer.style.width = "100vw";
+        }  
     }
-
     // Ascolta per cambiamenti di dimensione della finestra
     window.addEventListener('resize', adjustRightBoxSize);
 
     // Chiamata iniziale per impostare le dimensioni al caricamento della pagina
     adjustRightBoxSize();
-    */
+  */
 });

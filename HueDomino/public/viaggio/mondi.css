@@ -7,6 +7,7 @@ body{
     background-image: url('/viaggio/images/back_nation.png');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     margin: 0;
     height: 100vh;
     width: 100vw;
@@ -20,12 +21,12 @@ body{
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     grid-template-rows: 1fr;
-    gap: 20px;
     height: 89vh; 
-    width: 89vw;
+    width: 99vw;
     margin: 11vh auto auto auto; 
     padding: 10px;
     grid-template-areas: "left right";
+    gap: 5%;
 }
 
 
@@ -43,6 +44,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 90%;
+    
 }
 
 #left-box{
@@ -69,30 +71,9 @@ body{
 
 
 
-@media (max-width: 900px) {
-    #left-box {
-        display: none; /* Nasconde il contenitore sinistro */
-    }
-    .right-box-container {
-        grid-column: 1 / -1;
-        grid-row: 1 / -1;
-        overflow: hidden;
-    }
-    .map-container {
-        width: 100%;
-    }
-    .page-container{
-        gap: 0px;
-        overflow: hidden;
-        width: 100vw;
-    }
-
-}
-
-
 .box-text{
     text-align: center;
-    font-size: 10vh;
+    font-size: 9vh;
     font-family: 'VT323'; /* Modifica con il tuo font */
     /*color: white; /* Testo bianco */
     font-weight: bold; /* Testo grassetto */
@@ -115,7 +96,7 @@ body{
     align-items: center;
     width: 80%;
     height: 90%;
-    border: 5px solid black;
+    border: 8px solid palevioletred;
     background-color: white;
     padding: 10px;
   
