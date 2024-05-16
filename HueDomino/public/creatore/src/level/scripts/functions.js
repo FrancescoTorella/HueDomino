@@ -717,5 +717,36 @@ export async function showColorCombinations() {
     }
 }
 
+// Fetch the color combinations data
+fetch(colorCombinationsPath)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Get the colorBox element
+        const colorBox = parent.document.getElementById('colorBox');
+
+        // Create the color combinations
+        let colorCombinations = '';
+        for (let i = 0; i < data.length; i++) {
+            colorCombinations += `<div class="colorCombination">
+            <div class="colorCircle" style="background-color: ${data[i].color1};"></div>
+            <span class="operator">+</span>
+            <div class="colorCircle" style="background-color: ${data[i].color2};"></div>
+            <span class="operator">=</span>
+            <div class="colorCircle" style="background-color: ${data[i].result};"></div>
+        </div>`;
+        }
+
+        // Set the innerHTML of the colorBox
+        colorBox.innerHTML = colorCombinations;
+    })
+    .catch(error => {
+        console.error('Si è verificato un errore:', error);
+    });
+
 
 
