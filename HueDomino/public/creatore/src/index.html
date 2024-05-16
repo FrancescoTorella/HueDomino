@@ -23,6 +23,27 @@
         <p id="orientation-text">Orienta il dispositivo in orizzontale per accedere alla modalità creatore</p>
         <img src="/viaggio/level/rotate.png" id="orientation-icon" alt="Orienta il dispositivo in orizzontale">
     </div>
+
+    <div id="notLoggedInDiv">
+        <div class="container m-3 p-0 not-logged-in-popup">
+            <div class="row m-5">
+                <div class="col">
+                    <h2>Per accedere alla modalità creatore, effettua il login</h2>
+                </div>
+            </div>
+            <div class="row m-5">
+                <div class="col">
+                    <button id="loginButton" class="pixel2">Pagina di Login</button>
+                    <script>
+                        $('#loginButton').on('click', function() {
+                            window.location.href = '/login';
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     
         
     <div id="basicControlButtonsArea">
@@ -93,21 +114,81 @@
                     <input class="input-file" type="file" id="photoUpload" accept=".png, .jpg, .jpeg">
                 </div>
             <div class="row input-photo-container">
+                <img id="uploadedImage" src="" alt="Immagine caricata" style="display: none;">
                 <script>
                     $('#photoUpload').on('change', function() {
                         const file = this.files[0];
                         if (file) {
-                            const reader = new FileReader();
-                            reader.onload = function(e) {
-                                const img = $('<img>').attr('src', e.target.result);
-                                $('.input-photo-container').append(img);
-                            };
-                            reader.readAsDataURL(file);
+                            const formData = new FormData();
+                            formData.append('photoUpload', file);
+
+                            $.ajax({
+                                url: '/upload-completed-image',
+                                type: 'POST',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function(response) {
+                                    console.log('File caricato con successo');
+
+                                    // Aggiorna l'interfaccia utente per visualizzare l'immagine caricata
+                                    const reader = new FileReader();
+                                    reader.onload = function(e) {
+                                        $('#uploadedImage').attr('src', e.target.result).show();
+                                    };
+                                    reader.readAsDataURL(file);
+                                },
+                                error: function(error) {
+                                    console.log('Si è verificato un errore durante il caricamento del file:', error);
+                                }
+                            });
                         }
                     });
                 </script>
 
             </div>
+            <div class="row">
+                <div class="col">
+                    <h2 class="m-3">Inserisci il numero di Mosse:</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <input type="number" id="movesNumber" class="form-control m-3">
+                </div>
+                <script>
+                    $('#movesNumber').on('change', function() {
+                        console.log($('#movesNumber').val());
+                        $.ajax({
+                            url: '/save-left-moves', // Inserisci l'URL del tuo server qui
+                            type: 'POST',
+                            data: JSON.stringify({ movesNumber: Number($('#movesNumber').val()) }),
+                            contentType: 'application/json',
+                            success: function(response) {
+                                console.log('Il file left-moves.json è stato aggiornato con successo.');
+                            },
+                            error: function(error) {
+                                console.log('Si è verificato un errore durante l\'aggiornamento del file left-moves.json:', error);
+                            }
+                        });
+                    });
+                    
+                </script>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <button id="playLevelButton" class="pixel2">Gioca Livello</button>
+                </div>
+                <div class="col">
+                    <button id="goBackButton" class="pixel2">Torna al Menu</button>
+                    <script>
+                        $('#goBackButton').on('click', function() {
+                            window.location.href = '/';
+                        });
+                    </script>
+                </div>
+                
         </div>
     </div>
 

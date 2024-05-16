@@ -143,5 +143,8 @@ document.addEventListener("DOMContentLoaded", async function() {
 
     f.loadThinButtonsStartConfig();
 
+
+    
+
 });
 

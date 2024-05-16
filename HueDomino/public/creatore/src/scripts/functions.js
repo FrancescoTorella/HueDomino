@@ -471,7 +471,7 @@ export async function saveMatrixConfig() {
 // Funzione per caricare la configurazione dei bottoni sottili
 export function loadThinButtonConfig() {
     // Leggi il file JSON
-    fetch('/creatore/src/start-config.json')
+    fetch('/creatore/src/level-try/start-config.json')
         .then(response => {
             // Controlla se la richiesta ha avuto successo
             if (!response.ok) {
@@ -501,7 +501,7 @@ export function loadThinButtonConfig() {
 // Leggi il file JSON e popola l'oggetto colorCombinations
 // Questa funzione dovrebbe essere chiamata all'avvio del programma
 export async function loadColorCombinations() {
-    const response = await fetch('/creatore/src/color-combinations.json');
+    const response = await fetch('/creatore/src/level-try/color-combinations.json');
     const data = await response.json();
     data.forEach(({color1, color2, result}) => {
         color1 = color1.toLowerCase().trim();

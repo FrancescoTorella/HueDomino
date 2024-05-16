@@ -128,12 +128,24 @@
         </div>
         <div id="medaglie" class="content">
             <img class="back-button" src="/profilo/icons/back.svg" alt="Icona Indietro">
-            <h2 class="section-title">Medaglie Ottenute:</h2>
+            <h2 class="section-title">Livelli Creati:</h2>
+            <h3 class="section-subtitle">I miei livelli:</h3>
+            <div class="container p-0 m-1">
+                <div id="myLevelsGrid" class="row m-3">
+                
+                </div>
+            </div>
+            <h3 class="section-subtitle">Livelli dei miei amici:</h3>
+            <div class="container p-0 m-1">
+                <div id="friendsLevelsGrid" class="row m-3">
+                
+                </div>
+            </div>
         </div>
         <div id="livelli" class="content">
             <img class="back-button" src="/profilo/icons/back.svg" alt="Icona Indietro">
             <h2 class="section-title">Livelli Completati:</h2>
-            <div class="container">
+            <div class="container p-0 m-1">
                 <div id="levelsGrid" class="row m-3">
                 
                 </div>
@@ -182,6 +194,23 @@
             $('#confirmButton').attr('data-action', 'removeFriend'+ $(this).attr('data-idamico'));
         });
 
+        $(document).on('click','#playCreatedLevelButton', function() {
+            var userId = $(this).attr('data-idAmico');
+            var level = $(this).attr('data-level');
+
+            // Imposta i cookie
+            document.cookie = "creatorId=" + userId + "; max-age=1"; // Durata di 1 secondo
+            document.cookie = "level=" + level + "; max-age=1"; // Durata di 1 secondo
+
+            // Rimuovi i cookie dopo 500 millisecondi
+            setTimeout(function() {
+                document.cookie = "creatorId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "level=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            }, 500);
+
+            window.location.href = '/creator/level-play';
+            
+        });
 
 
         $('#mainMenuButton').click(function() {

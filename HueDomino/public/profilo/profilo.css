@@ -577,3 +577,11 @@ body{
     height: 30px; 
 }
 
+.section-subtitle{
+    margin-left: 20px;
+}
+
+#playCreatedLevelButton{
+    margin: 0;
+    margin-left: 40px;
+}

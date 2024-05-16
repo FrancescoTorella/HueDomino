@@ -5,6 +5,7 @@ const db = require('../db/db');
 const multer = require('multer');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 // const cors = require('cors');
 // const cookieParser = require('cookie-parser');
 router.use(bodyParser.json());
@@ -387,6 +388,38 @@ router.get('/levels/:userId', async (req, res) =>{
   
 });
 
+
+// ... codice precedente ...
+
+router.get('/get-friend-levels', function(req, res) {
+  const userId = req.query.userId;
+
+  if (!userId) {
+      res.status(400).send('Il parametro userId è obbligatorio');
+      return;
+  }
+
+  const userLevelsDir = path.join(__dirname, '..','public', 'creatore', 'livelli_utenti', 'user' + userId);
+
+  fs.readdir(userLevelsDir, function(err, files) {
+      if (err) {
+          if (err.code === 'ENOENT') {
+              // Se la directory non esiste, restituisci un array vuoto
+              res.json([]);
+              return;
+          } else {
+              console.error(err);
+              res.status(500).json({ error: 'Errore del server' });
+              return;
+          }
+      }
+
+      // 'files' è un array con i nomi dei file nel directory 'userLevelsDir'
+      res.json(files);
+  });
+});
+
+// ... codice successivo ...
 
 
 module.exports = router;

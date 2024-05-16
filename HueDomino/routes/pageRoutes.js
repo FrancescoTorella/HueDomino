@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const fs = require('fs');
+const bodyParser = require('body-parser');
+
+router.use(bodyParser.json());
 
 
 // Rotta per la pagina principale
@@ -38,6 +41,16 @@ router.get('/duel', (req, res) => {
 // Rotta per la pagina creator
 router.get('/creator', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'creatore', 'src', 'index.html'));
+});
+
+//Rotta per la prova del livello
+router.get('/creator/level-try', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'creatore', 'src', 'level', 'level.html'));
+});
+
+router.get('/creator/level-play', (req, res) => {
+    // Invia il file HTML come risposta
+    res.sendFile(path.join(__dirname, '..', 'public', 'creatore', 'src', 'level', 'level.html'));
 });
 
 // Rotta per la pagina italia

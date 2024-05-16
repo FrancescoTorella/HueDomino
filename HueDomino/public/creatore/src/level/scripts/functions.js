@@ -35,24 +35,92 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-//let userId = parseInt(getCookie('userId'));
+let userId = getCookie('userId');
+let level = getCookie('level');
+let creatorId = getCookie('creatorId');
 
 
 if(debugging){
-    //console.log(getCookie('userId'));
-    //console.log(userId);
-    console.log(levelNation);
-    console.log(levelNumber);
+    console.log(userId);
+    console.log(level);
+    console.log(creatorId);
 }
 
-//variabili per tener traccia dei filepath
-let colorCombinationsPath = '/creatore/' 
-let leftMovesPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/left-moves.json';
-let finalColorConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/final-color-config.json';
-let startConfigPath = '/viaggio/' + levelNation + '/level' + levelNumber + '/start-config.json';
-parent.document.getElementById('content').style.backgroundImage = 'url(/viaggio/' + levelNation +'/' + levelNation +'Background.png)';
-parent.document.getElementById('popupFinalImage').src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
-parent.document.getElementById('levelCompletedImage').src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
+let colorCombinationsPath;
+let leftMovesPath;
+let finalColorConfigPath;
+let startConfigPath;
+
+if(userId !== undefined && level === undefined && creatorId === undefined){
+    //variabili per tener traccia dei filepath
+    colorCombinationsPath = '/creatore/src/level-try/color-combinations.json' 
+    leftMovesPath = '/creatore/src/level-try/left-moves.json';
+    finalColorConfigPath = '/creatore/src/level-try/final-color-config.json';
+    startConfigPath = '/creatore/src/level-try/start-config.json';
+    parent.document.getElementById('content').style.backgroundImage = 'url(/creatore/src/backgroundCreator.jpg)';
+
+    //imposta il filepath alle immagini di riferimento
+    let imgElement = parent.document.getElementById('popupFinalImage');
+    imgElement.src = '/creatore/src/level-try/completed.png';
+    imgElement = parent.document.getElementById('levelCompletedImage');
+    imgElement.src = '/creatore/src/level-try/completed.png';
+
+    //imposta il path ai bottoni del div di fine livello
+    let publishButton = parent.document.getElementById('publishButton');
+    
+    publishButton.onclick = function() {
+        fetch('/upload-created-level', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId: userId }),
+        })
+        .then(response => response.text()) // Modifica qui
+        .then(data => {
+            console.log(data);
+            parent.window.location.href = '/creator';
+        })
+        .catch((error) => {
+            console.error('Errore:', error);
+        });
+    }
+
+    let backToCreatorButton = parent.document.getElementById('backToCreatorButton');
+    backToCreatorButton.onclick = function() {
+        parent.window.location.href = '/creator';
+    }
+}else{
+    //variabili per tener traccia dei filepath
+    colorCombinationsPath = '/creatore/livelli_utenti/user'+creatorId+'/'+level+'/color-combinations.json'
+    leftMovesPath = '/creatore/livelli_utenti/user'+creatorId+'/'+level+'/left-moves.json';
+    finalColorConfigPath = '/creatore/livelli_utenti/user'+creatorId+'/'+level+'/final-color-config.json';
+    startConfigPath = '/creatore/livelli_utenti/user'+creatorId+'/'+level+'/start-config.json';
+
+    //imposta il filepath alle immagini di riferimento
+    let imgElement = parent.document.getElementById('popupFinalImage');
+    imgElement.src = '/creatore/livelli_utenti/user'+creatorId+'/'+level+'/completed.png';
+    imgElement = parent.document.getElementById('levelCompletedImage');
+    imgElement.src = '/creatore/livelli_utenti/user'+creatorId+'/'+level+'/completed.png';
+    parent.document.getElementById('content').style.backgroundImage = 'url(/creatore/src/backgroundCreator.jpg)';
+
+    //disasttiva publish button
+    let publishButton = parent.document.getElementById('publishButton');
+    publishButton.style.display = 'none';
+
+    //modifica il testo del bottone backToCreatorButton
+    let backToCreatorButton = parent.document.getElementById('backToCreatorButton');
+    backToCreatorButton.textContent = 'Indietro';
+
+    //modifica l'azione del bottone backToCreatorButton
+    backToCreatorButton.onclick = function() {
+        parent.window.location.href = '/profile';
+    }
+
+}
+
+
+
 if(debugging){
     console.log(colorCombinationsPath);
     console.log(leftMovesPath);
@@ -61,25 +129,7 @@ if(debugging){
 
 }
 
-//imposta il filepath alle immagini di riferimento
-let imgElement = parent.document.getElementById('popupFinalImage');
-imgElement.src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
-imgElement = parent.document.getElementById('levelCompletedImage');
-imgElement.src = '/viaggio/' + levelNation + '/level' + levelNumber + '/completed.png';
 
-//imposta il path ai bottoni del div di fine livello
-let nextLevelButton = parent.document.getElementById('nextLevelButton');
-if(levelNumber < 8){    
-    nextLevelButton.onclick = function() {
-        parent.window.location.href = '/journey/' + levelNation + '/' + (levelNumber + 1);
-    }
-}else{
-    nextLevelButton.style.display = 'none';
-}
-let backToMenuButton = parent.document.getElementById('backToMenuButton');
-backToMenuButton.onclick = function() {
-    parent.window.location.href = '/journey/' + levelNation;
-}
 // Funzione per gestire il click del bottone
 export function handleButtonClick(button) {
    
@@ -638,66 +688,17 @@ function checkColorsMatch() {
 
 async function handleLevelCompletion(){
 
-    let userId;
 
-    const sessionId = document.cookie.split(';').find(item => item.trim().startsWith('sessionId='));
+    parent.document.querySelector('#content').classList.add('blur-effect');
+    parent.document.querySelector('.level-completion-div').style.display = 'flex';
+
         
-    if (sessionId) {
-        // Estrai l'ID della sessione dal cookie
-        const sessionIdValue = sessionId.split('=')[1];
-
-        try {
-        // Fai una richiesta al server per ottenere i dettagli della sessione
-        const response = await fetch('/session/' + sessionIdValue);
-        const session = await response.json();
-
-        // Stampa i dettagli della sessione sulla console
-        
-        userId = session.user_id;
-        console.log('ID utente:', userId);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    } else {
-        console.log('Il cookie sessionId non è stato trovato');
-    }
-
-    fetch('/api/passed', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            userId: userId,
-            levelNumber: levelNumber,
-            levelNation: levelNation,
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-
-        // Imposta il cookie
-        var date = new Date();
-        date.setTime(date.getTime() + (10 * 1000)); // 10 secondi
-        var expires = "; expires=" + date.toUTCString();
-        document.cookie = `justPassed=${levelNumber}` + expires + "; path=/";
-
-        parent.document.querySelector('#content').classList.add('blur-effect');
-        parent.document.querySelector('.level-completion-div').style.display = 'flex';
-
-        // Reindirizza l'utente alla pagina dei livelli
-        //window.top.location.href = `/journey/${levelNation}`;
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
 }
 
 export async function showColorCombinations() {
     console.log('showColorCombinations');
     try {
-        const response = await fetch('/viaggio/italy/level1/color-combinations.json');
+        const response = await fetch(colorCombinationsPath);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }

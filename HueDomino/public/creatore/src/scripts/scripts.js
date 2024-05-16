@@ -5,7 +5,7 @@ import{ matrix, thinButtonsMap } from './data.js';
 import { defaultSquarebuttonsColor, defaultThinbuttonsColor,rows,cols } from './constants.js';
 
 // Funzione per gestire l'evento di caricamento del documento
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
     const buttonGrid = document.getElementById("buttonGrid");
 
     //carica le combinazioni di colori
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Leggi il file CSV e crea un nuovo pulsante per ogni colore unico
     // Leggi il file JSON e crea un nuovo pulsante per ogni colore unico
     // Leggi il file JSON e crea un nuovo pulsante per ogni colore unico
-    fetch('/creatore/src/color-combinations.json')
+    fetch('/creatore/src/level-try/color-combinations.json')
     .then(response => response.json())
     .then(data => {
         data.forEach(({color1}) => {
@@ -219,6 +219,41 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('fillThinButtons').addEventListener('click',f.fillThinButtonsAtEnd);
 
     document.getElementById('saveColorCombinationsButton').addEventListener('click', f.saveColorCombinations);
+
+    let userId;
+
+    const sessionId = document.cookie.split(';').find(item => item.trim().startsWith('sessionId='));
+            
+    if (sessionId) {
+        // Estrai l'ID della sessione dal cookie
+        const sessionIdValue = sessionId.split('=')[1];
+
+        try {
+        // Fai una richiesta al server per ottenere i dettagli della sessione
+        const response = await fetch('/session/' + sessionIdValue);
+        const session = await response.json();
+
+        userId = session.user_id;
+        // Stampa i dettagli della sessione sulla console
+        console.log('Sessione:', session, 'ID utente:', userId);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    } else {
+        console.log('Il cookie sessionId non è stato trovato');
+        $('#notLoggedInDiv').css('display','flex');
+    }
+
+    $('#playLevelButton').on('click', function() {
+        //imposta un cookie con l'id utente
+        
+        document.cookie = `userId=${userId}; max-age=600; path=/`;
+
+
+        window.location.href = '/creator/level-try';
+    });
+
+
 });
 
 
