@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                  }
                  else if (iconLabel === 'Profile') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left;
+                    var marginLeft = iconLabelElementRect.left - 15;
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         <div class="column">
