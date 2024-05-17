@@ -12,6 +12,7 @@ header{
     background-color:  rgb(230, 20, 240);
     top: 0;
     z-index: 99;
+    position: fixed;
 }
 
 .semi-transparent {
