@@ -228,14 +228,6 @@ export function handleSquareButtonMouseClick(){
         // chiama fillArea per colorare le aree adiacenti con lo stesso colore
         fillArea(i, j, selectedColor);
         fillThinButtons();
-    }else if(selectionMode){
-        //se la modalità di selezione è attiva, allora evidenzia il bottone quadrato cambiando l'ombra
-        if(this.style.boxShadow === ''){
-            this.style.boxShadow = '0 0 0 2px orange';
-        }else{
-            this.style.boxShadow = '';
-        }
-
     }
     // else if(playMode && this.style.backgroundColor !== defaultSquarebuttonsColor){
     //     //aggiungi la classe animate  se non presente (per ora)

@@ -21,10 +21,10 @@ header{
 }
 
 .page-content-container {
-    margin-top: 10vh;
+    margin-top: 3vh;
     align-items: center;
     justify-content: center;
-    
+    margin-bottom: 10vh;
 }
 
 .main-header {

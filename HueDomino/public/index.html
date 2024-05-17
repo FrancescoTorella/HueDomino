@@ -49,7 +49,16 @@
                         <a href="/creator"><p class="mode-title">Creator</p></a>
                     </div>
                     <div class="mode-title-container">
-                        <button id="loginButton" class="login-button" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
+                        <button id="loginButton" class="login-button pixel2" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
+                        <style>
+                            #loginButton, #loginButton::after, #loginButton::before{
+                                background-color: white;
+                                
+                            }
+                            #loginButton p{
+                                color: rgb(202, 122, 165);
+                            }
+                        </style>
                     </div>
                 </div>
                 <div class="icon-menu-container">

@@ -186,35 +186,24 @@ h1{
     .horizontal-button-container {
         width: 15px; 
         height: 2px; 
-        padding: 5px 0;
-        margin: -5px 0;
+        
     }
 
     .vertical-button-container {
         height: 15px; 
         width: 2px; 
-        padding: 0  5px;
-        margin:  0 -5px;
-    }
-
-    .vertical-thin-button, .horizontal-thin-button {
-        position: absolute; /* Posiziona i bottoni in modo assoluto */
-        top: 50%; /* Posiziona i bottoni al centro verticalmente nel contenitore */
-        left: 70%; /* Posiziona i bottoni al centro orizzontalmente nel contenitore */
-        transform: translate(-50%, -50%); 
-        transition: all 0.5s ease; /* Specifica la durata dell'animazione */
-        transform-origin: center; /* Si assicura che l'animazione non influenzi la disposizione degli altri elementi */
-    }
-
-    .horizontal-button-container:hover .horizontal-thin-button{
-        height: 7px;
-    }
-    
-    
-    .vertical-button-container:hover .vertical-thin-button{
         
-        width: 7px;
-    } 
+    }
+
+    /* .vertical-thin-button, .horizontal-thin-button {
+        position: absolute; 
+        top: 50%; 
+        left: 70%; 
+        transform: translate(-50%, -50%); 
+        transition: all 0.5s ease; 
+        transform-origin: center; 
+    } */
+
 
     .horizontal-thin-button {
         height: 2px; 
@@ -355,14 +344,14 @@ h1{
 
     .main-grid::before{
         top: -1px;
-        left: -13px;
-        width: calc(100% + 26px);
+        left: -12px;
+        width: calc(100% + 24px);
         height: calc(100% + 2px);
     }
     .main-grid::after{
-        top: -13px;
+        top: -12px;
         left: -1px;
-        height: calc(100% + 26px);
+        height: calc(100% + 24px);
         width: calc(100% + 2px);
     }
 
@@ -792,15 +781,15 @@ h1{
 
 .color-button::before{
     top: 0px;
-    left: -6px;
-    width: calc(100% + 12px);
+    left: -5px;
+    width: calc(100% + 10px);
     height: calc(100% + 0px);
 }
 
 .color-button::after{
-    top: -6px;
+    top: -5px;
     left: 0px;
-    height: calc(100% + 12px);
+    height: calc(100% + 10px);
     width: calc(100% + 0px);
 }
 
