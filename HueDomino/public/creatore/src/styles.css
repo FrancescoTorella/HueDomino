@@ -112,11 +112,11 @@ h1{
     .main-grid{
         position: relative;
         padding: 20px;
-        height: 590px; /* Altezza della griglia principale */
-        width: 590px; /* Larghezza della griglia principale */
-        display: grid; /* Imposta il display a griglia */
-        grid-template-columns: repeat(1, 542px); /* Imposta una colonna */
-        grid-template-rows: repeat(31, 15px 2px); /* Imposta 31 coppie di righe */
+        height: 590px; 
+        width: 590px; 
+        display: grid; 
+        grid-template-columns: repeat(1, 542px); 
+        grid-template-rows: repeat(31, 15px 2px); 
         border: 4px solid purple;
     }
 
@@ -168,9 +168,6 @@ h1{
     }
 
     .square-button {
-        position: absolute;
-        top: -2px;
-        left: 0;
         box-sizing: border-box; 
         margin: 0; 
         padding: 0; 
@@ -189,31 +186,46 @@ h1{
     .horizontal-button-container {
         width: 15px; 
         height: 2px; 
-        padding: 5px 0; 
-        margin: -4px 0; 
+        padding: 5px 0;
+        margin: -5px 0;
     }
 
     .vertical-button-container {
-        position: relative;
         height: 15px; 
         width: 2px; 
-        padding: 0 5px; 
-         margin: 0 -4px; 
+        padding: 0  5px;
+        margin:  0 -5px;
     }
+
+    .vertical-thin-button, .horizontal-thin-button {
+        position: absolute; /* Posiziona i bottoni in modo assoluto */
+        top: 50%; /* Posiziona i bottoni al centro verticalmente nel contenitore */
+        left: 70%; /* Posiziona i bottoni al centro orizzontalmente nel contenitore */
+        transform: translate(-50%, -50%); 
+        transition: all 0.5s ease; /* Specifica la durata dell'animazione */
+        transform-origin: center; /* Si assicura che l'animazione non influenzi la disposizione degli altri elementi */
+    }
+
+    .horizontal-button-container:hover .horizontal-thin-button{
+        height: 7px;
+    }
+    
+    
+    .vertical-button-container:hover .vertical-thin-button{
+        
+        width: 7px;
+    } 
 
     .horizontal-thin-button {
         height: 2px; 
         width: 15px; 
-        
+       
         
     }
     .vertical-thin-button {
-        position: absolute;
-        top: -2px;
-        left: 0;
         height: 15px; 
         width: 2px; 
-        
+
     }
 }
 
@@ -222,11 +234,11 @@ h1{
     .main-grid{
         position: relative;
         padding: 30px;
-        height: 776px; /* Altezza della griglia principale */
-        width: 776px; /* Larghezza della griglia principale */
-        display: grid; /* Imposta il display a griglia */
-        grid-template-columns: repeat(1, 702px); /* Imposta una colonna */
-        grid-template-rows: repeat(31, 20px 2px); /* Imposta 31 coppie di righe */
+        height: 776px; 
+        width: 776px;
+        display: grid;
+        grid-template-columns: repeat(1, 702px); 
+        grid-template-rows: repeat(31, 20px 2px);
         border: 7px solid purple;
     }
 
@@ -295,15 +307,15 @@ h1{
     .horizontal-button-container {
         width: 20px; 
         height: 2px; 
-        padding: 5px 0; 
-        margin: -4px 0; 
+        /* padding: 5px 0; 
+        margin: -4px 0;  */
     }
 
     .vertical-button-container {
         height: 20px; 
         width: 2px; 
-        padding: 0 5px; 
-         margin: 0 -4px; 
+        /* padding: 0 5px; 
+         margin: 0 -4px;  */
     }
 
     .horizontal-thin-button {
@@ -323,11 +335,11 @@ h1{
     .main-grid{
         padding: 40px;
         position: relative;
-        height: 1147px; /* Altezza della griglia principale */
-        width: 1147px; /* Larghezza della griglia principale */
-        display: grid; /* Imposta il display a griglia */
-        grid-template-columns: repeat(1, 1053px); /* Imposta una colonna */
-        grid-template-rows: repeat(31, 30px 3px); /* Imposta 31 coppie di righe */
+        height: 1147px; 
+        width: 1147px; 
+        display: grid;
+        grid-template-columns: repeat(1, 1053px); 
+        grid-template-rows: repeat(31, 30px 3px); 
         border: 7px solid purple;
     }
     
@@ -371,50 +383,50 @@ h1{
     }
     
     .square-button-container{
-        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
-        width: 30px; /* Larghezza del contenitore */
-        height: 30px; /* Altezza del contenitore */
+        display: inline-block;
+        width: 30px; 
+        height: 30px; 
     }
     
     .square-button {
-        box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
-        margin: 0; /* Rimuove il margine predefinito */
-        padding: 0; /* Rimuove il padding predefinito */
-        width: 30px; /* Larghezza del pulsante */
-        height: 30px; /* Altezza del pulsante */
-        border: 0px solid #eae9e9; /* Bordo del bottone */
+        box-sizing: border-box;
+        margin: 0; 
+        padding: 0; 
+        width: 30px; 
+        height: 30px; 
+        border: 0px solid #eae9e9; 
     }
     
     
     
     .horizontal-button-container, .vertical-button-container {
-        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
-        position: relative; /* Posiziona il contenitore in modo relativo */
+        display: inline-block; 
+        position: relative; 
     }
     
     .horizontal-button-container {
-        width: 30px; /* Larghezza del contenitore orizzontale */
-        height: 3px; /* Altezza del contenitore orizzontale */;
-        padding: 5px 0; /* Aumenta l'area cliccabile */
-        margin: -4px 0; /* Compensa lo spazio extra occupato dal padding */
+        width: 30px; 
+        height: 3px; 
+        /* padding: 5px 0; 
+        margin: -4px 0;  */
     }
     
     .vertical-button-container {
-        height: 30px; /* Altezza del contenitore verticale */
-        width: 3px; /* Larghezza del contenitore verticale */
-        padding: 0 5px; /* Aumenta l'area cliccabile */
-        margin: 0 -4px; /* Compensa lo spazio extra occupato dal padding */
+        height: 30px;
+        width: 3px;
+        /* padding: 0 5px; 
+        margin: 0 -4px;  */
     }
     
     .horizontal-thin-button {
-        height: 3px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
-        width: 30px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        height: 3px;
+        width: 30px;
         
         
     }
     .vertical-thin-button {
-        height: 30px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
-        width: 3px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        height: 30px; 
+        width: 3px; 
         
     }
 
@@ -423,11 +435,11 @@ h1{
 @media (min-width: 1600px){
     .main-grid{
         padding: 50px;
-        height: 1518px; /* Altezza della griglia principale */
-        width: 1518px; /* Larghezza della griglia principale */
-        display: grid; /* Imposta il display a griglia */
-        grid-template-columns: repeat(1, 1404px); /* Imposta una colonna */
-        grid-template-rows: repeat(31, 40px 4px); /* Imposta 31 coppie di righe */
+        height: 1518px; 
+        width: 1518px; 
+        display: grid; 
+        grid-template-columns: repeat(1, 1404px); 
+        grid-template-rows: repeat(31, 40px 4px);
     }
     
     .square-row{
@@ -447,50 +459,50 @@ h1{
     }
     
     .square-button-container{
-        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
-        width: 40px; /* Larghezza del contenitore */
-        height: 40px; /* Altezza del contenitore */
+        display: inline-block;
+        width: 40px;
+        height: 40px;
     }
     
     .square-button {
-        box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
-        margin: 0; /* Rimuove il margine predefinito */
-        padding: 0; /* Rimuove il padding predefinito */
-        width: 40px; /* Larghezza del pulsante */
-        height: 40px; /* Altezza del pulsante */
-        border: 0px solid #eae9e9; /* Bordo del bottone */
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+        width: 40px;
+        height: 40px; 
+        border: 0px solid #eae9e9; 
     }
     
     
     
     .horizontal-button-container, .vertical-button-container {
-        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
-        position: relative; /* Posiziona il contenitore in modo relativo */
+        display: inline-block; 
+        position: relative; 
     }
     
     .horizontal-button-container {
-        width: 40px; /* Larghezza del contenitore orizzontale */
-        height: 4px; /* Altezza del contenitore orizzontale */;
-        padding: 5px 0; /* Aumenta l'area cliccabile */
-        margin: -4px 0; /* Compensa lo spazio extra occupato dal padding */
+        width: 40px;
+        height: 4px; 
+        /* padding: 5px 0; 
+        margin: -4px 0;  */
     }
     
     .vertical-button-container {
-        height: 40px; /* Altezza del contenitore verticale */
-        width: 4px; /* Larghezza del contenitore verticale */
-        padding: 0 5px; /* Aumenta l'area cliccabile */
-        margin: 0 -4px; /* Compensa lo spazio extra occupato dal padding */
+        height: 40px; 
+        width: 4px;
+        /* padding: 0 5px;
+        margin: 0 -4px;  */
     }
     
     .horizontal-thin-button {
-        height: 4px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
-        width: 40px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        height: 4px; 
+        width: 40px; 
         
         
     }
     .vertical-thin-button {
-        height: 40px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
-        width: 4px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        height: 40px; 
+        width: 4px; 
         
     }
 
@@ -499,11 +511,11 @@ h1{
 @media (min-width: 1950px){
     .main-grid{
         padding: 60px;
-        height: 1889px; /* Altezza della griglia principale */
-        width: 1889px; /* Larghezza della griglia principale */
-        display: grid; /* Imposta il display a griglia */
-        grid-template-columns: repeat(1, 1755px); /* Imposta una colonna */
-        grid-template-rows: repeat(31, 50px 5px); /* Imposta 31 coppie di righe */
+        height: 1889px;
+        width: 1889px;
+        display: grid; 
+        grid-template-columns: repeat(1, 1755px); 
+        grid-template-rows: repeat(31, 50px 5px);
     }
     
     .square-row{
@@ -523,69 +535,68 @@ h1{
     }
     
     .square-button-container{
-        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
-        width: 50px; /* Larghezza del contenitore */
-        height: 50px; /* Altezza del contenitore */
+        display: inline-block; 
+        width: 50px; 
+        height: 50px; 
     }
     
     .square-button {
-        box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
-        margin: 0; /* Rimuove il margine predefinito */
-        padding: 0; /* Rimuove il padding predefinito */
-        width: 50px; /* Larghezza del pulsante */
-        height: 50px; /* Altezza del pulsante */
-        border: 0px solid #eae9e9; /* Bordo del bottone */
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0;
+        width: 50px; 
+        height: 50px; 
+        border: 0px solid #eae9e9; 
     }
     
     
     
     .horizontal-button-container, .vertical-button-container {
-        display: inline-block; /* Permette al contenitore di adattarsi alle dimensioni del bottone */
-        position: relative; /* Posiziona il contenitore in modo relativo */
+        display: inline-block; 
+        position: relative; 
     }
     
     .horizontal-button-container {
-        width: 50px; /* Larghezza del contenitore orizzontale */
-        height: 5px; /* Altezza del contenitore orizzontale */;
-        padding: 5px 0; /* Aumenta l'area cliccabile */
-        margin: -4px 0; /* Compensa lo spazio extra occupato dal padding */
+        width: 50px; 
+        height: 5px; 
+        padding: 5px 0; 
+        margin: -4px 0; 
     }
     
     .vertical-button-container {
-        height: 50px; /* Altezza del contenitore verticale */
-        width: 5px; /* Larghezza del contenitore verticale */
-        padding: 0 5px; /* Aumenta l'area cliccabile */
-        margin: 0 -4px; /* Compensa lo spazio extra occupato dal padding */
+        height: 50px; 
+        width: 5px;
+        padding: 0 5px;
+        margin: 0 -4px;
     }
     
     .horizontal-thin-button {
-        height: 5px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
-        width: 50px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        height: 5px; 
+        width: 50px; 
         
         
     }
     .vertical-thin-button {
-        height: 50px; /* O qualsiasi altezza desideri per i tuoi bottoni sottili */
-        width: 5px; /* O qualsiasi larghezza desideri per i tuoi bottoni sottili */
+        height: 50px; 
+        width: 5px; 
         
     }
 
 }
-
+/* 
 .vertical-thin-button, .horizontal-thin-button {
-    position: absolute; /* Posiziona i bottoni in modo assoluto */
-    top: 50%; /* Posiziona i bottoni al centro verticalmente nel contenitore */
-    left: 50%; /* Posiziona i bottoni al centro orizzontalmente nel contenitore */
-    transform: translate(-50%, -50%); /* Centra i bottoni nel contenitore */
-    margin: 0; /* Rimuove il margine predefinito */
-    box-sizing: border-box; /* Si assicura che il padding e il bordo non influenzino le dimensioni del bottone */
-    /* width: 5px; */
-    padding: 0; /* Rimuove il padding predefinito */
-    min-width: 0; /* Rimuove la larghezza minima predefinita */
-    border-style: hidden; /* Nasconde i bordi */
-    transition: all 0.5s ease; /* Specifica la durata dell'animazione */
-    transform-origin: center; /* Si assicura che l'animazione non influenzi la disposizione degli altri elementi */
-}
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    margin: 0; 
+    box-sizing: border-box; 
+    padding: 0; 
+    min-width: 0; 
+    border-style: hidden; 
+    transition: all 0.5s ease; 
+    transform-origin: center; 
+} */
 
 .horizontal-button-container:hover .horizontal-thin-button{
     height: 7px;
@@ -596,15 +607,6 @@ h1{
 
     width: 7px;
 } 
-
-
-
-/* #colorButtonsArea {
-    position: fixed; 
-    right: 0; 
-    top: 50%; 
-    transform: translateY(-50%); 
-} */
 
 
 

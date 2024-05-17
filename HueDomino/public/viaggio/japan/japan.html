@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="module" src="/viaggio/japan/mappa_giappone.js"></script>
-        <script src="/viaggio/responsive.js"></script>
+        <!-- <script src="/viaggio/responsive.js"></script> -->
 
     </head>
     <body>
@@ -57,34 +57,77 @@
             </div> 
             <script src="/header.js"></script>
         </header>
-        <div id="pageContentContainer" class="page-container">
-            <div id ="left-box" class="left-box-container">
-                    <img src="/viaggio/japan/images/japan.png" class="grid-item-img" />
-                    <p id="2-1" class="box-text">
-                        Japan
-                    </p>
-            </div>
-        <div id="right-box" class="right-box-container">
-            <div id="japanMapContainer" class="map-container">
-                <img src="/viaggio/japan/images/giapponeCarta_0.png" alt="Mappa Giappone" class="map-country" >
-                
-                <img id="level1JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 87%; left: 19%;" onclick="window.location.href='/journey/japan/1'">
-                <img id="level2JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 65%; left: 33%;" onclick="window.location.href='/journey/japan/2'">
-                <img id="level3JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 60%; left: 40%;" onclick="window.location.href='/journey/japan/3'">
-                <img id="level4JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 53%; left: 43%;" onclick="window.location.href='/journey/japan/4'">
-                <img id="level5JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 57%; left: 49%;" onclick="window.location.href='/journey/japan/5'">
-                <img id="level6JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 45%; left: 60%;" onclick="window.location.href='/journey/japan/6'">
-                <img id="level7JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 33%; left: 64%;" onclick="window.location.href='/journey/japan/7'">
-                <img id="level8JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 15%; left: 70%;" onclick="window.location.href='/journey/japan/8'">
-
-                <img src="/viaggio/japan/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
-                
-                <div id="notUnlockedMessageJapan" class="not-unlocked-message">
-                    <p>Oops!! Sembra che tu non abbia ancora sbloccato questo mondo!</p>
+        <main id="mainContainer" class="container-fluid p-0">
+            <style>
+                #mainContainer{
+                    margin: 5vh 0;
+                }
+            </style>
+            <div id="mainRow" class="row flex-column-reverse flex-xl-row">
+                <div id="leftBox" class="col-xl-6">
+                    <style>
+                        @media (max-width: 1199.98px){
+                            #flagContainer{
+                                display: none;
+                            }
+                        }
+                        @media (min-width: 1200px){
+                            #flagContainer{
+                                display: flex;
+                                justify-content: center;
+                                align-items: end;
+                            }
+                        }
+                    </style>
+                    <div class="row">
+                        <div id="flagContainer" class="col-md-12">
+                            <img src="/viaggio/japan/images/japan.png" class="grid-item-img" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="2-1" class="box-text">
+                                Japan
+                            </p>
+                        </div>
+                    </div>
+                    
                 </div>
+                <div id="rightBox" class="col-xl-6 p-0">
+                    <style>
+                        #rightBox{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    </style>
+                    <div id="japanMapContainer" class="map-container">
+                        <style>
+                            #japanMapContainer{
+                                position: relative;
+                            }
+                        </style>
+                        <img src="/viaggio/japan/images/giapponeCarta_0.png" alt="Mappa japan" class="map-country" >
+                        
+                        <img id="level1JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 87%; left: 19%;" onclick="window.location.href='/journey/japan/1'">
+                        <img id="level2JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 65%; left: 33%;" onclick="window.location.href='/journey/japan/2'">
+                        <img id="level3JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 60%; left: 40%;" onclick="window.location.href='/journey/japan/3'">
+                        <img id="level4JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 53%; left: 43%;" onclick="window.location.href='/journey/japan/4'">
+                        <img id="level5JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 57%; left: 49%;" onclick="window.location.href='/journey/japan/5'">
+                        <img id="level6JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 45%; left: 60%;" onclick="window.location.href='/journey/japan/6'">
+                        <img id="level7JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 33%; left: 64%;" onclick="window.location.href='/journey/japan/7'">
+                        <img id="level8JapanButton" src="/viaggio/japan/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 15%; left: 70%;" onclick="window.location.href='/journey/japan/8'">
 
+                        <img src="/viaggio/japan/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                        <div id="notUnlockedMessagejapan" class="not-unlocked-message">
+                            <p>Oops!! Sembra che tu non abbia ancora sbloccato questo mondo!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+        </main>
 </body>
 </html>
+
+
+

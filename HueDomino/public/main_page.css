@@ -8,7 +8,7 @@ body {
     width: 100vw;
     overflow-x: hidden;
     overflow-y: hidden;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
 }
@@ -20,7 +20,7 @@ body {
     gap: 20px;
     height: 90vh; 
     width: 90vw;
-    margin: 15vh auto 0 auto; 
+    margin: 1vh auto 0 auto; 
     padding: 10px;
 }
 

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async function() {
             buttonContainer.classList.add("square-button-container");
     
             // Crea un bottone quadrato
-            const button = document.createElement("button");
+            const button = document.createElement("div");
             button.classList.add("square-button");
 
             // Imposta il colore di default per il bottone quadrato
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 thinButtonContainer.classList.add("vertical-button-container");
     
                 // Crea un bottone sottile
-                const thinButton = document.createElement("button");
+                const thinButton = document.createElement("div");
                 thinButton.classList.add("vertical-thin-button");
 
 
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", async function() {
                 thinButtonContainer.classList.add("horizontal-button-container");
     
                 // Crea un bottone sottile
-                const thinButton = document.createElement("button");
+                const thinButton = document.createElement("div");
                 thinButton.classList.add("horizontal-thin-button");
 
                 // Assegna un ID al bottone sottile in base alle coordinate dei bottoni quadrati adiacenti

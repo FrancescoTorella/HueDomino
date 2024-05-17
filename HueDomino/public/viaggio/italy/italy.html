@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script type="module" src="/viaggio/italy/mappa_italia.js"></script>
-        <script src="/viaggio/responsive.js"></script>
+        <!-- <script src="/viaggio/responsive.js"></script> -->
     </head>
     <body>
         <header>
@@ -56,30 +56,76 @@
             </div> 
             <script src="/header.js"></script>
         </header>
-        <div id="pageContentContainer" class="page-container">
-            <div id ="left-box" class="left-box-container">
-                    <img src="/viaggio/italy/images/italy.png" class="grid-item-img" />
-                    <p id="2-1" class="box-text">
-                        Italy
-                    </p>
-            </div>
-            <div id="right-box" class="right-box-container">
-                <div id="italyMapContainer" class="map-container">
-                    <img src="/viaggio/italy/images/italiaCarta_0.png" alt="Mappa dell'Italia" class="map-country" >
+        <main id="mainContainer" class="container-fluid p-0">
+            <style>
+                #mainContainer{
+                    margin: 5vh 0;
+                }
+            </style>
+            <div id="mainRow" class="row flex-column-reverse flex-xl-row">
+                <div id="leftBox" class="col-xl-6">
+                    <style>
+                        @media (max-width: 1199.98px){
+                            #flagContainer{
+                                display: none;
+                            }
+                        }
+                        @media (min-width: 1200px){
+                            #flagContainer{
+                                display: flex;
+                                justify-content: center;
+                                align-items: end;
+                            }
+                        }
+                    </style>
+                    <div class="row">
+                        <div id="flagContainer" class="col-md-12">
+                            <img src="/viaggio/italy/images/italy.png" class="grid-item-img" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p id="2-1" class="box-text">
+                                Italy
+                            </p>
+                        </div>
+                    </div>
                     
-                    <img id="level1ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 62%; left: 32%;" onclick="window.location.href='/journey/italy/1'">
-                    <img id="level2ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 80%; left: 57%;" onclick="window.location.href='/journey/italy/2'">
-                    <img id="level3ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 61%; left: 65%;" onclick="window.location.href='/journey/italy/3'">
-                    <img id="level4ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 53%; left: 61%;" onclick="window.location.href='/journey/italy/4'" >
-                    <img id="level5ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 48%; left: 51%;" onclick="window.location.href='/journey/italy/5'">
-                    <img id="level6ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 38%; left: 47%;" onclick="window.location.href='/journey/italy/6'">
-                    <img id="level7ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 26%; left: 28%;" onclick="window.location.href='/journey/italy/7'">
-                    <img id="level8ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 18%; left: 42%;" onclick="window.location.href='/journey/italy/8'">
-                
+                </div>
+                <div id="rightBox" class="col-xl-6 p-0">
+                    <style>
+                        #rightBox{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    </style>
+                    <div id="italyMapContainer" class="map-container">
+                        <style>
+                            #italyMapContainer{
+                                position: relative;
+                            }
+                        </style>
+                        <img src="/viaggio/italy/images/italiaCarta_0.png" alt="Mappa italy" class="map-country" >
+                        
+                        <img id="level1ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 1" class="level-icon" data-level="1" style="top: 62%; left: 32%;" onclick="window.location.href='/journey/italy/1'">
+                        <img id="level2ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 2" class="level-icon" data-level="2" style="top: 80%; left: 57%;" onclick="window.location.href='/journey/italy/2'">
+                        <img id="level3ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 3" class="level-icon" data-level="3" style="top: 61%; left: 65%;" onclick="window.location.href='/journey/italy/3'">
+                        <img id="level4ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 4" class="level-icon" data-level="4" style="top: 53%; left: 61%;" onclick="window.location.href='/journey/italy/4'" >
+                        <img id="level5ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 5" class="level-icon" data-level="5" style="top: 48%; left: 51%;" onclick="window.location.href='/journey/italy/5'">
+                        <img id="level6ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 6" class="level-icon" data-level="6" style="top: 38%; left: 47%;" onclick="window.location.href='/journey/italy/6'">
+                        <img id="level7ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 7" class="level-icon" data-level="7" style="top: 26%; left: 28%;" onclick="window.location.href='/journey/italy/7'">
+                        <img id="level8ItalyButton" src="/viaggio/italy/images/livello.png" alt="Livello 8" class="level-icon" data-level="8" style="top: 18%; left: 42%;" onclick="window.location.href='/journey/italy/8'">
 
-                    <img src="/viaggio/italy/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                        <img src="/viaggio/italy/images/aeroplanino.png" alt="Aeroplanino" class="aeroplanino-icon">
+                        <div id="notUnlockedMessageitaly" class="not-unlocked-message">
+                            <p>Oops!! Sembra che tu non abbia ancora sbloccato questo mondo!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
     </body>
 </html>
+
+
