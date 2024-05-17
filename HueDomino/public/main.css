@@ -41,7 +41,7 @@ header{
     }
 } */
 
-@media (max-width: 1100px){
+/* @media (max-width: 1100px){
     .main-header{
         grid-template-columns: 1fr 7fr 3fr;
     }
@@ -60,10 +60,10 @@ header{
         grid-template-columns: 2fr 9fr 2fr;
     }
    
-}
+} */
 
 
-.main-header .title {
+.title {
     font-family: 'mariokart';
     font-size: 7vh;
     color: #eee;
@@ -157,14 +157,14 @@ p{
         margin-left: 2vw;
     }
 }
-
+/* 
 @media (max-width: 600px){
     .title{
         font-size: 6vh !important;
     }
-}
+} */
 
-.written-modes-container{
+/* .written-modes-container{
     height: 100%;
     width: 50%;
     display: grid;
@@ -172,7 +172,7 @@ p{
     justify-content: end;
     margin-left: auto;
     margin-right: 5vw;
-}
+} */
 
 .mode-title-container{
     display: flex;
@@ -372,7 +372,7 @@ p{
     color: inherit; 
 }
 
-.login-button {
+/* .login-button {
     background-color: white;
     color: rgb(230, 20, 240);
     border: 2px solid white;
@@ -380,7 +380,7 @@ p{
     padding: 5px 10px;
     cursor: pointer;
     transition: 0.3s;
-}
+} */
 
 .temporary-div{
     display: block;

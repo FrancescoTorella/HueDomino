@@ -12,26 +12,59 @@
         
     </head>
     <body>
-        <header>
-            <div id="main-header" class="main-header">
-                <div class="logo-container">
-                    <a href="/">
-                        <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
-                    </a>
+        <header id="myHeader" class="container-fluid">
+            <style>
+                #myHeader{
+                    background-color: rgb(202, 122, 165);
+                }
+                /* #rowContainer{
+                    padding-top: 1vh;
+                } */
+            </style>
+            <div id="rowContainer" class="row">
+                <div class="col-lg-7 col-xl-8  col-10">
+                    <h1 class="title"></h1>
+                    <script>
+                        function checkScreenSize() {
+                            var titleElement = $('.title');
+                            if (window.orientation == 0 || $(window).width() < 450) {
+                                titleElement.text('HD');
+                            } else {
+                                titleElement.text('Hue Domino');
+                            }
+                        }
+                    
+                        // Esegui la funzione quando la pagina viene caricata
+                        $(document).ready(checkScreenSize);
+                    
+                        // Esegui la funzione ogni volta che la dimensione della finestra cambia
+                        $(window).resize(checkScreenSize);
+                    
+                        // Esegui la funzione ogni volta che l'orientamento dello schermo cambia
+                        $(window).on('orientationchange', checkScreenSize);
+                    </script>
                 </div>
-                <div class="title-container">
-                    <h1 class="title">Hue Domino</h1>
-                </div>
-                <div class="modes-container">
-                    <div class="written-modes-container">
-                        <div class="mode-title-container">
+                <div class="col-lg-5 col-xl-4 col-2">
+                    <div class="written-modes-container row">
+                        <style>
+                            .mode-title{
+                                font-size: 2em;
+                            }
+                            #loginButton, #loginButton::after, #loginButton::before{
+                                background-color: white;
+                            }
+                            #loginButton p{
+                                color: rgb(202, 122, 165);
+                            }
+                        </style>
+                        <div class="mode-title-container col-4">
                             <a href="/journey"><p class="mode-title">Journey</p></a>
                         </div>
-                        <div class="mode-title-container">
+                        <div class="mode-title-container col-4">
                             <a href="/creator"><p class="mode-title">Creator</p></a>
                         </div>
-                        <div class="mode-title-container">
-                            <button id="loginButton" class="login-button" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
+                        <div class="mode-title-container col-4">
+                            <button id="loginButton" class="login-button pixel2" onclick="window.location.href='/login'"><p class="mode-title">Login</p></button>
                         </div>
                     </div>
                     <div class="icon-menu-container">
