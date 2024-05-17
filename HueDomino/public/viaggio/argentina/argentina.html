@@ -11,7 +11,71 @@
         <!-- <script src="/viaggio/responsive.js"></script> -->
     </head>
     <body>
-        <header id="myHeader" class="container-fluid">
+        <header>
+            <div id="main-header" class="main-header">
+                <div class="logo-container">
+                    <a href="/">
+                        <img src="/icons/HueDominoLogo.svg" alt="Hue Domino Logo" class="logo-image"> 
+                    </a>
+                </div>
+                <div class="title-container">
+                    <h1 class="title">Hue Domino</h1>
+                    <script>
+                        function checkScreenSize() {
+                            var titleElement = $('.title');
+                            if (window.orientation == 0 || $(window).width() < 450) {
+                                titleElement.text('HD');
+                            } else {
+                                titleElement.text('Hue Domino');
+                            }
+                        }
+                    
+                        // Esegui la funzione quando la pagina viene caricata
+                        $(document).ready(checkScreenSize);
+                    
+                        // Esegui la funzione ogni volta che la dimensione della finestra cambia
+                        $(window).resize(checkScreenSize);
+                    
+                        // Esegui la funzione ogni volta che l'orientamento dello schermo cambia
+                        $(window).on('orientationchange', checkScreenSize);
+                    </script>
+                </div>
+                <div class="modes-container">
+                    <div class="written-modes-container">
+                        <div class="mode-title-container">
+                            <a href="/journey"><p class="mode-title">Journey</p></a>
+                        </div>
+                        <div class="mode-title-container">
+                            <a href="/creator"><p class="mode-title">Creator</p></a>
+                        </div>
+                        <div class="mode-title-container">
+                            <button id="loginButton" class="login-button" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
+                        </div>
+                    </div>
+                    <div class="icon-menu-container">
+                        <div id="menuIcon" class="menu-icon">
+                            <div class="bar1"></div>
+                            <div class="bar2"></div>
+                            <div class="bar3"></div>
+                        </div>
+                        <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
+                            <div class="text-wrapper">
+                                <a href="/"><p class="mode-title">Home</p></a>
+                                <a id="loginButtonSmall" href="/login"><p class="mode-title">Login</p></a>
+                                <a href="/journey"><p class="mode-title">Journey</p></a>
+                                <a href="/creator"><p class="mode-title">Creator</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div id="dropdownHeaderMenu" class="dropdown-header-menu">
+                <div id="dropdown-text"></div>
+            </div> 
+            <script src="/header.js"></script>
+        </header>
+        <!-- <header id="myHeader" class="container-fluid">
             <style>
                 #myHeader{
                     background-color: rgb(202, 122, 165);
@@ -87,12 +151,14 @@
             <div id="dropdownHeaderMenu" class="dropdown-header-menu">
                 <div id="dropdown-text"></div>
             </div> 
-            <script src="/header.js"></script>
+            <script src="/header.js"></script> -->
         </header>
         <main id="mainContainer" class="container-fluid p-0">
             <style>
                 #mainContainer{
                     margin: 5vh 0;
+                    position: absolute;
+                    top: 10%;
                 }
             </style>
             <div id="mainRow" class="row flex-column-reverse flex-xl-row">
