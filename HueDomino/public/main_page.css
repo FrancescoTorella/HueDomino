@@ -45,7 +45,7 @@ body {
     background-position: center;
     background-repeat: repeat-x;
     background-size: contain; 
-    animation: scrollSky 5s linear infinite;
+    animation: scrollSky 15s linear infinite;
     border-radius: 70%;
     border: 0.3px solid white;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
@@ -152,7 +152,7 @@ body {
         background-position: 0 0;
     }
     100% {
-        background-position: -100% 0; 
+        background-position: -400% 0; 
     }
 }
 
