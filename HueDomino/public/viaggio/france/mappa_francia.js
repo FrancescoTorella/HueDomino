@@ -69,7 +69,7 @@ $(document).ready(async function() {
         aeroplaninoMovementInterval = setInterval(updateAeroplaninoPosition, 20); 
     }else{
         //selezione l'elemento notUnlockedMessageAustralia e lo rende visibile
-        $('#notUnlockedMessageCanada').css('display', 'flex');
+        $('#notUnlockedMessageFrance').css('display', 'flex');
     }
 });
 

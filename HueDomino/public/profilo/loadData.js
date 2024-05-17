@@ -74,7 +74,7 @@ $(document).ready( async function() {
                 `;
 
                 var cell2 = row.insertCell(1);
-                cell2.innerHTML = ` <p>Livelli superati: <span class="stat-text" id="livelliSuperati">${friends[i].livellisuperati}</span></p><p>Mondi giocati: <span class="stat-text" id="mondiGiocati">${friends[i].mondigiocati}</span></p><p>Numero amici: <span class="stat-text" id="numeroAmici">${friends[i].numeroamici}</span></p><p>Medaglie vinte: <span class="stat-text" id="medaglieVinte">0</span></p><p>Avatar sbloccati: <span class="stat-text" id="avatarSbloccati">0</span></p>`;
+                cell2.innerHTML = ` <p>Livelli superati: <span class="stat-text" id="livelliSuperati">${friends[i].livellisuperati}</span></p><p>Mondi giocati: <span class="stat-text" id="mondiGiocati">${friends[i].mondigiocati}</span></p><p>Numero amici: <span class="stat-text" id="numeroAmici">${friends[i].numeroamici}</span></p>`;
                 ;
 
                 var cell3 = row.insertCell(2);

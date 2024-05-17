@@ -273,8 +273,8 @@ body{
 .level-completion-div::before {
     border: 10px solid darkslategray;
     top: 0;
-    left: -19px;
-    width: calc(100% + 38px);
+    left: -18px;
+    width: calc(100% + 36px);
     height: 100%;
     z-index: -1;
 }
