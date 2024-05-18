@@ -47,7 +47,7 @@ export async function loadData(nation) {
                 const nationCapitalized = level.levelnation.charAt(0).toUpperCase() + level.levelnation.slice(1);
                 const button = $(`#level${level.levelnumber}${nationCapitalized}Button`);
                 if (button.length > 0 && level.levelnation == nation) {
-                    button.css('backgroundColor', 'yellow');
+                    button.css('backgroundColor', 'palevioletred');
                 }
             });
             const worldLevels = data.playableLevels.filter(level => level.levelnation === nation);
@@ -81,7 +81,7 @@ export async function loadData(nation) {
                 const button = $(`#level${level.levelnumber}${nationCapitalized}Button`);
                 if (button.length > 0) {
                     // Cambia il colore del bottone in rosso
-                    button.css('border', '3px solid red');
+                    button.css('border', '3px solid midnightblue');
                 }
             });
         },
