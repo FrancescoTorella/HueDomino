@@ -72,15 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
                  }
                  else if (iconLabel === 'Profile') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left - 15;
+                    var marginLeft = iconLabelElementRect.left + 15;
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         <div class="column">
-                            <a href="/profile#statistiche"><p>Statistiche</p></a>
                             <a href="/profile#impostazioni"><p>Impostazioni</p></a>
+                            <a href="/profile#statistiche"><p>Statistiche</p></a>
                             <a href="/profile#amici"><p>Amici</p></a>
-                            <a href="/profile#avatar"><p>Avatar</p></a>
-                            <a href="/profile#medaglie"><p>Medaglie</p></a>
+                            <a href="/profile#creatore"><p>Creatore</p></a>
                             <a href="/profile#livelli"><p>Livelli</p></a>
                         </div>
                     </div>
@@ -155,17 +154,17 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     });
 
-    window.addEventListener('scroll', function() {
-        var header = document.querySelector('header');
-        var dropdown = document.querySelector('.dropdown-header-menu');
-        if (window.scrollY > 0) {
-            header.classList.add('semi-transparent');
-            dropdown.style.backgroundColor = 'rgba(230, 20, 240, 0.6)';
-        } else {
-            header.classList.remove('semi-transparent');
-            dropdown.style.backgroundColor = 'rgba(230, 20, 240, 1)';
-        }
-    });
+    // window.addEventListener('scroll', function() {
+    //     var header = document.querySelector('header');
+    //     var dropdown = document.querySelector('.dropdown-header-menu');
+    //     if (window.scrollY > 0) {
+    //         header.classList.add('semi-transparent');
+    //         dropdown.style.backgroundColor = 'rgba(230, 20, 240, 0.6)';
+    //     } else {
+    //         header.classList.remove('semi-transparent');
+    //         dropdown.style.backgroundColor = 'rgba(230, 20, 240, 1)';
+    //     }
+    // });
 
     window.addEventListener('load', async function() {
         // Cerca il cookie 'sessionId'
