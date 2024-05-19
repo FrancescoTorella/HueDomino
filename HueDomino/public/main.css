@@ -150,7 +150,7 @@ p{
 .mode-title{
     margin-bottom: 0;
     font-size: 4vh;
-    /* margin-left: 30px; */
+    /* margin-left: 30px;  */
 }
 
 @media (max-width: 1100px) {
@@ -207,7 +207,7 @@ p{
 
 .menu-icon {
     cursor: pointer;
-    margin-right: 2vw;
+    margin-right: 2vw !important;
     align-self: flex-end;
     margin-top: auto;
     margin-bottom: auto;
@@ -412,4 +412,22 @@ a:hover {
 #profileImage{
     position: relative;
     border: 2px solid white;
+}
+
+.title-small {
+    display: none;
+    font-family: 'mariokart';
+    font-size: 7vh;
+    color: #eee;
+    /* font-size: clamp(1.5rem, 4vw, 3rem);  */
+    margin: 0;
+}
+
+@media (max-width: 450px) {
+    .title {
+        display: none;
+    }
+    .title-small {
+        display: block;
+    }
 }

@@ -45,4 +45,8 @@ $(document).ready(function() {
       }
     });
   });
+
+  $('#goBackIcon').click(function() {
+    window.location.href = '/login';
+  });
 });

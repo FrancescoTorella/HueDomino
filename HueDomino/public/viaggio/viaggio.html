@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="/viaggio/viaggio.css">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/main.css">
+    <link rel="stylesheet" type="text/css" href="/styles/pixeledButtons.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <script src="/viaggio/nazioni.js"></script>
@@ -20,25 +21,7 @@
             </div>
             <div class="title-container">
                 <h1 class="title">Hue Domino</h1>
-                <script>
-                    function checkScreenSize() {
-                        var titleElement = $('.title');
-                        if (window.orientation == 0 || $(window).width() < 450) {
-                            titleElement.text('HD');
-                        } else {
-                            titleElement.text('Hue Domino');
-                        }
-                    }
-                
-                    // Esegui la funzione quando la pagina viene caricata
-                    $(document).ready(checkScreenSize);
-                
-                    // Esegui la funzione ogni volta che la dimensione della finestra cambia
-                    $(window).resize(checkScreenSize);
-                
-                    // Esegui la funzione ogni volta che l'orientamento dello schermo cambia
-                    $(window).on('orientationchange', checkScreenSize);
-                </script>
+                <h1 class="title-small">HD</h1>
             </div>
             <div class="modes-container">
                 <div class="written-modes-container">
@@ -46,95 +29,19 @@
                         <a href="/journey"><p class="mode-title">Journey</p></a>
                     </div>
                     <div class="mode-title-container">
-                        <a href="/creator"><p class="mode-title">Creator</p></a>
+                        <a href="/creator"><p class="mode-title" style="margin-left: 30px;">Creator</p></a>
                     </div>
                     <div class="mode-title-container">
-                        <button id="loginButton" class="login-button" onclick="window.location.href='/login'"><p class="mode-title" style="color:black">Login</p></button>
-                    </div>
-                </div>
-                <div class="icon-menu-container">
-                    <div id="menuIcon" class="menu-icon">
-                        <div class="bar1"></div>
-                        <div class="bar2"></div>
-                        <div class="bar3"></div>
-                    </div>
-                    <div id="writtenModesDropdownContainer" class="written-modes-dropdown-container">
-                        <div class="text-wrapper">
-                            <a href="/"><p class="mode-title">Home</p></a>
-                            <a id="loginButtonSmall" href="/login"><p class="mode-title">Login</p></a>
-                            <a href="/journey"><p class="mode-title">Journey</p></a>
-                            <a href="/creator"><p class="mode-title">Creator</p></a>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        <div id="dropdownHeaderMenu" class="dropdown-header-menu">
-            <style>
-                #dropdownHeaderMenu{
-                    background-color: transparent;
-                }
-                .column p{
-                    color: white
-                }
-            </style>
-            <div id="dropdown-text"></div>
-        </div> 
-    <script src="/header.js"></script>
-    <!-- <header id="myHeader" class="container-fluid">
-        <style>
-            #myHeader{
-                background-color: rgb(202, 122, 165);
-            }
-            /* #rowContainer{
-                padding-top: 1vh;
-            } */
-        </style>
-        <div id="rowContainer" class="row">
-            <div class="col-lg-7 col-xl-8  col-10">
-                <h1 class="title"></h1>
-                <script>
-                    function checkScreenSize() {
-                        var titleElement = $('.title');
-                        if (window.orientation == 0 || $(window).width() < 450) {
-                            titleElement.text('HD');
-                        } else {
-                            titleElement.text('Hue Domino');
-                        }
-                    }
-                
-                    // Esegui la funzione quando la pagina viene caricata
-                    $(document).ready(checkScreenSize);
-                
-                    // Esegui la funzione ogni volta che la dimensione della finestra cambia
-                    $(window).resize(checkScreenSize);
-                
-                    // Esegui la funzione ogni volta che l'orientamento dello schermo cambia
-                    $(window).on('orientationchange', checkScreenSize);
-                </script>
-            </div>
-            <div class="col-lg-5 col-xl-4 col-2">
-                <div class="written-modes-container row">
-                    <style>
-                        .mode-title{
-                            font-size: 2em;
-                        }
-                        #loginButton, #loginButton::after, #loginButton::before{
-                            background-color: white;
-                        }
-                        #loginButton p{
-                            color: rgb(202, 122, 165);
-                        }
-                    </style>
-                    <div class="mode-title-container col-4">
-                        <a href="/journey"><p class="mode-title">Journey</p></a>
-                    </div>
-                    <div class="mode-title-container col-4">
-                        <a href="/creator"><p class="mode-title">Creator</p></a>
-                    </div>
-                    <div class="mode-title-container col-4">
-                        <button id="loginButton" class="login-button pixel2" onclick="window.location.href='/login'"><p class="mode-title">Login</p></button>
+                        <button id="loginButton" class="login-button pixel2" onclick="window.location.href='/login'"><p class="mode-title" style="color:rgb(202, 122, 165);">Login</p></button>
+                        <style>
+                            #loginButton, #loginButton::after, #loginButton::before{
+                                background-color: white;
+                                
+                            }
+                            #loginButton {
+                                margin-left: 30px;
+                            }
+                        </style>
                     </div>
                 </div>
                 <div class="icon-menu-container">
@@ -158,8 +65,8 @@
         <div id="dropdownHeaderMenu" class="dropdown-header-menu">
             <div id="dropdown-text"></div>
         </div> 
-        <script src="/header.js"></script> -->
-    </header> 
+        <script src="/header.js"></script>
+        </header>
 
 
     <main id="pageContentContainer" class="page-content-container">

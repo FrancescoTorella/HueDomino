@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px;">
                         <div class="column">
                             <a href="/creator"><p>Create&nbsp;your&nbsp;level</p></a>
-                            <a href=""><p>Play&nbsp;your&nbsp;friends'&nbsp;levels</p></a>
+                            <a href="/profile#creatore"><p>Play&nbsp;your&nbsp;friends'&nbsp;levels</p></a>
                         </div>
                     </div>
                 `;
