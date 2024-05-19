@@ -112,8 +112,8 @@ body{
 }
 
 
-.popup-image{
-    height: 60%;
+#finalImageDiv{
+    height: 70%;
     width: auto;
     display: none;
     position: fixed;
@@ -122,6 +122,27 @@ body{
     transform: translate(-50%, -50%);
     animation: fadeIn 0.3s ease-in-out;
     z-index: 1000; 
+    border: 5px solid darkslategrey;
+}
+
+#finalImageDiv::before, #finalImageDiv::after {
+    content: "";
+    position: absolute;
+    border: 5px solid darkslategrey;
+}
+
+#finalImageDiv::before {
+    top: -1px;
+    left: -9px;
+    width: calc(100% + 18px);
+    height: calc(100% + 2px);
+}
+
+#finalImageDiv::after {
+    top: -9px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 18px);
 }
 
 #restartIcon{
@@ -187,6 +208,12 @@ body{
 #orientation-icon {
     width: 30%;
     height: auto;
+}
+
+#backIcon{
+    cursor: pointer;
+    margin-top: auto;
+    margin-bottom: 3vh;
 }
 
 #orientation-text{
@@ -272,10 +299,10 @@ body{
 
 .level-completion-div::before {
     border: 10px solid darkslategray;
-    top: 0;
+    top: -1px;
     left: -18px;
     width: calc(100% + 36px);
-    height: 100%;
+    height: calc(100% + 2px);
     z-index: -1;
 }
 
@@ -332,9 +359,35 @@ body{
     transform: translate(-50%, -50%); 
     z-index: 1000; 
     background-color: white; 
-    border: 1px solid #ccc; 
-    padding: 20px; 
+    border: 5px solid darkslategray; 
+    padding: 10px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+
+}
+
+#colorBox::before, #colorBox::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+#colorBox::before {
+    border: 5px solid darkslategray;
+    top: -1px;
+    left: -9px;
+    width: calc(100% + 18px);
+    height: calc(100% + 2px);
+    z-index: -1;
+}
+
+#colorBox::after {
+    border: 5px solid darkslategray;
+    top: -9px;
+    left: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 18px);
+    z-index: -2;
 }
 
 .colorCombination {
@@ -347,7 +400,7 @@ body{
 .colorCircle {
     width: 5vh;
     height: 5vh;
-    border-radius: 50%; 
+    border-radius: 5%; 
     display: inline-block; 
 }
 

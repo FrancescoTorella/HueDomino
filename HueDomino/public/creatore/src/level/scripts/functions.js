@@ -90,6 +90,10 @@ if(userId !== undefined && level === undefined && creatorId === undefined){
     backToCreatorButton.onclick = function() {
         parent.window.location.href = '/creator';
     }
+    let backIcon = parent.document.getElementById('backIcon');
+    backIcon.onclick = function() {
+        parent.window.location.href = '/creator';
+    }
 }else{
     //variabili per tener traccia dei filepath
     colorCombinationsPath = '/creatore/livelli_utenti/user'+creatorId+'/'+level+'/color-combinations.json'
@@ -114,7 +118,11 @@ if(userId !== undefined && level === undefined && creatorId === undefined){
 
     //modifica l'azione del bottone backToCreatorButton
     backToCreatorButton.onclick = function() {
-        parent.window.location.href = '/profile';
+        parent.window.location.href = '/profile#creatore';
+    }
+    let backIcon = parent.document.getElementById('backIcon');
+    backIcon.onclick = function() {
+        parent.window.location.href = '/profile#creatore';
     }
 
 }

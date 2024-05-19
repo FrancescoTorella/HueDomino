@@ -515,6 +515,7 @@ export async function saveColorCombinations(){
         contentType: 'application/json',
         success: function(response) {
             console.log(response);
+            window.parent.location.reload();
         },
         error: function(error) {
             console.error('Errore nel salvataggio delle combinazioni di colori:', error);

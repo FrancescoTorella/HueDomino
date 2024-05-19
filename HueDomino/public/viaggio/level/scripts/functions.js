@@ -79,6 +79,14 @@ if(levelNumber < 8){
 }
 let backToMenuButton = parent.document.getElementById('backToMenuButton');
 backToMenuButton.onclick = function() {
+    var date = new Date();
+    date.setTime(date.getTime() + (10 * 1000)); // 10 secondi
+    var expires = "; expires=" + date.toUTCString();
+    document.cookie = `justPassed=${levelNumber}` + expires + "; path=/";
+    parent.window.location.href = '/journey/' + levelNation;
+}
+let backIcon = parent.document.getElementById('backIcon');
+backIcon.onclick = function() {
     parent.window.location.href = '/journey/' + levelNation;
 }
 // Funzione per gestire il click del bottone
@@ -679,10 +687,10 @@ async function handleLevelCompletion(){
         console.log(data);
 
         // Imposta il cookie
-        var date = new Date();
-        date.setTime(date.getTime() + (10 * 1000)); // 10 secondi
-        var expires = "; expires=" + date.toUTCString();
-        document.cookie = `justPassed=${levelNumber}` + expires + "; path=/";
+        // var date = new Date();
+        // date.setTime(date.getTime() + (10 * 1000)); // 10 secondi
+        // var expires = "; expires=" + date.toUTCString();
+        // document.cookie = `justPassed=${levelNumber}` + expires + "; path=/";
 
         parent.document.querySelector('#content').classList.add('blur-effect');
         parent.document.querySelector('.level-completion-div').style.display = 'flex';

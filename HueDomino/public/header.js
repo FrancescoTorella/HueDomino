@@ -72,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
                  }
                  else if (iconLabel === 'Profile') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left + 15;
+                    var marginLeft = iconLabelElementRect.left;
                     dropdownText.innerHTML = `
-                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
+                    <div style="display: flex; justify-content: flex-end; margin-right: 0px; flex-wrap: wrap;">
                         <div class="column">
                             <a href="/profile#impostazioni"><p>Impostazioni</p></a>
                             <a href="/profile#statistiche"><p>Statistiche</p></a>
@@ -201,9 +201,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
                 $('#profileImage').css({
-                    'width': '2.5vw',  // Imposta la larghezza dell'immagine
-                    'height': '2.5vw',  // Imposta l'altezza dell'immagine
-                    'border-radius': '50%',  // Rende l'immagine circolare
+                    'width': '3.5vw',  // Imposta la larghezza dell'immagine
+                    'height': '3.5vw',  // Imposta l'altezza dell'immagine
+                    // 'border-radius': '50%',  
                     'object-fit': 'cover'  // Assicura che l'immagine copra completamente l'area del cerchio
                 });
                 $('#profileImage').attr('onclick', 'window.location.href = "/profile"');

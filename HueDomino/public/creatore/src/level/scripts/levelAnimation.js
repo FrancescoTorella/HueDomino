@@ -1,8 +1,8 @@
 var icon = document.querySelector('#openImageIcon');
-var popupImage = document.querySelector('#popupFinalImage');
+var popupImage = document.querySelector('#finalImageDiv');
 
 icon.addEventListener('mouseover', function() {
-    popupImage.style.display = 'block';
+    popupImage.style.display = 'flex';
 });
 
 icon.addEventListener('mouseout', function() {
@@ -11,7 +11,7 @@ icon.addEventListener('mouseout', function() {
 
 // Per i dispositivi touch
 icon.addEventListener('touchstart', function() {
-    popupImage.style.display = 'block';
+    popupImage.style.display = 'flex';
 });
 
 icon.addEventListener('touchend', function() {
