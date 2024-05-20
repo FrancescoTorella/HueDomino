@@ -23,7 +23,7 @@ $(document).ready(function() {
       dataType: "json",
       success: function(response) {
         // Registrazione riuscita
-        console.log('Registrazione riuscita');
+        console.log('La registrazione è avvenuta con successo!');
         window.location.href = '/';
         // Qui potresti reindirizzare l'utente alla pagina di login, ad esempio:
         // window.location.href = '/login.html';
@@ -35,8 +35,15 @@ $(document).ready(function() {
             $('#emailError').text('Invalid email format');
           } else if (error.responseJSON.message === 'Password must be at least 8 characters') {
             $('#passwordError').text('Password must be at least 8 characters');
-          } else {
+          } 
+          else {
             console.log(error.responseJSON.message);
+          }
+        } else if (error.status === 409){
+          if(error.responseJSON.message === 'Username already in use'){
+            $('#usernameError').text('Username gia in uso');
+          }else if(error.responseJSON.message === 'Email already in use'){
+            $('#emailError').text('Email gia in uso');
           }
         } else {
           // Registrazione fallita

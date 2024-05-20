@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var iconLabel = iconLabelElement.textContent;
                 if (iconLabel === 'Journey') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left;
+                    var marginLeft = iconLabelElementRect.left - 30;
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         ${dropdownMenuHTML}
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.error('Error:', error);
             }
         } else {
-            console.log('Il cookie sessionId non è stato trovato');
+            //console.log('Il cookie sessionId non è stato trovato');
         }
     });
 });

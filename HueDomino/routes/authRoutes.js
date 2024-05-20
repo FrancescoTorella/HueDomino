@@ -42,13 +42,17 @@ router.post('/register', async (req, res) => {
     // Controlla se l'username o l'email sono già stati presi
     const existingUser = await db.getUserByUsername(username);
     if (existingUser) {
+        console.log('Username già in uso');
         return res.status(409).json({ message: 'Username already in use' });
     }
+    console.log('Username non in uso');
 
     const existingUserByEmail = await db.getUserByEmail(email);
     if (existingUserByEmail) {
         return res.status(409).json({ message: 'Email already in use' });
     }
+
+    console.log('Email non in uso');
 
     // Prova a registrare il nuovo utente nel database
     try {
