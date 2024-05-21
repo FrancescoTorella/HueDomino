@@ -1,6 +1,7 @@
 
 import { defaultSquarebuttonsColor, defaultThinbuttonsColor,rows,cols } from './constants.js';
 import{ matrix, thinButtonsMap } from './data.js';
+import { triggerToast } from '../../../toastHandler.js';
 
 
 //Tiene traccia delle combinazioni di colori
@@ -426,11 +427,18 @@ export function saveThinButtonConfig() {
         url: '/save-start-config',
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify(data)
+        data: JSON.stringify(data),
+        success: function(response) {
+            console.log(response);
+            triggerToast();
+        },
+        error: function(error) {
+            console.error('Errore nel salvataggio della configurazione dei bottoni sottili:', error);
+        }
     });
 }
 
-
+//funzione per salvare la configurazione finale del colore
 export async function saveMatrixConfig() {
     // Crea un nuovo array per memorizzare i dati dei colori
     let colorData = [];
@@ -456,11 +464,18 @@ export async function saveMatrixConfig() {
         url: '/save-final-color-config',
         method: 'POST',
         contentType: 'application/json',
-        data: JSON.stringify(colorData)
+        data: JSON.stringify(colorData),
+        success: function(response) {
+            console.log(response);
+            triggerToast();
+        },
+        error: function(error) {
+            console.error('Errore nel salvataggio della configurazione finale del colore:', error);
+        }
     });
 }   
 
-// Funzione per caricare la configurazione dei bottoni sottili
+// Funzione per caricare la configurazione dei bottoni sottili presente nel file JSON
 export function loadThinButtonConfig() {
     // Leggi il file JSON
     fetch('/creatore/src/level-try/start-config.json')
@@ -488,10 +503,9 @@ export function loadThinButtonConfig() {
             console.log('Errore nel caricamento della configurazione dei bottoni sottili:', error);
         });
 }
-// Leggi il file CSV e popola l'oggetto colorCombinations
-// Questa funzione dovrebbe essere chiamata all'avvio del programma
-// Leggi il file JSON e popola l'oggetto colorCombinations
-// Questa funzione dovrebbe essere chiamata all'avvio del programma
+
+
+//funzione per caricare la configurazione di colori presente nel file JSON
 export async function loadColorCombinations() {
     const response = await fetch('/creatore/src/level-try/color-combinations.json');
     const data = await response.json();
@@ -505,6 +519,7 @@ export async function loadColorCombinations() {
     });
 }
 
+// Funzione per caricare la configurazione di colore inserita nella textarea
 export async function saveColorCombinations(){
     const data = $('#colorCombinations').val();
 
@@ -524,72 +539,4 @@ export async function saveColorCombinations(){
 
 
 }
-
-
-
-// export function saveMatrixAsJson() {
-//     // Crea un nuovo array per memorizzare i dati dei colori
-//     let colorData = [];
-
-//     // Itera su ciascun elemento della matrice
-//     for (let i = 0; i < matrix.length; i++) {
-//         for (let j = 0; j < matrix[i].length; j++) {
-//             // Ottieni il colore dell'elemento
-//             let color = matrix[i][j].style.backgroundColor;
-
-//             // Se il colore è uguale a defaultSquareButtonsColor, salvalo come "default"
-//             if (color === defaultSquarebuttonsColor) {
-//                 color = "default";
-//             }
-
-//             // Aggiungi un oggetto con le coordinate x, y e il colore all'array
-//             colorData.push({x: i, y: j, color: color});
-//         }
-//     }
-
-//     // Converti l'array in una stringa JSON
-//     let jsonStr = JSON.stringify(colorData);
-
-//     // Crea un elemento 'a' temporaneo
-//     let element = document.createElement('a');
-
-//     // Imposta l'attributo href come un blob di dati della stringa JSON
-//     element.setAttribute('href', 'data:text/json;charset=utf-8,' + encodeURIComponent(jsonStr));
-
-//     // Imposta l'attributo download per il nome del file che desideri
-//     element.setAttribute('download', 'matrix.json');
-
-//     // Aggiungi l'elemento al DOM
-//     document.body.appendChild(element);
-
-//     // Simula un click sull'elemento per avviare il download
-//     element.click();
-
-//     // Rimuovi l'elemento dal DOM
-//     document.body.removeChild(element);
-// }
-
-// export async function downloadJsonFile() {
-//     try {
-//         // Crea un elemento 'a' temporaneo
-//         let element = document.createElement('a');
-
-//         // Imposta l'attributo href per puntare al file JSON che desideri scaricare
-//         element.setAttribute('href', '../../out.json');
-
-//         // Imposta l'attributo download per il nome del file che desideri
-//         element.setAttribute('download', 'color-combinations.json');
-
-//         // Aggiungi l'elemento al DOM
-//         document.body.appendChild(element);
-
-//         // Simula un click sull'elemento per avviare il download
-//         element.click();
-
-//         // Rimuovi l'elemento dal DOM
-//         document.body.removeChild(element);
-//     } catch (error) {
-//         console.error('Si è verificato un errore:', error);
-//     }
-// }
 

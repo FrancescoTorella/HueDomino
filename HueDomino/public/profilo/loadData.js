@@ -12,7 +12,7 @@ $(document).ready( async function() {
     const user = await response.json();
 
     // Stampa i dettagli dell'utente sulla console
-    console.log(user);
+    //console.log(user);
 
     // Mostra i dettagli dell'utente nella pagina
     $('#profileName').text(user.username);

@@ -20,7 +20,7 @@ $(document).ready(function() {
       dataType: "json",
       success: function() {
         // Handle success
-        console.log('Login riuscito');
+        console.log('Login effettuato con successo');
         window.location.href = '/';
       },
       error: function(error) {

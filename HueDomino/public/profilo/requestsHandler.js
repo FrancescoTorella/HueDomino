@@ -4,6 +4,7 @@ $(document).ready( async function() {
 
     let ID_UTENTE = await getSessionCookie();
 
+    //Richiesta per il cambio di immagine profilo
     $('#foto-profilo').on('change', function() {
         const file = this.files[0];
         if (file) {
@@ -33,6 +34,7 @@ $(document).ready( async function() {
         }
     });
 
+    //Richiesta per il cambio di descrizione
     $('#descrizione').on('change', function() {
         var descrizione = $(this).val();
 
@@ -42,6 +44,7 @@ $(document).ready( async function() {
             type: 'POST',
             data: { description: descrizione},
             success: function(response) {
+                location.href= '#impostazioni';
                 console.log(response);
                 location.reload();
             },
@@ -51,6 +54,7 @@ $(document).ready( async function() {
         });
     });
 
+    //Richiesta per il cambio di username
     $('#updateUsername').on('submit', function(e) {
         e.preventDefault();
 
@@ -84,6 +88,7 @@ $(document).ready( async function() {
         });
     });
 
+    //Richiesta per il cambio di password
     $('#updatePassword').on('submit', function(e) {
         e.preventDefault();
 
@@ -117,6 +122,7 @@ $(document).ready( async function() {
         });
     });
 
+    //Richiesta per il cambio di email
     $('#updateEmail').on('submit', function(e) {
         e.preventDefault();
 
@@ -154,6 +160,7 @@ $(document).ready( async function() {
         });
     });
 
+    //Richiesta per l'aggiunta di un amico
     $('#addFriendForm').on('submit', function(e) {
         e.preventDefault();
 
@@ -171,8 +178,9 @@ $(document).ready( async function() {
                 userId: userId
             },
             success: function(data) {
-                console.log(data);
+                location.href= '#amici';
                 location.reload();
+                console.log("Amico aggiunto con successo");
                 // Aggiorna l'interfaccia utente qui
             },
             error:  function(jqXHR, textStatus, errorThrown) {
@@ -188,7 +196,7 @@ $(document).ready( async function() {
     });
 
     
-
+    //Richiesta per la rimozione di un amico
     $(document).on('click', '#confirmButton',  function(e) {
         e.preventDefault();
         var action = $(this).attr('data-action');
@@ -206,7 +214,9 @@ $(document).ready( async function() {
                     userId: userId
                 },
                 success: function(data) {
+                    location.href= '#amici';
                     location.reload();
+                    console.log("Amico rimosso con successo");
                     // Aggiorna l'interfaccia utente qui
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
@@ -216,6 +226,7 @@ $(document).ready( async function() {
         }else if(action === 'logout'){
             document.cookie = 'sessionId=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
             window.location.href = '/';
+            console.log('Logout effettuato con successo');
         }
 
     });

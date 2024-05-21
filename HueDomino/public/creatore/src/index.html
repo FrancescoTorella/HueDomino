@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="/creatore/src/styles.css">
     <link rel="stylesheet" href="/styles/bootstrap.css">
     <link rel="stylesheet" href="/styles/pixeledButtons.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/toastHandler.js"></script>
 </head>
 <body>
     <div class="upper-container">
@@ -157,6 +159,7 @@
                     <input type="number" id="movesNumber" class="form-control m-3">
                 </div>
                 <script>
+                    
                     $('#movesNumber').on('change', function() {
                         console.log($('#movesNumber').val());
                         $.ajax({
@@ -165,7 +168,7 @@
                             data: JSON.stringify({ movesNumber: Number($('#movesNumber').val()) }),
                             contentType: 'application/json',
                             success: function(response) {
-                                console.log('Il file left-moves.json è stato aggiornato con successo.');
+                                //console.log(response);
                             },
                             error: function(error) {
                                 console.log('Si è verificato un errore durante l\'aggiornamento del file left-moves.json:', error);

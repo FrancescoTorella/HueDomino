@@ -20,7 +20,7 @@ router.post('/save-start-config', (req, res) => {
             res.status(500).send('Errore nel salvataggio dei dati');
         } else {
             console.log('Configurazione dei bottoni sottili salvata con successo.');
-            res.send('Dati salvati con successo');
+            res.send('Configurazione iniziale dei bordi salvati con successo');
         }
     });
 });
@@ -40,7 +40,7 @@ router.post('/save-final-color-config', (req, res) => {
             res.status(500).send('Errore nel salvataggio della configurazione dei colori.');
         } else {
             console.log('Configurazione dei colori salvata con successo.');
-            res.status(200).send('Configurazione dei colori salvata con successo.');
+            res.status(200).send('Configurazione finale dei colori salvata con successo');
         }
     });
 });
@@ -132,7 +132,7 @@ router.post('/upload-created-level', (req, res) => {
                 });
             });
 
-            res.send('File caricati con successo');
+            res.send('Livello pubblicato con con successo');
         }
     });
 });

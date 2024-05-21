@@ -17,7 +17,7 @@ console.log = function(message) {
 // Salva "prova" come messaggio flash
 // localStorage.setItem('flashMessage', 'prova');
 
-$(document).ready(function() {
+export function triggerToast() {
     
     // All'inizio di ogni pagina, controlla se esiste un messaggio flash
     var flashMessage = localStorage.getItem('flashMessage');
@@ -56,4 +56,8 @@ $(document).ready(function() {
         // Rimuove il messaggio flash dal localStorage
         localStorage.removeItem('flashMessage');
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    triggerToast();
 });

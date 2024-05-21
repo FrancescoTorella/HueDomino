@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const session = await response.json();
     
                 // Stampa i dettagli della sessione sulla console
-                console.log('Dettagli della sessione:', session);
+                //console.log('Dettagli della sessione:', session);
                 const userId = session.user_id;
                 const profileImagePath = '../immagini_profilo/user' + userId + '/profile.png';
                 $('#loginButton').replaceWith('<div id="profileContainer" class="mode-title"><img id="profileImage" class="mode-title"><p class="mode-title" style="display: none;">Profile</p></div>');

@@ -235,12 +235,12 @@ document.addEventListener("DOMContentLoaded", async function() {
 
         userId = session.user_id;
         // Stampa i dettagli della sessione sulla console
-        console.log('Sessione:', session, 'ID utente:', userId);
+        //console.log('Sessione:', session, 'ID utente:', userId);
         } catch (error) {
             console.error('Error:', error);
         }
     } else {
-        console.log('Il cookie sessionId non è stato trovato');
+        //console.log('Il cookie sessionId non è stato trovato');
         $('#notLoggedInDiv').css('display','flex');
     }
 
