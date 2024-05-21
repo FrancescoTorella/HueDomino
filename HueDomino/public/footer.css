@@ -1,0 +1,26 @@
+footer{
+    background-color: rgb(202, 122, 165);
+    color: white;
+    text-align: center;
+    bottom: 0;
+    height: 40vh;
+    width: 100vw;
+    margin-top: auto;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2.5vw;
+    margin-right: 4vw;
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 10px;
+}

@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var iconLabel = iconLabelElement.textContent;
                 if (iconLabel === 'Journey') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left - 30;
+                    var marginLeft = iconLabelElementRect.left - 35;
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         ${dropdownMenuHTML}
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 else if (iconLabel === 'Login') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left;
+                    var marginLeft = iconLabelElementRect.left - 5;
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         <div class="column">
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
                  }
                  else if (iconLabel === 'Creator') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left;
+                    var marginLeft = iconLabelElementRect.left - 35;
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px;">
                         <div class="column">

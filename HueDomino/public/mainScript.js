@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     worldBox.addEventListener('click', function() {
-        window.location.href = '/viaggio/viaggio.html';
+        window.location.href = '/journey';
     });
 });
 

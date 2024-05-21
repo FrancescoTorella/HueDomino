@@ -424,7 +424,7 @@ a:hover {
     margin: 0;
 }
 
-@media (max-width: 450px) {
+@media (orientation: portrait) {
     .title {
         display: none;
     }
