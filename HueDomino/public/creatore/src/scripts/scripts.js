@@ -253,6 +253,14 @@ document.addEventListener("DOMContentLoaded", async function() {
         window.location.href = '/creator/level-try';
     });
 
+    //cerca il cookie level uploaded
+    
+    const levelUploaded = document.cookie.split(';').find(item => item.trim().startsWith('levelUploaded='));
+    if(levelUploaded){
+        
+        $('#levelPublishedDiv').css('display','flex');
+    }
+
 
 });
 

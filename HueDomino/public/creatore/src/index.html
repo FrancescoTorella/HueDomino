@@ -26,8 +26,8 @@
         <img src="/viaggio/level/rotate.png" id="orientation-icon" alt="Orienta il dispositivo in orizzontale">
     </div>
 
-    <div id="notLoggedInDiv">
-        <div class="container m-3 p-0 not-logged-in-popup">
+    <div id="notLoggedInDiv" class="blurring-div">
+        <div class="container m-3 p-0 popup">
             <div class="row m-5">
                 <div class="col">
                     <h2>Per accedere alla modalità creatore, effettua il login</h2>
@@ -39,6 +39,34 @@
                     <script>
                         $('#loginButton').on('click', function() {
                             window.location.href = '/login';
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id= "levelPublishedDiv" class="blurring-div">
+        <div class="container m-3 p-0 popup">
+            <div class="row m-5">
+                <div class="col">
+                    <h2>Livello pubblicato con successo!</h2>
+                </div>
+            </div>
+            <div class="row m-5">
+                <div class="col">
+                    <button id="goToProfileButton" class="pixel2">Vai al Profilo</button>
+                    <script>
+                        $('#goToProfileButton').on('click', function() {
+                            window.location.href = '/profile#creatore';
+                        });
+                    </script>
+                </div>
+                <div class="col">
+                    <button id="continueButton" class="pixel2">Continua</button>
+                    <script>
+                        $('#continueButton').on('click', function() {
+                            window.location.href = '/';
                         });
                     </script>
                 </div>

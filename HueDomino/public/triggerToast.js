@@ -1,25 +1,4 @@
-// toastHandler.js
-
-// Sostituisce la funzione console.log con una funzione che memorizza il messaggio nel sessionStorage
-// toastHandler.js
-
-// Sostituisce la funzione console.log con una funzione che memorizza il messaggio nel localStorage
-// toastHandler.js
-
-// Sostituisce la funzione console.log con una funzione che memorizza il messaggio nel localStorage
-
-
-
-console.log = function(message) {
-    localStorage.setItem('flashMessage', message);
-};
-
-// Salva "prova" come messaggio flash
-// localStorage.setItem('flashMessage', 'prova');
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    
+export function triggerToast(){
     // All'inizio di ogni pagina, controlla se esiste un messaggio flash
     var flashMessage = localStorage.getItem('flashMessage');
 
@@ -57,5 +36,4 @@ document.addEventListener('DOMContentLoaded', function() {
         // Rimuove il messaggio flash dal localStorage
         localStorage.removeItem('flashMessage');
     }
-});
-
+}

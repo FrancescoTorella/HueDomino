@@ -1,7 +1,7 @@
 
 import { defaultSquarebuttonsColor, defaultThinbuttonsColor,rows,cols } from './constants.js';
 import{ matrix, thinButtonsMap } from './data.js';
-import { triggerToast } from '../../../toastHandler.js';
+import { triggerToast } from '../../../triggerToast.js';
 
 
 //Tiene traccia delle combinazioni di colori

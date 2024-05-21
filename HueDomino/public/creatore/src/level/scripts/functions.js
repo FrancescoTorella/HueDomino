@@ -79,6 +79,11 @@ if(userId !== undefined && level === undefined && creatorId === undefined){
         .then(response => response.text()) // Modifica qui
         .then(data => {
             console.log(data);
+            //imposta un cookie di durata 2 secondi per mostrare un messaggio di successo
+            var date = new Date();
+            date.setTime(date.getTime() + (20 * 1000)); 
+            var expires = "; expires=" + date.toUTCString();
+            document.cookie = `levelUploaded=True` + expires + "; path=/";
             parent.window.location.href = '/creator';
         })
         .catch((error) => {
