@@ -72,12 +72,16 @@ body {
     grid-area: 1 / 2 / 2 / 3; 
     justify-content: center;
     align-items: center;
+    user-select: none; 
+    -webkit-user-select: none;
 }
 
 .slogan-text {
     font-size: 3.7vh;
     color: white;
     font-family: 'PixelFont';
+    user-select: none; 
+    -webkit-user-select: none;
 }
 
 
@@ -143,6 +147,8 @@ body {
     font-size: 2vh;
     color: white;
     font-family: 'PixelFont';
+    user-select: none; 
+    -webkit-user-select: none;
 }
 
 
