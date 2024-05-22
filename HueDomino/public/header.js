@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 else if (iconLabel === 'Login') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left - 5;
+                    var marginLeft = iconLabelElementRect.left - 40;
                     dropdownText.innerHTML = `
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         <div class="column">
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
                     var marginLeft = iconLabelElementRect.left;
                     dropdownText.innerHTML = `
-                    <div style="display: flex; justify-content: flex-end; margin-right: 0px; flex-wrap: wrap;">
+                    <div style="display: flex; justify-content: flex-end; margin-right: 2%; flex-wrap: wrap;">
                         <div class="column">
                             <a href="/profile#impostazioni"><p>Impostazioni</p></a>
                             <a href="/profile#statistiche"><p>Statistiche</p></a>
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px;">
                         <div class="column">
                             <a href="/creator"><p>Create&nbsp;your&nbsp;level</p></a>
-                            <a href="/profile#creatore"><p>Play&nbsp;your&nbsp;friends'&nbsp;levels</p></a>
+                            <a href="/profile#creatore"><p>Play&nbsp;your&nbsp;friends'levels</p></a>
                         </div>
                     </div>
                 `;
