@@ -3,6 +3,7 @@
   
 body{
     font-family: 'VT323', monospace !important;
+    overflow-x: hidden;
 }
 
 
@@ -585,4 +586,8 @@ body{
 #playCreatedLevelButton{
     margin: 0;
     margin-left: 40px;
+}
+
+.level-container{
+    /* max-width: 95% !important; */
 }
