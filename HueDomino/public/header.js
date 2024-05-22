@@ -229,13 +229,9 @@ function adjustSizeHeader(){
     const height = window.innerHeight;
     const modesContainer = document.querySelector('.written-modes-container');
     const iconMenu = document.querySelector('.icon-menu-container');
-    if(width > 1100 && width < 1.4*height && height > 750){
+    if((width > 1100 && width < 1.4*height && height > 750) || width > 1100 && width < 2*height && height > 900 || width <= 1100){
        modesContainer.style.display = 'none';
        iconMenu.style.display= 'flex';
-    }
-    else if(width > 1100 && width < 2*height && height > 900){
-    	modesContainer.style.display = 'none';
-        iconMenu.style.display= 'flex';
     }
     else{
         modesContainer.style.display = 'flex';
