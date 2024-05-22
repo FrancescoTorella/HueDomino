@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
                  }
                  else if (iconLabel === 'Profile') {
                     var iconLabelElementRect = iconLabelElement.getBoundingClientRect();
-                    var marginLeft = iconLabelElementRect.left;
+                    var marginLeft = iconLabelElementRect.left - 35;
                     dropdownText.innerHTML = `
-                    <div style="display: flex; justify-content: flex-end; margin-right: 2%; flex-wrap: wrap;">
+                    <div style="display: flex; justify-content: flex-start; margin-left: ${marginLeft}px; flex-wrap: wrap;">
                         <div class="column">
                             <a href="/profile#impostazioni"><p>Impostazioni</p></a>
                             <a href="/profile#statistiche"><p>Statistiche</p></a>
