@@ -145,8 +145,8 @@ header{
 
 @media (max-height: 400px){
     .logo-image{
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
     }
 }
 
