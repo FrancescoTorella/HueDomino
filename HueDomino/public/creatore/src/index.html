@@ -159,7 +159,7 @@
                                 processData: false,
                                 contentType: false,
                                 success: function(response) {
-                                    console.log('File caricato con successo');
+                                    //console.log('File caricato con successo');
 
                                     // Aggiorna l'interfaccia utente per visualizzare l'immagine caricata
                                     const reader = new FileReader();
@@ -189,7 +189,7 @@
                 <script>
                     
                     $('#movesNumber').on('change', function() {
-                        console.log($('#movesNumber').val());
+                        //console.log($('#movesNumber').val());
                         $.ajax({
                             url: '/save-left-moves', // Inserisci l'URL del tuo server qui
                             type: 'POST',
