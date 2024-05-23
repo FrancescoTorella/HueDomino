@@ -410,3 +410,11 @@ body{
     font-size: 24px; 
     margin: 0 2vw;
 }
+
+#backToCreatorButton, #backToCreatorButton::before, #backToCreatorButton::after {
+    background-color: blue;
+}
+
+#publishButton, #publishButton::before, #publishButton::after {
+    background-color: blue;
+}

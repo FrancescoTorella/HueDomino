@@ -1,13 +1,12 @@
 [
-    { "color1": "darkslategray", "color2": "gainsboro", "result": "dimgray" },
-    { "color1": "gainsboro", "color2": "steelblue", "result":"deepskyblue"},
-    { "color1": "steelblue", "color2": "darkslategray", "result":  "lightblue"},
-    { "color1": "steelblue", "color2": "lightblue", "result": "lightsteelblue"},
-    { "color1": "darkslategray", "color2": "lightblue", "result": "lightseagreen"},
-    { "color1": "darkslategray", "color2": "dimgray", "result": "darkgray"},
-    { "color1": "gainsboro", "color2": "dimgray", "result": "lightgray"},
-    { "color1": "gainsboro", "color2": "deepskyblue", "result": "powderblue"},
-    { "color1": "steelblue", "color2": "deepskyblue", "result": "royalblue"}
+    { "color1": "tan", "color2": "antiquewhite", "result": "navajowhite" },
+    { "color1": "antiquewhite", "color2": "forestgreen", "result":"gainsboro"},
+    { "color1": "forestgreen", "color2": "tan", "result":  "teal"},
+    { "color1": "tan", "color2": "navajowhite", "result": "burlywood"},
+    { "color1": "antiquewhite", "color2": "navajowhite", "result": "lightgoldenrodyellow"},
+    { "color1": "antiquewhite", "color2": "gainsboro", "result": "cornsilk"},
+    { "color1": "forestgreen", "color2": "gainsboro", "result": "mediumseagreen"},
+    { "color1": "forestgreen", "color2": "teal", "result": "seagreen"},
+    { "color1": "tan", "color2": "teal", "result": "powderblue"}
 
 ]
-
