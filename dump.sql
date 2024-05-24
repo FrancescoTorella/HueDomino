@@ -18,15 +18,6 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
---
--- TOC entry 3650 (class 1262 OID 16672)
--- Name: HueDomino; Type: DATABASE; Schema: -; Owner: postgres
---
-
-CREATE DATABASE "HueDomino" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'C';
-
-
-ALTER DATABASE "HueDomino" OWNER TO postgres;
 
 
 SET statement_timeout = 0;
