@@ -1,8 +1,6 @@
 $(document).ready(function() {
   $('#loginForm').on('submit', function(event) {
     event.preventDefault();
-
-    // Clear error messages
     $('#loginError').text('');
     $('#passwordError').text('');
 
@@ -19,13 +17,11 @@ $(document).ready(function() {
       contentType: "application/json; charset=utf-8",
       dataType: "json",
       success: function() {
-        // Handle success
         console.log('Login effettuato con successo');
         window.location.href = '/';
       },
       error: function(error) {
         if (error.responseJSON) {
-          // Show the error message returned by the server
           if (error.responseJSON.message === 'Incorrect password') {
             $('#passwordError').text(error.responseJSON.message);
           } else if (error.responseJSON.message === 'Incorrect username or email') {
@@ -34,7 +30,6 @@ $(document).ready(function() {
             console.log(error.responseJSON.message);
           }
         } else {
-          // Handle other errors
           console.error(error);
         }
       }
