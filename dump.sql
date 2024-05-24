@@ -28,7 +28,6 @@ CREATE DATABASE "HueDomino" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_P
 
 ALTER DATABASE "HueDomino" OWNER TO postgres;
 
-\connect "HueDomino"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
