@@ -1,6 +1,10 @@
-Documentazione
+Documentazione sul codice:
 
-Hue Domino è un gioco interamente creato da noi, conti
+
+
+Front end
+
+
 
 I file del front end si trovano interamente nella cartella public, mentre ciò che non si trova nella cartella public, fa parte del backend.
 
@@ -84,7 +88,11 @@ Contiene tutto ciò inerente al login e alla registrazione:
   - signin.html: pagina di registrazione
   - register.js: effettua la richiesta al server di registrazione passando i dati
 
-Lato server 
+
+
+Back End
+
+
 
 routes: contiene tre file inerenti alle gestioni delle richieste lato server, questi file si interfacciano con il database per effettuare controlli o per modificarlo:
   - authRoutes.js: contiene buona parte delle gestioni, ad esempio quelle inerenti all'autenticazione utente, alla registrazione e alle personalizzazioni (ad esempio cambio di immagine profilo), ma anche ad esempio il salvataggio dei livelli 
@@ -96,6 +104,12 @@ db: contiene un solo modulo di funzioni che interagiscono con il database ognuna
 utils: contiene un solo modulo con alcune funzioni che eseguono un controllo delle credenziali inserite (come la lunghezza della password o il formato dell'email) 
 
 server.js: configura ed esegue il server, è il file che viene in effetti eseguito per avviare il server. 
+
+
+
+
+Framework e librerie utilizzate:
+
 
 
 Front end:
@@ -122,7 +136,10 @@ JQUery è stato usato ampiamente da parte nostra, ci è risultato comodo per ren
 javascript presente è scritto con JQuery; in particolare i file più "vecchi", come ad esempio lo script che contiene la logica di gioco, sono scritti senza JQuery, mentre quelli più nuovi (ad esempio la pagina profilo) lo usano ampiamente.
 
 
+
 Back End:
+
+
 
 Per il back-end abbiamo usato Node.js, in particolare le seguetni librerie:
 - "express" per la gestione delle richieste HTTP.
@@ -137,7 +154,11 @@ Poi abbiamo importato anche altre librerie di Node.js di secondaria importanza c
 
 Le chiamate al server sono effettuate tramite chiamate AJAX, in particolare usando il metodo fetch() oppure il metodo $.ajax di JQuery.
 
+
+
 Dati:
+
+
 
 Per il database abbiamo usato postgreSQL, per la visualizzazione e la manipolazione delle tabelle abbiamo usato PGAdmin; nella creazione del database sono risultate molto utili le reminiscenze del corso di basi di dati. 
 
