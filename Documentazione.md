@@ -1,10 +1,14 @@
-Documentazione
+# Documentazione sul codice:
 
-Hue Domino è un gioco creato da noi.
+
+
+### Front end
+
+
 
 I file del front end si trovano interamente nella cartella public, mentre ciò che non si trova nella cartella public, fa parte del backend.
 
-Public:
+#### Public:
 
 All'interno di public troviamo:
 - una cartella per la modalità viaggio
@@ -24,7 +28,7 @@ All'interno di public troviamo:
 
 Public contiene anche una le cartelle styles, fonts, icons, images contenenti altri fogli di stile (in particolare bootstrap.css, degli stili per i bottoni), fonts del testo, immagini e icone.
 
-Viaggio:
+#### Viaggio:
 
 La cartella viaggio contiene tutto quello che è inerente alla modalità viaggio, in particolare contiene una cartella per ognuna delle 8 nazioni, a loro volta le cartelle delle nazioni contengono i livelli. Per motivi di praticità siccome le nazioni contengono file simili abbiamo consegnato solo la cartella italia con le cartelle dei primi tre livelli. 
 - Ogni cartella di ogni nazione contiene:
@@ -52,7 +56,7 @@ La cartella viaggio contiene tutto quello che è inerente alla modalità viaggio
     - loadLevels.js: che carica i livelli completati e i livelli giocabili di ciascun utente
     - mondi.css e viaggio.css: contiene un foglio di stile per cose inerenti principalmente alle mappe delle nazioni
 
-Creatore:
+#### Creatore:
 
 Contiene ogni cosa inerente alla modalità creatore, in particolare:
 - livelli_utenti: contiene i livelli creati dagli utenti, i file dei livelli sono organizzati nello stesso rispetto ai livelli della modalità viaggio, abbiamo consegnaoto solamente il livello creato durante la presentazione.
@@ -64,7 +68,7 @@ Contiene ogni cosa inerente alla modalità creatore, in particolare:
   - index: file html principale della modalità creatore
   - styles.css: foglio di stile principale per la modalità creatore
 
-Profilo:
+#### Profilo:
 
 Contiene tutti i file inerenti alla pagina del profilo, all'interazione con gli amici, alle richieste di personalizzazine del profilo, alle richieste di caricamento di dati sull'utente, in particolare troviamo (oltre alle solite icone e immagini) :
 - layout.js: che gestisce principalmente l'animazione di scorrimento presente su dispositivi mobili
@@ -74,7 +78,7 @@ Contiene tutti i file inerenti alla pagina del profilo, all'interazione con gli 
 - profilo.css: principale foglio di stile della pagina profilo
 - profilo.html: principale file html della pagina profilo
 
-Login:
+#### Login:
 
 Contiene tutto ciò inerente al login e alla registrazione:
 - login.css: foglio di stile
@@ -84,7 +88,11 @@ Contiene tutto ciò inerente al login e alla registrazione:
   - signin.html: pagina di registrazione
   - register.js: effettua la richiesta al server di registrazione passando i dati
 
-Lato server 
+
+
+### Back End
+
+
 
 routes: contiene tre file inerenti alle gestioni delle richieste lato server, questi file si interfacciano con il database per effettuare controlli o per modificarlo:
   - authRoutes.js: contiene buona parte delle gestioni, ad esempio quelle inerenti all'autenticazione utente, alla registrazione e alle personalizzazioni (ad esempio cambio di immagine profilo), ma anche ad esempio il salvataggio dei livelli 
@@ -98,10 +106,16 @@ utils: contiene un solo modulo con alcune funzioni che eseguono un controllo del
 server.js: configura ed esegue il server, è il file che viene in effetti eseguito per avviare il server. 
 
 
-Front end:
+
+
+# Framework e librerie utilizzate:
+
+
+
+### Front end:
 Per il front end non abbiamo usato librerie/framework oltre a quelli discussi nel corso.
 
-Bootstrap.
+#### Bootstrap
 
 Abbiamo usato Bootstrap per alcune piccole cose. Ad esempio abbiamo usato il sistema a griglia di bootstrap, utile per la sua responsiveness per fare:
 - l'header della pagina profilo (in particolare la resposiveness). 
@@ -116,13 +130,16 @@ In generale Bootstrap ci è stato utile per migliorare la responsiveness di alcu
 
 In generale abbiamo usato Javascript e CSS puri per le animazioni del sito.
 
-JQuery:
+#### JQuery:
 
 JQUery è stato usato ampiamente da parte nostra, ci è risultato comodo per rendere il codice più leggibile; tuttavia, siccome JQuery è stato affrontato più avanti nel corso rispetto a quando abbiamo cominciato con il progetto, non tutto il codice 
 javascript presente è scritto con JQuery; in particolare i file più "vecchi", come ad esempio lo script che contiene la logica di gioco, sono scritti senza JQuery, mentre quelli più nuovi (ad esempio la pagina profilo) lo usano ampiamente.
 
 
-Back End:
+
+### Back End:
+
+
 
 Per il back-end abbiamo usato Node.js, in particolare le seguetni librerie:
 - "express" per la gestione delle richieste HTTP.
@@ -137,7 +154,11 @@ Poi abbiamo importato anche altre librerie di Node.js di secondaria importanza c
 
 Le chiamate al server sono effettuate tramite chiamate AJAX, in particolare usando il metodo fetch() oppure il metodo $.ajax di JQuery.
 
-Dati:
+
+
+### Dati:
+
+
 
 Per il database abbiamo usato postgreSQL, per la visualizzazione e la manipolazione delle tabelle abbiamo usato PGAdmin; nella creazione del database sono risultate molto utili le reminiscenze del corso di basi di dati. 
 
