@@ -8,7 +8,7 @@
 
 I file del front end si trovano interamente nella cartella public, mentre ciò che non si trova nella cartella public, fa parte del backend.
 
-##### Public:
+#### Public:
 
 All'interno di public troviamo:
 - una cartella per la modalità viaggio
@@ -28,7 +28,7 @@ All'interno di public troviamo:
 
 Public contiene anche una le cartelle styles, fonts, icons, images contenenti altri fogli di stile (in particolare bootstrap.css, degli stili per i bottoni), fonts del testo, immagini e icone.
 
-##### Viaggio:
+#### Viaggio:
 
 La cartella viaggio contiene tutto quello che è inerente alla modalità viaggio, in particolare contiene una cartella per ognuna delle 8 nazioni, a loro volta le cartelle delle nazioni contengono i livelli. Per motivi di praticità siccome le nazioni contengono file simili abbiamo consegnato solo la cartella italia con le cartelle dei primi tre livelli. 
 - Ogni cartella di ogni nazione contiene:
@@ -56,7 +56,7 @@ La cartella viaggio contiene tutto quello che è inerente alla modalità viaggio
     - loadLevels.js: che carica i livelli completati e i livelli giocabili di ciascun utente
     - mondi.css e viaggio.css: contiene un foglio di stile per cose inerenti principalmente alle mappe delle nazioni
 
-##### Creatore:
+#### Creatore:
 
 Contiene ogni cosa inerente alla modalità creatore, in particolare:
 - livelli_utenti: contiene i livelli creati dagli utenti, i file dei livelli sono organizzati nello stesso rispetto ai livelli della modalità viaggio, abbiamo consegnaoto solamente il livello creato durante la presentazione.
@@ -68,7 +68,7 @@ Contiene ogni cosa inerente alla modalità creatore, in particolare:
   - index: file html principale della modalità creatore
   - styles.css: foglio di stile principale per la modalità creatore
 
-##### Profilo:
+#### Profilo:
 
 Contiene tutti i file inerenti alla pagina del profilo, all'interazione con gli amici, alle richieste di personalizzazine del profilo, alle richieste di caricamento di dati sull'utente, in particolare troviamo (oltre alle solite icone e immagini) :
 - layout.js: che gestisce principalmente l'animazione di scorrimento presente su dispositivi mobili
@@ -78,7 +78,7 @@ Contiene tutti i file inerenti alla pagina del profilo, all'interazione con gli 
 - profilo.css: principale foglio di stile della pagina profilo
 - profilo.html: principale file html della pagina profilo
 
-##### Login:
+#### Login:
 
 Contiene tutto ciò inerente al login e alla registrazione:
 - login.css: foglio di stile
