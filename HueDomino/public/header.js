@@ -157,17 +157,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     });
 
-    // window.addEventListener('scroll', function() {
-    //     var header = document.querySelector('header');
-    //     var dropdown = document.querySelector('.dropdown-header-menu');
-    //     if (window.scrollY > 0) {
-    //         header.classList.add('semi-transparent');
-    //         dropdown.style.backgroundColor = 'rgba(230, 20, 240, 0.6)';
-    //     } else {
-    //         header.classList.remove('semi-transparent');
-    //         dropdown.style.backgroundColor = 'rgba(230, 20, 240, 1)';
-    //     }
-    // });
 
     window.addEventListener('load', async function() {
         // Cerca il cookie 'sessionId'

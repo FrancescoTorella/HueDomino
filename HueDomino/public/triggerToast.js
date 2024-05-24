@@ -2,8 +2,7 @@ export function triggerToast(){
     var flashMessage = localStorage.getItem('flashMessage');
 
     if (flashMessage) {
-        // Se esiste un messaggio flash, mostra un toast di Bootstrap
-        // toastHandler.js
+        
         var toast = $(`
             <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" style="position: fixed; top: 4px; right: 4px; z-index: 9999; width: 350px; border: 5px solid darkslategray; border-radius: 0;">
                 <div class="toast-header" style="background-color: khaki;">
