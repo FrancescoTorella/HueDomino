@@ -17,7 +17,7 @@ function updateAeroplaninoPosition() {
     const mapRect = mapBox.getBoundingClientRect();
     
     const radius = 25;      //Questo è il raggio dell'orbita dell'aeroplanino, da notare che è un valore fisso quindi al variare della grandezza della mappa rimana invariato
-    //un'idea sarebbe scrivere una funzione che calcoli e modifichi il raggio in base alla grandezza della mappa ma ciò richiede aggiustamenti anche di centerX,Y per simulare un'orbita circolare/centrata
+   
     const centerX = (iconRect.left - mapRect.left) + (iconRect.width / 2) - radius;
     const centerY = (iconRect.top - mapRect.top) + (iconRect.height / 2) - radius;
 

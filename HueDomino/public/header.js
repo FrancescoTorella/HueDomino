@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     dropdownMenu.style.display = 'none'; /* Nasconde completamente il menu a tendina */
                     pageContainer.style.filter = 'none'; /* Rimuove il filtro di sfocatura */
                 }
-            }, 500); // 500ms è la durata della tua animazione
+            }, 500); //
         }
     };
 
@@ -131,13 +131,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     modeTitle.classList.remove('fade-out');
                 });
             }, { once: true }); // L'evento sarà rimosso dopo essere stato gestito una volta
-            // Rimuovi la classe 'change' dall'icona del menu
+            // Rimuove la classe 'change' dall'icona del menu
             menuIcon.classList.remove('change');
         } else {
-            // Altrimenti, apri il menu
+            // Altrimenti, si apre il menu
             menuContainer.classList.remove('menu-container-closing');
             menuContainer.classList.add('menu-container-open');
-            // Aggiungi la classe 'change' all'icona del menu
+            // Si aggiunge la classe 'change' all'icona del menu
             menuIcon.classList.add('change');
         }
     });
@@ -174,11 +174,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const sessionId = document.cookie.split(';').find(item => item.trim().startsWith('sessionId='));
     
         if (sessionId) {
-            // Estrai l'ID della sessione dal cookie
+            // Estraggo l'ID della sessione dal cookie
             const sessionIdValue = sessionId.split('=')[1];
     
             try {
-                // Fai una richiesta al server per ottenere i dettagli della sessione
+                // Quì la richiesta al server per ottenere i dettagli della sessione
                 const response = await fetch('/session/' + sessionIdValue);
                 const session = await response.json();
     

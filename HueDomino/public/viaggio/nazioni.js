@@ -18,7 +18,7 @@ function mouseOutEffect() {
 
 document.addEventListener("DOMContentLoaded", function() {
     const nations = document.querySelectorAll('.nation');
-    const body = document.body; // Ottieni un riferimento all'elemento <body> del documento
+    const body = document.body; 
     const nationsContainer = document.querySelector('.page-container');
     var totalNations = nations.length;
 
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         nations.forEach(nation => {
             const index = parseInt(nation.getAttribute('data-index'));
-            const nationTitle = nation.querySelector('.nation-title'); // Ottieni un riferimento all'elemento nation-title
+            const nationTitle = nation.querySelector('.nation-title'); 
 
             if (index == currentIndex) {
                 nation.style.display = 'flex';
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 nation.style.opacity = '0.4';
                 nation.addEventListener('mouseover', mouseOverEffect);
                 nation.addEventListener('mouseout', mouseOutEffect);
-                nationTitle.style.display = 'none'; // Nascondi il titolo della nazione
+                nationTitle.style.display = 'none'; 
                 nation.style.gridArea = 'right';
                 
             } else if (index == prec ) {
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 nation.style.opacity = '0.4';
                 nation.addEventListener('mouseover', mouseOverEffect);
                 nation.addEventListener('mouseout', mouseOutEffect);
-                nationTitle.style.display = 'none'; // Nascondi il titolo della nazione
+                nationTitle.style.display = 'none'; 
                 nation.style.gridArea = 'left';
                 
             } else {
@@ -86,14 +86,14 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     nationsContainer.addEventListener('click', function(event) {
-        let target = event.target.closest('.nation img'); // Ottieni l'elemento img più vicino che è stato cliccato
-    if (!target) return; // Se non è un'immagine, esci
+        let target = event.target.closest('.nation img'); // Ottiene l'elemento img più vicino che è stato cliccato
+    if (!target) return; // Se non è un'immagine, esce
 
-    let nation = target.closest('.nation'); // Ottieni l'elemento nazione più vicino
-    if (!nation || !nationsContainer.contains(nation)) return; // Se non è una nazione, esci
+    let nation = target.closest('.nation'); // Ottiee l'elemento nazione più vicino
+    if (!nation || !nationsContainer.contains(nation)) return; // Se non è una nazione, esce
 
     const index = parseInt(nation.getAttribute('data-index'));
-    if (index !== currentIndex) { // Agisci solo se la nazione cliccata non è quella centrale
+    if (index !== currentIndex) { // Agisce solo se la nazione cliccata non è quella centrale
         event.preventDefault(); // Impedisce il reindirizzamento alla pagina della nazione laterale
         currentIndex = index;
         setupCarousel();

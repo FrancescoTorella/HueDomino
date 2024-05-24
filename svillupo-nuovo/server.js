@@ -28,7 +28,7 @@ app.post('/save', (req, res) => {
 //scrive sul terminale il messaggio di avvio del server
 app.listen(3000, () => console.log('Server listening on port 3000'));
 
-// Gestisci la richiesta GET per caricare i dati
+// Gestisce la richiesta GET per caricare i dati
 app.get('/load', (req, res) => {
     fs.readFile('out.json', (err, data) => {
         if (err) {

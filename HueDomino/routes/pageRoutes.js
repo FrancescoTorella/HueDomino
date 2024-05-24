@@ -144,9 +144,6 @@ router.get('/immagini_profilo/user:id/:imageName', (req, res) => {
 
 
 //Rotta per cambiare immagine profilo
-// Configura multer per salvare i file caricati nella cartella immagini_profilo
-// Configura multer per salvare i file caricati nella cartella immagini_profilo
-
 
 
 module.exports = router;

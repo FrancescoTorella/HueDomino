@@ -14,22 +14,18 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.post('/authenticate', async (req, res) => {
     const { username, password } = req.body;
   
-    // Get the user from the database by username or email
+
     const user = await db.getUserByUsername(username) || await db.getUserByEmail(username);
     if (user) {
-      // Compare the provided password with the hashed password in the database
       const match = await bcrypt.compare(password, user.password);
       if (match) {
-        // Login successful
         const sessionId = await db.createSession(user.id,res);
         res.status(200).json({ message: 'Login successful' });
         
       } else {
-        // Login failed
         res.status(401).json({ message: 'Incorrect password' });
       }
     } else {
-      // User not found
       res.status(404).json({ message: 'Incorrect username or email' });
     }
 });
@@ -58,8 +54,6 @@ router.post('/register', async (req, res) => {
     try {
         const user = await db.createUser(username, password, email);
         // Registrazione riuscita
-        // res.cookie('loggedIn', true, { maxAge: 60 * 60 * 1000});
-        // res.cookie('userId', user.id, { maxAge: 60 * 60 * 1000});
         const sessionId = await db.createSession(user.id,res);
         res.status(201).json({ message: 'Registrazione riuscita' });
         
@@ -348,7 +342,6 @@ router.get('/friends/:userId', async (req, res) => {
               livellisuperati: statistiche.livelliSuperati, 
               mondigiocati: statistiche.mondiGiocati, 
               numeroamici: statistiche.numeroAmici,
-              // ... resto delle statistiche ...
           };
 
           friendsWithStats.push(friendWithStats);
@@ -393,7 +386,6 @@ router.get('/levels/:userId', async (req, res) =>{
 });
 
 
-// ... codice precedente ...
 
 router.get('/get-friend-levels', function(req, res) {
   const userId = req.query.userId;
@@ -418,12 +410,10 @@ router.get('/get-friend-levels', function(req, res) {
           }
       }
 
-      // 'files' è un array con i nomi dei file nel directory 'userLevelsDir'
       res.json(files);
   });
 });
 
-// ... codice successivo ...
 
 
 module.exports = router;

@@ -56,11 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //per aggiustare l'animazione dell'areoplano
 function adjustBackgroundSize() {
-    // Ottieni la larghezza e l'altezza della viewport
+
     var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
 
-    // Ottieni l'elemento .sky-background
+
     var skyBackground = document.querySelector('.sky-background');
 
     // Se la larghezza della viewport non è almeno il doppio dell'altezza
@@ -74,7 +74,7 @@ function adjustBackgroundSize() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Il tuo codice esistente...
+
 
     // Chiama adjustBackgroundSize quando la pagina viene caricata
     adjustBackgroundSize();

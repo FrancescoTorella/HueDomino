@@ -23,7 +23,6 @@ class ValidationError extends Error {
 }
   
 async function createUser(username, password, email) {
-    // Validate the email and password
     if (!validateEmail(email)) {
       throw new ValidationError('Invalid email format');
     }
@@ -31,9 +30,7 @@ async function createUser(username, password, email) {
     if (!validatePassword(password)) {
       throw new ValidationError('Password must be at least 8 characters');
     }  
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    // Store the user in the database
     const result = await pool.query('INSERT INTO users (username, password, email) VALUES ($1, $2, $3) RETURNING id', [username, hashedPassword, email]);
     return result.rows[0];
 }

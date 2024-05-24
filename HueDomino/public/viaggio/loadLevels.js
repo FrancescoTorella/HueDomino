@@ -68,19 +68,19 @@ export async function loadData(nation) {
         }
     });
 
-    // Esegui una richiesta GET al tuo server per ottenere i livelli passati
-    // Esegui una richiesta GET al tuo server per ottenere i livelli passati
+
+    // Eseguo una richiesta GET al tuo server per ottenere i livelli passati
     $.ajax({
         url: `/checkPassed?userId=${userId}`,
         dataType: 'json',
         async: false,
         success: function(data) {
             data.passedLevels.forEach(level => {
-                // Supponendo che ogni oggetto abbia una proprietà `levelNumber` che corrisponde al numero del livello
+
                 const nationCapitalized = level.levelnation.charAt(0).toUpperCase() + level.levelnation.slice(1);
                 const button = $(`#level${level.levelnumber}${nationCapitalized}Button`);
                 if (button.length > 0) {
-                    // Cambia il colore del bottone in rosso
+                    // Cambia il colore del bottone in blu
                     button.css('border', '3px solid midnightblue');
                 }
             });
@@ -90,7 +90,7 @@ export async function loadData(nation) {
         }
     });
 
-    //console.log("livello",livello);
+
 
     return livello;
 }

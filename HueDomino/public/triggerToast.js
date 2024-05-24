@@ -1,5 +1,4 @@
 export function triggerToast(){
-    // All'inizio di ogni pagina, controlla se esiste un messaggio flash
     var flashMessage = localStorage.getItem('flashMessage');
 
     if (flashMessage) {
