@@ -69,7 +69,6 @@ export async function loadData(nation) {
     });
 
 
-    // Eseguo una richiesta GET al tuo server per ottenere i livelli passati
     $.ajax({
         url: `/checkPassed?userId=${userId}`,
         dataType: 'json',
