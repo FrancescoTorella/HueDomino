@@ -1,6 +1,6 @@
 Documentazione
 
-Hue Domino è un gioco creato da noi.
+Hue Domino è un gioco interamente creato da noi, conti
 
 I file del front end si trovano interamente nella cartella public, mentre ciò che non si trova nella cartella public, fa parte del backend.
 
