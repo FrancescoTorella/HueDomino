@@ -6,13 +6,13 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const app = express();
 const csvParser = require('csv-parser');
 
-//specificare la cartella contenente i file statici
+//specifica la cartella contenente i file statici
 app.use(express.static('src')); 
 
-//aggiungere il middleware per il parsing del body delle richieste
+//aggiunge il middleware per il parsing del body delle richieste
 app.use(bodyParser.json({limit: '50mb'}));
 
-// Gestisci la richiesta POST per salvare i dati
+// Gestisce la richiesta POST per salvare i dati
 app.post('/save', (req, res) => {
     const data = req.body;
     fs.writeFile('out.json', JSON.stringify(data), (err) => {
