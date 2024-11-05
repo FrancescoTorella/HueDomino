@@ -1,18 +1,29 @@
-# ProgettoLTW
-Benvenuto nel repository ufficiale di HueDomino. Il progetto riguarda un sito web su un videogioco, basato su 2 modalità, la modalità principale di gioco, Journey e Creator. Il tema del sito è pixel-art.
-Il gioco si basa su una logica originale, dove lo scopo è colorare le immagini "inizialmente prive di colore", con un set di mosse limitate e ben definite.
-Creator invece è una modalità creativa dove è possibile realizzare dei livelli, giocarci e condividerli con i propri amici.
-Per l'avvio e accesso al sito è necessario un setup preliminale del database, realizzato in Postgres SQL "opzionale e consigliato installare pgAdmin4".
-La guida per creare il database in locale:
+# HueDomino
 
-0) Ovviamente scaricare il repository, installare node.js, installare postgreSQL, configurare utente postgres con password HueDomino.
-1) Creare un server e nominarlo HueDomino  "in pgAdmin -> tasto destro su Servers -> Register -> Name = HueDomino -> Connection Host name = localhost -> Password = HueDomino -> Save"
-2) All'interno del server appena creato, creare un Database, nominarlo HueDomino, con Owner postgres, "in pgAdmin su server in Databases tasto destro -> Create -> Database -> nome = HueDomino -> Save"
-3) Creato il database, copiare dump.sql e incollarlo nel database, "in pgAdmin sul database HueDomino tasto destro -> Query Tool ->incollare il dump -> cliccare su Execute Script 'tasto per eseguire' "
-4) D'ora in poi per avviare il server è sufficiente nella cartella HueDomino eseguire da terminale il comando < node server.js > per lanciare il server.
-5) Poi su qualunque browser con il server avviato, cercare sulla barra di ricerca e digitare < http://localhost:3000/ >
+Welcome to the official repository of **HueDomino**. This project is a website for a video game, featuring two main modes: **Journey** and **Creator**. The theme of the site is pixel-art. The game is based on an original logic, where the goal is to color images that are "initially colorless," using a set of limited and well-defined moves. **Creator**, on the other hand, is a creative mode where users can design levels, play them, and share them with friends.
 
-Un colorato saluto da:
-Federico Zaza,
-Francesco Torella,
-Camilla Sed.
+To start and access the website, a preliminary setup of the database is required, created in **Postgres SQL** (installing **pgAdmin4** is optional but recommended). Below is the guide for creating the database locally:
+
+### Database Setup Guide
+
+1. Download the repository, install **node.js**, install **PostgreSQL**, and configure the postgres user with the password `HueDomino`.
+2. Create a server and name it **HueDomino** in pgAdmin:
+   - Right-click on **Servers** -> **Register**.
+   - Set **Name** = `HueDomino`.
+   - Set **Connection Host name** = `localhost`.
+   - Set **Password** = `HueDomino`.
+   - Click **Save**.
+3. Within the newly created server, create a database and name it **HueDomino**, with Owner set to postgres:
+   - In pgAdmin, right-click on **Databases** under the server -> **Create** -> **Database**.
+   - Set **Name** = `HueDomino`.
+   - Set **Owner** to `postgres`.
+   - Click **Save**.
+4. Once the database is created, copy **dump.sql** and paste it into the database:
+   - In pgAdmin, right-click on the **HueDomino** database -> **Query Tool**.
+   - Paste the dump and click **Execute Script** (the button to run it).
+
+### Running the Server
+
+1. To start the server, go to the **HueDomino** folder and run the following command from the terminal:
+   ```bash
+   node server.js
